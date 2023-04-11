@@ -470,4 +470,4 @@ ggplot(data = hpc_markers_hcc29_1vs3_down_go[1:20,])+
 
 
 
-hcc_merge_anno_T <- subset(hcc_merge,subset= )
+hcc_merge_anno_T <- subset(hcc_merge_anno_T,subset= )
