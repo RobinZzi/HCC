@@ -38,7 +38,7 @@ for(i in 1:length(fs)){
 row.names(hccbase) <- hccbase[,1]
 hccbase2 <- hccbase[,-1]
 hccbase3 <- na.omit(hccbase2)
-pheatmap(hccbase,
+pheatmap(base_heatmap3,
          cluster_rows = T, cluster_cols = T,
          clustering_method = "average",
          color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
@@ -48,7 +48,7 @@ pheatmap(hccbase,
          border=FALSE) 
 baseMean = colMeans(base_heatmap3)    
 
-
+baseMean = colMeans(base_10k_removena[,2:4])
 
 
 
@@ -471,5 +471,36 @@ ggplot()+
 
 
 
+
+for(i in 1:length(fs)){
+  data <- fread(fs[i])
+  id <- str_split(paste(fs[i]),"_d")[[1]][1]
+  data <- subset(data,data$V1 %in% chrs)
+  colnames(data) <- c("chr","site","sum","meth","dmeth","t1","t2")
+  data[,3] <- round(data[,2]/1)
+  data <- tidyr::unite(data,"id",chr,sum,sep="_",remove=TRUE)
+  data <- aggregate(data[,3:4],by=list(id=data$id),FUN=sum)
+  data[,paste(id)] <- data[,2]/(data[,2]+data[,3])
+  
+  if(i == 1){
+    hccbase_ori <- data[,-2]
+    hccbase_ori <- hccbase_ori[,-2]
+  }
+  else{
+    hccbase_ori[,paste(id)] <- data[,4]
+  }
+  print(i)
+}
+
+hccbase_ori_removena <- na.omit(hccbase_ori)
+base_removena <- na.omit(base)
+base_removena <- select(base_removena,id,CTNNB1,gadd45a,GFP)
+baseMean = colMeans(hccbase_ori_removena[,2:4])
+baseMean = colMeans(base_10k_removena[,2:4])
+baseMean = colMeans(base_1k_removena[,2:4])
+baseMean = colMeans(base_removena[,2:4])
+
+methymean <- as.data.frame(rbind(colMeans(base_removena[,2:4]),colMeans(base_1k_removena[,2:4]),colMeans(base_10k_removena[,2:4]),colMeans(hccbase_ori_removena[,2:4])))
+row.names(methymean) <- c("100kbin","10kbin","1kbin","origin")
 
 
