@@ -125,7 +125,7 @@ hcc28_mut_table <- as.data.frame(hcc28_laml@data)
 
 write.table(hcc28_mut_table,"hcc28_mut_table.txt")
 write.table(hcc29_mut_table,"hcc29_mut_table.txt")
-
+write.table(hcc3_mut_table,"hcc3_mut_table.txt")
 
 
 
@@ -232,14 +232,33 @@ oncoplot(maf = hcc28_laml,
          showTumorSampleBarcodes = T)
 dev.off()
 maftools::lollipopPlot(hcc28_laml,
-                       gene = 'CTNNB1',
+                       gene = 'TTN',
+                       AACol = 'AAChange.refGene',
+                       labelPos = 'all')
+maftools::lollipopPlot(hcc3_laml,
+                       gene = 'TTN',
+                       AACol = 'AAChange.refGene',
+                       labelPos = 'all')
+maftools::lollipopPlot(hcc28_laml,
+                       gene = 'NNT',
+                       AACol = 'AAChange.refGene',
+                       labelPos = 'all')
+maftools::lollipopPlot(hcc29_laml,
+                       gene = 'NNT',
                        AACol = 'AAChange.refGene',
                        labelPos = 'all')
 
-
 hcc3_mut_table <- as.data.frame(hcc3_laml@data)
-
-
+hcc3_mut_table$Tumor_Sample_Barcode
+hcc3_mut_table$Tumor_Sample_Barcode[is.na(hcc3_mut_table$Tumor_Sample_Barcode)] <- 'PT4'
+for (i in 1:nrow(hcc3_mut_table)) {
+  
+  if(hcc3_mut_table[i,]$Tumor_Sample_Barcode %in% c("PT1","PT2","PT3")){
+  
+  }else{
+    hcc3_mut_table[i,]$Tumor_Sample_Barcode <- 'PT4'
+  }
+}
 
 
 write.table(hcc3_mut_table,"hcc3_mut_table.txt")
@@ -296,9 +315,80 @@ venn.diagram(hcc3_Venn, filename = 'hcc3.png', imagetype = 'png',
 
 sum_hcc3 <- intersect(unique(hcc3_pt1_mut_table$Hugo_Symbol),unique(hcc3_pt2_mut_table$Hugo_Symbol))
 sum_hcc28 <- intersect(unique(hcc28_pt1_mut_table$Hugo_Symbol),unique(hcc28_pt2_mut_table$Hugo_Symbol))
-sum_hcc29 <- intersect(unique(hcc28_pt1_mut_table$Hugo_Symbol),unique(hcc29_pt3_mut_table$Hugo_Symbol))
+sum_hcc29 <- intersect(unique(hcc29_pt1_mut_table$Hugo_Symbol),unique(hcc29_pt4_mut_table$Hugo_Symbol))
 
 
 sum3_28 <- intersect(sum_hcc3,sum_hcc28)
 sum29_28 <- intersect(sum_hcc29,sum_hcc28)
-sum29_3 <- intersect(sum_hcc29,sum_hcc28)
+sum29_3 <- intersect(sum_hcc29,sum_hcc3)
+
+
+
+hcc28_common_mut_go <- enrichGO(gene  = sum_hcc28,
+                                           OrgDb      = org.Hs.eg.db,
+                                           keyType    = 'SYMBOL',
+                                           ont        = "BP",
+                                           pAdjustMethod = "BH",
+                                           pvalueCutoff = 0.05,
+                                           qvalueCutoff = 0.05)
+hcc28_common_mut_go <- as.data.frame(hcc28_common_mut_go@result)
+hcc28_common_mut_go [,"logp"] <- -log10(hcc28_common_mut_go$pvalue)
+ggplot(data = hcc28_common_mut_go[1:20,])+
+  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "-Logp", 
+       y= " ",
+       title="Common mut in hcc28")
+
+hcc29_common_mut_go <- enrichGO(gene  = sum_hcc29,
+                                OrgDb      = org.Hs.eg.db,
+                                keyType    = 'SYMBOL',
+                                ont        = "BP",
+                                pAdjustMethod = "BH",
+                                pvalueCutoff = 0.05,
+                                qvalueCutoff = 0.05)
+hcc29_common_mut_go <- as.data.frame(hcc29_common_mut_go@result)
+hcc29_common_mut_go [,"logp"] <- -log10(hcc29_common_mut_go$pvalue)
+ggplot(data = hcc29_common_mut_go[1:20,])+
+  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "-Logp", 
+       y= " ",
+       title="Common mut in hcc29")
+
+
+
+
+hcc3_common_mut_go <- enrichGO(gene  = sum_hcc3,
+                                OrgDb      = org.Hs.eg.db,
+                                keyType    = 'SYMBOL',
+                                ont        = "BP",
+                                pAdjustMethod = "BH",
+                                pvalueCutoff = 0.05,
+                                qvalueCutoff = 0.05)
+hcc3_common_mut_go <- as.data.frame(hcc3_common_mut_go@result)
+hcc3_common_mut_go [,"logp"] <- -log10(hcc3_common_mut_go$pvalue)
+ggplot(data = hcc3_common_mut_go[1:20,])+
+  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "-Logp", 
+       y= " ",
+       title="Common mut in hcc29")

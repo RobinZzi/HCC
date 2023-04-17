@@ -198,26 +198,33 @@ row_anno_sub <- row_anno_sub[,-1]
 
 
 merge_ann_colors_sub=list(
-  rep_time_norm = colorRampPalette(c("#2EB3B0", "#fcefee", "#d72323"))(200),
-  rep_time=c('LRD'='#0039B3','ERD'='#FF1962','DTZ'='#FFE0EC','UTZ'='#FFF599'),
-  pmd_type=c('commonPMD'='#0039B3','commonHMD'='#FF1962','Neither'='#FFE0EC'),
-  meth_type=c('PMD'='#0039B3','HMD'='#FF1962')
+  rep_time_norm = colorRampPalette(c("#28DCDC", "#fcefee", "#d72323"))(200),
+  rep_time=c('LRD'='#99CCFF','ERD'='#FF0000','DTZ'='#FFE0EC','UTZ'='#FFF599'),
+  pmd_type=c('commonPMD'='#99CCFF','commonHMD'='#FF0000','Neither'='#FFE0EC'),
+  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000')
 )
-
-colnames(row_anno_sub)
-
-
-
+colanno <- as.data.frame(colMeans(merge_result))
+colnames(colanno) <- "mean_level"
 
 
 
 pheatmap(merge_result,
          show_rownames = F,show_colnames = T,
-         clustering_method = "mcquitty",annotation_row = row_anno_sub,
-         clustering_distance_rows = "euclidean",annotation_colors = merge_ann_colors,
+         clustering_method = "mcquitty",annotation_row = row_anno_sub,annotation_col = colanno,
+         clustering_distance_rows = "euclidean",annotation_colors = merge_ann_colors_sub,
          color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
          treeheight_row = 0,
          treeheight_col = 1,
          fontsize_col= 8,
          angle_col = 45,
-         cellwidth = 12)
+         cellwidth = 15)
+heatmap <- pheatmap(merge_result,
+                    show_rownames = F,show_colnames = T,
+                    clustering_method = "mcquitty",annotation_row = row_anno_sub,annotation_col = colanno,
+                    clustering_distance_rows = "euclidean",annotation_colors = merge_ann_colors_sub,
+                    color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+                    treeheight_row = 0,
+                    treeheight_col = 1,
+                    fontsize_col= 8,
+                    angle_col = 45,
+                    cellwidth = 15)
