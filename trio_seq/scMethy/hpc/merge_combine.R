@@ -195,6 +195,10 @@ rownames(row_anno_sub) <- row_anno_sub$Row.names
 row_anno_sub <- row_anno_sub[,-1]
 
 
+pmd_region <- subset(row_anno_sub,subset = meth_type=="PMD")
+sub_mtx <- merge_result[row.names(pmd_region),]
+sub_colanno <- as.data.frame(colMeans(sub_mtx))
+colnames(sub_colanno) <- "PMD_meanmeth_level"
 
 
 merge_ann_colors_sub=list(
@@ -203,10 +207,11 @@ merge_ann_colors_sub=list(
   pmd_type=c('commonPMD'='#99CCFF','commonHMD'='#FF0000','Neither'='#FFE0EC'),
   meth_type=c('PMD'='#99CCFF','HMD'='#FF0000')
 )
+
 colanno <- as.data.frame(colMeans(merge_result))
 colnames(colanno) <- "mean_level"
-
-
+"SNHG6" %in% row.names(count_order_data)
+"ENSG00000245910.9"%in% row.names(count$Ensembl_ID)
 
 pheatmap(merge_result,
          show_rownames = F,show_colnames = T,

@@ -8,8 +8,6 @@ library(DoubletFinder)
 library(glmGamPoi)
 setwd("~/projects/hcc/data/10x_scRNA/hcc3-10x/result")
 setwd("~/projects/hcc/analysis/10x_scRNA/")
-
-
 save.image("hpc.Rdata")
 hcc3_cnt <- Read10X("~/projects/hcc/data/10x_scRNA/hcc3-10x/result/hcc3")
 hcc3_meta <- fread("barcode_sample.txt")
@@ -336,7 +334,7 @@ hcc28_demeth_down <- subset(hcc28_demeth, subset = p_val_adj < 0.05 & avg_log2FC
 hcc29_demeth_up <- subset(hcc29_demeth, subset = p_val_adj < 0.05 & avg_log2FC > 0)
 hcc29_demeth_down <- subset(hcc29_demeth, subset = p_val_adj < 0.05 & avg_log2FC < 0)
 
-write.table(hcc28_demeth_down,"hcc28_demeth_down.txt")
+
 
 
 common_down <- intersect(hcc3_demeth_down$gene,hcc28_demeth_down$gene)
@@ -419,3 +417,11 @@ venn.diagram(down_venn, filename = 'down.png', imagetype = 'png', ,category.name
              fill = c('#4D157D', '#84C7DB', '#C8D948'), alpha = 0.50, 
              cat.col = c('#4D157D', '#84C7DB', '#C8D948'), cat.cex = 1.5, cat.fontfamily = 'serif',
              col = c('#4D157D', '#84C7DB', '#C8D948'), cex = 1.5, fontfamily = 'serif')
+
+
+write.table(hcc3_demeth_up,"hcc3_demeth_up.txt")
+write.table(hcc3_demeth_down,"hcc3_demeth_down.txt")
+write.table(hcc28_demeth_up,"hcc28_demeth_up.txt")
+write.table(hcc28_demeth_down,"hcc28_demeth_down.txt")
+write.table(hcc29_demeth_up,"hcc29_demeth_up.txt")
+write.table(hcc29_demeth_down,"hcc29_demeth_down.txt")
