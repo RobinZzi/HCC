@@ -1,7 +1,10 @@
 setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/TCGA_related/methy_merge")
 rm(list=ls())
-save.image("methy_merge.RData")
+
 load("methy_merge.RData")
+
+save.image("methy_merge.RData")
+
 
 trio_meth_mtx <- as.data.frame(fread("trio_meth.txt"))
 trio_cites <- trio_meth_mtx$V1
@@ -133,6 +136,9 @@ merge_ann_colors_sub=list(
   origin = c("trio-seq"="#C8D948","TCGA" ="#84C7DB")
 )
 colanno <- select(colanno,!sample)
+
+colanno_geom_point <- colanno
+
 pheatmap(combine_mtx,
          show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,
          annotation_colors = merge_ann_colors_sub,
@@ -200,6 +206,67 @@ trioseq_all_order_row = trioseq_all_heatmap$tree_row$order
 trioseq_all_order_col = trioseq_all_heatmap$tree_col$order
 sort_trioseq_all_data = data.frame(trio_meth_mtx[trioseq_all_order_row, trioseq_all_order_col])
 
+dev.off()
+
+combine_all_heatmap <- pheatmap(combine_mtx,
+                                show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,
+                                clustering_method = "mcquitty",annotation_colors = merge_ann_colors_sub,
+                                clustering_distance_rows = "euclidean",
+                                color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+                                treeheight_row = 0,
+                                treeheight_col = 1,
+                                fontsize_col= 8,
+                                angle_col = 45,
+                                cellwidth = 1)
+combine_all_order_row = combine_all_heatmap$tree_row$order
+combine_all_order_col = combine_all_heatmap$tree_col$order
+sort_combine_all_data = data.frame(combine_mtx[combine_all_order_row, combine_all_order_col])
+
+colanno_geom_point <- colanno
+colanno_geom_point$sample <- row.names(colanno_geom_point)
+
+ggplot(colanno_geom_point,aes(x=factor(sample,levels = colnames(sort_combine_all_data)),y=PMD_meanmeth_level))+
+  geom_point(size = 0.5)+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "", 
+       y= " ",
+       title="")
+
+
+tcga_all_heatmap <- pheatmap(tcga_meth_mtx,
+                                show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,
+                                clustering_method = "mcquitty",annotation_colors = merge_ann_colors_sub,
+                                clustering_distance_rows = "euclidean",
+                                color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+                                treeheight_row = 0,
+                                treeheight_col = 1,
+                                fontsize_col= 8,
+                                angle_col = 45,
+                                cellwidth = 1)
+tcga_order_row = tcga_all_heatmap$tree_row$order
+tcga_order_col = tcga_all_heatmap$tree_col$order
+sort_tcga_all_data = data.frame(tcga_meth_mtx[tcga_order_row, tcga_order_col])
+
+colanno_geom_point_tcga <- subset (colanno_geom_point,subset = origin == 'TCGA')
+
+
+ggplot(colanno_geom_point_tcga,aes(x=factor(sample,levels = colnames(sort_tcga_all_data)),y=PMD_meanmeth_level))+
+  geom_point(size = 0.5)+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "", 
+       y= " ",
+       title="")
+
 demeth1 <- sort_trioseq_all_data[6835:16747,]
 pheatmap(demeth1,
          show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,
@@ -210,6 +277,32 @@ pheatmap(demeth1,
          fontsize_col= 8,
          angle_col = 45,
          cellwidth = 15)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+demeth1 <- sort_trioseq_all_data[6835:16747,]
+pheatmap(demeth1,
+         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,
+         cluster_rows = T,cluster_cols = T,annotation_colors = merge_ann_colors_sub,
+         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         treeheight_row = 0,
+         treeheight_col = 1,
+         fontsize_col= 8,
+         angle_col = 45,
+         cellwidth = 15)
+
 
 late_demeth <- demeth1[1:5824,]
 early_demeth <- demeth1[5825:9913,]

@@ -9,7 +9,7 @@ library(glmGamPoi)
 setwd("~/projects/hcc/data/10x_scRNA/hcc3-10x/result")
 setwd("~/projects/hcc/analysis/10x_scRNA/")
 
-
+load("hpc.Rdata")
 save.image("hpc.Rdata")
 hcc3_cnt <- Read10X("~/projects/hcc/data/10x_scRNA/hcc3-10x/result/hcc3")
 hcc3_meta <- fread("barcode_sample.txt")
