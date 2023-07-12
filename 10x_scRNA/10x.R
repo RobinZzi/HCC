@@ -118,8 +118,9 @@ ggplot(immune_cell.prop,aes(HCC,proportion,fill=origin))+
   theme_bw()+
   theme(axis.ticks.length=unit(0.5,'cm'))+
   guides(fill=guide_legend(title=NULL))+
-  theme(axis.title.x = element_text(size = 14),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
-  theme(axis.text.x = element_text(size = 14,color="black"),axis.text.y = element_text(size = 10,color="black"))
+  theme(axis.title.x = element_text(size = 0),axis.title.y = element_text(size = 20),legend.text=element_text(size = 15))+
+  theme(axis.text.x = element_text(size = 14,angle = 45,color="black",hjust = 1),axis.text.y = element_text(size = 10,color="black"))
+
 
 
 
@@ -178,10 +179,10 @@ hcc_merge <- RunUMAP(hcc_merge, dims = 1:30, verbose = FALSE)
 hcc_merge <- RunHarmony(hcc_merge, "sample_pt")
 hcc_merge <- RunUMAP(hcc_merge,  dims = 1:15, 
                    reduction = "harmony")
-DimPlot(hcc_merge,reduction = "umap",label=T) 
-DimPlot(hcc_merge,reduction = "umap",label=F,group.by = "sample_pt" ) 
+DimPlot(hcc.big,reduction = "umap",label=T) 
+DimPlot(hcc.big,reduction = "umap",label=F,group.by = "sample_pt" ) 
 DimPlot(hcc_merge,reduction = "umap", label = T,group.by = "celltype",repel = T)
-DimPlot(hcc_merge,reduction = "umap", label = T,group.by = "cell_type")
+DimPlot(hcc.big,reduction = "umap", label = T,group.by = "celltype")
 
 FeaturePlot(hcc_merge,features = "FOXP3")
 FeaturePlot(hcc_merge,features = "FCN1")
@@ -465,9 +466,25 @@ ggplot(data = hpc_markers_hcc29_1vs3_down_go[1:20,])+
 
 
 
+markers <- c('CD3D','CCL5', 'NKG7', 'GZMA', 'IL32', 'CD4','CD8A','FOXP3', 'CD3E', 'LTB', 'S100A8', 'S100A9', 'CD79A', "ENG" ,
+              'FCN1', 'MS4A1', 'SPON2','FCER1A','SERPINF1', "LYZ","AMBP")
 
 
 
+
+
+
+
+
+
+my36colors <-c('#E5D2DD', '#53A85F', '#F1BB72', '#F3B1A0', '#D6E7A3', '#57C3F3', '#476D87', '#E95C59', '#E59CC4', '#AB3282', '#23452F', '#BD956A', '#8C549C', '#585658', '#9FA3A8', '#E0D4CA', '#5F3D69', '#C5DEBA', '#58A4C3', '#E4C755', '#F7F398', '#AA9A59', '#E63863', '#E39A35', '#C1E6F3', '#6778AE', '#91D0BE', '#B53E2B', '#712820', '#DCC1DD', '#CCE0F5', '#CCC9E6', '#625D9E', '#68A180', '#3A6963', '#968175')#颜色设置
+
+VlnPlot(hcc.big, features = markers,pt.size=0, stack = T,
+        cols = my36colors,group.by = "celltype")+NoLegend()+
+  theme(axis.text.x = element_blank(),axis.ticks.x = element_blank())
+
+
+DimPlot()
 
 
 hcc_merge_anno_T <- subset(hcc_merge_anno_T,subset= )

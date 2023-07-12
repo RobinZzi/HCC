@@ -222,6 +222,36 @@ combine_all_order_row = combine_all_heatmap$tree_row$order
 combine_all_order_col = combine_all_heatmap$tree_col$order
 sort_combine_all_data = data.frame(combine_mtx[combine_all_order_row, combine_all_order_col])
 
+
+sort_all_id <- colnames(sort_combine_all_data)
+sort_tcga_id <- subset(sort_all_id , subset = sort_all_id %in% colnames(tcga_meth_mtx))
+sort_tcga <- select(sort_combine_all_data,sort_tcga_id)
+sort_trio_id <- subset(sort_all_id , subset = sort_all_id %in% colnames(trio_meth_mtx))
+sort_trio <- select(sort_combine_all_data,sort_trio_id)
+
+pheatmap(sort_tcga,
+         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,cluster_cols = F,cluster_rows = F,
+         clustering_method = "mcquitty",annotation_colors = merge_ann_colors_sub,
+         clustering_distance_rows = "euclidean",
+         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         treeheight_row = 0,
+         treeheight_col = 1,
+         fontsize_col= 8,
+         angle_col = 45,
+         cellwidth = 1,
+         cellheight = 0.03)
+pheatmap(sort_trio,
+         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,cluster_cols = F,cluster_rows = F,
+         clustering_method = "mcquitty",annotation_colors = merge_ann_colors_sub,
+         clustering_distance_rows = "euclidean",
+         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         treeheight_row = 0,
+         treeheight_col = 1,
+         fontsize_col= 8,
+         angle_col = 45,
+         cellwidth = 10,
+         cellheight = 0.03)
+
 colanno_geom_point <- colanno
 colanno_geom_point$sample <- row.names(colanno_geom_point)
 
@@ -306,7 +336,7 @@ pheatmap(demeth1,
 
 late_demeth <- demeth1[1:5824,]
 early_demeth <- demeth1[5825:9913,]
-
+all_demeth <- demeth1
 
 
 late_demeth_regions <- as.data.frame(str_split_fixed(row.names(late_demeth),"_",2))
@@ -334,3 +364,112 @@ early_demeth_regions$end <- as.numeric(early_demeth_regions$end)
 early_demeth_regions$start <- as.numeric(early_demeth_regions$start)
 early_demeth_regions <- select(early_demeth_regions,chr,start,end,pos)
 write.table(early_demeth_regions, "early_demeth_regions.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+
+
+
+all_demeth_regions <- as.data.frame(str_split_fixed(row.names(all_demeth),"_",2))
+colnames(all_demeth_regions) <- c("chr","start")
+all_demeth_regions$pos <- row.names(all_demeth)
+all_demeth_regions$start <- as.numeric(all_demeth_regions$start)
+all_demeth_regions$end <- all_demeth_regions$start+1
+all_demeth_regions$start <- all_demeth_regions$start*100000
+all_demeth_regions$end <- all_demeth_regions$end*100000
+all_demeth_regions$end <- as.numeric(all_demeth_regions$end)
+all_demeth_regions$start <- as.numeric(all_demeth_regions$start)
+all_demeth_regions <- select(all_demeth_regions,chr,start,end,pos)
+write.table(all_demeth_regions, "all_demeth_regions.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+
+
+
+
+trio_meth_10x <- select(trio_meth_mtx,hcc3_nt,hcc3_pt1,hcc3_pt2,hcc3_pt3,hcc3_pt4,hcc28_nt,hcc28_pt1,hcc28_pt2,hcc28_pt4,hcc29_pt1,hcc29_pt3,hcc29_pt4)
+pheatmap(trio_meth_10x,
+         show_rownames = F,show_colnames = T,annotation_row = rowanno,
+         annotation_colors = merge_ann_colors_sub,
+         clustering_distance_rows = "euclidean",clustering_method = "average",
+         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         treeheight_row = 0,
+         treeheight_col = 40,
+         fontsize_col= 13,
+         angle_col = 45,
+         cellwidth = 25)
+
+
+trio_meth_hcc3 <- select(trio_meth_mtx,hcc3_nt,hcc3_pt1,hcc3_pt2,hcc3_pt3,hcc3_pt4)
+trio_meth_hcc3_pt <- select(trio_meth_mtx,hcc3_pt1,hcc3_pt2,hcc3_pt3,hcc3_pt4)
+pheatmap(trio_meth_hcc3,
+         show_rownames = F,show_colnames = T,annotation_row = rowanno,
+         annotation_colors = merge_ann_colors_sub,
+         clustering_distance_rows = "euclidean",clustering_method = "average",
+         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         treeheight_row = 0,
+         treeheight_col = 40,
+         fontsize_col= 13,
+         angle_col = 45,
+         cellwidth = 80)
+
+pheatmap(trio_meth_hcc3_pt,
+         show_rownames = F,show_colnames = T,annotation_row = rowanno,
+         annotation_colors = merge_ann_colors_sub,
+         clustering_distance_rows = "euclidean",clustering_method = "average",
+         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         treeheight_row = 0,
+         treeheight_col = 100,
+         fontsize_col= 13,
+         angle_col = 45,
+         cellwidth = 80)
+
+
+
+
+
+
+
+trio_meth_hcc28 <- select(trio_meth_mtx,hcc28_nt,hcc28_pt1,hcc28_pt2,hcc28_pt4)
+
+pheatmap(trio_meth_hcc28,
+         show_rownames = F,show_colnames = T,annotation_row = rowanno,
+         annotation_colors = merge_ann_colors_sub,
+         clustering_distance_rows = "euclidean",clustering_method = "average",
+         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         treeheight_row = 0,
+         treeheight_col = 15,
+         fontsize_col= 13,
+         angle_col = 45,
+         cellwidth = 80)
+
+
+
+trio_meth_hcc28 <- select(trio_meth_mtx,hcc28_pt1,hcc28_pt2,hcc28_pt4)
+
+pheatmap(trio_meth_hcc28,
+         show_rownames = F,show_colnames = T,annotation_row = rowanno,
+         annotation_colors = merge_ann_colors_sub,
+         clustering_distance_rows = "euclidean",clustering_method = "average",
+         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         treeheight_row = 0,
+         treeheight_col = 15,
+         fontsize_col= 13,
+         angle_col = 45,
+         cellwidth = 80)
+
+
+
+
+
+
+trio_meth_hcc29 <- select(trio_meth_mtx,hcc29_pt1,hcc29_pt3,hcc29_pt4)
+
+pheatmap(trio_meth_hcc29,
+         show_rownames = F,show_colnames = T,annotation_row = rowanno,
+         annotation_colors = merge_ann_colors_sub,
+         clustering_distance_rows = "euclidean",clustering_method = "average",
+         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         treeheight_row = 0,
+         treeheight_col = 15,
+         fontsize_col= 13,
+         angle_col = 45,
+         cellwidth = 80)
+

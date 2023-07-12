@@ -3,9 +3,7 @@ setwd("~/projects/hcc/analysis/TCGA_related/te")
 rm(list=ls())
 load("te_counts.Rdata")
 save.image("te_counts.Rdata")
-4
-4
-12
+
 
 anno <- fread("gdc_sample_sheet.2021-05-25.all.tsv")
 anno <- anno[-1,]
@@ -29,7 +27,8 @@ colnames(group) <- c("Sample ID","group")
 
 bigcount <- merge(bigcount,group,by="Sample ID")
 
-total_count <- fread("TCGA-LIHC_sum.csv")
+total_count <- as.data.frame(fread("TCGA-LIHC_sum.csv"))
+row.
 total_count <- select(total_count,)
 
 subcount <- subcount[,-1]
@@ -38,7 +37,7 @@ row.names(subcount) <- subcount$subfamliy
 subcount <- subcount[,-1]
 subcount_sum <- colSums(subcount)
 subcount_sum_pm <- subcount_sum/1000000
-sub_CPM
+sub_CPM <- 
 
 ggplot(bigcount,aes(x=group,y=count,fill=group))+
   geom_bar(stat = "identity", position = position_dodge())+theme_bw()+
@@ -55,4 +54,4 @@ ggplot(bigcount,aes(x=group,y=count,fill=group))+
 
 
 
-subcount <- 
+

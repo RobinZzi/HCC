@@ -3,12 +3,16 @@ library(xlsx)
 library(stringr)
 library(pheatmap)
 library(Seurat)
+library(ggforce)
+library(reshape2)
 
-
+library(geneRal)
+setwd("~/projects/hcc/analysis/trio_seq/scMethy")
+rm(list=ls())
 load("methy_merge.Rdata")
 save.image("methy_merge.Rdata")
 
-setwd("~/projects/hcc/analysis/trio_seq/scMethy")
+
 
 hcc_3_qc <- read.xlsx2("methy.qc.xlsx",sheetName = "hcc3") 
 hcc_4_qc <- read.xlsx2("methy.qc.xlsx",sheetName = "hcc4")
@@ -100,23 +104,32 @@ hcc3_graph$start <- as.numeric(hcc3_graph$start)
 hcc3_graph <- select(hcc3_graph,chr,start,end,pos)
 write.table(hcc3_graph, "hcc3.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
 
+pwd_anno <- fread("big_pmd.bedGraph")
+pwd_anno  <- select(pwd_anno ,V4,V8,V9)
+pwd_anno <- aggregate(pwd_anno,by=list(pwd_anno$V4),max)
+row.names_pwd_anno <- pwd_anno$Group.1 
+pwd_anno <- select(pwd_anno,V4,V9)
+pmd_anno <- as.data.frame(pwd_anno[,-1])
+row.names(pmd_anno) <- row.names_pwd_anno
+colnames(pmd_anno) <- "pmd_type"
 
-
-hcc3_rowanno <- fread("hcc3_time.bedGraph")
-hcc3_rowanno <- select(hcc3_rowanno,V4,V8,V9)
-hcc3_rowanno <- aggregate(hcc3_rowanno,by=list(hcc3_rowanno$V8),max)
-row.names(hcc3_rowanno) <- hcc3_rowanno$Group.1 
-hcc3_rowanno <- select(hcc3_rowanno,V4)
-colnames(hcc3_rowanno) <- "rep_time"
+hcc3_anno <- fread("hcc3_pmd.bedGraph")
+hcc3_anno  <- select(hcc3_anno ,V4,V8,V9)
+hcc3_anno <- aggregate(hcc3_anno,by=list(hcc3_anno$V4),max)
+row.names_hcc3_anno <- hcc3_anno$Group.1 
+hcc3_anno <- select(hcc3_anno,V4,V9)
+hcc3_anno <- as.data.frame(hcc3_anno[,-1])
+row.names(hcc3_anno) <- row.names_hcc3_anno
+colnames(hcc3_anno) <- "meth_type"
 
 
 hcc3_ann_colors=list(
-  rep_time=c('LRD'='#0039B3','ERD'='#FF1962','DTZ'='#FFE0EC','UTZ'='#FFF599'),
+  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
   sample=c('nt'='#DDE9C6','pt1'='#00ADC4','pt2'='#647BA8','pt3'='#4C1A72')
 )
 
 pheatmap(hcc3_base_removena,
-         annotation_col = hcc3_colanno,annotation_row = hcc3_rowanno,
+         annotation_col = hcc3_colanno,annotation_row = hcc3_anno,
          annotation_colors = hcc3_ann_colors,
          show_rownames = F,show_colnames = F,         
          clustering_method = "complete",
@@ -169,14 +182,22 @@ row.names(hcc4_rowanno) <- hcc4_rowanno$Group.1
 hcc4_rowanno <- select(hcc4_rowanno,V4)
 colnames(hcc4_rowanno) <- "rep_time"
 
+hcc4_anno <- fread("hcc4_pmd.bedGraph")
+hcc4_anno  <- select(hcc4_anno ,V4,V8,V9)
+hcc4_anno <- aggregate(hcc4_anno,by=list(hcc4_anno$V4),max)
+row.names_hcc4_anno <- hcc4_anno$Group.1 
+hcc4_anno <- select(hcc4_anno,V4,V9)
+hcc4_anno <- as.data.frame(hcc4_anno[,-1])
+row.names(hcc4_anno) <- row.names_hcc4_anno
+colnames(hcc4_anno) <- "meth_type"
 
 hcc4_ann_colors=list(
-  rep_time=c('LRD'='#0039B3','ERD'='#FF1962','DTZ'='#FFE0EC','UTZ'='#FFF599'),
+  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
   sample=c('nt'='#DDE9C6','pt1'='#00ADC4','pt2'='#647BA8','pt3'='#4C1A72')
 )
 
 pheatmap(hcc4_base_removena,
-         annotation_col = hcc4_colanno,annotation_row = hcc4_rowanno,
+         annotation_col = hcc4_colanno,annotation_row = hcc4_anno,
          annotation_colors = hcc4_ann_colors,
          show_rownames = F,show_colnames = F,         
          clustering_method = "complete",
@@ -229,14 +250,22 @@ row.names(hcc7_rowanno) <- hcc7_rowanno$Group.1
 hcc7_rowanno <- select(hcc7_rowanno,V4)
 colnames(hcc7_rowanno) <- "rep_time"
 
+hcc7_anno <- fread("hcc7_pmd.bedGraph")
+hcc7_anno  <- select(hcc7_anno ,V4,V8,V9)
+hcc7_anno <- aggregate(hcc7_anno,by=list(hcc7_anno$V4),max)
+row.names_hcc7_anno <- hcc7_anno$Group.1 
+hcc7_anno <- select(hcc7_anno,V4,V9)
+hcc7_anno <- as.data.frame(hcc7_anno[,-1])
+row.names(hcc7_anno) <- row.names_hcc7_anno
+colnames(hcc7_anno) <- "meth_type"
 
 hcc7_ann_colors=list(
-  rep_time=c('LRD'='#0039B3','ERD'='#FF1962','DTZ'='#FFE0EC','UTZ'='#FFF599'),
+  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
   sample=c('nt'='#DDE9C6','pt1'='#00ADC4','pt2'='#647BA8','pt4'='#4C1A72','pt5'='#A099C9')
 )
 
 pheatmap(hcc7_base_removena,
-         annotation_col = hcc7_colanno,annotation_row = hcc7_rowanno,
+         annotation_col = hcc7_colanno,annotation_row = hcc7_anno,
          annotation_colors = hcc7_ann_colors,
          show_rownames = F,show_colnames = F,         
          clustering_method = "complete",
@@ -284,14 +313,24 @@ row.names(hcc11_rowanno) <- hcc11_rowanno$Group.1
 hcc11_rowanno <- select(hcc11_rowanno,V4)
 colnames(hcc11_rowanno) <- "rep_time"
 
+hcc11_anno <- fread("hcc11_pmd.bedGraph")
+hcc11_anno  <- select(hcc11_anno ,V4,V8,V9)
+hcc11_anno <- aggregate(hcc11_anno,by=list(hcc11_anno$V4),max)
+row.names_hcc11_anno <- hcc11_anno$Group.1 
+hcc11_anno <- select(hcc11_anno,V4,V9)
+hcc11_anno <- as.data.frame(hcc11_anno[,-1])
+row.names(hcc11_anno) <- row.names_hcc11_anno
+colnames(hcc11_anno) <- "meth_type"
+
+
 
 hcc11_ann_colors=list(
-  rep_time=c('LRD'='#0039B3','ERD'='#FF1962','DTZ'='#FFE0EC','UTZ'='#FFF599'),
+  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
   sample=c('nt'='#DDE9C6','pt1'='#00ADC4','pt2'='#647BA8','pt3'='#A860A8','pt4'='#4C1A72','pt5'='#A099C9','pt6'='#AEE4F0')
 )
 
 pheatmap(hcc11_base_removena,
-         annotation_col = hcc11_colanno,annotation_row = hcc11_rowanno,
+         annotation_col = hcc11_colanno,annotation_row = hcc11_anno,
          annotation_colors = hcc11_ann_colors,
          show_rownames = F,show_colnames = F,         
          clustering_method = "complete",
@@ -342,14 +381,22 @@ row.names(hcc28_rowanno) <- hcc28_rowanno$Group.1
 hcc28_rowanno <- select(hcc28_rowanno,V4)
 colnames(hcc28_rowanno) <- "rep_time"
 
+hcc28_anno <- fread("hcc28_pmd.bedGraph")
+hcc28_anno  <- select(hcc28_anno ,V4,V8,V9)
+hcc28_anno <- aggregate(hcc28_anno,by=list(hcc28_anno$V4),max)
+row.names_hcc28_anno <- hcc28_anno$Group.1 
+hcc28_anno <- select(hcc28_anno,V4,V9)
+hcc28_anno <- as.data.frame(hcc28_anno[,-1])
+row.names(hcc28_anno) <- row.names_hcc28_anno
+colnames(hcc28_anno) <- "meth_type"
 
 hcc28_ann_colors=list(
-  rep_time=c('LRD'='#0039B3','ERD'='#FF1962','DTZ'='#FFE0EC','UTZ'='#FFF599'),
+  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
   sample=c('nt'='#DDE9C6','pt1'='#00ADC4','pt2'='#647BA8','pt4'='#4C1A72')
 )
 
 pheatmap(hcc28_base_removena,
-         annotation_col = hcc28_colanno,annotation_row = hcc28_rowanno,
+         annotation_col = hcc28_colanno,annotation_row = hcc28_anno,
          annotation_colors = hcc28_ann_colors,
          show_rownames = F,show_colnames = F,         
          clustering_method = "complete",
@@ -411,13 +458,23 @@ row.names(hcc29_rowanno) <- hcc29_rowanno$Group.1
 hcc29_rowanno <- select(hcc29_rowanno,V4)
 colnames(hcc29_rowanno) <- "rep_time"
 
+
+hcc29_anno <- fread("hcc29_pmd.bedGraph")
+hcc29_anno  <- select(hcc29_anno ,V4,V8,V9)
+hcc29_anno <- aggregate(hcc29_anno,by=list(hcc29_anno$V4),max)
+row.names_hcc29_anno <- hcc29_anno$Group.1 
+hcc29_anno <- select(hcc29_anno,V4,V9)
+hcc29_anno <- as.data.frame(hcc29_anno[,-1])
+row.names(hcc29_anno) <- row.names_hcc29_anno
+colnames(hcc29_anno) <- "meth_type"
+
 hcc29_ann_colors=list(
-  rep_time=c('LRD'='#0039B3','ERD'='#FF1962','DTZ'='#FFE0EC','UTZ'='#FFF599'),
+  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
   sample=c('pt1'='#00ADC4','pt3'='#822994','pt4'='#4C1A72')
 )
 
 pheatmap(hcc29_base_removena,
-         annotation_col = hcc29_colanno,annotation_row = hcc29_rowanno,
+         annotation_col = hcc29_colanno,annotation_row = hcc29_anno,
          annotation_colors = hcc29_ann_colors,
          show_rownames = F,show_colnames = F,
          clustering_method = "complete",
@@ -543,14 +600,14 @@ colnames(big_rowanno) <- "rep_time"
 
 
 big_ann_colors=list(
-  rep_time=c('LRD'='#0039B3','ERD'='#FF1962','DTZ'='#FFE0EC','UTZ'='#FFF599'),
+  pmd_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
   tissue=c('tumor'='#D42E00','nt'='#087FBF'),
   origin=c('hcc28'='#00ADC4','hcc29'='#4C1A72','hcc3'='#fb9795','hcc4'='#ffe9df','hcc7'='#7c5e8c','hcc11'='#b0e7ea')
 )
 
 
 pheatmap(big_meth,
-         annotation_col = big_colanno,annotation_row = big_rowanno,
+         annotation_col = big_colanno,annotation_row = pmd_anno,
          annotation_colors = big_ann_colors,
          show_rownames = F,show_colnames = F,
          clustering_method = "average",
@@ -559,6 +616,7 @@ pheatmap(big_meth,
          treeheight_row = 0,
          treeheight_col = 0,
          fontsize_col= 15)
+
 
 
 
@@ -574,36 +632,139 @@ pheatmap(big_meth,
          fontsize_col= 15)
 
 
+bigmeth_pmd <- subset(pmd_anno, subset = pmd_anno$pmd_type == "PMD")
+
+bigmeth_pmd_colmeans <- big_meth[row.names(bigmeth_pmd),]
+bigmeth_pmd_colmeans <- as.data.frame(colMeans(bigmeth_pmd_colmeans))
+bigmeth_pmd_colmeans[,"cell_id"] <- rownames(bigmeth_pmd_colmeans)
+bigmeth_pmd_colmeans[,3:5] <- str_split_fixed(bigmeth_pmd_colmeans$cell_id,"_",3)
+bigmeth_pmd_colmeans$V4 <- paste(bigmeth_pmd_colmeans$V3,bigmeth_pmd_colmeans$V4,sep = "_")
+colnames(bigmeth_pmd_colmeans) <- c("mean_meth","cell_id","patient","sample")
+bigmeth_pmd_colmeans <- bigmeth_pmd_colmeans[,-5]
+
+bigmeth_pmd_colmeans_sample <- aggregate(bigmeth_pmd_colmeans$mean_meth,list(sample = bigmeth_pmd_colmeans$sample),mean)
+bigmeth_pmd_colmeans_sample[,3:4] <- str_split_fixed(bigmeth_pmd_colmeans_sample$sample,"_",2)
+bigmeth_pmd_colmeans_sample <- bigmeth_pmd_colmeans_sample[,-4]
+colnames(bigmeth_pmd_colmeans_sample) <- c("sample","mean_meth","patient")
+
+
+bigmeth_pmd_colmeans$sample = factor(bigmeth_pmd_colmeans$sample, levels=c('hcc3_nt','hcc3_pt1','hcc3_pt2','hcc3_pt3','hcc3_pt4',
+                                                                           'hcc4_nt','hcc4_pt1','hcc4_pt2','hcc4_pt3',
+                                                                           'hcc7_nt','hcc7_pt1','hcc7_pt2','hcc7_pt4','hcc7_pt5',
+                                                                           'hcc11_nt','hcc11_pt1','hcc11_pt2','hcc11_pt3','hcc11_pt4',
+                                                                           'hcc11_pt5','hcc11_pt6',
+                                                                           'hcc28_nt','hcc28_pt1','hcc28_pt2','hcc28_pt4',
+                                                                           'hcc29_nt','hcc29_pt1','hcc29_pt3','hcc29_pt4'))
+bigmeth_pmd_colmeans$sample = factor(bigmeth_pmd_colmeans$sample, levels=sample_level)
+
+
+bigmeth_pmd_colmeans[,5:6] <- str_split_fixed(bigmeth_pmd_colmeans$sample,"_",2)
+for(i in 1:nrow(bigmeth_pmd_colmeans)){
+  if(bigmeth_pmd_colmeans[i,6] == 'nt'){
+    bigmeth_pmd_colmeans[i,6] <- 'normal'
+  }
+  else{
+    bigmeth_pmd_colmeans[i,6] <- 'tumor'
+  }
+}
+
+colnames(bigmeth_pmd_colmeans) <- c("mean_meth","cell_id","patient","sample","origin","label")
+
+
+bigmeth_colmeans <- as.data.frame(colMeans(big_meth))
+bigmeth_colmeans[,"cell_id"] <- rownames(bigmeth_colmeans)
+bigmeth_colmeans[,3:5] <- str_split_fixed(bigmeth_colmeans$cell_id,"_",3)
+bigmeth_colmeans$V4 <- paste(bigmeth_colmeans$V3,bigmeth_colmeans$V4,sep = "_")
+colnames(bigmeth_colmeans) <- c("mean_meth","cell_id","patient","sample")
+bigmeth_colmeans <- bigmeth_colmeans[,-5]
+
+bigmeth_colmeans_sample <- aggregate(bigmeth_colmeans$mean_meth,list(sample = bigmeth_colmeans$sample),mean)
+bigmeth_colmeans_sample[,3:4] <- str_split_fixed(bigmeth_colmeans_sample$sample,"_",2)
+bigmeth_colmeans_sample <- bigmeth_colmeans_sample[,-4]
+colnames(bigmeth_colmeans_sample) <- c("sample","mean_meth","patient")
+
+
+bigmeth_colmeans$sample = factor(bigmeth_colmeans$sample, levels=c('hcc3_nt','hcc3_pt1','hcc3_pt2','hcc3_pt3','hcc3_pt4',
+                                                                   'hcc4_nt','hcc4_pt1','hcc4_pt2','hcc4_pt3',
+                                                                   'hcc7_nt','hcc7_pt1','hcc7_pt2','hcc7_pt4','hcc7_pt5',
+                                                                   'hcc11_nt','hcc11_pt1','hcc11_pt2','hcc11_pt3','hcc11_pt4',
+                                                                   'hcc11_pt5','hcc11_pt6',
+                                                                   'hcc28_nt','hcc28_pt1','hcc28_pt2','hcc28_pt4',
+                                                                   'hcc29_nt','hcc29_pt1','hcc29_pt3','hcc29_pt4'))
+sample_level <- rev(c('hcc3_nt','hcc3_pt1','hcc3_pt2','hcc3_pt3','hcc3_pt4',
+                  'hcc4_nt','hcc4_pt1','hcc4_pt2','hcc4_pt3',
+                  'hcc7_nt','hcc7_pt1','hcc7_pt2','hcc7_pt4','hcc7_pt5',
+                  'hcc11_nt','hcc11_pt1','hcc11_pt2','hcc11_pt3','hcc11_pt4',
+                  'hcc11_pt5','hcc11_pt6',
+                  'hcc28_nt','hcc28_pt1','hcc28_pt2','hcc28_pt4',
+                  'hcc29_nt','hcc29_pt1','hcc29_pt3','hcc29_pt4'))
+bigmeth_colmeans$sample = factor(bigmeth_colmeans$sample, levels=sample_level)
+
+
+bigmeth_colmeans[,5:6] <- str_split_fixed(bigmeth_colmeans$sample,"_",2)
+for(i in 1:nrow(bigmeth_colmeans)){
+  if(bigmeth_colmeans[i,6] == 'nt'){
+    bigmeth_colmeans[i,6] <- 'normal'
+  }
+  else{
+    bigmeth_colmeans[i,6] <- 'tumor'
+  }
+}
+
+colnames(bigmeth_colmeans) <- c("mean_meth","cell_id","patient","sample","origin","label")
+
+ggplot(bigmeth_colmeans,aes(x=patient, y=mean_meth,fill=origin))+
+  geom_flat_violin(scale = "width",trim = F)+coord_flip()+geom_jitter(width = 0.1,size=0.5)
+ggplot(bigmeth_pmd_colmeans,aes(x=patient, y=mean_meth,fill=label))+
+  geom_flat_violin(scale = "width",trim = F)+coord_flip()+geom_jitter(width = 0.1,size=0.5)
+
+ggplot(bigmeth_colmeans,aes(x=sample, y=mean_meth,fill=origin))+
+  geom_flat_violin(scale = "width",trim = F)+geom_jitter(width = 0.1,size=0.5)+coord_flip()
+ggplot(bigmeth_pmd_colmeans,aes(x=sample, y=mean_meth,fill=label))+
+  geom_flat_violin(scale = "width",trim = F)+geom_jitter(width = 0.1,size=0.5)+coord_flip()
+
+ggplot(bigmeth_colmeans_sample,aes(x=patient, y=mean_meth,fill=patient))+
+  geom_flat_violin(trim = F)+NoLegend()+coord_flip()
+
+ggplot(bigmeth_colmeans,aes(x=patient, y=mean_meth,fill=sample))+
+  geom_flat_violin(trim = F)+NoLegend()+coord_flip()
+
+ggplot(bigmeth_colmeans,aes(x=patient, y=mean_meth,fill=patient))+
+  geom_flat_violin(trim = F)+NoLegend()+coord_flip()+
+
+ggplot(bigmeth_colmeans,aes(x=patient, y=mean_meth,fill=sample))+
+  geom_boxplot()+NoLegend()+coord_flip()
+
+bigmeth_colmeans_hcc11 <- subset(bigmeth_colmeans,subset = patient=="hcc11")
+ggplot(bigmeth_colmeans_hcc11,aes(x=sample, y=mean_meth,fill=sample))+
+  geom_flat_violin(scale = "width")+coord_flip()+geom_jitter(width = 0.1,size=0.5)
+
+
+bigmeth_colmeans_hcc3 <- subset(bigmeth_colmeans,subset = patient=="hcc3")
+ggplot(bigmeth_colmeans_hcc3,aes(x=sample, y=mean_meth,fill=sample))+
+  geom_flat_violin(scale = "width")+coord_flip()+geom_jitter(width = 0.1,size=0.5)
+
+
+
+bigmeth_colmeans_hcc4 <- subset(bigmeth_colmeans,subset = patient=="hcc4")
+ggplot(bigmeth_colmeans_hcc4,aes(x=sample, y=mean_meth,fill=sample))+
+  geom_flat_violin(scale = "width")+coord_flip()+geom_jitter(width = 0.1,size=0.5)
+
+
+bigmeth_colmeans_hcc7 <- subset(bigmeth_colmeans,subset = patient=="hcc7")
+ggplot(bigmeth_colmeans_hcc7,aes(x=sample, y=mean_meth,fill=sample))+
+  geom_flat_violin(scale = "width")+coord_flip()+geom_jitter(width = 0.1,size=0.5)
+
+
+bigmeth_colmeans_hcc28 <- subset(bigmeth_colmeans,subset = patient=="hcc28")
+ggplot(bigmeth_colmeans_hcc28,aes(x=sample, y=mean_meth,fill=sample))+
+  geom_flat_violin(scale = "width")+coord_flip()+geom_jitter(width = 0.1,size=0.5)
+
+
+bigmeth_colmeans_hcc29 <- subset(bigmeth_colmeans,subset = patient=="hcc29")
+ggplot(bigmeth_colmeans_hcc29,aes(x=sample, y=mean_meth,fill=sample))+
+  geom_flat_violin(scale = "width")+coord_flip()+geom_jitter(width = 0.1,size=0.5)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-hcc.sce <- CreateSeuratObject(big_meth,meta.data = big_colanno )
-hcc.sce<- NormalizeData(hcc.sce, normalization.method = "LogNormalize", scale.factor = 10000)
-hcc.sce<- FindVariableFeatures(hcc.sce, selection.method = "vst", nfeatures = 2000)
-hcc_all.genes <- rownames(hcc.sce)
-hcc.sce<- ScaleData(hcc.sce, features = hcc_all.genes)
-
-hcc.sce<- RunPCA(hcc.sce, verbose = FALSE)
-hcc.sce<- RunUMAP(hcc.sce, dims = 1:30, verbose = FALSE)
-hcc.sce<- FindNeighbors(hcc.sce, dims = 1:30, verbose = FALSE)
-hcc.sce<- FindClusters(hcc.sce, verbose = FALSE)
-
-DimPlot(hcc.sce, label = TRUE) + NoLegend()
-DimPlot(hcc.sce, label = TRUE,group.by = "tissue") + NoLegend()
-DimPlot(hcc.sce, label = TRUE,group.by = "tissue",pt.size = 0.4,label.size=5) + NoLegend()
-DimPlot(hcc.sce, label = TRUE,group.by = "origin",pt.size = 0.4,label.size=5) + NoLegend()
-DimPlot(hcc.sce, label = T, repel = TRUE, group.by = "sample",pt.size = 0.4,label.size=3) 
-
-
-options(ggrepel.max.overlaps = Inf)

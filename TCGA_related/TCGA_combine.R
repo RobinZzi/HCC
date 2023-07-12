@@ -45,8 +45,8 @@ meth_filt2 <- na.omit(meth_filt)
 meth_filt2 <- meth_filt2[,-1]
 
 
-
-
+rank <- fread("rank.txt")
+write.csv(rank,"rank.csv")
 
 
 

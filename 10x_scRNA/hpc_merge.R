@@ -6,8 +6,12 @@ library(harmony)
 library(clusterProfiler)
 library(DoubletFinder)
 library(glmGamPoi)
+library(ggtree)
+library(phylogram)
 setwd("~/projects/hcc/data/10x_scRNA/hcc3-10x/result")
 setwd("~/projects/hcc/analysis/10x_scRNA/")
+saveRDS(hcc_big_HPC,"hpc.RDS")
+
 save.image("hpc.Rdata")
 hcc3_cnt <- Read10X("~/projects/hcc/data/10x_scRNA/hcc3-10x/result/hcc3")
 hcc3_meta <- fread("barcode_sample.txt")
@@ -147,9 +151,10 @@ hcc_merge_rough_celltype = case_when(
 
 hcc_big_filt_removedb@meta.data$rough_celltype= hcc_merge_rough_celltype
 
-
+hcc_big_filt_removedb$sample_pt
 
 DimPlot(hcc_big_filt_removedb,group.by = "rough_celltype",label = T)
+DimPlot(hcc_big_filt_removedb,group.by = "sample",label = T)
 DimPlot(hcc_big_filt_removedb,label = T)
 
 VlnPlot(hcc_big_filt_removedb,features = "FCGR3A")
@@ -164,7 +169,7 @@ hcc_big_HPC <- RunUMAP(hcc_big_HPC, dims = 1:30, verbose = FALSE)
 
 hcc_big_HPC <- FindNeighbors(hcc_big_HPC, dims = 1:30, verbose = FALSE)
 hcc_big_HPC <- FindClusters(hcc_big_HPC, verbose = FALSE)
-DimPlot(hcc_big_HPC,group.by = "sample_pt",label = T,repel = T)
+DimPlot(hcc_big_HPC,group.by = "tech",label = T,repel = T)
 
 
 DimPlot(hcc_big_HPC, group.by = "sample_pt",label = T,repel = T)
@@ -285,6 +290,7 @@ DimPlot(hpc_merge_harmony,group.by = "tech",label = T,repel = T)
 
 DimPlot(hpc_merge_harmony,group.by = "sample_pt",split.by = "tech",label = T,repel = T)
 DimPlot(hpc_merge_harmony,group.by = "sample",split.by = "tech",label = T,repel = T)
+DimPlot(hpc_merge_harmony,group.by = "sample_pt",label = T,repel = T)
 
 FeaturePlot(hpc_merge_harmony,features = c("hcc_PT1","hcc3_pt1"))
 
@@ -425,3 +431,196 @@ write.table(hcc28_demeth_up,"hcc28_demeth_up.txt")
 write.table(hcc28_demeth_down,"hcc28_demeth_down.txt")
 write.table(hcc29_demeth_up,"hcc29_demeth_up.txt")
 write.table(hcc29_demeth_down,"hcc29_demeth_down.txt")
+
+
+
+
+
+
+VlnPlot(hcc_big_HPC,features = "GADD45A",group.by = "sample_pt")
+VlnPlot(hcc_big_HPC,features = "SNHG6",group.by = "sample_pt")
+
+
+
+hcc3_hpc_infer <- subset(hcc_big_HPC, subset= sample =="hcc3")
+hcc28_hpc_infer <- subset(hcc_big_HPC, subset= sample =="hcc28")
+hcc29_hpc_infer <- subset(hcc_big_HPC, subset= sample =="hcc29")
+DimPlot(hcc3_hpc_infer,group.by = "sample_pt",label=T)
+DimPlot(hcc28_hpc_infer,group.by = "sample_pt",label=T,repel = T)+NoLegend()
+DimPlot(hcc29_hpc_infer,group.by = "sample_pt",label=T)
+
+saveRDS(hcc3_hpc_infer,"hcc3_hpc.RDS")
+saveRDS(hcc28_hpc_infer,"hcc28_hpc.RDS")
+saveRDS(hcc29_hpc_infer,"hcc29_hpc.RDS")
+
+
+hcc3_hpc_infer <- RunPCA(hcc3_hpc_infer, verbose = FALSE)
+hcc3_hpc_infer <- RunUMAP(hcc3_hpc_infer, dims = 1:30, verbose = FALSE)
+hcc3_hpc_infer <- FindNeighbors(hcc3_hpc_infer, dims = 1:30, verbose = FALSE)
+hcc3_hpc_infer <- FindClusters(hcc3_hpc_infer, verbose = FALSE)
+DimPlot(hcc3_hpc_infer,group.by = "sample_pt",label = T,label.size = 6)+NoLegend()
+
+
+
+hcc3_NT <- subset(hcc3_hpc_infer , subset = sample_pt == "hcc3_NT")
+hcc3_NT_distance <- as.data.frame(Embeddings(object = hcc3_NT[["umap"]]))
+hcc3_PT1 <- subset(hcc3_hpc_infer , subset = sample_pt == "hcc3_PT1")
+hcc3_PT1_distance <- as.data.frame(Embeddings(object = hcc3_PT1[["umap"]]))
+hcc3_PT2 <- subset(hcc3_hpc_infer , subset = sample_pt == "hcc3_PT2")
+hcc3_PT2_distance <- as.data.frame(Embeddings(object = hcc3_PT2[["umap"]]))
+hcc3_PT3 <- subset(hcc3_hpc_infer , subset = sample_pt == "hcc3_PT3")
+hcc3_PT3_distance <- as.data.frame(Embeddings(object = hcc3_PT3[["umap"]]))
+hcc3_PT4 <- subset(hcc3_hpc_infer , subset = sample_pt == "hcc3_PT4")
+hcc3_PT4_distance <- as.data.frame(Embeddings(object = hcc3_PT4[["umap"]]))
+hcc3_distance <- as.data.frame(rbind(colMeans(hcc3_NT_distance),colMeans(hcc3_PT1_distance),colMeans(hcc3_PT2_distance),
+                                     colMeans(hcc3_PT3_distance),colMeans(hcc3_PT4_distance)))
+row.names(hcc3_distance) <- c("NT","PT1","PT2","PT3","PT4")
+
+hcc3_distance <- hcc3_distance[-1,]
+
+dist_hcc3 = dist(hcc3_distance, method = "euclidean")
+hclust_dist_hcc3 = hclust(dist_hcc3, method = "complete")
+plot(hclust_dist_hcc3)
+
+
+
+
+hcc28_hpc_infer <- RunPCA(hcc28_hpc_infer, verbose = FALSE)
+hcc28_hpc_infer <- RunUMAP(hcc28_hpc_infer, dims = 1:30, verbose = FALSE)
+hcc28_hpc_infer <- FindNeighbors(hcc28_hpc_infer, dims = 1:30, verbose = FALSE)
+hcc28_hpc_infer <- FindClusters(hcc28_hpc_infer, verbose = FALSE)
+DimPlot(hcc28_hpc_infer,group.by = "sample_pt")
+
+
+hcc28_NT <- subset(hcc28_hpc_infer , subset = sample_pt == "hcc28_NT")
+hcc28_NT_distance <- as.data.frame(Embeddings(object = hcc28_NT[["umap"]]))
+hcc28_PT1 <- subset(hcc28_hpc_infer , subset = sample_pt == "hcc28_PT1")
+hcc28_PT1_distance <- as.data.frame(Embeddings(object = hcc28_PT1[["umap"]]))
+hcc28_PT2 <- subset(hcc28_hpc_infer , subset = sample_pt == "hcc28_PT2")
+hcc28_PT2_distance <- as.data.frame(Embeddings(object = hcc28_PT2[["umap"]]))
+hcc28_PT4 <- subset(hcc28_hpc_infer , subset = sample_pt == "hcc28_PT4")
+hcc28_PT4_distance <- as.data.frame(Embeddings(object = hcc28_PT4[["umap"]]))
+hcc28_distance <- as.data.frame(rbind(colMeans(hcc28_NT_distance),colMeans(hcc28_PT1_distance),
+                                      colMeans(hcc28_PT2_distance),colMeans(hcc28_PT4_distance)))
+row.names(hcc28_distance) <- c("NT","PT1","PT2","PT4")
+
+hcc28_distance <- hcc28_distance[-1,]
+dist_hcc28 = dist(hcc28_distance, method = "euclidean")
+hclust_dist_hcc28 = hclust(dist_hcc28, method = "complete")
+plot(hclust_dist_hcc28)
+
+
+
+
+hcc29_hpc_infer <- RunPCA(hcc29_hpc_infer, verbose = FALSE)
+hcc29_hpc_infer <- RunUMAP(hcc29_hpc_infer, dims = 1:30, verbose = FALSE)
+hcc29_hpc_infer <- FindNeighbors(hcc29_hpc_infer, dims = 1:30, verbose = FALSE)
+hcc29_hpc_infer <- FindClusters(hcc29_hpc_infer, verbose = FALSE)
+DimPlot(hcc29_hpc_infer,group.by = "sample_pt")
+
+
+
+hcc29_NT <- subset(hcc29_hpc_infer , subset = sample_pt == "hcc29_NT")
+hcc29_NT_distance <- as.data.frame(Embeddings(object = hcc29_NT[["umap"]]))
+hcc29_PT1 <- subset(hcc29_hpc_infer , subset = sample_pt == "hcc29_PT1")
+hcc29_PT1_distance <- as.data.frame(Embeddings(object = hcc29_PT1[["umap"]]))
+hcc29_PT3 <- subset(hcc29_hpc_infer , subset = sample_pt == "hcc29_PT3")
+hcc29_PT3_distance <- as.data.frame(Embeddings(object = hcc29_PT3[["umap"]]))
+hcc29_PT4 <- subset(hcc29_hpc_infer , subset = sample_pt == "hcc29_PT4")
+hcc29_PT4_distance <- as.data.frame(Embeddings(object = hcc29_PT4[["umap"]]))
+hcc29_distance <- as.data.frame(rbind(colMeans(hcc29_NT_distance),colMeans(hcc29_PT1_distance),
+                                      colMeans(hcc29_PT3_distance),colMeans(hcc29_PT4_distance)))
+row.names(hcc29_distance) <- c("NT","PT1","PT3","PT4")
+
+hcc29_distance <- hcc29_distance[-1,]
+dist_hcc29 = dist(hcc29_distance, method = "euclidean")
+hclust_dist_hcc29 = hclust(dist_hcc29, method = "complete")
+plot(hclust_dist_hcc29)
+
+
+
+hcc3_PT1_pca <- as.data.frame(Embeddings(hcc3_PT1, reduction = "pca"))
+hcc3_PT2_pca <- as.data.frame(Embeddings(hcc3_PT2, reduction = "pca"))
+hcc3_PT3_pca <- as.data.frame(Embeddings(hcc3_PT3, reduction = "pca"))
+hcc3_PT4_pca <- as.data.frame(Embeddings(hcc3_PT4, reduction = "pca"))
+hcc3_pca <- as.data.frame(rbind(colMeans(hcc3_PT1_pca),colMeans(hcc3_PT2_pca),colMeans(hcc3_PT3_pca),colMeans(hcc3_PT4_pca)))
+row.names(hcc3_pca) <- c("PT1","PT2","PT3","PT4")
+pca_hcc3 = dist(hcc3_pca, method = "euclidean")
+hclust_pca_hcc3 = hclust(pca_hcc3, method = "complete")
+plot(hclust_pca_hcc3)
+hclust_pca_hcc3_tree <-cutree(hclust_pca_hcc3,3)
+hcc3_d = data.frame(label=names(hclust_pca_hcc3_tree),member=factor(hclust_pca_hcc3_tree))
+ggtree(as.phylo(hclust_pca_hcc3), linetype='dashed', color = "#487AA1") %<+% hcc3_d +
+  geom_tiplab(aes(color = member),size=4) +
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=15),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+NoLegend()
+  
+
+ggtree(as.phylo(hclust_dist_hcc29),layout="rectangular",branch.length="none", color = "#487AA1")+
+  geom_tiplab(hjust =0.1,size=6,fontface="plain")+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=15),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))
+
+ggtree(as.phylo(hclust_pca_hcc28),layout="rectangular",branch.length="none", color = "#487AA1")+
+  geom_tiplab(hjust =0.1,size=6,fontface="plain")+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=15),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))
+
+ggtree(as.phylo(hclust_pca_hcc29),layout="rectangular",branch.length="none", color = "#487AA1")+
+  geom_tiplab(hjust =0.1,size=6,fontface="plain")+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=15),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))
+
+hcc28_PT1_pca <- as.data.frame(Embeddings(hcc28_PT1, reduction = "pca"))
+hcc28_PT2_pca <- as.data.frame(Embeddings(hcc28_PT2, reduction = "pca"))
+hcc28_PT4_pca <- as.data.frame(Embeddings(hcc28_PT4, reduction = "pca"))
+hcc28_pca <- as.data.frame(rbind(colMeans(hcc28_PT1_pca),colMeans(hcc28_PT2_pca),colMeans(hcc28_PT4_pca)))
+row.names(hcc28_pca) <- c("PT1","PT2","PT4")
+pca_hcc28 = dist(hcc28_pca, method = "euclidean")
+hclust_pca_hcc28 = hclust(pca_hcc28, method = "complete")
+plot(hclust_pca_hcc28)
+
+
+
+
+
+
+hcc29_PT1_pca <- as.data.frame(Embeddings(hcc29_PT1, reduction = "pca"))
+hcc29_PT3_pca <- as.data.frame(Embeddings(hcc29_PT3, reduction = "pca"))
+hcc29_PT4_pca <- as.data.frame(Embeddings(hcc29_PT4, reduction = "pca"))
+hcc29_pca <- as.data.frame(rbind(colMeans(hcc29_PT1_pca),colMeans(hcc29_PT3_pca),colMeans(hcc29_PT4_pca)))
+row.names(hcc29_pca) <- c("PT1","PT3","PT4")
+pca_hcc29 = dist(hcc29_pca, method = "euclidean")
+hclust_pca_hcc29 = hclust(pca_hcc29, method = "complete")
+plot(hclust_pca_hcc29)
+
+
+
+hcc_big_HPC_sample_pt <- hcc_big_HPC$sample_pt
+
+
+hcc_big_HPC_methtype = case_when(
+  hcc_big_HPC_sample_pt  %in% c("hcc28_NT","hcc29_NT","hcc3_NT","hcc3_PT3","hcc3_PT4")~"Consistently-methylated Samples",
+  hcc_big_HPC_sample_pt %in% c("hcc28_PT1","hcc28_PT2","hcc28_PT4","hcc29_PT1","hcc29_PT4","hcc29_PT3","hcc3_PT1","hcc3_PT2")~"De-methylated Samples",
+  TRUE ~ as.character(hcc_big_HPC_sample_pt))
+hcc_big_HPC$methtype <- hcc_big_HPC_methtype
+DimPlot(hcc_big_HPC,group.by = "methtype",label=F)+NoLegend()
+DimPlot(hcc_big_HPC,group.by = "sample",label=T,label.size = 8)+NoLegend()
+VlnPlot(hcc_big_HPC,features = "SNHG6",group.by = "sample",split.by = "methtype")
+VlnPlot(hcc_big_HPC,features = "GADD45A",group.by = "sample",split.by = "methtype")

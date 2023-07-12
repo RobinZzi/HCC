@@ -36,7 +36,7 @@ getFields(hcc29_laml)
 
 
 png(paste0('plotmafSummary_', project, '.png'),res = 150,width = 1080,height = 1080)
-plotmafSummary(maf = hcc29_laml,
+plotmafSummary(maf = hcc28_laml,
                rmOutlier = TRUE,
                showBarcodes = T,
                textSize = 0.4,
@@ -45,7 +45,7 @@ plotmafSummary(maf = hcc29_laml,
                titvRaw = FALSE)
 dev.off()
 png(paste0('oncoplot_top30_', project, '.png'),res = 150,width = 1080,height = 1080)
-oncoplot(maf = hcc29_laml,
+oncoplot(maf = hcc28_laml,
          top = 20,
          fontSize = 0.5,
          showTumorSampleBarcodes = T)
@@ -202,7 +202,7 @@ setwd("~/projects/hcc/analysis/wes_hcc/hcc3")
 hcc3.annovar.maf <- annovarToMaf(annovar = "hcc3.maf",
                                   refBuild = 'hg38',
                                   tsbCol = 'Tumor_Sample_Barcode1',
-                                  table = 'refGene',
+                                   table = 'refGene',
                                   MAFobj = T)
 hcc3_laml <- hcc3.annovar.maf
 
@@ -226,7 +226,7 @@ plotmafSummary(maf = hcc3_laml,
                titvRaw = FALSE)
 dev.off()
 png(paste0('oncoplot_top30_', project, '.png'),res = 150,width = 1080,height = 1080)
-oncoplot(maf = hcc28_laml,
+oncoplot(maf = hcc3_laml,
          top = 20,
          fontSize = 0.5,
          showTumorSampleBarcodes = T)
@@ -394,9 +394,96 @@ ggplot(data = hcc3_common_mut_go[1:20,])+
        title="Common mut in hcc29")
 
 
+hcc28_info <- select(hcc28_mut_table,Tumor_Sample_Barcode,AAChange.refGene)
+
+hcc28_info_PT1 <- subset(hcc28_info,subset = hcc28_info$Tumor_Sample_Barcode =='PT1')
+hcc28_info_PT1 <- hcc28_info_PT1[1:165,]
+row.names(hcc28_info_PT1) <- hcc28_info_PT1$AAChange.refGene
+colnames(hcc28_info_PT1) <- c("PT1","pos")
+hcc28_info_PT1$PT1 <- 1
+
+hcc28_info_PT2 <- subset(hcc28_info,subset = hcc28_info$Tumor_Sample_Barcode =='PT2')
+hcc28_info_PT2 <- hcc28_info_PT2[1:130,]
+row.names(hcc28_info_PT2) <- hcc28_info_PT2$AAChange.refGene
+colnames(hcc28_info_PT2) <- c("PT2","pos")
+hcc28_info_PT2$PT2 <- 1
+
+hcc28_info_PT4 <- subset(hcc28_info,subset = hcc28_info$Tumor_Sample_Barcode =='PT4')
+hcc28_info_PT4 <- hcc28_info_PT4[1:141,]
+row.names(hcc28_info_PT4) <- hcc28_info_PT4$AAChange.refGene
+colnames(hcc28_info_PT4) <- c("PT4","pos")
+hcc28_info_PT4$PT4 <- 1
 
 
 
 
+hcc28_sum <- merge(hcc28_info_PT1,hcc28_info_PT2,all=T)
+row.names(hcc28_sum) <- hcc28_sum$pos
+
+hcc28_sum <- merge(hcc28_sum,hcc28_info_PT4,all=T)
+hcc28_sum[is.na(hcc28_sum)] <- 0
+row.names(hcc28_sum) <- hcc28_sum$pos
+hcc28_sum <- hcc28_sum[,-1]
+pheatmap(hcc28_sum,
+         show_rownames = F, show_colnames = T,
+         cluster_rows = T, cluster_cols = T,
+         clustering_method = "average",
+         color = colorRampPalette(c("#fff5f6", "#fc929f"))(20),
+         treeheight_row = 0,
+         treeheight_col = 20,
+         fontsize          = 12)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hcc29_test <- unique(hcc29_mut_table$AAChange.refGene)
+hcc29_info <- select(hcc29_mut_table,Tumor_Sample_Barcode,AAChange.refGene)
+
+hcc29_info_PT1 <- subset(hcc29_info,subset = hcc29_info$Tumor_Sample_Barcode =='PT1')
+row.names(hcc29_info_PT1) <- hcc29_info_PT1$AAChange.refGene
+colnames(hcc29_info_PT1) <- c("PT1","pos")
+hcc29_info_PT1$PT1 <- 1
+
+hcc29_info_PT3 <- subset(hcc29_info,subset = hcc29_info$Tumor_Sample_Barcode =='PT3')
+row.names(hcc29_info_PT3) <- hcc29_info_PT3$AAChange.refGene
+colnames(hcc29_info_PT3) <- c("PT3","pos")
+hcc29_info_PT3$PT3 <- 1
+
+hcc29_info_PT4 <- subset(hcc29_info,subset = hcc29_info$Tumor_Sample_Barcode =='PT4')
+row.names(hcc29_info_PT4) <- hcc29_info_PT4$AAChange.refGene
+colnames(hcc29_info_PT4) <- c("PT4","pos")
+hcc29_info_PT4$PT4 <- 1
+
+
+
+
+hcc29_sum <- merge(hcc29_info_PT1,hcc29_info_PT3,all=T)
+row.names(hcc29_sum) <- hcc29_sum$pos
+
+hcc29_sum <- merge(hcc29_sum,hcc29_info_PT4,all=T)
+hcc29_sum[is.na(hcc29_sum)] <- 0
+row.names(hcc29_sum) <- hcc29_sum$pos
+hcc29_sum <- hcc29_sum[,-1]
+pheatmap(hcc29_sum,
+         show_rownames = F, show_colnames = T,
+         cluster_rows = T, cluster_cols = T,
+         clustering_method = "average",
+         color = colorRampPalette(c("#fff5f6", "#fc929f"))(20),
+         treeheight_row = 0,
+         treeheight_col = 20,border_color = NA,
+         fontsize          = 12)
 
 

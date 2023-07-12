@@ -309,6 +309,7 @@ hpc_meth_type = case_when(
 
 hpc_merge_harmony$hpc_meth_type <- hpc_meth_type
 
+VlnPlot(hpc_merge_harmony,features = c("CD1A","CD1B","CD1C","CD1D","CD1E","IFI16","MNDA","PYHIN1"),group.by = "hpc_meth_type")
 
 
 
@@ -406,7 +407,6 @@ ggplot(data = hpc_common_down_go[1:20,])+
        title="Down Pathways in demeth")
 
 up_venn <- list(hcc3_demeth_up$gene,hcc28_demeth_up$gene,hcc29_demeth_up$gene)
-
 
 venn.diagram(up_venn, filename = 'up.png', imagetype = 'png', ,category.names = c("hcc3" , "hcc28" , "hcc29"),
              fill = c('#4D157D', '#84C7DB', '#C8D948'), alpha = 0.50, 
