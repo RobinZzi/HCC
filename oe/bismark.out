@@ -1,0 +1,3862 @@
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined
+2
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined
+2
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined
+2
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined
+2
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined
+2
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined
+2
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined
+2
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined
+2
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined
+2
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined
+2
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined
+2
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined
+2
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Output format is BAM (default)
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Output format is BAM (default)
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Output format is BAM (default)
+Output format is BAM (default)
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Output format is BAM (default)
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Output format is BAM (default)
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Output format is BAM (default)
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Output format is BAM (default)
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Output format is BAM (default)
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Output format is BAM (default)
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Output format is BAM (default)
+Bowtie 2 seems to be working fine (tested command 'bowtie2 --version' [2.2.1])
+Output format is BAM (default)
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Alignments will be written out in BAM format. Samtools found here: '/storage/zhangyanxiaoLab/zhangliwen/miniconda3/envs/wes/bin/samtools'
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+FastQ format assumed (by default)
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+FastQ format assumed (by default)
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R2_val_2.fq.gz
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+FastQ format assumed (by default)
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R2_val_2.fq.gz
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+FastQ format assumed (by default)
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R2_val_2.fq.gz
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+FastQ format assumed (by default)
+FastQ format assumed (by default)
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1.fq.gz
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R2_val_2.fq.gz
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R2_val_2.fq.gz
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+FastQ format assumed (by default)
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R2_val_2.fq.gz
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+FastQ format assumed (by default)
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+FastQ format assumed (by default)
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R2_val_2.fq.gz
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+FastQ format assumed (by default)
+FastQ format assumed (by default)
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R2_val_2.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R2_val_2.fq.gz
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+Reference genome folder provided is /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/	(absolute path is '/storage/zhangyanxiaoLab/zhangliwen/genome/hg38/)'
+FastQ format assumed (by default)
+
+Input files to be analysed (in current folder '/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result'):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1.fq.gz
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R2_val_2.fq.gz
+Library is assumed to be strand-specific (directional), alignments to strands complementary to the original top or bottom strands will be ignored (i.e. not performed!)
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Setting parallelization to single-threaded (default)
+
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Setting parallelization to single-threaded (default)
+
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Setting parallelization to single-threaded (default)
+
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Setting parallelization to single-threaded (default)
+
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Setting parallelization to single-threaded (default)
+
+Setting parallelization to single-threaded (default)
+
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Setting parallelization to single-threaded (default)
+
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Setting parallelization to single-threaded (default)
+
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Setting parallelization to single-threaded (default)
+
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Setting parallelization to single-threaded (default)
+
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Setting parallelization to single-threaded (default)
+
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Output will be written into the directory: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam/
+Setting parallelization to single-threaded (default)
+
+Summary of all aligner options:	-q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+Current working directory is: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+
+Now reading in and storing sequence information of the genome specified in: /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/
+
+chr chr10 (133797422 bp)
+chr chr10 (133797422 bp)
+chr chr10 (133797422 bp)
+chr chr10 (133797422 bp)
+chr chr10 (133797422 bp)
+chr chr10 (133797422 bp)
+chr chr10 (133797422 bp)
+chr chr10 (133797422 bp)
+chr chr10 (133797422 bp)
+chr chr10 (133797422 bp)
+chr chr10 (133797422 bp)
+chr chr10 (133797422 bp)
+chr chr11 (135086622 bp)
+chr chr11 (135086622 bp)
+chr chr11 (135086622 bp)
+chr chr11 (135086622 bp)
+chr chr11 (135086622 bp)
+chr chr11 (135086622 bp)
+chr chr11 (135086622 bp)
+chr chr11 (135086622 bp)
+chr chr11 (135086622 bp)
+chr chr11 (135086622 bp)
+chr chr11 (135086622 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr11 (135086622 bp)
+chr chr11_KI270721v1_random (100316 bp)
+chr chr12 (133275309 bp)
+chr chr12 (133275309 bp)
+chr chr12 (133275309 bp)
+chr chr12 (133275309 bp)
+chr chr12 (133275309 bp)
+chr chr12 (133275309 bp)
+chr chr12 (133275309 bp)
+chr chr12 (133275309 bp)
+chr chr12 (133275309 bp)
+chr chr12 (133275309 bp)
+chr chr12 (133275309 bp)
+chr chr12 (133275309 bp)
+chr chr13 (114364328 bp)
+chr chr13 (114364328 bp)
+chr chr13 (114364328 bp)
+chr chr13 (114364328 bp)
+chr chr13 (114364328 bp)
+chr chr13 (114364328 bp)
+chr chr13 (114364328 bp)
+chr chr13 (114364328 bp)
+chr chr13 (114364328 bp)
+chr chr13 (114364328 bp)
+chr chr13 (114364328 bp)
+chr chr13 (114364328 bp)
+chr chr14 (107043718 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr14 (107043718 bp)
+chr chr14 (107043718 bp)
+chr chr14 (107043718 bp)
+chr chr14 (107043718 bp)
+chr chr14 (107043718 bp)
+chr chr14 (107043718 bp)
+chr chr14 (107043718 bp)
+chr chr14 (107043718 bp)
+chr chr14 (107043718 bp)
+chr chr14 (107043718 bp)
+chr chr14 (107043718 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr14_GL000009v2_random (201709 bp)
+chr chr14_GL000194v1_random (191469 bp)
+chr chr14_GL000225v1_random (211173 bp)
+chr chr14_KI270722v1_random (194050 bp)
+chr chr14_KI270723v1_random (38115 bp)
+chr chr14_KI270724v1_random (39555 bp)
+chr chr14_KI270725v1_random (172810 bp)
+chr chr14_KI270726v1_random (43739 bp)
+chr chr15 (101991189 bp)
+chr chr15 (101991189 bp)
+chr chr15 (101991189 bp)
+chr chr15 (101991189 bp)
+chr chr15 (101991189 bp)
+chr chr15 (101991189 bp)
+chr chr15 (101991189 bp)
+chr chr15 (101991189 bp)
+chr chr15 (101991189 bp)
+chr chr15 (101991189 bp)
+chr chr15 (101991189 bp)
+chr chr15 (101991189 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr15_KI270727v1_random (448248 bp)
+chr chr16 (90338345 bp)
+chr chr16 (90338345 bp)
+chr chr16 (90338345 bp)
+chr chr16 (90338345 bp)
+chr chr16 (90338345 bp)
+chr chr16 (90338345 bp)
+chr chr16 (90338345 bp)
+chr chr16 (90338345 bp)
+chr chr16 (90338345 bp)
+chr chr16 (90338345 bp)
+chr chr16 (90338345 bp)
+chr chr16 (90338345 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr16_KI270728v1_random (1872759 bp)
+chr chr17 (83257441 bp)
+chr chr17 (83257441 bp)
+chr chr17 (83257441 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr17 (83257441 bp)
+chr chr17 (83257441 bp)
+chr chr17 (83257441 bp)
+chr chr17 (83257441 bp)
+chr chr17 (83257441 bp)
+chr chr17 (83257441 bp)
+chr chr17 (83257441 bp)
+chr chr17 (83257441 bp)
+chr chr17 (83257441 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_GL000205v2_random (185591 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270729v1_random (280839 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr17_KI270730v1_random (112551 bp)
+chr chr18 (80373285 bp)
+chr chr18 (80373285 bp)
+chr chr18 (80373285 bp)
+chr chr18 (80373285 bp)
+chr chr18 (80373285 bp)
+chr chr18 (80373285 bp)
+chr chr18 (80373285 bp)
+chr chr18 (80373285 bp)
+chr chr18 (80373285 bp)
+chr chr18 (80373285 bp)
+chr chr18 (80373285 bp)
+chr chr18 (80373285 bp)
+chr chr19 (58617616 bp)
+chr chr19 (58617616 bp)
+chr chr19 (58617616 bp)
+chr chr19 (58617616 bp)
+chr chr19 (58617616 bp)
+chr chr19 (58617616 bp)
+chr chr19 (58617616 bp)
+chr chr19 (58617616 bp)
+chr chr19 (58617616 bp)
+chr chr19 (58617616 bp)
+chr chr19 (58617616 bp)
+chr chr19 (58617616 bp)
+chr chr1 (248956422 bp)
+chr chr1 (248956422 bp)
+chr chr1 (248956422 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr1 (248956422 bp)
+chr chr1 (248956422 bp)
+chr chr1 (248956422 bp)
+chr chr1 (248956422 bp)
+chr chr1 (248956422 bp)
+chr chr1 (248956422 bp)
+chr chr1 (248956422 bp)
+chr chr1 (248956422 bp)
+chr chr1 (248956422 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270706v1_random (175055 bp)
+chr chr1_KI270707v1_random (32032 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270708v1_random (127682 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr1_KI270709v1_random (66860 bp)
+chr chr1_KI270710v1_random (40176 bp)
+chr chr1_KI270711v1_random (42210 bp)
+chr chr1_KI270712v1_random (176043 bp)
+chr chr1_KI270713v1_random (40745 bp)
+chr chr1_KI270714v1_random (41717 bp)
+chr chr20 (64444167 bp)
+chr chr20 (64444167 bp)
+chr chr20 (64444167 bp)
+chr chr20 (64444167 bp)
+chr chr20 (64444167 bp)
+chr chr20 (64444167 bp)
+chr chr20 (64444167 bp)
+chr chr20 (64444167 bp)
+chr chr20 (64444167 bp)
+chr chr20 (64444167 bp)
+chr chr20 (64444167 bp)
+chr chr20 (64444167 bp)
+chr chr21 (46709983 bp)
+chr chr21 (46709983 bp)
+chr chr21 (46709983 bp)
+chr chr21 (46709983 bp)
+chr chr21 (46709983 bp)
+chr chr21 (46709983 bp)
+chr chr21 (46709983 bp)
+chr chr21 (46709983 bp)
+chr chr21 (46709983 bp)
+chr chr21 (46709983 bp)
+chr chr21 (46709983 bp)
+chr chr21 (46709983 bp)
+chr chr22 (50818468 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr22 (50818468 bp)
+chr chr22 (50818468 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr22 (50818468 bp)
+chr chr22 (50818468 bp)
+chr chr22 (50818468 bp)
+chr chr22 (50818468 bp)
+chr chr22 (50818468 bp)
+chr chr22 (50818468 bp)
+chr chr22 (50818468 bp)
+chr chr22 (50818468 bp)
+chr chr22 (50818468 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr22_KI270731v1_random (150754 bp)
+chr chr22_KI270732v1_random (41543 bp)
+chr chr22_KI270733v1_random (179772 bp)
+chr chr22_KI270734v1_random (165050 bp)
+chr chr22_KI270735v1_random (42811 bp)
+chr chr22_KI270736v1_random (181920 bp)
+chr chr22_KI270737v1_random (103838 bp)
+chr chr22_KI270738v1_random (99375 bp)
+chr chr22_KI270739v1_random (73985 bp)
+chr chr2 (242193529 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr2 (242193529 bp)
+chr chr2 (242193529 bp)
+chr chr2 (242193529 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr2 (242193529 bp)
+chr chr2 (242193529 bp)
+chr chr2 (242193529 bp)
+chr chr2 (242193529 bp)
+chr chr2 (242193529 bp)
+chr chr2 (242193529 bp)
+chr chr2 (242193529 bp)
+chr chr2 (242193529 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr2_KI270715v1_random (161471 bp)
+chr chr2_KI270716v1_random (153799 bp)
+chr chr3 (198295559 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr3 (198295559 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr3 (198295559 bp)
+chr chr3 (198295559 bp)
+chr chr3 (198295559 bp)
+chr chr3 (198295559 bp)
+chr chr3 (198295559 bp)
+chr chr3 (198295559 bp)
+chr chr3 (198295559 bp)
+chr chr3 (198295559 bp)
+chr chr3 (198295559 bp)
+chr chr3 (198295559 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr3_GL000221v1_random (155397 bp)
+chr chr4 (190214555 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr4 (190214555 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr4 (190214555 bp)
+chr chr4 (190214555 bp)
+chr chr4 (190214555 bp)
+chr chr4 (190214555 bp)
+chr chr4 (190214555 bp)
+chr chr4 (190214555 bp)
+chr chr4 (190214555 bp)
+chr chr4 (190214555 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr4 (190214555 bp)
+chr chr4 (190214555 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr4_GL000008v2_random (209709 bp)
+chr chr5 (181538259 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr5 (181538259 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr5 (181538259 bp)
+chr chr5 (181538259 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr5 (181538259 bp)
+chr chr5 (181538259 bp)
+chr chr5 (181538259 bp)
+chr chr5 (181538259 bp)
+chr chr5 (181538259 bp)
+chr chr5 (181538259 bp)
+chr chr5 (181538259 bp)
+chr chr5 (181538259 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr5_GL000208v1_random (92689 bp)
+chr chr6 (170805979 bp)
+chr chr6 (170805979 bp)
+chr chr6 (170805979 bp)
+chr chr6 (170805979 bp)
+chr chr6 (170805979 bp)
+chr chr6 (170805979 bp)
+chr chr6 (170805979 bp)
+chr chr6 (170805979 bp)
+chr chr6 (170805979 bp)
+chr chr6 (170805979 bp)
+chr chr6 (170805979 bp)
+chr chr6 (170805979 bp)
+chr chr7 (159345973 bp)
+chr chr7 (159345973 bp)
+chr chr7 (159345973 bp)
+chr chr7 (159345973 bp)
+chr chr7 (159345973 bp)
+chr chr7 (159345973 bp)
+chr chr7 (159345973 bp)
+chr chr7 (159345973 bp)
+chr chr7 (159345973 bp)
+chr chr7 (159345973 bp)
+chr chr7 (159345973 bp)
+chr chr7 (159345973 bp)
+chr chr8 (145138636 bp)
+chr chr8 (145138636 bp)
+chr chr8 (145138636 bp)
+chr chr8 (145138636 bp)
+chr chr8 (145138636 bp)
+chr chr8 (145138636 bp)
+chr chr8 (145138636 bp)
+chr chr8 (145138636 bp)
+chr chr8 (145138636 bp)
+chr chr8 (145138636 bp)
+chr chr8 (145138636 bp)
+chr chr8 (145138636 bp)
+chr chr9 (138394717 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chrEBV (171823 bp)
+chr chrM (16569 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chr9 (138394717 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chrEBV (171823 bp)
+chr chrM (16569 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chr9 (138394717 bp)
+chr chr9 (138394717 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chrEBV (171823 bp)
+chr chrM (16569 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chr9 (138394717 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chrEBV (171823 bp)
+chr chrM (16569 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chr9 (138394717 bp)
+chr chr9 (138394717 bp)
+chr chr9 (138394717 bp)
+chr chr9 (138394717 bp)
+chr chr9 (138394717 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chr9 (138394717 bp)
+chr chr9 (138394717 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chrEBV (171823 bp)
+chr chrM (16569 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chr9_KI270717v1_random (40062 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chr9_KI270718v1_random (38054 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chrEBV (171823 bp)
+chr chrM (16569 bp)
+chr chrEBV (171823 bp)
+chr chrEBV (171823 bp)
+chr chrEBV (171823 bp)
+chr chrM (16569 bp)
+chr chrM (16569 bp)
+chr chrM (16569 bp)
+chr chrEBV (171823 bp)
+chr chrM (16569 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270719v1_random (176845 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chr9_KI270720v1_random (39050 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chrEBV (171823 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrEBV (171823 bp)
+chr chrM (16569 bp)
+chr chrM (16569 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chrUn_GL000195v1 (182896 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrUn_GL000213v1 (164239 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000214v1 (137718 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000216v2 (176608 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000218v1 (161147 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_GL000219v1 (179198 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_GL000220v1 (161802 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_GL000224v1 (179693 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_GL000226v1 (15008 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270302v1 (2274 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_KI270303v1 (1942 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270304v1 (2165 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270305v1 (1472 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_KI270310v1 (1201 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270311v1 (12399 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_KI270312v1 (998 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_KI270315v1 (2276 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_KI270316v1 (1444 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270317v1 (37690 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270320v1 (4416 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270322v1 (21476 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270329v1 (1040 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270330v1 (1652 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270333v1 (2699 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270334v1 (1368 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270335v1 (1048 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270336v1 (1026 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270337v1 (1121 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270338v1 (1428 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270340v1 (1428 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_KI270362v1 (3530 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270363v1 (1803 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270364v1 (2855 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270366v1 (8320 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270371v1 (2805 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270372v1 (1650 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270373v1 (1451 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270374v1 (2656 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270375v1 (2378 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270376v1 (1136 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270378v1 (1048 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270379v1 (1045 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270381v1 (1930 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270382v1 (4215 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270383v1 (1750 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270384v1 (1658 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270385v1 (990 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270386v1 (1788 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270387v1 (1537 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270388v1 (1216 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270389v1 (1298 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270390v1 (2387 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270391v1 (1484 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270392v1 (971 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270393v1 (1308 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270394v1 (970 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270395v1 (1143 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270396v1 (1880 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270411v1 (2646 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270412v1 (1179 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270414v1 (2489 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270417v1 (2043 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270418v1 (2145 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270419v1 (1029 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270420v1 (2321 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270422v1 (1445 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270423v1 (981 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270424v1 (2140 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_KI270425v1 (1884 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270429v1 (1361 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_KI270435v1 (92983 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270438v1 (112505 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270442v1 (392061 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270448v1 (7992 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270465v1 (1774 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270466v1 (1233 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270467v1 (3920 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270468v1 (4055 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270507v1 (5353 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270508v1 (1951 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270509v1 (2318 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270510v1 (2415 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270511v1 (8127 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270512v1 (22689 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270515v1 (6361 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270516v1 (1300 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270517v1 (3253 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270518v1 (2186 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270519v1 (138126 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270521v1 (7642 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270522v1 (5674 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270528v1 (2983 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270529v1 (1899 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270530v1 (2168 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270538v1 (91309 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270539v1 (993 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270544v1 (1202 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270548v1 (1599 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270579v1 (31033 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270580v1 (1553 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270581v1 (7046 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270582v1 (6504 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270583v1 (1400 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270584v1 (4513 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270587v1 (2969 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270588v1 (6158 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270589v1 (44474 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270590v1 (4685 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270591v1 (5796 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270593v1 (3041 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270741v1 (157432 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270742v1 (186739 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270743v1 (210658 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270744v1 (168472 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270745v1 (41891 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chrUn_KI270746v1 (66486 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270747v1 (198735 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270748v1 (93321 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270749v1 (158759 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chrUn_KI270750v1 (148850 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270751v1 (150742 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270752v1 (27745 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chrUn_KI270753v1 (62944 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chrUn_KI270754v1 (40191 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chrUn_KI270755v1 (36723 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chrUn_KI270756v1 (79590 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chrUn_KI270757v1 (71251 bp)
+chr chrX (156040895 bp)
+chr chrX (156040895 bp)
+chr chrX (156040895 bp)
+chr chrX (156040895 bp)
+chr chrY (57227415 bp)
+chr chrY_KI270740v1_random (37240 bp)
+
+Single-core mode: setting pid to 1
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R2_val_2.fq.gz
+Input files are in FastQ format
+chr chrX (156040895 bp)
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1.fq.gz_C_to_T.fastq
+chr chrX (156040895 bp)
+chr chrX (156040895 bp)
+chr chrX (156040895 bp)
+chr chrX (156040895 bp)
+chr chrX (156040895 bp)
+chr chrX (156040895 bp)
+chr chrX (156040895 bp)
+chr chrY (57227415 bp)
+chr chrY_KI270740v1_random (37240 bp)
+
+Single-core mode: setting pid to 1
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R2_val_2.fq.gz
+Input files are in FastQ format
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1.fq.gz_C_to_T.fastq
+chr chrY (57227415 bp)
+chr chrY_KI270740v1_random (37240 bp)
+
+Single-core mode: setting pid to 1
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R2_val_2.fq.gz
+Input files are in FastQ format
+chr chrY (57227415 bp)
+chr chrY_KI270740v1_random (37240 bp)
+
+Single-core mode: setting pid to 1
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz
+Input files are in FastQ format
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1.fq.gz_C_to_T.fastq
+chr chrY (57227415 bp)
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz_C_to_T.fastq
+chr chrY_KI270740v1_random (37240 bp)
+
+Single-core mode: setting pid to 1
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R2_val_2.fq.gz
+Input files are in FastQ format
+chr chrY (57227415 bp)
+chr chrY (57227415 bp)
+chr chrY (57227415 bp)
+chr chrY (57227415 bp)
+chr chrY (57227415 bp)
+chr chrY (57227415 bp)
+chr chrY (57227415 bp)
+chr chrY_KI270740v1_random (37240 bp)
+
+Single-core mode: setting pid to 1
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R2_val_2.fq.gz
+Input files are in FastQ format
+chr chrY_KI270740v1_random (37240 bp)
+
+chr chrY_KI270740v1_random (37240 bp)
+Single-core mode: setting pid to 1
+
+Single-core mode: setting pid to 1
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R2_val_2.fq.gz
+Input files are in FastQ format
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R2_val_2.fq.gz
+Input files are in FastQ format
+chr chrY_KI270740v1_random (37240 bp)
+
+Single-core mode: setting pid to 1
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R2_val_2.fq.gz
+chr chrY_KI270740v1_random (37240 bp)
+Input files are in FastQ format
+
+Single-core mode: setting pid to 1
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R2_val_2.fq.gz
+Input files are in FastQ format
+chr chrY_KI270740v1_random (37240 bp)
+
+Single-core mode: setting pid to 1
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Input files are in FastQ format
+chr chrY_KI270740v1_random (37240 bp)
+
+Single-core mode: setting pid to 1
+
+Paired-end alignments will be performed
+=======================================
+
+The provided filenames for paired-end alignments are GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R2_val_2.fq.gz
+Input files are in FastQ format
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1.fq.gz_C_to_T.fastq
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1.fq.gz_C_to_T.fastq
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1.fq.gz_C_to_T.fastq
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1.fq.gz_C_to_T.fastq
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1.fq.gz_C_to_T.fastq
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1.fq.gz_C_to_T.fastq
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz_C_to_T.fastq
+Writing a C -> T converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1.fq.gz_C_to_T.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1.fq.gz (6749962 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1.fq.gz (6977021 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1.fq.gz (6859049 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1.fq.gz (6922533 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1.fq.gz (7059889 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1.fq.gz (7409597 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1.fq.gz (7566009 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1.fq.gz (7852076 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz (7621812 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1.fq.gz (7422655 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz (8323715 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created C -> T converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1.fq.gz (9114020 sequences in total)
+
+Writing a G -> A converted version of the input file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R2_val_2.fq.gz to GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz (7621812 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R2_val_2.fq.gz (7852076 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R2_val_2.fq.gz (6749962 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R2_val_2.fq.gz (7566009 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R2_val_2.fq.gz (6922533 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R2_val_2.fq.gz (6977021 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R2_val_2.fq.gz (6859049 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R2_val_2.fq.gz (7059889 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R2_val_2.fq.gz (7409597 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R2_val_2.fq.gz (7422655 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz (8323715 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+
+Created G -> A converted version of the FastQ file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R2_val_2.fq.gz (9114020 sequences in total)
+
+Input files are GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R2_val_2.fq.gz_G_to_A.fastq (FastQ)
+Now running 2 instances of Bowtie 2 against the bisulfite genome of /storage/zhangyanxiaoLab/zhangliwen/genome/hg38/ with the specified options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500
+
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2CTgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --norc))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:19696:1031_1:N:0:GGCTAC/1	99	chr9_CT_converted	26119469	42	150M	=	26119580	261	ANTATGAAATGTTATTTTTTTAGAAAAGTTTTGGTTGGGGTGGTGGTTTATATTTGTAATTTTAGTATTTTGGGAGGTTGAGGTGGGTAGATTATGAGGTTAGGAGATTGAGATTATTTTGGTTAATATGATGAAATTTTTTTATTATTA	F#FF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFFFFFF:FFF:F:FFFFFF,FFFFFF,F::FFF:F:FF:FFFFFFF:FFF:FFFFFFFFFFFFFF:FFFFFFFFFFF,FFFFFF,F::FFFF:FF,FFFFFFF:F	AS:i:-7	XN:i:0	XM:i:2	XO:i:0	XG:i:0	NM:i:2	MD:Z:1T138G9	YS:i:0	YT:Z:CP
+A01758:350:HFCWVDSX7:1:1101:19696:1031_2:N:0:GGCTAC/2	147	chr9_CT_converted	26119580	42	150M	=	26119469	-261	GATTATTTTGGTTAATATGATGAAATTTTGTTATTATTAAAAATATAAAAAATTAGTTAGGTGTGATGGTGGGTGTTTGTAGTTTTAGTTATTTTGGAGGTTGAGGTAGGAGAATGGTGTGAATTTGGGAGGTGGGGTTTGTAGTGAGTT	FFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFF:F:FFFFFFFFFFFF:FFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	AS:i:0	XN:i:0	XM:i:0	XO:i:0	XG:i:0	NM:i:0	MD:Z:150	YS:i:-7	YT:Z:CP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:3188:1031_1:N:0:AGTCAA/1	99	chr1_CT_converted	161398713	42	150M	=	161398924	360	ANTTTTATATTTTTAGTGGAGATGGGGTTTTATTATTTTGGTTAGGTTGGTTTGGAATATTTTGATTTTGTGATTTATTTATTTTAGTTTTTTAAAGTGTTGGGATTATAGGTGTGAGTTATTGTGTTTAGTTTTATATATTTTTTTTTT	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	AS:i:-1	XN:i:0	XM:i:1	XO:i:0	XG:i:0	NM:i:1	MD:Z:1T148	YS:i:0	YT:Z:CP
+A01758:350:HFCWVDSX7:1:1101:3188:1031_2:N:0:AGTCAA/2	147	chr1_CT_converted	161398924	42	149M	=	161398713	-360	TAAAAATGTATATTTTTTTTATTTGATTTAGAATTTAAAAATTTTGAAAGGAAAGAGAAAGAATTAATATTTTTGTGATTGAGAATTGGATGGTGATAAATGAGAAAATAAATATAGTAAAGATAAGTTTGGGGGGGTGATAGAGTAGA	FFFFFFFFFFFF,F:FFFF:F:FFFFFFFF,FF:FFFFFFFF,F,FFFF:FFFFFFFFFFFFFFF:FFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	AS:i:0	XN:i:0	XM:i:0	XO:i:0	XG:i:0	NM:i:0	MD:Z:149	YS:i:-1	YT:Z:CP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:6732:1031_1:N:0:GTACTT/1	99	chr20_CT_converted	41924438	42	150M	=	41924464	176	TNTAGATAATGTTAGAAATGTTTATTATGAAGATATATATTATATTTTTTTATGTTTAAGGAATATTTTGTTATATATTGTTATAAATATAGGAATGATTATGTTTATGTTATAGATGAGAAAATTGAGGATTTGAGAGGTTAATTAATA	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFFFFFFFFFFFFFFFFFFFFFFFF:F:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	AS:i:-1	XN:i:0	XM:i:1	XO:i:0	XG:i:0	NM:i:1	MD:Z:1T148	YS:i:0	YT:Z:CP
+A01758:350:HFCWVDSX7:1:1101:6732:1031_2:N:0:GTACTT/2	147	chr20_CT_converted	41924464	42	150M	=	41924438	-176	ATGAAGATATATATTATATTTTTTTATGTTTAAGGAATATTTTGTTATATATTGTTATAAATATAGGAATGATTATGTTTATGTTATAGATGAGAAAATTGAGGATTTGAGAGGTTAATTAATATTGAATTTGAATTAGTAGTAGTATGT	FFFFF,FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	AS:i:0	XN:i:0	XM:i:0	XO:i:0	XG:i:0	NM:i:0	MD:Z:150	YS:i:-1	YT:Z:CP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:5647:1031_1:N:0:TCCCGA/1	77	*	0	0	*	*	0	0	TNTTGTTAAGTTTTGTGGTTGGTTTTGGGGAAAAGAGGTTTTGGTTTTTATGATTTATTTTGAGAAAGAGGAATTTTAGTTTTTGTGGGTTTTTTTGGAGGAGAATAAGGAGAGAGAGAGATAGGAGGGTAGAAGAAGGTTAAAGAGAAA	F#FFF:FFFF:,FFFFFFFFFFFFFFF:FFFFFFFFFFFFFF:FFFFFFFFFFFFFFFF:FFFFFFFFFF,FFFFFFFFF,FF::FF::FFFFFFFF,FF,FFFFFFF,,FFFFFF,FF:FFFF:FF:FFFFFF,FF,FF:FF:,:F:F:	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:5647:1031_2:N:0:TCCCGA/2	141	*	0	0	*	*	0	0	CTTTTTCCTTATTCTATAAAAAAAATAAAAATTAAATAATATTAAAACTCAAAAAACAATACCACAAAATAAAAACCTCAAAAACAATTTCTCTTTAACCTTCTTCTACCCTCCTATCTCTCTCTCTCCTTATTCTCCTCCAAAAAAACC	F:FFFFFFFFFFFFF:F:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFF:FFF:FFF:FFFFFFFFFFFFFFFFFFFFFFFFFFF:::F::F::FF:FF,:FFFF:FFFFFFF:FFFFFFFFFF,FF	YT:Z:UP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:8088:1031_1:N:0:GTTACC/1	99	chr6_CT_converted	40798903	42	150M	=	40799125	372	TNTTTTTATTTTTATTTTTTTTATTTATTTTTTTTTTTTTTATATTTATTTGTTTTGTGTTTTATTTTTTGTTATTTTTGTTGTTTGTAGGGTGGTAAGTTGTTATTTTGGTAAAGGAAATTATAGGAATATATTAAGGGTATTTAGATA	F#FFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFF:FFF:FF:F:FF,::FFFFFFFFFFF:FFFFFFFF,FF,F,FFF:FFF,::FFF:FF:FFFFFFF,FFFFF:F:FFFFFFFF,FFFFFFFFFF:FFFFFFFF,FFF	AS:i:-1	XN:i:0	XM:i:1	XO:i:0	XG:i:0	NM:i:1	MD:Z:1A148	YS:i:0	YT:Z:CP
+A01758:350:HFCWVDSX7:1:1101:8088:1031_2:N:0:GTTACC/2	147	chr6_CT_converted	40799125	42	150M	=	40798903	-372	GTTAATAAATATGTTTATTATAGTTTGAAAGGTTTTGTTTTTGGTATTGGAAATTAGTGGAGTGTAGGATATTTAAGAGTTATTTAGGTGATGGTAGGATGTATAGGGAATAGTAGAATATTTTTTGTGTTTAGAATTAAAGTAGGTAGT	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFF:F	AS:i:0	XN:i:0	XM:i:0	XO:i:0	XG:i:0	NM:i:0	MD:Z:150	YS:i:-1	YT:Z:CP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:2446:1031_1:N:0:TCGAAG/1	77	*	0	0	*	*	0	0	TNATATGGTTTTTATTTTAGGTTAGGAGAGTTAGATTAGTAGGAGTAGGATGATAATTTTTGGTAGGAAAGGAAAGGGTTATTAGTTTAGTTTTTGTATTTATAGGAGTTTTTTTTGTTGTTTTGTTTGTTTTTTTTTTTGATAATTTTT	F#FFFFF,FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFF:FFF:FFFFFF,FFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFF,,F:F:F:FF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:2446:1031_2:N:0:TCGAAG/2	141	*	0	0	*	*	0	0	TTATATAATTTTCACCCTAAACCAAAAAAACCAAACTAACAAAAATAAAATATAACCTTTAACAAAAAAAAAAAAAACCATCAACTCAACTTTTACACCCACAAAAACTCTTTCTACTATTTTATTTATTTTTCCTCTTAATAATTTTAT	FFFFFFFFF:FF:,:FFFFFF::FF:FFFFFFFF,FFFFFFFFFFFFF:FFFFFF:FFFFFFFFF,FFF:FFF:FFFF:FFFFFFF:FF:,FFFFFFFF,FFFFFFFFFFFFF,F:,FFF:FFFFFFFFFFFFFFFFF,,:,FFF:FF,F	YT:Z:UP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:17815:1031_1:N:0:TCCACA/1	99	chr16_CT_converted	46401104	6	150M	=	46401396	442	ANTATTATTGAATGGAATTGAATGAAATTATAATTGAATGGAGTTGAATGGAATTATTATTGAATGGAGTTGAATGGAAATATTATTGAATGGAATTAAATGAAATTATTGAATTGAATTAAATGGAATGATTATTAAAGGGAATTAAAG	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFF,FFFFF:FFFFFFFF,F,F,FFFFFF	AS:i:-1	XS:i:-1	XN:i:0	XM:i:1	XO:i:0	XG:i:0	NM:i:1	MD:Z:1T148	YS:i:-12	YT:Z:CP
+A01758:350:HFCWVDSX7:1:1101:17815:1031_2:N:0:TCCACA/2	147	chr16_CT_converted	46401396	6	150M	=	46401104	-442	GAATAATTATTGAATGTAATTGAATGGATTTATTTAATGGAATTAAATGGAATTATTAAATGGAATTGAATGGAATTATTATTAAATGGAATTGAATGGAATTATTGAATGGAATTAAAGGTAATTATGGTTGAATGGAATTAAATGGAG	FFFFFFFFF:FFFFFFFFFFFFFFFF:F:FFFFFFFFF,FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFF:FFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	AS:i:-12	XS:i:-18	XN:i:0	XM:i:2	XO:i:0	XG:i:0	NM:i:2	MD:Z:86A62A0	YS:i:-1	YT:Z:CP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:7057:1031_1:N:0:TCCTGC/1	77	*	0	0	*	*	0	0	ANTAAAATTTTTGGGGTTTAAGATTAATGGATAGTTGTTATTTTTTAAAAGTTGAGAAAGTTATGTTGTTAGATATGGGGGTATGAGTTAGTAGTTTTTGTGAGTTTTTTTGGTAAATAAGGGGTTGTAAGTTTTTGTTGTTAGATTTAT	F#FFFF:FFFFFFFFFFFFFFFFFFFFF:FFF:FFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFF:FFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFF,FF:F:	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:7057:1031_2:N:0:TCCTGC/2	141	*	0	0	*	*	0	0	CACACAAAAAAACACCCTCATATTCATACACCTATCCCCCATTCTCCTCCTATCCCTCAACCCCAACATCATTACCAAATTTTCCTCTTATAAATATAATTTAACCAAAACATCAAATTATAAATCTAACAACAAAAACTTACAACCCCT	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFF,FFFFFFFFF:FFF,F:FFF:FFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFF,FFF:FFFFF	YT:Z:UP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:7039:1031_1:N:0:CTTGTA/1	99	chr2_CT_converted	229890756	42	150M	=	229890796	190	TNAAAAAAAATTTTAAATGTTATATTTTATAGATTAATGTTTTATATTTTTATATTTAGTATTTTTATTAAAAATAAGTAGATGTTAAAGATTGTTTTTATATTGAGTTAGAATATGTATAAATTAGGAGTTAAGAGAAAATTTAGAGTT	F#FFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFF:FF	AS:i:-1	XN:i:0	XM:i:1	XO:i:0	XG:i:0	NM:i:1	MD:Z:1A148	YS:i:0	YT:Z:CP
+A01758:350:HFCWVDSX7:1:1101:7039:1031_2:N:0:CTTGTA/2	147	chr2_CT_converted	229890796	42	150M	=	229890756	-190	TTTATATTTTTATATTTAGTATTTTTATTAAAAATAAGTAGATGTTAAAGATTGTTTTTATATTGAGTTAGAATATGTATAAATTAGGAGTTAAGAGAAAATTTAGAGTTGTATTTTTTAAATGTAAATTTTTGTAATATAGATTTTTGG	:FFFFF:F:FFFFFFF:FFFFF:FFFF:FFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFF	AS:i:0	XN:i:0	XM:i:0	XO:i:0	XG:i:0	NM:i:0	MD:Z:150	YS:i:-1	YT:Z:CP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:14488:1063_1:N:0:GAGTGG/1	77	*	0	0	*	*	0	0	TNTGGAGAATGGTTTTTTTTGTGATAGATTTTAGTTATTTATTTATGTTTGTTTTTTAGAGGTAATGTTTATTATAATGTTTTTTAAAAATGTTTTTATAGGAAGATTTTTTAGTATAGTAATTTTTTTTTTTTTTTTTTATATGGATTT	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFF:FFFFF:F:F:F:FFFFFFFFFFFFF,F,FF,:,,FF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:14488:1063_2:N:0:GAGTGG/2	141	*	0	0	*	*	0	0	TATAAAAAATAATCTCTCTCATAATAAACCCCAACCATCTATTCATACCTACTTTCCAAAAACAATACCTATCATAATACTTCTTAAAAATACCTCTACAAAAAAACTTTCTAACATAATAATTTTTTTTTTTTTTTTTAAAATAAA	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FF:F:FFFFFFFFFFFFFFFFF	YT:Z:UP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:5249:1031_1:N:0:CGTACG/1	77	*	0	0	*	*	0	0	ANGTAAATTTTTATTTTTTTATTTTAGATATTAATGTTAATAATAAGATTTGTAGTTTTTTTTTTTGTGGTTAAAAAGTGTTTATGTTAATAGTTTTGATTTTTTTTTAATAATTTAAAATTAATAAAATTTTGTTAAGTATATAATTAT	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,::FFF:FFFF,F,FFFFF:F:FF,F,,:FFF,,FFFFFF:,F:,FFF,:FF,F,F,F::F:F,,F::FF,,F,F,FF::FFFF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:5249:1031_2:N:0:CGTACG/2	141	*	0	0	*	*	0	0	AAAAATATATTTTATACCCATCTCCTAAAAATTTACTAATTACTTAATTTATTCAATTTACAATAATTATCTCCTTAACAACATTTTCTTACTTTTAAATTCTTTAAAAAAAATCAAAACTATTAACATAAACACTTTTTAACCACAAAA	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFF:FFFFFFFFFFFFFF:FFFFFF:FFFFFFFFFFF,FFFFFFFFFFFFFFFFFF	YT:Z:UP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:9317:1031_1:N:0:CCAACA/1	77	*	0	0	*	*	0	0	TNTTGTTTTTTTTGTATGTTTTTATAATATGTATATGATGATAAGTATTATTATTTAGTGAATAGAAAATATGAAAATTGAAAATGGATGGTAGATTTATTAAATTGGAAATGAATATATTATTAGTGGGTATTTGTTTTTAGGTATTGA	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFF,FF:FF,FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FF,FFFFFFFFFFFFFFFFFF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:9317:1031_2:N:0:CCAACA/2	141	*	0	0	*	*	0	0	CCTTACTTCTCTTACATACTTTTATAACATATATATAATAATAAACATTACTACTCAATACCTAAAAACAAATACCCACTAATAATATATTCATTTCCAATTTAATAAATCTACCATCCATTTTCAATTTTCATATTTTCTATTCACTAA	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFF::FFFFFFF:FFFF:FFF:FFF,:FFFF:FFFFF::,:FFFFF,FFFF,F:FFF	YT:Z:UP
+Now starting a Bowtie 2 paired-end alignment for CTread1GAread2GAgenome (reading in sequences from GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R2_val_2.fq.gz_G_to_A.fastq, with the options: -q --score-min L,0,-0.2 --ignore-quals --no-mixed --no-discordant --dovetail --maxins 500 --nofw))
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:5249:1031_1:N:0:CGTACG/1	77	*	0	0	*	*	0	0	ANGTAAATTTTTATTTTTTTATTTTAGATATTAATGTTAATAATAAGATTTGTAGTTTTTTTTTTTGTGGTTAAAAAGTGTTTATGTTAATAGTTTTGATTTTTTTTTAATAATTTAAAATTAATAAAATTTTGTTAAGTATATAATTAT	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,::FFF:FFFF,F,FFFFF:F:FF,F,,:FFF,,FFFFFF:,F:,FFF,:FF,F,F,F::F:F,,F::FF,,F,F,FF::FFFF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:5249:1031_2:N:0:CGTACG/2	141	*	0	0	*	*	0	0	AAAAATATATTTTATACCCATCTCCTAAAAATTTACTAATTACTTAATTTATTCAATTTACAATAATTATCTCCTTAACAACATTTTCTTACTTTTAAATTCTTTAAAAAAAATCAAAACTATTAACATAAACACTTTTTAACCACAAAA	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFF:FFFFFFFFFFFFFF:FFFFFF:FFFFFFFFFFF,FFFFFFFFFFFFFFFFFF	YT:Z:UP
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:7057:1031_1:N:0:TCCTGC/1	83	chrM_GA_converted	12168	42	150M	=	12049	-269	ATAAATCTAACAACAAAAACTTACAACCCCTTATTTACCAAAAAAACTCACAAAAACTACTAACTCATACCCCCATATCTAACAACATAACTTTCTCAACTTTTAAAAAATAACAACTATCCATTAATCTTAAACCCCAAAAATTTTANT	:F:FF,FFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFF:FFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFF:FFF:FFFFFFFFFFFFFFFFFFFFF:FFFF#F	AS:i:-1	XN:i:0	XM:i:1	XO:i:0	XG:i:0	NM:i:1	MD:Z:148A1	YS:i:0	YT:Z:CP
+A01758:350:HFCWVDSX7:1:1101:7057:1031_2:N:0:TCCTGC/2	163	chrM_GA_converted	12049	42	150M	=	12168	269	CACACAAAAAAACACCCTCATATTCATACACCTATCCCCCATTCTCCTCCTATCCCTCAACCCCAACATCATTACCAAATTTTCCTCTTATAAATATAATTTAACCAAAACATCAAATTATAAATCTAACAACAAAAACTTACAACCCCT	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFF,FFFFFFFFF:FFF,F:FFF:FFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFF,FFF:FFFFF	AS:i:0	XN:i:0	XM:i:0	XO:i:0	XG:i:0	NM:i:0	MD:Z:150	YS:i:-1	YT:Z:CP
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:19696:1031_1:N:0:GGCTAC/1	77	*	0	0	*	*	0	0	ANTATGAAATGTTATTTTTTTAGAAAAGTTTTGGTTGGGGTGGTGGTTTATATTTGTAATTTTAGTATTTTGGGAGGTTGAGGTGGGTAGATTATGAGGTTAGGAGATTGAGATTATTTTGGTTAATATGATGAAATTTTTTTATTATTA	F#FF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFFFFFF:FFF:F:FFFFFF,FFFFFF,F::FFF:F:FF:FFFFFFF:FFF:FFFFFFFFFFFFFF:FFFFFFFFFFF,FFFFFF,F::FFFF:FF,FFFFFFF:F	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:19696:1031_2:N:0:GGCTAC/2	141	*	0	0	*	*	0	0	AACTCACTACAAACCCCACCTCCCAAATTCACACCATTCTCCTACCTCAACCTCCAAAATAACTAAAACTACAAACACCCACCATCACACCTAACTAATTTTTTATATTTTTAATAATAACAAAATTTCATCATATTAACCAAAATAATC	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFF:FFFFFFFFFFFF:F:FFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFF	YT:Z:UP
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:17815:1031_1:N:0:TCCACA/1	77	*	0	0	*	*	0	0	ANTATTATTGAATGGAATTGAATGAAATTATAATTGAATGGAGTTGAATGGAATTATTATTGAATGGAGTTGAATGGAAATATTATTGAATGGAATTAAATGAAATTATTGAATTGAATTAAATGGAATGATTATTAAAGGGAATTAAAG	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFF,FFFFF:FFFFFFFF,F,F,FFFFFF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:17815:1031_2:N:0:TCCACA/2	141	*	0	0	*	*	0	0	CTCCATTTAATTCCATTCAACCATAATTACCTTTAATTCCATTCAATAATTCCATTCAATTCCATTTAATAATAATTCCATTCAATTCCATTTAATAATTCCATTTAATTCCATTAAATAAATCCATTCAATTACATTCAATAATTATTC	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFF:FFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFFFFFFFF:F:FFFFFFFFFFFFFFFF:FFFFFFFFF	YT:Z:UP
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:8088:1031_1:N:0:GTTACC/1	77	*	0	0	*	*	0	0	TNTTTTTATTTTTATTTTTTTTATTTATTTTTTTTTTTTTTATATTTATTTGTTTTGTGTTTTATTTTTTGTTATTTTTGTTGTTTGTAGGGTGGTAAGTTGTTATTTTGGTAAAGGAAATTATAGGAATATATTAAGGGTATTTAGATA	F#FFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFF:FFF:FF:F:FF,::FFFFFFFFFFF:FFFFFFFF,FF,F,FFF:FFF,::FFF:FF:FFFFFFF,FFFFF:F:FFFFFFFF,FFFFFFFFFF:FFFFFFFF,FFF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:8088:1031_2:N:0:GTTACC/2	141	*	0	0	*	*	0	0	ACTACCTACTTTAATTCTAAACACAAAAAATATTCTACTATTCCCTATACATCCTACCATCACCTAAATAACTCTTAAATATCCTACACTCCACTAATTTCCAATACCAAAAACAAAACCTTTCAAACTATAATAAACATATTTATTAAC	F:FFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	YT:Z:UP
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:7039:1031_1:N:0:CTTGTA/1	77	*	0	0	*	*	0	0	TNAAAAAAAATTTTAAATGTTATATTTTATAGATTAATGTTTTATATTTTTATATTTAGTATTTTTATTAAAAATAAGTAGATGTTAAAGATTGTTTTTATATTGAGTTAGAATATGTATAAATTAGGAGTTAAGAGAAAATTTAGAGTT	F#FFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFF:FF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:7039:1031_2:N:0:CTTGTA/2	141	*	0	0	*	*	0	0	CCAAAAATCTATATTACAAAAATTTACATTTAAAAAATACAACTCTAAATTTTCTCTTAACTCCTAATTTATACATATTCTAACTCAATATAAAAACAATCTTTAACATCTACTTATTTTTAATAAAAATACTAAATATAAAAATATAAA	FFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFF:FFFF:FFFFF:FFFFFFF:F:FFFFF:	YT:Z:UP
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:2446:1031_1:N:0:TCGAAG/1	77	*	0	0	*	*	0	0	TNATATGGTTTTTATTTTAGGTTAGGAGAGTTAGATTAGTAGGAGTAGGATGATAATTTTTGGTAGGAAAGGAAAGGGTTATTAGTTTAGTTTTTGTATTTATAGGAGTTTTTTTTGTTGTTTTGTTTGTTTTTTTTTTTGATAATTTTT	F#FFFFF,FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFF:FFF:FFFFFF,FFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFF,,F:F:F:FF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:2446:1031_2:N:0:TCGAAG/2	141	*	0	0	*	*	0	0	TTATATAATTTTCACCCTAAACCAAAAAAACCAAACTAACAAAAATAAAATATAACCTTTAACAAAAAAAAAAAAAACCATCAACTCAACTTTTACACCCACAAAAACTCTTTCTACTATTTTATTTATTTTTCCTCTTAATAATTTTAT	FFFFFFFFF:FF:,:FFFFFF::FF:FFFFFFFF,FFFFFFFFFFFFF:FFFFFF:FFFFFFFFF,FFF:FFF:FFFF:FFFFFFF:FF:,FFFFFFFF,FFFFFFFFFFFFF,F:,FFF:FFFFFFFFFFFFFFFFF,,:,FFF:FF,F	YT:Z:UP
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:9317:1031_1:N:0:CCAACA/1	77	*	0	0	*	*	0	0	TNTTGTTTTTTTTGTATGTTTTTATAATATGTATATGATGATAAGTATTATTATTTAGTGAATAGAAAATATGAAAATTGAAAATGGATGGTAGATTTATTAAATTGGAAATGAATATATTATTAGTGGGTATTTGTTTTTAGGTATTGA	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFF,FF:FF,FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FF,FFFFFFFFFFFFFFFFFF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:9317:1031_2:N:0:CCAACA/2	141	*	0	0	*	*	0	0	CCTTACTTCTCTTACATACTTTTATAACATATATATAATAATAAACATTACTACTCAATACCTAAAAACAAATACCCACTAATAATATATTCATTTCCAATTTAATAAATCTACCATCCATTTTCAATTTTCATATTTTCTATTCACTAA	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFF::FFFFFFF:FFFF:FFF:FFF,:FFFF:FFFFF::,:FFFFF,FFFF,F:FFF	YT:Z:UP
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:5647:1031_1:N:0:TCCCGA/1	83	chr10_GA_converted	108521093	42	150M	=	108521006	-237	TTTCTCTTTAACCTTCTTCTACCCTCCTATCTCTCTCTCTCCTTATTCTCCTCCAAAAAAACCCACAAAAACTAAAATTCCTCTTTCTCAAAATAAATCATAAAAACCAAAACCTCTTTTCCCCAAAACCAACCACAAAACTTAACAANA	:F:F:,:FF:FF,FF,FFFFFF:FF:FFFF:FF,FFFFFF,,FFFFFFF,FF,FFFFFFFF::FF::FF,FFFFFFFFF,FFFFFFFFFF:FFFFFFFFFFFFFFFF:FFFFFFFFFFFFFF:FFFFFFFFFFFFFFF,:FFFF:FFF#F	AS:i:-1	XN:i:0	XM:i:1	XO:i:0	XG:i:0	NM:i:1	MD:Z:148C1	YS:i:0	YT:Z:CP
+A01758:350:HFCWVDSX7:1:1101:5647:1031_2:N:0:TCCCGA/2	163	chr10_GA_converted	108521006	42	150M	=	108521093	237	CTTTTTCCTTATTCTATAAAAAAAATAAAAATTAAATAATATTAAAACTCAAAAAACAATACCACAAAATAAAAACCTCAAAAACAATTTCTCTTTAACCTTCTTCTACCCTCCTATCTCTCTCTCTCCTTATTCTCCTCCAAAAAAACC	F:FFFFFFFFFFFFF:F:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFF:FFF:FFF:FFFFFFFFFFFFFFFFFFFFFFFFFFF:::F::F::FF:FF,:FFFF:FFFFFFF:FFFFFFFFFF,FF	AS:i:0	XN:i:0	XM:i:0	XO:i:0	XG:i:0	NM:i:0	MD:Z:150	YS:i:-1	YT:Z:CP
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:3188:1031_1:N:0:AGTCAA/1	77	*	0	0	*	*	0	0	ANTTTTATATTTTTAGTGGAGATGGGGTTTTATTATTTTGGTTAGGTTGGTTTGGAATATTTTGATTTTGTGATTTATTTATTTTAGTTTTTTAAAGTGTTGGGATTATAGGTGTGAGTTATTGTGTTTAGTTTTATATATTTTTTTTTT	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:3188:1031_2:N:0:AGTCAA/2	141	*	0	0	*	*	0	0	TCTACTCTATCACCCCCCCAAACTTATCTTTACTATATTTATTTTCTCATTTATCACCATCCAATTCTCAATCACAAAAATATTAATTCTTTCTCTTTCCTTTCAAAATTTTTAAATTCTAAATCAAATAAAAAAAATATACATTTTTA	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFF:FFFFFFFFFFFFFFF:FFFF,F,FFFFFFFF:FF,FFFFFFFF:F:FFFF:F,FFFFFFFFFFFF	YT:Z:UP
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:6732:1031_1:N:0:GTACTT/1	77	*	0	0	*	*	0	0	TNTAGATAATGTTAGAAATGTTTATTATGAAGATATATATTATATTTTTTTATGTTTAAGGAATATTTTGTTATATATTGTTATAAATATAGGAATGATTATGTTTATGTTATAGATGAGAAAATTGAGGATTTGAGAGGTTAATTAATA	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFFFFFFFFFFFFFFFFFFFFFFFF:F:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:6732:1031_2:N:0:GTACTT/2	141	*	0	0	*	*	0	0	ACATACTACTACTAATTCAAATTCAATATTAATTAACCTCTCAAATCCTCAATTTTCTCATCTATAACATAAACATAATCATTCCTATATTTATAACAATATATAACAAAATATTCCTTAAACATAAAAAAATATAATATATATCTTCAT	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFFFF	YT:Z:UP
+Found first alignment:
+A01758:350:HFCWVDSX7:1:1101:14488:1063_1:N:0:GAGTGG/1	77	*	0	0	*	*	0	0	TNTGGAGAATGGTTTTTTTTGTGATAGATTTTAGTTATTTATTTATGTTTGTTTTTTAGAGGTAATGTTTATTATAATGTTTTTTAAAAATGTTTTTATAGGAAGATTTTTTAGTATAGTAATTTTTTTTTTTTTTTTTTATATGGATTT	F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFF:FFFFF:F:F:F:FFFFFFFFFFFFF,F,FF,:,,FF	YT:Z:UP
+A01758:350:HFCWVDSX7:1:1101:14488:1063_2:N:0:GAGTGG/2	141	*	0	0	*	*	0	0	TATAAAAAATAATCTCTCTCATAATAAACCCCAACCATCTATTCATACCTACTTTCCAAAAACAATACCTATCATAATACTTCTTAAAAATACCTCTACAAAAAAACTTTCTAACATAATAATTTTTTTTTTTTTTTTTAAAATAAA	FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FF:F:FFFFFFFFFFFFFFFFF	YT:Z:UP
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+>>> Writing bisulfite mapping results to GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1_bismark_bt2_pe.bam <<<
+
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R2_val_2.fq.gz
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R2_val_2.fq.gz
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R2_val_2.fq.gz
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R2_val_2.fq.gz
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R2_val_2.fq.gz
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R2_val_2.fq.gz
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R2_val_2.fq.gz
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R2_val_2.fq.gz
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R2_val_2.fq.gz
+
+Reading in the sequence files GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1.fq.gz and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R2_val_2.fq.gz
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1101:17752:10567_1:N:0:CCAACA	chrUn_KI270417v1	1896
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1116:18828:11240_1:N:0:CGTACG	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1116:18846:18850_1:N:0:CGTACG	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1123:17092:27492_1:N:0:TCCACA	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1125:26051:3051_1:N:0:GGCTAC	chrUn_KI270518v1	2036
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1174:12373:19132_1:N:0:TCCACA	chr14_GL000225v1_random	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1166:14398:22106_1:N:0:CTTGTA	chrUn_KI270467v1	3769
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1206:22028:9298_1:N:0:TCCCGA	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1201:2519:25927_1:N:0:AGTCAA	chr1_KI270709v1_random	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1210:6234:8750_1:N:0:CTTGTA	chrUn_KI270467v1	3769
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1210:5113:10504_1:N:0:CTTGTA	chrUn_KI270467v1	3769
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1211:24731:25473_1:N:0:GTACTT	chrM	16424
+Processed 1000000 sequence pairs so far
+Processed 1000000 sequence pairs so far
+Processed 1000000 sequence pairs so far
+Processed 1000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1253:5891:3208_1:N:0:TCGAAG	chrUn_KI270590v1	4536
+Processed 1000000 sequence pairs so far
+Processed 1000000 sequence pairs so far
+Processed 1000000 sequence pairs so far
+Processed 1000000 sequence pairs so far
+Processed 1000000 sequence pairs so far
+Processed 1000000 sequence pairs so far
+Processed 1000000 sequence pairs so far
+Processed 1000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1246:14326:28620_1:N:0:GTACTT	chrM	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1324:6686:8970_1:N:0:TCCACA	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1344:4435:13056_1:N:0:CCAACA	chrM	16422
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1346:26756:7247_1:N:0:AGTCAA	chrM	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1346:26711:7388_1:N:0:AGTCAA	chrM	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1364:13919:23970_1:N:0:CCAACA	chrM	2
+Processed 2000000 sequence pairs so far
+Processed 2000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1419:21956:19163_1:N:0:TCGAAG	chrM	16420
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1419:21404:19742_1:N:0:TCGAAG	chrM	16420
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1422:30373:9377_1:N:0:TCCCGA	chrM	1
+Processed 2000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1343:21956:26647_1:N:0:GTACTT	chrM	16419
+Processed 2000000 sequence pairs so far
+Processed 2000000 sequence pairs so far
+Processed 2000000 sequence pairs so far
+Processed 2000000 sequence pairs so far
+Processed 2000000 sequence pairs so far
+Processed 2000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1422:25744:1705_1:N:0:TCCACA	chrUn_KI270333v1	2
+Processed 2000000 sequence pairs so far
+Processed 2000000 sequence pairs so far
+Processed 2000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1454:27733:18771_1:N:0:GTTACC	chrUn_KI270510v1	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1465:10719:13479_1:N:0:CGTACG	chrM	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1465:10556:13761_1:N:0:CGTACG	chrM	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1465:13738:35618_1:N:0:GAGTGG	chrUn_KI270438v1	112355
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1465:16459:36135_1:N:0:GAGTGG	chrUn_KI270438v1	112355
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1515:5077:30044_1:N:0:CGTACG	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1527:15329:8594_1:N:0:CCAACA	chrM	16424
+Processed 3000000 sequence pairs so far
+Processed 3000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1546:1579:28056_1:N:0:TCCACA	chrM	1
+Processed 3000000 sequence pairs so far
+Processed 3000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1553:4092:19288_1:N:0:TCCACA	chrM	16419
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1548:20537:14387_1:N:0:AGTCAA	chrUn_KI270507v1	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1573:12219:17832_1:N:0:CGTACG	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1562:11351:31328_1:N:0:GAGTGG	chrM	1
+Processed 3000000 sequence pairs so far
+Processed 3000000 sequence pairs so far
+Processed 3000000 sequence pairs so far
+Processed 3000000 sequence pairs so far
+Processed 3000000 sequence pairs so far
+Processed 3000000 sequence pairs so far
+Processed 3000000 sequence pairs so far
+Processed 3000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1623:21097:34334_1:N:0:CGTACG	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1633:8043:30984_1:N:0:GGCTAC	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1665:24035:34194_1:N:0:TCCCGA	chrM	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1639:29803:3662_1:N:0:TCCACA	chrM	16420
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1660:9950:8453_1:N:0:GAGTGG	chrUn_KI270467v1	3769
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2109:30255:20102_1:N:0:TCGAAG	chrUn_KI270337v1	2
+Processed 4000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1676:9164:25755_1:N:0:GGCTAC	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2108:17888:23860_1:N:0:GAGTGG	chrM	2
+Processed 4000000 sequence pairs so far
+Processed 4000000 sequence pairs so far
+Processed 4000000 sequence pairs so far
+Processed 4000000 sequence pairs so far
+Processed 4000000 sequence pairs so far
+Processed 4000000 sequence pairs so far
+Processed 4000000 sequence pairs so far
+Processed 4000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:1625:5141:35884_1:N:0:GTACTT	chrUn_KI270518v1	2038
+Processed 4000000 sequence pairs so far
+Processed 4000000 sequence pairs so far
+Processed 4000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2174:5963:3239_1:N:0:GTTACC	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2156:21667:29622_1:N:0:TCCACA	chrM	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2172:8431:4351_1:N:0:GGCTAC	chrM	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2172:8386:4554_1:N:0:GGCTAC	chrM	2
+Processed 5000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2278:3387:7983_1:N:0:CCAACA	chrUn_KI270420v1	2172
+Processed 5000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2177:26919:32706_1:N:0:CTTGTA	chrM	2
+Processed 5000000 sequence pairs so far
+Processed 5000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2264:32497:12054_1:N:0:AGTCAA	chrM	1
+Processed 5000000 sequence pairs so far
+Processed 5000000 sequence pairs so far
+Processed 5000000 sequence pairs so far
+Processed 5000000 sequence pairs so far
+Processed 5000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2345:25762:34710_1:N:0:TCGAAG	chrM	3
+Processed 5000000 sequence pairs so far
+Processed 5000000 sequence pairs so far
+Processed 5000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2310:28022:25942_1:N:0:AGTCAA	chrUn_KI270467v1	3769
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2362:2826:14685_1:N:0:TCGAAG	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2402:2184:34992_1:N:0:CCAACA	chrM	16424
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2421:3920:2206_1:N:0:TCGAAG	chrUn_KI270467v1	3769
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2371:15338:20008_1:N:0:GAGTGG	chr1_KI270709v1_random	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2372:20292:33567_1:N:0:TCCACA	chrM	16419
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2370:11451:10864_1:N:0:AGTCAA	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2310:6912:6731_1:N:0:CTTGTA	chrUn_KI270330v1	1502
+Processed 6000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2447:3965:21198_1:N:0:TCGAAG	chrUn_KI270438v1	112355
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2409:26639:28588_1:N:0:TCCACA	chrM	1
+Processed 6000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2422:18891:25316_1:N:0:TCCACA	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2422:21992:27117_1:N:0:TCCACA	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2471:27624:36495_1:N:0:CGTACG	chrM	3
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2471:27606:36526_1:N:0:CGTACG	chrM	3
+Processed 6000000 sequence pairs so far
+Processed 6000000 sequence pairs so far
+Processed 6000000 sequence pairs so far
+Processed 6000000 sequence pairs so far
+Processed 6000000 sequence pairs so far
+Processed 6000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2520:15257:9784_1:N:0:CGTACG	chrM	1
+Processed 6000000 sequence pairs so far
+Processed 6000000 sequence pairs so far
+Processed 6000000 sequence pairs so far
+Processed 6000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2557:27968:1705_1:N:0:CCAACA	chrM	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2603:23502:28604_1:N:0:TCGAAG	chrM	1
+Processed 7000000 sequence pairs so far
+Processed 7000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2675:4155:14826_1:N:0:TCCTGC	chrM	2
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2620:8811:36542_1:N:0:GTTACC	chrM	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2464:8097:23312_1:N:0:CTTGTA	chr17_KI270729v1_random	1
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2464:7934:23563_1:N:0:CTTGTA	chr17_KI270729v1_random	1
+6749962 reads; of these:
+  6749962 (100.00%) were paired; of these:
+    4232438 (62.70%) aligned concordantly 0 times
+    2218749 (32.87%) aligned concordantly exactly 1 time
+    298775 (4.43%) aligned concordantly >1 times
+37.30% overall alignment rate
+6749962 reads; of these:
+  6749962 (100.00%) were paired; of these:
+    4221203 (62.54%) aligned concordantly 0 times
+    2214986 (32.81%) aligned concordantly exactly 1 time
+    313773 (4.65%) aligned concordantly >1 times
+37.46% overall alignment rate
+Processed 6749962 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	6749962
+Number of paired-end alignments with a unique best hit:	4485787
+Mapping efficiency:	66.5%
+
+Sequence pairs with no alignments under any condition:	2018808
+Sequence pairs did not map uniquely:	245367
+Sequence pairs which were discarded because genomic sequence could not be extracted:	1
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2243060	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2242726	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	247587709
+
+Total methylated C's in CpG context:	4273125
+Total methylated C's in CHG context:	382701
+Total methylated C's in CHH context:	1289286
+Total methylated C's in Unknown context:	514
+
+Total unmethylated C's in CpG context:	7072112
+Total unmethylated C's in CHG context:	52972916
+Total unmethylated C's in CHH context:	181597569
+Total unmethylated C's in Unknown context:	33290
+
+C methylated in CpG context:	37.7%
+C methylated in CHG context:	0.7%
+C methylated in CHH context:	0.7%
+C methylated in unknown context (CN or CHN):	1.5%
+
+
+Bismark completed in 0d 1h 9m 33s
+
+====================
+Bismark run complete
+====================
+
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2572:23529:17879_1:N:0:TCCACA	chrUn_KI270320v1	4267
+Processed 7000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2602:27281:29982_1:N:0:TCCACA	chrM	1
+Processed 7000000 sequence pairs so far
+Processed 7000000 sequence pairs so far
+6977021 reads; of these:
+  6977021 (100.00%) were paired; of these:
+    4407638 (63.17%) aligned concordantly 0 times
+    2252998 (32.29%) aligned concordantly exactly 1 time
+    316385 (4.53%) aligned concordantly >1 times
+36.83% overall alignment rate
+6977021 reads; of these:
+  6977021 (100.00%) were paired; of these:
+    4395621 (63.00%) aligned concordantly 0 times
+    2245649 (32.19%) aligned concordantly exactly 1 time
+    335751 (4.81%) aligned concordantly >1 times
+37.00% overall alignment rate
+Processed 6977021 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	6977021
+Number of paired-end alignments with a unique best hit:	4552848
+Mapping efficiency:	65.3%
+
+Sequence pairs with no alignments under any condition:	2159863
+Sequence pairs did not map uniquely:	264310
+Sequence pairs which were discarded because genomic sequence could not be extracted:	3
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2275678	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2277167	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	253683102
+
+Total methylated C's in CpG context:	4680711
+Total methylated C's in CHG context:	384512
+Total methylated C's in CHH context:	1243214
+Total methylated C's in Unknown context:	571
+
+Total unmethylated C's in CpG context:	7636044
+Total unmethylated C's in CHG context:	56115772
+Total unmethylated C's in CHH context:	183622849
+Total unmethylated C's in Unknown context:	32590
+
+C methylated in CpG context:	38.0%
+C methylated in CHG context:	0.7%
+C methylated in CHH context:	0.7%
+C methylated in unknown context (CN or CHN):	1.7%
+
+
+Bismark completed in 0d 1h 11m 20s
+
+====================
+Bismark run complete
+====================
+
+6859049 reads; of these:
+  6859049 (100.00%) were paired; of these:
+    4593114 (66.96%) aligned concordantly 0 times
+    2003687 (29.21%) aligned concordantly exactly 1 time
+    262248 (3.82%) aligned concordantly >1 times
+33.04% overall alignment rate
+6859049 reads; of these:
+  6859049 (100.00%) were paired; of these:
+    4578334 (66.75%) aligned concordantly 0 times
+    2002800 (29.20%) aligned concordantly exactly 1 time
+    277915 (4.05%) aligned concordantly >1 times
+33.25% overall alignment rate
+Processed 6859049 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	6859049
+Number of paired-end alignments with a unique best hit:	4056398
+Mapping efficiency:	59.1%
+
+Sequence pairs with no alignments under any condition:	2588750
+Sequence pairs did not map uniquely:	213901
+Sequence pairs which were discarded because genomic sequence could not be extracted:	7
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2030531	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2025860	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	222700009
+
+Total methylated C's in CpG context:	3748406
+Total methylated C's in CHG context:	263638
+Total methylated C's in CHH context:	913363
+Total methylated C's in Unknown context:	446
+
+Total unmethylated C's in CpG context:	6216404
+Total unmethylated C's in CHG context:	47295696
+Total unmethylated C's in CHH context:	164262502
+Total unmethylated C's in Unknown context:	30627
+
+C methylated in CpG context:	37.6%
+C methylated in CHG context:	0.6%
+C methylated in CHH context:	0.6%
+C methylated in unknown context (CN or CHN):	1.4%
+
+
+Bismark completed in 0d 1h 11m 26s
+
+====================
+Bismark run complete
+====================
+
+Processed 7000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2651:2609:3912_1:N:0:GTTACC	chrUn_KI270467v1	3769
+6922533 reads; of these:
+  6922533 (100.00%) were paired; of these:
+    4424224 (63.91%) aligned concordantly 0 times
+    2194725 (31.70%) aligned concordantly exactly 1 time
+    303584 (4.39%) aligned concordantly >1 times
+36.09% overall alignment rate
+6922533 reads; of these:
+  6922533 (100.00%) were paired; of these:
+    4412498 (63.74%) aligned concordantly 0 times
+    2190820 (31.65%) aligned concordantly exactly 1 time
+    319215 (4.61%) aligned concordantly >1 times
+36.26% overall alignment rate
+Processed 6922533 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	6922533
+Number of paired-end alignments with a unique best hit:	4438250
+Mapping efficiency:	64.1%
+
+Sequence pairs with no alignments under any condition:	2233349
+Sequence pairs did not map uniquely:	250934
+Sequence pairs which were discarded because genomic sequence could not be extracted:	10
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2218913	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2219327	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	250884966
+
+Total methylated C's in CpG context:	4588720
+Total methylated C's in CHG context:	275172
+Total methylated C's in CHH context:	906699
+Total methylated C's in Unknown context:	518
+
+Total unmethylated C's in CpG context:	7560924
+Total unmethylated C's in CHG context:	55395977
+Total unmethylated C's in CHH context:	182157474
+Total unmethylated C's in Unknown context:	32665
+
+C methylated in CpG context:	37.8%
+C methylated in CHG context:	0.5%
+C methylated in CHH context:	0.5%
+C methylated in unknown context (CN or CHN):	1.6%
+
+
+Bismark completed in 0d 1h 12m 0s
+
+====================
+Bismark run complete
+====================
+
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2634:5475:13260_1:N:0:GAGTGG	chrM	1
+Processed 7000000 sequence pairs so far
+7422655 reads; of these:
+  7422655 (100.00%) were paired; of these:
+    4961747 (66.85%) aligned concordantly 0 times
+    2152791 (29.00%) aligned concordantly exactly 1 time
+    308117 (4.15%) aligned concordantly >1 times
+33.15% overall alignment rate
+7422655 reads; of these:
+  7422655 (100.00%) were paired; of these:
+    4978419 (67.07%) aligned concordantly 0 times
+    2158874 (29.08%) aligned concordantly exactly 1 time
+    285362 (3.84%) aligned concordantly >1 times
+32.93% overall alignment rate
+Processed 7422655 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	7422655
+Number of paired-end alignments with a unique best hit:	4369485
+Mapping efficiency:	58.9%
+
+Sequence pairs with no alignments under any condition:	2820296
+Sequence pairs did not map uniquely:	232874
+Sequence pairs which were discarded because genomic sequence could not be extracted:	9
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2185795	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2183681	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	233565179
+
+Total methylated C's in CpG context:	3959356
+Total methylated C's in CHG context:	384654
+Total methylated C's in CHH context:	1338451
+Total methylated C's in Unknown context:	514
+
+Total unmethylated C's in CpG context:	6461508
+Total unmethylated C's in CHG context:	49302790
+Total unmethylated C's in CHH context:	172118420
+Total unmethylated C's in Unknown context:	32205
+
+C methylated in CpG context:	38.0%
+C methylated in CHG context:	0.8%
+C methylated in CHH context:	0.8%
+C methylated in unknown context (CN or CHN):	1.6%
+
+
+Bismark completed in 0d 1h 12m 30s
+
+====================
+Bismark run complete
+====================
+
+Processed 7000000 sequence pairs so far
+7059889 reads; of these:
+  7059889 (100.00%) were paired; of these:
+    4301243 (60.93%) aligned concordantly 0 times
+    2488565 (35.25%) aligned concordantly exactly 1 time
+    270081 (3.83%) aligned concordantly >1 times
+39.07% overall alignment rate
+7059889 reads; of these:
+  7059889 (100.00%) were paired; of these:
+    4272055 (60.51%) aligned concordantly 0 times
+    2487810 (35.24%) aligned concordantly exactly 1 time
+    300024 (4.25%) aligned concordantly >1 times
+39.49% overall alignment rate
+Processed 7059889 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	7059889
+Number of paired-end alignments with a unique best hit:	5031493
+Mapping efficiency:	71.3%
+
+Sequence pairs with no alignments under any condition:	1812913
+Sequence pairs did not map uniquely:	215483
+Sequence pairs which were discarded because genomic sequence could not be extracted:	4
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2520420	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2511069	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	249495872
+
+Total methylated C's in CpG context:	3507459
+Total methylated C's in CHG context:	636196
+Total methylated C's in CHH context:	2243546
+Total methylated C's in Unknown context:	630
+
+Total unmethylated C's in CpG context:	6064077
+Total unmethylated C's in CHG context:	47948053
+Total unmethylated C's in CHH context:	189096541
+Total unmethylated C's in Unknown context:	39122
+
+C methylated in CpG context:	36.6%
+C methylated in CHG context:	1.3%
+C methylated in CHH context:	1.2%
+C methylated in unknown context (CN or CHN):	1.6%
+
+
+Bismark completed in 0d 1h 13m 39s
+
+====================
+Bismark run complete
+====================
+
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2648:10800:16595_1:N:0:GGCTAC	chrUn_KI270467v1	3769
+7852076 reads; of these:
+  7852076 (100.00%) were paired; of these:
+    5107968 (65.05%) aligned concordantly 0 times
+    2411603 (30.71%) aligned concordantly exactly 1 time
+    332505 (4.23%) aligned concordantly >1 times
+34.95% overall alignment rate
+7852076 reads; of these:
+  7852076 (100.00%) were paired; of these:
+    5132163 (65.36%) aligned concordantly 0 times
+    2411477 (30.71%) aligned concordantly exactly 1 time
+    308436 (3.93%) aligned concordantly >1 times
+34.64% overall alignment rate
+Processed 7852076 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	7852076
+Number of paired-end alignments with a unique best hit:	4886126
+Mapping efficiency:	62.2%
+
+Sequence pairs with no alignments under any condition:	2714076
+Sequence pairs did not map uniquely:	251874
+Sequence pairs which were discarded because genomic sequence could not be extracted:	7
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2447498	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2438621	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	264393489
+
+Total methylated C's in CpG context:	4419758
+Total methylated C's in CHG context:	278510
+Total methylated C's in CHH context:	957311
+Total methylated C's in Unknown context:	475
+
+Total unmethylated C's in CpG context:	7356199
+Total unmethylated C's in CHG context:	56294593
+Total unmethylated C's in CHH context:	195087118
+Total unmethylated C's in Unknown context:	36470
+
+C methylated in CpG context:	37.5%
+C methylated in CHG context:	0.5%
+C methylated in CHH context:	0.5%
+C methylated in unknown context (CN or CHN):	1.3%
+
+
+Bismark completed in 0d 1h 15m 38s
+
+====================
+Bismark run complete
+====================
+
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2675:17526:18317_1:N:0:TCCACA	chrM	2
+7621812 reads; of these:
+  7621812 (100.00%) were paired; of these:
+    5005405 (65.67%) aligned concordantly 0 times
+    2309877 (30.31%) aligned concordantly exactly 1 time
+    306530 (4.02%) aligned concordantly >1 times
+34.33% overall alignment rate
+7621812 reads; of these:
+  7621812 (100.00%) were paired; of these:
+    4987931 (65.44%) aligned concordantly 0 times
+    2305778 (30.25%) aligned concordantly exactly 1 time
+    328103 (4.30%) aligned concordantly >1 times
+34.56% overall alignment rate
+Processed 7621812 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	7621812
+Number of paired-end alignments with a unique best hit:	4670187
+Mapping efficiency:	61.3%
+
+Sequence pairs with no alignments under any condition:	2696127
+Sequence pairs did not map uniquely:	255498
+Sequence pairs which were discarded because genomic sequence could not be extracted:	6
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2337220	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2332961	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	250907173
+
+Total methylated C's in CpG context:	4239202
+Total methylated C's in CHG context:	306271
+Total methylated C's in CHH context:	1074571
+Total methylated C's in Unknown context:	547
+
+Total unmethylated C's in CpG context:	6964858
+Total unmethylated C's in CHG context:	53377842
+Total unmethylated C's in CHH context:	184944429
+Total unmethylated C's in Unknown context:	34628
+
+C methylated in CpG context:	37.8%
+C methylated in CHG context:	0.6%
+C methylated in CHH context:	0.6%
+C methylated in unknown context (CN or CHN):	1.6%
+
+
+Bismark completed in 0d 1h 16m 0s
+
+====================
+Bismark run complete
+====================
+
+7409597 reads; of these:
+  7409597 (100.00%) were paired; of these:
+    4571376 (61.70%) aligned concordantly 0 times
+    2473206 (33.38%) aligned concordantly exactly 1 time
+    365015 (4.93%) aligned concordantly >1 times
+38.30% overall alignment rate
+7409597 reads; of these:
+  7409597 (100.00%) were paired; of these:
+    4551107 (61.42%) aligned concordantly 0 times
+    2475771 (33.41%) aligned concordantly exactly 1 time
+    382719 (5.17%) aligned concordantly >1 times
+38.58% overall alignment rate
+Processed 7409597 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	7409597
+Number of paired-end alignments with a unique best hit:	5006648
+Mapping efficiency:	67.6%
+
+Sequence pairs with no alignments under any condition:	2098221
+Sequence pairs did not map uniquely:	304728
+Sequence pairs which were discarded because genomic sequence could not be extracted:	15
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2505713	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2500920	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	283097799
+
+Total methylated C's in CpG context:	5442763
+Total methylated C's in CHG context:	431491
+Total methylated C's in CHH context:	1375307
+Total methylated C's in Unknown context:	651
+
+Total unmethylated C's in CpG context:	9031217
+Total unmethylated C's in CHG context:	63691731
+Total unmethylated C's in CHH context:	203125290
+Total unmethylated C's in Unknown context:	35184
+
+C methylated in CpG context:	37.6%
+C methylated in CHG context:	0.7%
+C methylated in CHH context:	0.7%
+C methylated in unknown context (CN or CHN):	1.8%
+
+
+Bismark completed in 0d 1h 16m 14s
+
+====================
+Bismark run complete
+====================
+
+7566009 reads; of these:
+  7566009 (100.00%) were paired; of these:
+    4655063 (61.53%) aligned concordantly 0 times
+    2594942 (34.30%) aligned concordantly exactly 1 time
+    316004 (4.18%) aligned concordantly >1 times
+38.47% overall alignment rate
+7566009 reads; of these:
+  7566009 (100.00%) were paired; of these:
+    4634125 (61.25%) aligned concordantly 0 times
+    2590861 (34.24%) aligned concordantly exactly 1 time
+    341023 (4.51%) aligned concordantly >1 times
+38.75% overall alignment rate
+Processed 7566009 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	7566009
+Number of paired-end alignments with a unique best hit:	5249983
+Mapping efficiency:	69.4%
+
+Sequence pairs with no alignments under any condition:	2063301
+Sequence pairs did not map uniquely:	252725
+Sequence pairs which were discarded because genomic sequence could not be extracted:	7
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2627738	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2622238	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	274692964
+
+Total methylated C's in CpG context:	4268518
+Total methylated C's in CHG context:	492644
+Total methylated C's in CHH context:	1723275
+Total methylated C's in Unknown context:	594
+
+Total unmethylated C's in CpG context:	7095191
+Total unmethylated C's in CHG context:	55856766
+Total unmethylated C's in CHH context:	205256570
+Total unmethylated C's in Unknown context:	39978
+
+C methylated in CpG context:	37.6%
+C methylated in CHG context:	0.9%
+C methylated in CHH context:	0.8%
+C methylated in unknown context (CN or CHN):	1.5%
+
+
+Bismark completed in 0d 1h 16m 59s
+
+====================
+Bismark run complete
+====================
+
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2605:12075:18427_1:N:0:CTTGTA	chrM	1
+Processed 8000000 sequence pairs so far
+Processed 8000000 sequence pairs so far
+8323715 reads; of these:
+  8323715 (100.00%) were paired; of these:
+    5333792 (64.08%) aligned concordantly 0 times
+    2644879 (31.78%) aligned concordantly exactly 1 time
+    345044 (4.15%) aligned concordantly >1 times
+35.92% overall alignment rate
+8323715 reads; of these:
+  8323715 (100.00%) were paired; of these:
+    5354998 (64.33%) aligned concordantly 0 times
+    2650659 (31.84%) aligned concordantly exactly 1 time
+    318058 (3.82%) aligned concordantly >1 times
+35.67% overall alignment rate
+Processed 8323715 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	8323715
+Number of paired-end alignments with a unique best hit:	5359722
+Mapping efficiency:	64.4%
+
+Sequence pairs with no alignments under any condition:	2708790
+Sequence pairs did not map uniquely:	255203
+Sequence pairs which were discarded because genomic sequence could not be extracted:	8
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2682153	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2677561	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	281085336
+
+Total methylated C's in CpG context:	4323387
+Total methylated C's in CHG context:	287845
+Total methylated C's in CHH context:	1047116
+Total methylated C's in Unknown context:	524
+
+Total unmethylated C's in CpG context:	7300869
+Total unmethylated C's in CHG context:	57370735
+Total unmethylated C's in CHH context:	210755384
+Total unmethylated C's in Unknown context:	40874
+
+C methylated in CpG context:	37.2%
+C methylated in CHG context:	0.5%
+C methylated in CHH context:	0.5%
+C methylated in unknown context (CN or CHN):	1.3%
+
+
+Bismark completed in 0d 1h 23m 23s
+
+====================
+Bismark run complete
+====================
+
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2625:19913:5979_1:N:0:GTACTT	chrM	1
+Processed 9000000 sequence pairs so far
+Chromosomal sequence could not be extracted for	A01758:350:HFCWVDSX7:1:2674:10113:24706_1:N:0:GTACTT	chrM	1
+9114020 reads; of these:
+  9114020 (100.00%) were paired; of these:
+    5780499 (63.42%) aligned concordantly 0 times
+    2906922 (31.90%) aligned concordantly exactly 1 time
+    426599 (4.68%) aligned concordantly >1 times
+36.58% overall alignment rate
+9114020 reads; of these:
+  9114020 (100.00%) were paired; of these:
+    5798969 (63.63%) aligned concordantly 0 times
+    2913384 (31.97%) aligned concordantly exactly 1 time
+    401667 (4.41%) aligned concordantly >1 times
+36.37% overall alignment rate
+Processed 9114020 sequences in total
+
+
+Successfully deleted the temporary files GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1.fq.gz_C_to_T.fastq and GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R2_val_2.fq.gz_G_to_A.fastq
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	9114020
+Number of paired-end alignments with a unique best hit:	5891770
+Mapping efficiency:	64.6%
+
+Sequence pairs with no alignments under any condition:	2889264
+Sequence pairs did not map uniquely:	332986
+Sequence pairs which were discarded because genomic sequence could not be extracted:	6
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	2946465	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	2945299	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	324353477
+
+Total methylated C's in CpG context:	5799729
+Total methylated C's in CHG context:	523630
+Total methylated C's in CHH context:	1753570
+Total methylated C's in Unknown context:	733
+
+Total unmethylated C's in CpG context:	9469007
+Total unmethylated C's in CHG context:	70540285
+Total unmethylated C's in CHH context:	236267256
+Total unmethylated C's in Unknown context:	43263
+
+C methylated in CpG context:	38.0%
+C methylated in CHG context:	0.7%
+C methylated in CHH context:	0.7%
+C methylated in unknown context (CN or CHN):	1.7%
+
+
+Bismark completed in 0d 1h 29m 51s
+
+====================
+Bismark run complete
+====================
+

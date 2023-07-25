@@ -125,7 +125,7 @@ hcc_big_filt <- doubletFinder_v3(hcc_big_filt,
 
 DimPlot(hcc_big_filt,group.by = "DF.classifications_0.25_0.19_4281")
 
-
+DimPlot(hcc29_strt,group.by = "sample_origin")
 
 
 hcc_big_filt_removedb <- hcc_big_filt
@@ -215,12 +215,12 @@ hcc28_strt$sample <- "hcc28"
 hcc29_strt$sample <- "hcc29"
 
 
+DimPlot(hcc28_strt,group.by = "sample_origin")
 
 
+saveRDS(hcc29_strt,"hcc29_strt.RDS")
 
-
-
-
+saveRDS(hcc28_strt,"hcc28_strt.RDS")
 
 
 
@@ -481,7 +481,7 @@ hcc3_distance <- hcc3_distance[-1,]
 dist_hcc3 = dist(hcc3_distance, method = "euclidean")
 hclust_dist_hcc3 = hclust(dist_hcc3, method = "complete")
 plot(hclust_dist_hcc3)
-
+plot(hclust_dist_hcc28)
 
 
 
@@ -548,6 +548,7 @@ row.names(hcc3_pca) <- c("PT1","PT2","PT3","PT4")
 pca_hcc3 = dist(hcc3_pca, method = "euclidean")
 hclust_pca_hcc3 = hclust(pca_hcc3, method = "complete")
 plot(hclust_pca_hcc3)
+plot(hclust_pca_hcc28)
 hclust_pca_hcc3_tree <-cutree(hclust_pca_hcc3,3)
 hcc3_d = data.frame(label=names(hclust_pca_hcc3_tree),member=factor(hclust_pca_hcc3_tree))
 ggtree(as.phylo(hclust_pca_hcc3), linetype='dashed', color = "#487AA1") %<+% hcc3_d +

@@ -1,0 +1,2688 @@
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1_bismark_bt2_pe.bam:	4670181
+Total number duplicated alignments removed:	724766 (15.52%)
+Duplicated alignments were found at:	634465 different position(s)
+
+Total count of deduplicated leftover sequences: 3945415 (84.48% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1_bismark_bt2_pe
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1_bismark_bt2_pe.bam:	5359714
+Total number duplicated alignments removed:	902266 (16.83%)
+Duplicated alignments were found at:	781416 different position(s)
+
+Total count of deduplicated leftover sequences: 4457448 (83.17% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1_bismark_bt2_pe
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1_bismark_bt2_pe.bam:	5249976
+Total number duplicated alignments removed:	832436 (15.86%)
+Duplicated alignments were found at:	723518 different position(s)
+
+Total count of deduplicated leftover sequences: 4417540 (84.14% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-C3_combined_R1_val_1_bismark_bt2_pe
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1_bismark_bt2_pe.bam:	4438240
+Total number duplicated alignments removed:	701401 (15.80%)
+Duplicated alignments were found at:	612555 different position(s)
+
+Total count of deduplicated leftover sequences: 3736839 (84.20% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE1_combined_R1_val_1_bismark_bt2_pe
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1_bismark_bt2_pe.bam:	4886119
+Total number duplicated alignments removed:	861394 (17.63%)
+Duplicated alignments were found at:	737841 different position(s)
+
+Total count of deduplicated leftover sequences: 4024725 (82.37% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE2_combined_R1_val_1_bismark_bt2_pe
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1_bismark_bt2_pe.bam:	4056391
+Total number duplicated alignments removed:	597800 (14.74%)
+Duplicated alignments were found at:	524952 different position(s)
+
+Total count of deduplicated leftover sequences: 3458591 (85.26% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-GADD45A-OE3_combined_R1_val_1_bismark_bt2_pe
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1_bismark_bt2_pe.bam:	4552845
+Total number duplicated alignments removed:	683258 (15.01%)
+Duplicated alignments were found at:	599179 different position(s)
+
+Total count of deduplicated leftover sequences: 3869587 (84.99% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C1_combined_R1_val_1_bismark_bt2_pe
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1_bismark_bt2_pe.bam:	4369476
+Total number duplicated alignments removed:	666551 (15.25%)
+Duplicated alignments were found at:	582089 different position(s)
+
+Total count of deduplicated leftover sequences: 3702925 (84.75% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C2_combined_R1_val_1_bismark_bt2_pe
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1_bismark_bt2_pe.bam:	5891764
+Total number duplicated alignments removed:	1060831 (18.01%)
+Duplicated alignments were found at:	901336 different position(s)
+
+Total count of deduplicated leftover sequences: 4830933 (81.99% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-C3_combined_R1_val_1_bismark_bt2_pe
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1_bismark_bt2_pe.bam:	5006633
+Total number duplicated alignments removed:	731355 (14.61%)
+Duplicated alignments were found at:	645403 different position(s)
+
+Total count of deduplicated leftover sequences: 4275278 (85.39% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE1_combined_R1_val_1_bismark_bt2_pe
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1_bismark_bt2_pe.bam:	4485786
+Total number duplicated alignments removed:	646340 (14.41%)
+Duplicated alignments were found at:	570953 different position(s)
+
+Total count of deduplicated leftover sequences: 3839446 (85.59% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE2_combined_R1_val_1_bismark_bt2_pe
+Output filename was given as: /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+
+Neither -s (single-end) nor -p (paired-end) selected for deduplication. Trying to extract this information for each file separately from the @PG line of the SAM/BAM file
+Processing single-end Bismark output file(s) (SAM format):
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1_bismark_bt2_pe.bam
+
+
+If there are several alignments to a single position in the genome the first alignment will be chosen. Since the input files are not in any way sorted this is a near-enough random selection of reads.
+
+Checking file >>GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1_bismark_bt2_pe.bam<< for signs of file truncation...
+
+Trying to determine the type of mapping from the SAM header line
+Treating file as paired-end data (extracted from @PG line)
+
+
+
+Now testing Bismark result file GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: bismark_bam.deduplicated.bam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:chr10	LN:133797422
+skipping header line:	@SQ	SN:chr11	LN:135086622
+skipping header line:	@SQ	SN:chr11_KI270721v1_random	LN:100316
+skipping header line:	@SQ	SN:chr12	LN:133275309
+skipping header line:	@SQ	SN:chr13	LN:114364328
+skipping header line:	@SQ	SN:chr14	LN:107043718
+skipping header line:	@SQ	SN:chr14_GL000009v2_random	LN:201709
+skipping header line:	@SQ	SN:chr14_GL000194v1_random	LN:191469
+skipping header line:	@SQ	SN:chr14_GL000225v1_random	LN:211173
+skipping header line:	@SQ	SN:chr14_KI270722v1_random	LN:194050
+skipping header line:	@SQ	SN:chr14_KI270723v1_random	LN:38115
+skipping header line:	@SQ	SN:chr14_KI270724v1_random	LN:39555
+skipping header line:	@SQ	SN:chr14_KI270725v1_random	LN:172810
+skipping header line:	@SQ	SN:chr14_KI270726v1_random	LN:43739
+skipping header line:	@SQ	SN:chr15	LN:101991189
+skipping header line:	@SQ	SN:chr15_KI270727v1_random	LN:448248
+skipping header line:	@SQ	SN:chr16	LN:90338345
+skipping header line:	@SQ	SN:chr16_KI270728v1_random	LN:1872759
+skipping header line:	@SQ	SN:chr17	LN:83257441
+skipping header line:	@SQ	SN:chr17_GL000205v2_random	LN:185591
+skipping header line:	@SQ	SN:chr17_KI270729v1_random	LN:280839
+skipping header line:	@SQ	SN:chr17_KI270730v1_random	LN:112551
+skipping header line:	@SQ	SN:chr18	LN:80373285
+skipping header line:	@SQ	SN:chr19	LN:58617616
+skipping header line:	@SQ	SN:chr1	LN:248956422
+skipping header line:	@SQ	SN:chr1_KI270706v1_random	LN:175055
+skipping header line:	@SQ	SN:chr1_KI270707v1_random	LN:32032
+skipping header line:	@SQ	SN:chr1_KI270708v1_random	LN:127682
+skipping header line:	@SQ	SN:chr1_KI270709v1_random	LN:66860
+skipping header line:	@SQ	SN:chr1_KI270710v1_random	LN:40176
+skipping header line:	@SQ	SN:chr1_KI270711v1_random	LN:42210
+skipping header line:	@SQ	SN:chr1_KI270712v1_random	LN:176043
+skipping header line:	@SQ	SN:chr1_KI270713v1_random	LN:40745
+skipping header line:	@SQ	SN:chr1_KI270714v1_random	LN:41717
+skipping header line:	@SQ	SN:chr20	LN:64444167
+skipping header line:	@SQ	SN:chr21	LN:46709983
+skipping header line:	@SQ	SN:chr22	LN:50818468
+skipping header line:	@SQ	SN:chr22_KI270731v1_random	LN:150754
+skipping header line:	@SQ	SN:chr22_KI270732v1_random	LN:41543
+skipping header line:	@SQ	SN:chr22_KI270733v1_random	LN:179772
+skipping header line:	@SQ	SN:chr22_KI270734v1_random	LN:165050
+skipping header line:	@SQ	SN:chr22_KI270735v1_random	LN:42811
+skipping header line:	@SQ	SN:chr22_KI270736v1_random	LN:181920
+skipping header line:	@SQ	SN:chr22_KI270737v1_random	LN:103838
+skipping header line:	@SQ	SN:chr22_KI270738v1_random	LN:99375
+skipping header line:	@SQ	SN:chr22_KI270739v1_random	LN:73985
+skipping header line:	@SQ	SN:chr2	LN:242193529
+skipping header line:	@SQ	SN:chr2_KI270715v1_random	LN:161471
+skipping header line:	@SQ	SN:chr2_KI270716v1_random	LN:153799
+skipping header line:	@SQ	SN:chr3	LN:198295559
+skipping header line:	@SQ	SN:chr3_GL000221v1_random	LN:155397
+skipping header line:	@SQ	SN:chr4	LN:190214555
+skipping header line:	@SQ	SN:chr4_GL000008v2_random	LN:209709
+skipping header line:	@SQ	SN:chr5	LN:181538259
+skipping header line:	@SQ	SN:chr5_GL000208v1_random	LN:92689
+skipping header line:	@SQ	SN:chr6	LN:170805979
+skipping header line:	@SQ	SN:chr7	LN:159345973
+skipping header line:	@SQ	SN:chr8	LN:145138636
+skipping header line:	@SQ	SN:chr9	LN:138394717
+skipping header line:	@SQ	SN:chr9_KI270717v1_random	LN:40062
+skipping header line:	@SQ	SN:chr9_KI270718v1_random	LN:38054
+skipping header line:	@SQ	SN:chr9_KI270719v1_random	LN:176845
+skipping header line:	@SQ	SN:chr9_KI270720v1_random	LN:39050
+skipping header line:	@SQ	SN:chrEBV	LN:171823
+skipping header line:	@SQ	SN:chrM	LN:16569
+skipping header line:	@SQ	SN:chrUn_GL000195v1	LN:182896
+skipping header line:	@SQ	SN:chrUn_GL000213v1	LN:164239
+skipping header line:	@SQ	SN:chrUn_GL000214v1	LN:137718
+skipping header line:	@SQ	SN:chrUn_GL000216v2	LN:176608
+skipping header line:	@SQ	SN:chrUn_GL000218v1	LN:161147
+skipping header line:	@SQ	SN:chrUn_GL000219v1	LN:179198
+skipping header line:	@SQ	SN:chrUn_GL000220v1	LN:161802
+skipping header line:	@SQ	SN:chrUn_GL000224v1	LN:179693
+skipping header line:	@SQ	SN:chrUn_GL000226v1	LN:15008
+skipping header line:	@SQ	SN:chrUn_KI270302v1	LN:2274
+skipping header line:	@SQ	SN:chrUn_KI270303v1	LN:1942
+skipping header line:	@SQ	SN:chrUn_KI270304v1	LN:2165
+skipping header line:	@SQ	SN:chrUn_KI270305v1	LN:1472
+skipping header line:	@SQ	SN:chrUn_KI270310v1	LN:1201
+skipping header line:	@SQ	SN:chrUn_KI270311v1	LN:12399
+skipping header line:	@SQ	SN:chrUn_KI270312v1	LN:998
+skipping header line:	@SQ	SN:chrUn_KI270315v1	LN:2276
+skipping header line:	@SQ	SN:chrUn_KI270316v1	LN:1444
+skipping header line:	@SQ	SN:chrUn_KI270317v1	LN:37690
+skipping header line:	@SQ	SN:chrUn_KI270320v1	LN:4416
+skipping header line:	@SQ	SN:chrUn_KI270322v1	LN:21476
+skipping header line:	@SQ	SN:chrUn_KI270329v1	LN:1040
+skipping header line:	@SQ	SN:chrUn_KI270330v1	LN:1652
+skipping header line:	@SQ	SN:chrUn_KI270333v1	LN:2699
+skipping header line:	@SQ	SN:chrUn_KI270334v1	LN:1368
+skipping header line:	@SQ	SN:chrUn_KI270335v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270336v1	LN:1026
+skipping header line:	@SQ	SN:chrUn_KI270337v1	LN:1121
+skipping header line:	@SQ	SN:chrUn_KI270338v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270340v1	LN:1428
+skipping header line:	@SQ	SN:chrUn_KI270362v1	LN:3530
+skipping header line:	@SQ	SN:chrUn_KI270363v1	LN:1803
+skipping header line:	@SQ	SN:chrUn_KI270364v1	LN:2855
+skipping header line:	@SQ	SN:chrUn_KI270366v1	LN:8320
+skipping header line:	@SQ	SN:chrUn_KI270371v1	LN:2805
+skipping header line:	@SQ	SN:chrUn_KI270372v1	LN:1650
+skipping header line:	@SQ	SN:chrUn_KI270373v1	LN:1451
+skipping header line:	@SQ	SN:chrUn_KI270374v1	LN:2656
+skipping header line:	@SQ	SN:chrUn_KI270375v1	LN:2378
+skipping header line:	@SQ	SN:chrUn_KI270376v1	LN:1136
+skipping header line:	@SQ	SN:chrUn_KI270378v1	LN:1048
+skipping header line:	@SQ	SN:chrUn_KI270379v1	LN:1045
+skipping header line:	@SQ	SN:chrUn_KI270381v1	LN:1930
+skipping header line:	@SQ	SN:chrUn_KI270382v1	LN:4215
+skipping header line:	@SQ	SN:chrUn_KI270383v1	LN:1750
+skipping header line:	@SQ	SN:chrUn_KI270384v1	LN:1658
+skipping header line:	@SQ	SN:chrUn_KI270385v1	LN:990
+skipping header line:	@SQ	SN:chrUn_KI270386v1	LN:1788
+skipping header line:	@SQ	SN:chrUn_KI270387v1	LN:1537
+skipping header line:	@SQ	SN:chrUn_KI270388v1	LN:1216
+skipping header line:	@SQ	SN:chrUn_KI270389v1	LN:1298
+skipping header line:	@SQ	SN:chrUn_KI270390v1	LN:2387
+skipping header line:	@SQ	SN:chrUn_KI270391v1	LN:1484
+skipping header line:	@SQ	SN:chrUn_KI270392v1	LN:971
+skipping header line:	@SQ	SN:chrUn_KI270393v1	LN:1308
+skipping header line:	@SQ	SN:chrUn_KI270394v1	LN:970
+skipping header line:	@SQ	SN:chrUn_KI270395v1	LN:1143
+skipping header line:	@SQ	SN:chrUn_KI270396v1	LN:1880
+skipping header line:	@SQ	SN:chrUn_KI270411v1	LN:2646
+skipping header line:	@SQ	SN:chrUn_KI270412v1	LN:1179
+skipping header line:	@SQ	SN:chrUn_KI270414v1	LN:2489
+skipping header line:	@SQ	SN:chrUn_KI270417v1	LN:2043
+skipping header line:	@SQ	SN:chrUn_KI270418v1	LN:2145
+skipping header line:	@SQ	SN:chrUn_KI270419v1	LN:1029
+skipping header line:	@SQ	SN:chrUn_KI270420v1	LN:2321
+skipping header line:	@SQ	SN:chrUn_KI270422v1	LN:1445
+skipping header line:	@SQ	SN:chrUn_KI270423v1	LN:981
+skipping header line:	@SQ	SN:chrUn_KI270424v1	LN:2140
+skipping header line:	@SQ	SN:chrUn_KI270425v1	LN:1884
+skipping header line:	@SQ	SN:chrUn_KI270429v1	LN:1361
+skipping header line:	@SQ	SN:chrUn_KI270435v1	LN:92983
+skipping header line:	@SQ	SN:chrUn_KI270438v1	LN:112505
+skipping header line:	@SQ	SN:chrUn_KI270442v1	LN:392061
+skipping header line:	@SQ	SN:chrUn_KI270448v1	LN:7992
+skipping header line:	@SQ	SN:chrUn_KI270465v1	LN:1774
+skipping header line:	@SQ	SN:chrUn_KI270466v1	LN:1233
+skipping header line:	@SQ	SN:chrUn_KI270467v1	LN:3920
+skipping header line:	@SQ	SN:chrUn_KI270468v1	LN:4055
+skipping header line:	@SQ	SN:chrUn_KI270507v1	LN:5353
+skipping header line:	@SQ	SN:chrUn_KI270508v1	LN:1951
+skipping header line:	@SQ	SN:chrUn_KI270509v1	LN:2318
+skipping header line:	@SQ	SN:chrUn_KI270510v1	LN:2415
+skipping header line:
+Total number of alignments analysed in GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1_bismark_bt2_pe.bam:	5031489
+Total number duplicated alignments removed:	765642 (15.22%)
+Duplicated alignments were found at:	670223 different position(s)
+
+Total count of deduplicated leftover sequences: 4265847 (84.78% of total)
+
+	@SQ	SN:chrUn_KI270511v1	LN:8127
+skipping header line:	@SQ	SN:chrUn_KI270512v1	LN:22689
+skipping header line:	@SQ	SN:chrUn_KI270515v1	LN:6361
+skipping header line:	@SQ	SN:chrUn_KI270516v1	LN:1300
+skipping header line:	@SQ	SN:chrUn_KI270517v1	LN:3253
+skipping header line:	@SQ	SN:chrUn_KI270518v1	LN:2186
+skipping header line:	@SQ	SN:chrUn_KI270519v1	LN:138126
+skipping header line:	@SQ	SN:chrUn_KI270521v1	LN:7642
+skipping header line:	@SQ	SN:chrUn_KI270522v1	LN:5674
+skipping header line:	@SQ	SN:chrUn_KI270528v1	LN:2983
+skipping header line:	@SQ	SN:chrUn_KI270529v1	LN:1899
+skipping header line:	@SQ	SN:chrUn_KI270530v1	LN:2168
+skipping header line:	@SQ	SN:chrUn_KI270538v1	LN:91309
+skipping header line:	@SQ	SN:chrUn_KI270539v1	LN:993
+skipping header line:	@SQ	SN:chrUn_KI270544v1	LN:1202
+skipping header line:	@SQ	SN:chrUn_KI270548v1	LN:1599
+skipping header line:	@SQ	SN:chrUn_KI270579v1	LN:31033
+skipping header line:	@SQ	SN:chrUn_KI270580v1	LN:1553
+skipping header line:	@SQ	SN:chrUn_KI270581v1	LN:7046
+skipping header line:	@SQ	SN:chrUn_KI270582v1	LN:6504
+skipping header line:	@SQ	SN:chrUn_KI270583v1	LN:1400
+skipping header line:	@SQ	SN:chrUn_KI270584v1	LN:4513
+skipping header line:	@SQ	SN:chrUn_KI270587v1	LN:2969
+skipping header line:	@SQ	SN:chrUn_KI270588v1	LN:6158
+skipping header line:	@SQ	SN:chrUn_KI270589v1	LN:44474
+skipping header line:	@SQ	SN:chrUn_KI270590v1	LN:4685
+skipping header line:	@SQ	SN:chrUn_KI270591v1	LN:5796
+skipping header line:	@SQ	SN:chrUn_KI270593v1	LN:3041
+skipping header line:	@SQ	SN:chrUn_KI270741v1	LN:157432
+skipping header line:	@SQ	SN:chrUn_KI270742v1	LN:186739
+skipping header line:	@SQ	SN:chrUn_KI270743v1	LN:210658
+skipping header line:	@SQ	SN:chrUn_KI270744v1	LN:168472
+skipping header line:	@SQ	SN:chrUn_KI270745v1	LN:41891
+skipping header line:	@SQ	SN:chrUn_KI270746v1	LN:66486
+skipping header line:	@SQ	SN:chrUn_KI270747v1	LN:198735
+skipping header line:	@SQ	SN:chrUn_KI270748v1	LN:93321
+skipping header line:	@SQ	SN:chrUn_KI270749v1	LN:158759
+skipping header line:	@SQ	SN:chrUn_KI270750v1	LN:148850
+skipping header line:	@SQ	SN:chrUn_KI270751v1	LN:150742
+skipping header line:	@SQ	SN:chrUn_KI270752v1	LN:27745
+skipping header line:	@SQ	SN:chrUn_KI270753v1	LN:62944
+skipping header line:	@SQ	SN:chrUn_KI270754v1	LN:40191
+skipping header line:	@SQ	SN:chrUn_KI270755v1	LN:36723
+skipping header line:	@SQ	SN:chrUn_KI270756v1	LN:79590
+skipping header line:	@SQ	SN:chrUn_KI270757v1	LN:71251
+skipping header line:	@SQ	SN:chrX	LN:156040895
+skipping header line:	@SQ	SN:chrY	LN:57227415
+skipping header line:	@SQ	SN:chrY_KI270740v1_random	LN:37240
+skipping header line:	@PG	ID:Bismark	VN:v0.23.1	CL:"bismark --genome /storage/zhangyanxiaoLab/zhangliwen/genome/hg38 -1 GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1.fq.gz -2 GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R2_val_2.fq.gz --o /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam"
+GZ23047307-HepG2-WGBS-HepG2-SNHG6-OE3_combined_R1_val_1_bismark_bt2_pe

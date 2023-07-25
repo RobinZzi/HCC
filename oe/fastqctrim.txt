@@ -1,0 +1,50 @@
+Started analysis of GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Started analysis of GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 5% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 5% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 10% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 10% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 15% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 15% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 20% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 20% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 25% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 25% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 30% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 30% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 35% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 35% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 40% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 40% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 45% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 45% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 50% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 50% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 55% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 55% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 60% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 60% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 65% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 65% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 70% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 70% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 75% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 75% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 80% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 80% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 85% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 85% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 90% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 90% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Approx 95% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Approx 95% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Analysis complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R2_val_2.fq.gz
+Analysis complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C1_combined_R1_val_1.fq.gz
+Started analysis of GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz
+Started analysis of GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz
+Approx 5% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz
+Approx 5% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz
+Approx 10% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz
+Approx 10% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz
+Approx 15% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R1_val_1.fq.gz
+Approx 15% complete for GZ23047307-HepG2-WGBS-HepG2-GADD45A-C2_combined_R2_val_2.fq.gz

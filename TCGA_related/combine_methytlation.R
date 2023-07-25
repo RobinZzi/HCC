@@ -420,10 +420,22 @@ pheatmap(trio_meth_hcc3_pt,
          fontsize_col= 13,
          angle_col = 45,
          cellwidth = 80)
+hcc3heatmap_result <- pheatmap(trio_meth_hcc3_pt,
+                               show_rownames = F,show_colnames = T,annotation_row = rowanno,
+                               annotation_colors = merge_ann_colors_sub,
+                               clustering_distance_rows = "euclidean",clustering_method = "average",
+                               color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+                               treeheight_row = 0,
+                               treeheight_col = 100,
+                               fontsize_col= 13,
+                               angle_col = 45,
+                               cellwidth = 80)
+hcc3_pb_mtx <- t(trio_meth_hcc3_pt)
+hcc3_pb_dist = dist(hcc3_pb_mtx, method = "euclidean")
+hclust_hcc3 = hclust(hcc3_pb_dist, method = "average")
+plot(hclust_hcc3)
 
-
-
-
+plot(hhcc3_distance_matrix)
 
 
 
@@ -455,6 +467,11 @@ pheatmap(trio_meth_hcc28,
          angle_col = 45,
          cellwidth = 80)
 
+hcc28_pb_mtx <- t(trio_meth_hcc28)
+hcc28_pb_dist = dist(hcc28_pb_mtx, method = "euclidean")
+hclust_hcc28 = hclust(hcc28_pb_dist, method = "average")
+plot(hclust_hcc28)
+
 
 
 
@@ -473,3 +490,7 @@ pheatmap(trio_meth_hcc29,
          angle_col = 45,
          cellwidth = 80)
 
+hcc29_pb_mtx <- t(trio_meth_hcc29)
+hcc29_pb_dist = dist(hcc29_pb_mtx, method = "euclidean")
+hclust_hcc29 = hclust(hcc29_pb_dist, method = "average")
+plot(hclust_hcc29)

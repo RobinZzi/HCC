@@ -76,7 +76,8 @@ library(ggplot2)
 library(ggVennDiagram)
 library(venn)
 options(stringsAsFactors = F)
-
+setwd("~/projects/hcc/analysis/wes_hcc")
+load("hcc28.Rdata")
 save.image("hcc28.Rdata")
 rm(list = ls())
 setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/wes_hcc/hcc28/gatk_result")
@@ -434,8 +435,10 @@ pheatmap(hcc28_sum,
          fontsize          = 12)
 
 
-
-
+hcc28_sum_hclust <- as.data.frame(t(hcc28_sum))
+hcc28_mut_dist = dist(hcc28_sum_hclust, method = "euclidean")
+hclust_hcc28 = hclust(hcc28_mut_dist, method = "average")
+plot(hclust_hcc28)
 
 
 
@@ -485,5 +488,11 @@ pheatmap(hcc29_sum,
          treeheight_row = 0,
          treeheight_col = 20,border_color = NA,
          fontsize          = 12)
+
+
+hcc29_sum_hclust <- as.data.frame(t(hcc29_sum))
+hcc29_mut_dist = dist(hcc29_sum_hclust, method = "euclidean")
+hclust_hcc29 = hclust(hcc29_mut_dist, method = "average")
+plot(hclust_hcc29)
 
 
