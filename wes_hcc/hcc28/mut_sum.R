@@ -11,7 +11,7 @@ library(ggplot2)
 library(ggVennDiagram)
 library(venn)
 library(VennDiagram)
-
+library(rjags)
 
 options(stringsAsFactors = F)
 
@@ -494,5 +494,64 @@ hcc29_sum_hclust <- as.data.frame(t(hcc29_sum))
 hcc29_mut_dist = dist(hcc29_sum_hclust, method = "euclidean")
 hclust_hcc29 = hclust(hcc29_mut_dist, method = "average")
 plot(hclust_hcc29)
+
+
+
+
+
+
+
+
+hcc3_mut_table <- mut_table
+hcc3_info <- select(hcc3_mut_table,Tumor_Sample_Barcode,AAChange.refGene)
+
+hcc3_info_PT1 <- subset(hcc3_info,subset = hcc3_info$Tumor_Sample_Barcode =='BCPT1')
+row.names(hcc3_info_PT1) <- hcc3_info_PT1$AAChange.refGene
+colnames(hcc3_info_PT1) <- c("PT1","pos")
+hcc3_info_PT1$PT1 <- 1
+
+hcc3_info_PT2 <- subset(hcc3_info,subset = hcc3_info$Tumor_Sample_Barcode =='BCPT2')
+row.names(hcc3_info_PT2) <- hcc3_info_PT3$AAChange.refGene
+colnames(hcc3_info_PT2) <- c("PT2","pos")
+hcc3_info_PT2$PT2 <- 1
+
+hcc3_info_PT3 <- subset(hcc3_info,subset = hcc3_info$Tumor_Sample_Barcode =='BCPT3')
+row.names(hcc3_info_PT3) <- hcc3_info_PT3$AAChange.refGene
+colnames(hcc3_info_PT3) <- c("PT3","pos")
+hcc3_info_PT3$PT3 <- 1
+
+hcc3_info_PT4 <- subset(hcc3_info,subset = hcc3_info$Tumor_Sample_Barcode =='BCPT4')
+row.names(hcc3_info_PT4) <- hcc3_info_PT4$AAChange.refGene
+colnames(hcc3_info_PT4) <- c("PT4","pos")
+hcc3_info_PT4$PT4 <- 1
+
+
+
+
+hcc3_sum <- merge(hcc3_info_PT1,hcc3_info_PT3,all=T)
+row.names(hcc3_sum) <- hcc3_sum$pos
+
+hcc3_sum <- merge(hcc3_sum,hcc3_info_PT4,all=T)
+hcc3_sum <- merge(hcc3_sum,hcc3_info_PT2,all=T)
+
+
+hcc3_sum[is.na(hcc3_sum)] <- 0
+hcc3_sum <- hcc3_sum[-1,]
+row.names(hcc3_sum) <- hcc3_sum$pos
+hcc3_sum <- hcc3_sum[,-1]
+pheatmap(hcc3_sum,
+         show_rownames = F, show_colnames = T,
+         cluster_rows = T, cluster_cols = T,
+         clustering_method = "complete",clustering_distance_cols = "canberra",
+         color = colorRampPalette(c("#fff5f6", "#fc929f"))(20),
+         treeheight_row = 0,
+         treeheight_col = 20,border_color = NA,
+         fontsize          = 12)
+
+
+hcc3_sum_hclust <- as.data.frame(t(hcc3_sum))
+hcc3_mut_dist = dist(hcc3_sum_hclust, method = "canberra")
+hclust_hcc3 = hclust(hcc3_mut_dist, method = "average")
+plot(hclust_hcc3)
 
 

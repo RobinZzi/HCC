@@ -1,6 +1,6 @@
-cd /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result
+cd /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/ex2/trim_result
 ref=/storage/zhangyanxiaoLab/zhangliwen/genome/hg38
-dir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/bismark_bam
+dir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/ex2/bismark_bam
 i=1
 ls *fq.gz |while read id
     do

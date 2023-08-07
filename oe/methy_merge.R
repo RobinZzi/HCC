@@ -13,7 +13,7 @@ library(dplyr)
 
 
 load("methy_merge.Rdata")
-save.image("methy_merge.Rdata")
+save.image("methy_merge_ex1.Rdata")
 
 save.image("methy_merge.Rdata")
 chrs <- c("chr1","chr2","chr3","chr4","chr5","chr6","chr7","chr8","chr9","chr10","chr11","chr12","chr13","chr14","chr15",
@@ -201,8 +201,28 @@ GA_test <- as.data.frame(GA_test)
 colnames(GA_test) <- c("pvalue","bf_adj","fdr","fc")
 GA_test_significant <- subset(GA_test,subset =  pvalue< 0.05)
 
-
-
+GA_significant_bed <- as.data.frame(str_split_fixed(row.names(GA_test_significant),"_",2))
+colnames(GA_significant_bed) <- c("chr","start")
+GA_significant_bed$cite <- row.names(GA_test_significant)
+GA_significant_bed$start <- as.numeric(GA_significant_bed$start)
+GA_significant_bed$end <- GA_significant_bed$start+1
+GA_significant_bed$start <- GA_significant_bed$start*100000
+GA_significant_bed$end <- GA_significant_bed$end*100000
+GA_significant_bed$end <- as.numeric(GA_significant_bed$end)
+GA_significant_bed$start <- as.numeric(GA_significant_bed$start)
+GA_significant_bed <- select(GA_significant_bed,chr,start,end)
+write.table(GA_significant_bed, "GA_significant.bed",sep = "\t",quote=F,row.names = F,col.names = F)
+G6_significant_bed <- as.data.frame(str_split_fixed(row.names(G6_test_significant),"_",2))
+colnames(G6_significant_bed) <- c("chr","start")
+G6_significant_bed$cite <- row.names(G6_test_significant)
+G6_significant_bed$start <- as.numeric(G6_significant_bed$start)
+G6_significant_bed$end <- G6_significant_bed$start+1
+G6_significant_bed$start <- G6_significant_bed$start*100000
+G6_significant_bed$end <- G6_significant_bed$end*100000
+G6_significant_bed$end <- as.numeric(G6_significant_bed$end)
+G6_significant_bed$start <- as.numeric(G6_significant_bed$start)
+G6_significant_bed <- select(G6_significant_bed,chr,start,end)
+write.table(G6_significant_bed, "G6_significant.bed",sep = "\t",quote=F,row.names = F,col.names = F)
 
 
 
@@ -244,19 +264,166 @@ pheatmap(G6_mtx,
 
 
 
-G6_model <-  as.data.frame(lapply(G6_mtx,as.numeric)) 
-G6_model$bin <- row.names(G6_mtx)
-G6_model_long <- gather(as.data.frame(G6_model), key = "Sample_Type", value = "Value",-'bin')
-G6_model_long$Sample_Type <- gsub("HepG2.SNHG6.C1","Control",G6_model_long$Sample_Type)
-G6_model_long$Sample_Type <- gsub("HepG2.SNHG6.C2","Control",G6_model_long$Sample_Type)
-G6_model_long$Sample_Type <- gsub("HepG2.SNHG6.C3","Control",G6_model_long$Sample_Type)
-G6_model_long$Sample_Type <- gsub("HepG2.SNHG6.OE1","Overexprssion",G6_model_long$Sample_Type)
-G6_model_long$Sample_Type <- gsub("HepG2.SNHG6.OE2","Overexprssion",G6_model_long$Sample_Type)
-G6_model_long$Sample_Type <- gsub("HepG2.SNHG6.OE3","Overexprssion",G6_model_long$Sample_Type)
-G6_aov <- aov(Value ~ Sample_Type + bin, data = G6_model_long)
-G6_anova_table <- summary(G6_aov)
-G6_model <- aov(G6_model ~ factor(rep(c("Control", "Overexpression"), each = 3)))
-anova_table <- summary(model)
-p_values <- anova_table[[1]][["Pr(>F)"]]
-adjusted_p_values <- p.adjust(p_values, method = "bonferroni")
-significant_genes <- which(adjusted_p_values < 0.05)
+G6_C1_bed <- as.data.frame(str_split_fixed(G6_C1$id,"_",2))
+colnames(G6_C1_bed) <- c("chr","start")
+G6_C1_bed$cite <- G6_C1$id
+G6_C1_bed$meth_level <- G6_C1$`HepG2-SNHG6-C1`
+G6_C1_bed$start <- as.numeric(G6_C1_bed$start)
+G6_C1_bed$end <- G6_C1_bed$start+1
+G6_C1_bed$start <- G6_C1_bed$start*100000
+G6_C1_bed$end <- G6_C1_bed$end*100000
+G6_C1_bed$end <- as.numeric(G6_C1_bed$end)
+G6_C1_bed$start <- as.numeric(G6_C1_bed$start)
+G6_C1_bed <- select(G6_C1_bed,chr,start,end,meth_level)
+write.table(G6_C1_bed, "G6_C1.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+G6_C2_bed <- as.data.frame(str_split_fixed(G6_C2$id,"_",2))
+colnames(G6_C2_bed) <- c("chr","start")
+G6_C2_bed$cite <- G6_C2$id
+G6_C2_bed$meth_level <- G6_C2$`HepG2-SNHG6-C2`
+G6_C2_bed$start <- as.numeric(G6_C2_bed$start)
+G6_C2_bed$end <- G6_C2_bed$start+1
+G6_C2_bed$start <- G6_C2_bed$start*100000
+G6_C2_bed$end <- G6_C2_bed$end*100000
+G6_C2_bed$end <- as.numeric(G6_C2_bed$end)
+G6_C2_bed$start <- as.numeric(G6_C2_bed$start)
+G6_C2_bed <- select(G6_C2_bed,chr,start,end,meth_level)
+write.table(G6_C2_bed, "G6_C2.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+G6_C3_bed <- as.data.frame(str_split_fixed(G6_C3$id,"_",2))
+colnames(G6_C3_bed) <- c("chr","start")
+G6_C3_bed$cite <- G6_C3$id
+G6_C3_bed$meth_level <- G6_C3$`HepG2-SNHG6-C3`
+G6_C3_bed$start <- as.numeric(G6_C3_bed$start)
+G6_C3_bed$end <- G6_C3_bed$start+1
+G6_C3_bed$start <- G6_C3_bed$start*100000
+G6_C3_bed$end <- G6_C3_bed$end*100000
+G6_C3_bed$end <- as.numeric(G6_C3_bed$end)
+G6_C3_bed$start <- as.numeric(G6_C3_bed$start)
+G6_C3_bed <- select(G6_C3_bed,chr,start,end,meth_level)
+write.table(G6_C3_bed, "G6_C3.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+G6_E1_bed <- as.data.frame(str_split_fixed(G6_E1$id,"_",2))
+colnames(G6_E1_bed) <- c("chr","start")
+G6_E1_bed$cite <- G6_E1$id
+G6_E1_bed$meth_level <- G6_E1$`HepG2-SNHG6-OE1`
+G6_E1_bed$start <- as.numeric(G6_E1_bed$start)
+G6_E1_bed$end <- G6_E1_bed$start+1
+G6_E1_bed$start <- G6_E1_bed$start*100000
+G6_E1_bed$end <- G6_E1_bed$end*100000
+G6_E1_bed$end <- as.numeric(G6_E1_bed$end)
+G6_E1_bed$start <- as.numeric(G6_E1_bed$start)
+G6_E1_bed <- select(G6_E1_bed,chr,start,end,meth_level)
+write.table(G6_E1_bed, "G6_E1.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+G6_E2_bed <- as.data.frame(str_split_fixed(G6_E2$id,"_",2))
+colnames(G6_E2_bed) <- c("chr","start")
+G6_E2_bed$cite <- G6_E2$id
+G6_E2_bed$meth_level <- G6_E2$`HepG2-SNHG6-OE2`
+G6_E2_bed$start <- as.numeric(G6_E2_bed$start)
+G6_E2_bed$end <- G6_E2_bed$start+1
+G6_E2_bed$start <- G6_E2_bed$start*100000
+G6_E2_bed$end <- G6_E2_bed$end*100000
+G6_E2_bed$end <- as.numeric(G6_E2_bed$end)
+G6_E2_bed$start <- as.numeric(G6_E2_bed$start)
+G6_E2_bed <- select(G6_E2_bed,chr,start,end,meth_level)
+write.table(G6_E2_bed, "G6_E2.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+G6_E3_bed <- as.data.frame(str_split_fixed(G6_E3$id,"_",2))
+colnames(G6_E3_bed) <- c("chr","start")
+G6_E3_bed$cite <- G6_E3$id
+G6_E3_bed$meth_level <- G6_E3$`HepG2-SNHG6-OE3`
+G6_E3_bed$start <- as.numeric(G6_E3_bed$start)
+G6_E3_bed$end <- G6_E3_bed$start+1
+G6_E3_bed$start <- G6_E3_bed$start*100000
+G6_E3_bed$end <- G6_E3_bed$end*100000
+G6_E3_bed$end <- as.numeric(G6_E3_bed$end)
+G6_E3_bed$start <- as.numeric(G6_E3_bed$start)
+G6_E3_bed <- select(G6_E3_bed,chr,start,end,meth_level)
+write.table(G6_E3_bed, "G6_E3.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+
+
+G6_C1_bed <- as.data.frame(str_split_fixed(G6_C1$id,"_",2))
+colnames(G6_C1_bed) <- c("chr","start")
+G6_C1_bed$cite <- G6_C1$id
+G6_C1_bed$meth_level <- G6_C1$`HepG2-SNHG6-C1`
+G6_C1_bed$start <- as.numeric(G6_C1_bed$start)
+G6_C1_bed$end <- G6_C1_bed$start+1
+G6_C1_bed$start <- G6_C1_bed$start*100000
+G6_C1_bed$end <- G6_C1_bed$end*100000
+G6_C1_bed$end <- as.numeric(G6_C1_bed$end)
+G6_C1_bed$start <- as.numeric(G6_C1_bed$start)
+G6_C1_bed <- select(G6_C1_bed,chr,start,end,meth_level)
+G6_C1_bed <- na.omit(G6_C1_bed)
+write.table(G6_C1_bed, "G6_C1.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+G6_C2_bed <- as.data.frame(str_split_fixed(G6_C2$id,"_",2))
+colnames(G6_C2_bed) <- c("chr","start")
+G6_C2_bed$cite <- G6_C2$id
+G6_C2_bed$meth_level <- G6_C2$`HepG2-SNHG6-C2`
+G6_C2_bed$start <- as.numeric(G6_C2_bed$start)
+G6_C2_bed$end <- G6_C2_bed$start+1
+G6_C2_bed$start <- G6_C2_bed$start*100000
+G6_C2_bed$end <- G6_C2_bed$end*100000
+G6_C2_bed$end <- as.numeric(G6_C2_bed$end)
+G6_C2_bed$start <- as.numeric(G6_C2_bed$start)
+G6_C2_bed <- select(G6_C2_bed,chr,start,end,meth_level)
+G6_C2_bed <- na.omit(G6_C2_bed)
+write.table(G6_C2_bed, "G6_C2.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+G6_C3_bed <- as.data.frame(str_split_fixed(G6_C3$id,"_",2))
+colnames(G6_C3_bed) <- c("chr","start")
+G6_C3_bed$cite <- G6_C3$id
+G6_C3_bed$meth_level <- G6_C3$`HepG2-SNHG6-C3`
+G6_C3_bed$start <- as.numeric(G6_C3_bed$start)
+G6_C3_bed$end <- G6_C3_bed$start+1
+G6_C3_bed$start <- G6_C3_bed$start*100000
+G6_C3_bed$end <- G6_C3_bed$end*100000
+G6_C3_bed$end <- as.numeric(G6_C3_bed$end)
+G6_C3_bed$start <- as.numeric(G6_C3_bed$start)
+G6_C3_bed <- select(G6_C3_bed,chr,start,end,meth_level)
+G6_C3_bed <- na.omit(G6_C3_bed)
+write.table(G6_C3_bed, "G6_C3.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+G6_E1_bed <- as.data.frame(str_split_fixed(G6_E1$id,"_",2))
+colnames(G6_E1_bed) <- c("chr","start")
+G6_E1_bed$cite <- G6_E1$id
+G6_E1_bed$meth_level <- G6_E1$`HepG2-SNHG6-OE1`
+G6_E1_bed$start <- as.numeric(G6_E1_bed$start)
+G6_E1_bed$end <- G6_E1_bed$start+1
+G6_E1_bed$start <- G6_E1_bed$start*100000
+G6_E1_bed$end <- G6_E1_bed$end*100000
+G6_E1_bed$end <- as.numeric(G6_E1_bed$end)
+G6_E1_bed$start <- as.numeric(G6_E1_bed$start)
+G6_E1_bed <- select(G6_E1_bed,chr,start,end,meth_level)
+G6_E1_bed <- na.omit(G6_E1_bed)
+write.table(G6_E1_bed, "G6_E1.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+G6_E2_bed <- as.data.frame(str_split_fixed(G6_E2$id,"_",2))
+colnames(G6_E2_bed) <- c("chr","start")
+G6_E2_bed$cite <- G6_E2$id
+G6_E2_bed$meth_level <- G6_E2$`HepG2-SNHG6-OE2`
+G6_E2_bed$start <- as.numeric(G6_E2_bed$start)
+G6_E2_bed$end <- G6_E2_bed$start+1
+G6_E2_bed$start <- G6_E2_bed$start*100000
+G6_E2_bed$end <- G6_E2_bed$end*100000
+G6_E2_bed$end <- as.numeric(G6_E2_bed$end)
+G6_E2_bed$start <- as.numeric(G6_E2_bed$start)
+G6_E2_bed <- select(G6_E2_bed,chr,start,end,meth_level)
+G6_E2_bed <- na.omit(G6_E2_bed)
+write.table(G6_E2_bed, "G6_E2.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+G6_E3_bed <- as.data.frame(str_split_fixed(G6_E3$id,"_",2))
+colnames(G6_E3_bed) <- c("chr","start")
+G6_E3_bed$cite <- G6_E3$id
+G6_E3_bed$meth_level <- G6_E3$`HepG2-SNHG6-OE3`
+G6_E3_bed$start <- as.numeric(G6_E3_bed$start)
+G6_E3_bed$end <- G6_E3_bed$start+1
+G6_E3_bed$start <- G6_E3_bed$start*100000
+G6_E3_bed$end <- G6_E3_bed$end*100000
+G6_E3_bed$end <- as.numeric(G6_E3_bed$end)
+G6_E3_bed$start <- as.numeric(G6_E3_bed$start)
+G6_E3_bed <- select(G6_E3_bed,chr,start,end,meth_level)
+G6_E3_bed <- na.omit(G6_E3_bed)
+write.table(G6_E3_bed, "G6_E3.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)

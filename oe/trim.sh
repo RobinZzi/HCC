@@ -1,6 +1,6 @@
-cd /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/data/oe
+cd /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/data/oe/ex3
 bin_trim_galore=trim_galore
-dir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/trim_result/
+dir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/ex3/trim_result/
 path=$1
 files=$(ls$path)
 for filename in $files
