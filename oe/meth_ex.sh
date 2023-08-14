@@ -1,5 +1,5 @@
-dir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/ex2/remove_dup
-outP=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/ex2/meth_ex
+dir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/merge2/remove_dup
+outP=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/merge2/meth_ex
 index=/storage/zhangyanxiaoLab/zhangliwen/genome/hg38
 
 

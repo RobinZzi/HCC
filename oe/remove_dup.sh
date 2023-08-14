@@ -1,6 +1,6 @@
 
-dir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/ex2/bismark_bam
-dir2=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/ex2/remove_dup
+dir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/merge2/bismark_bam
+dir2=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/merge2/remove_dup
 
 cd $dir
 ls *.bam |while read id
