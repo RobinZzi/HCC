@@ -438,10 +438,109 @@ g6_admr_regions <- select(g6_admr_regions,chr,start,end,pos)
 write.table(g6_admr_regions, "g6_admr_regions.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
 
 
+write.table(g6_admr_regions[,1:3], "g6_admr_regions2.bed",sep = "\t",quote=F,row.names = F,col.names = F)
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+GA_C1_bed <- as.data.frame(str_split_fixed(GA_C1_filt$id,"_",2))
+colnames(GA_C1_bed) <- c("chr","start")
+GA_C1_bed$cite <- GA_C1_filt$id
+GA_C1_bed$meth_level <- GA_C1_filt$`GADD45A-C1`
+GA_C1_bed$start <- as.numeric(GA_C1_bed$start)
+GA_C1_bed$end <- GA_C1_bed$start+1
+GA_C1_bed$start <- GA_C1_bed$start*100000
+GA_C1_bed$end <- GA_C1_bed$end*100000
+GA_C1_bed$end <- as.numeric(GA_C1_bed$end)
+GA_C1_bed$start <- as.numeric(GA_C1_bed$start)
+GA_C1_bed <- select(GA_C1_bed,chr,start,end,meth_level)
+write.table(GA_C1_bed, "GA_C1.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+
+
+GA_C2_bed <- as.data.frame(str_split_fixed(GA_C2_filt$id,"_",2))
+colnames(GA_C2_bed) <- c("chr","start")
+GA_C2_bed$cite <- GA_C2_filt$id
+GA_C2_bed$meth_level <- GA_C2_filt$`GADD45A-C2`
+GA_C2_bed$start <- as.numeric(GA_C2_bed$start)
+GA_C2_bed$end <- GA_C2_bed$start+1
+GA_C2_bed$start <- GA_C2_bed$start*100000
+GA_C2_bed$end <- GA_C2_bed$end*100000
+GA_C2_bed$end <- as.numeric(GA_C2_bed$end)
+GA_C2_bed$start <- as.numeric(GA_C2_bed$start)
+GA_C2_bed <- select(GA_C2_bed,chr,start,end,meth_level)
+write.table(GA_C2_bed, "GA_C2.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+
+GA_C3_bed <- as.data.frame(str_split_fixed(GA_C3_filt$id,"_",2))
+colnames(GA_C3_bed) <- c("chr","start")
+GA_C3_bed$cite <- GA_C3_filt$id
+GA_C3_bed$meth_level <- GA_C3_filt$`GADD45A-C3`
+GA_C3_bed$start <- as.numeric(GA_C3_bed$start)
+GA_C3_bed$end <- GA_C3_bed$start+1
+GA_C3_bed$start <- GA_C3_bed$start*100000
+GA_C3_bed$end <- GA_C3_bed$end*100000
+GA_C3_bed$end <- as.numeric(GA_C3_bed$end)
+GA_C3_bed$start <- as.numeric(GA_C3_bed$start)
+GA_C3_bed <- select(GA_C3_bed,chr,start,end,meth_level)
+write.table(GA_C3_bed, "GA_C3.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+
+
+GA_E1_bed <- as.data.frame(str_split_fixed(GA_E1_filt$id,"_",2))
+colnames(GA_E1_bed) <- c("chr","start")
+GA_E1_bed$cite <- GA_E1_filt$id
+GA_E1_bed$meth_level <- GA_E1_filt$`GADD45A-OE1`
+GA_E1_bed$start <- as.numeric(GA_E1_bed$start)
+GA_E1_bed$end <- GA_E1_bed$start+1
+GA_E1_bed$start <- GA_E1_bed$start*100000
+GA_E1_bed$end <- GA_E1_bed$end*100000
+GA_E1_bed$end <- as.numeric(GA_E1_bed$end)
+GA_E1_bed$start <- as.numeric(GA_E1_bed$start)
+GA_E1_bed <- select(GA_E1_bed,chr,start,end,meth_level)
+write.table(GA_E1_bed, "GA_E1.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+
+
+
+GA_E2_bed <- as.data.frame(str_split_fixed(GA_E2_filt$id,"_",2))
+colnames(GA_E2_bed) <- c("chr","start")
+GA_E2_bed$cite <- GA_E2_filt$id
+GA_E2_bed$meth_level <- GA_E2_filt$`GADD45A-OE2`
+GA_E2_bed$start <- as.numeric(GA_E2_bed$start)
+GA_E2_bed$end <- GA_E2_bed$start+1
+GA_E2_bed$start <- GA_E2_bed$start*100000
+GA_E2_bed$end <- GA_E2_bed$end*100000
+GA_E2_bed$end <- as.numeric(GA_E2_bed$end)
+GA_E2_bed$start <- as.numeric(GA_E2_bed$start)
+GA_E2_bed <- select(GA_E2_bed,chr,start,end,meth_level)
+write.table(GA_E2_bed, "GA_E2.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+
+
+
+
+GA_E3_bed <- as.data.frame(str_split_fixed(GA_E3_filt$id,"_",2))
+colnames(GA_E3_bed) <- c("chr","start")
+GA_E3_bed$cite <- GA_E3_filt$id
+GA_E3_bed$meth_level <- GA_E3_filt$`GADD45A-OE3`
+GA_E3_bed$start <- as.numeric(GA_E3_bed$start)
+GA_E3_bed$end <- GA_E3_bed$start+1
+GA_E3_bed$start <- GA_E3_bed$start*100000
+GA_E3_bed$end <- GA_E3_bed$end*100000
+GA_E3_bed$end <- as.numeric(GA_E3_bed$end)
+GA_E3_bed$start <- as.numeric(GA_E3_bed$start)
+GA_E3_bed <- select(GA_E3_bed,chr,start,end,meth_level)
+write.table(GA_E3_bed, "GA_E3.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
 
