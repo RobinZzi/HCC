@@ -1,5 +1,6 @@
 library(VennDiagram)
-
+rm(list=ls())
+save.image("oe_10kbin.Rdata")
 setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/merge2/methy_report/10kbin")
 
 setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/oe/merge2/methy_report/report")
@@ -1134,14 +1135,438 @@ colnames(G6baseMean) <- "G6-base"
 
 sd(x, na.rm = FALSE)
 wilcox.test(scores~methods,paired=FALSE)
-GA_wilcoxtest_base <- GA_test_base
+GA_sd_base <- GA_test_base
 for (i in 1:nrow(GA_filt)) {
-  wilcox_test<-data.frame(
-    ratio=unlist(GA_filt[i,]),
-    group=c(rep("control",3),
-            rep("oe",3))
-  )
-  wilcox.test_result <- wilcox.test(ratio~group,data=wilcox_test,paired=FALSE)
-  GA_wilcoxtest_base[i,2] <- wilcox.test_result$p.value
-  GA_wilcoxtest_base[i,3] <- mean(unlist(wilcox_test[1:3,1]))-mean(unlist(wilcox_test[4:6,1]))
+  GA_sd_base[i,"sd"] <- sd(GA_filt[i,], na.rm = FALSE)
 }
+
+
+
+G6_sd_base <- G6_test_base
+for (i in 1:nrow(GA_filt)) {
+  G6_sd_base[i,"sd"] <- sd(G6_filt[i,], na.rm = FALSE)
+}
+
+
+
+
+
+GA_sd_sort <- GA_sd_base[order(-GA_sd_base$sd),]
+GA_sd_top <- GA_sd_sort[1:30000,]
+GA_filt_pca <- subset(GA_filt,subset = row.names(GA_filt) %in% GA_sd_top$id)
+GA_filt_pca <- as.data.frame(t(GA_filt_pca))
+
+
+GA_sd_fragment <- GA_sd_sort$sd
+head(GA_sd_fragment)
+GA_sd_fragment <- data.frame(GA_sd_fragment)
+GA_sd_res <- hist(GA_sd_fragment$GA_sd_fragment, breaks = 500, plot = FALSE)
+plot(x = c(0, GA_sd_res$breaks),
+     y = c(0, 0, GA_sd_res$counts),
+     type = "l", col = "blue",
+     xlab = "Standard Deviation level",
+     ylab = "bin nums",
+     main = "GA sd stat",
+     )
+
+abline(v=0.06227872,col="red")
+abline(v=0.04396486,col="red")
+
+
+GA_sd_filt_fragment <- GA_sd_top$sd
+head(GA_sd_filt_fragment)
+GA_sd_filt_fragment <- data.frame(GA_sd_filt_fragment)
+GA_sd_filt_res <- hist(GA_sd_filt_fragment$GA_sd_filt_fragment, breaks = 500, plot = FALSE)
+plot(x = c(0, GA_sd_filt_res$breaks),
+     y = c(0, 0, GA_sd_filt_res$counts),
+     type = "l", col = "blue",
+     xlab = "Sumed_count",
+     ylab = "bin nums",
+     main = "GA top 30000 sd stat")
+
+GA_group <- data.frame(Sample = rownames(GA_filt_pca), Group = rep(c("Control", "OE"), each = 3))
+GA_filt_pca <- PCA(GA_filt_pca, ncp = 2, scale.unit = TRUE, graph = FALSE)
+GA_filt_pca_sample <- data.frame(GA_filt_pca$ind$coord[ ,1:2])
+GA_filt_pca_sample$Sample=row.names(GA_filt_pca_sample)
+GA_pca_eig1 <- round(GA_filt_pca$eig[1,2], 2)
+GA_pca_eig2 <- round(GA_filt_pca$eig[2,2],2 )
+
+
+GA_filt_pca_sample <- merge(GA_filt_pca_sample ,GA_group,by="Sample")
+head(GA_filt_pca_sample)
+ggplot(data = GA_filt_pca_sample, aes(x = Dim.1, y = Dim.2)) +
+  geom_point(aes(color = Group), size = 6) + 
+  scale_color_manual(values = c('orange', 'purple')) + 
+  theme(panel.grid = element_blank(), panel.background = element_rect(color = 'black', fill = 'transparent'),legend.key = element_rect(fill = 'transparent')) + 
+  labs(x = paste('PCA1:', GA_pca_eig1, '%'), y = paste('PCA2:', GA_pca_eig2, '%'), color = '') + 
+  stat_ellipse(aes(color = Group), level = 0.95, show.legend = FALSE)+ 
+  stat_ellipse(aes(fill = Group), geom = 'polygon', level = 0.95, alpha = 0.3, show.legend = FALSE)+
+  scale_fill_manual(values = c('orange', 'purple'))+
+  labs(title="GADD45A_pca")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+G6_sd_sort <- G6_sd_base[order(-G6_sd_base$sd),]
+G6_sd_top <- G6_sd_sort[1:30000,]
+G6_filt_pca <- subset(G6_filt,subset = row.names(G6_filt) %in% G6_sd_top$id)
+G6_filt_pca <- as.data.frame(t(G6_filt_pca))
+
+G6_group <- data.frame(Sample = rownames(G6_filt_pca), Group = rep(c("Control", "OE"), each = 3))
+G6_filt_pca <- PCA(G6_filt_pca, ncp = 2, scale.unit = TRUE, graph = FALSE)
+G6_filt_pca_sample <- data.frame(G6_filt_pca$ind$coord[ ,1:2])
+G6_filt_pca_sample$Sample=row.names(G6_filt_pca_sample)
+G6_pca_eig1 <- round(G6_filt_pca$eig[1,2], 2)
+G6_pca_eig2 <- round(G6_filt_pca$eig[2,2],2 )
+
+
+G6_sd_fragment <- G6_sd_sort$sd
+head(G6_sd_fragment)
+G6_sd_fragment <- data.frame(G6_sd_fragment)
+G6_sd_res <- hist(G6_sd_fragment$G6_sd_fragment, breaks = 500, plot = FALSE)
+plot(x = c(0, G6_sd_res$breaks),
+     y = c(0, 0, G6_sd_res$counts),
+     type = "l", col = "blue",
+     xlab = "Sumed_count",
+     ylab = "bin nums",
+     main = "G6 sd stat")
+abline(v=0.06990197,col="red")
+abline(v=0.04700805,col="red")
+
+G6_sd_filt_fragment <- G6_sd_top$sd
+head(G6_sd_filt_fragment)
+G6_sd_filt_fragment <- data.frame(G6_sd_filt_fragment)
+G6_sd_filt_res <- hist(G6_sd_filt_fragment$G6_sd_filt_fragment, breaks = 500, plot = FALSE)
+plot(x = c(0, G6_sd_filt_res$breaks),
+     y = c(0, 0, G6_sd_filt_res$counts),
+     type = "l", col = "blue",
+     xlab = "Sumed_count",
+     ylab = "bin nums",
+     main = "G6 top 30000 sd stat")
+
+
+G6_filt_pca_sample <- merge(G6_filt_pca_sample ,G6_group,by="Sample")
+head(G6_filt_pca_sample)
+ggplot(data = G6_filt_pca_sample, aes(x = Dim.1, y = Dim.2)) +
+  geom_point(aes(color = Group), size = 6) + 
+  scale_color_manual(values = c('orange', 'purple')) + 
+  theme(panel.grid = element_blank(), panel.background = element_rect(color = 'black', fill = 'transparent'),legend.key = element_rect(fill = 'transparent')) + 
+  labs(x = paste('PCA1:', G6_pca_eig1, '%'), y = paste('PCA2:', G6_pca_eig2, '%'), color = '') + 
+  stat_ellipse(aes(color = Group), level = 0.95, show.legend = FALSE)+ 
+  stat_ellipse(aes(fill = Group), geom = 'polygon', level = 0.95, alpha = 0.3, show.legend = FALSE)+
+  scale_fill_manual(values = c('orange', 'purple'))+
+  labs(title="SNHG6_pca")
+
+
+
+
+GA_r1_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[1:2], row[4:5])$p.value
+})
+
+GA_r2_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[1:2], row[5:6])$p.value
+})
+
+GA_r3_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[1:2], row[c(4,6)])$p.value
+})
+
+GA_r4_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[2:3], row[4:5])$p.value
+})
+
+GA_r5_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[2:3], row[5:6])$p.value
+})
+
+GA_r6_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[2:3], row[c(4,6)])$p.value
+})
+
+GA_r7_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[c(1,3)], row[4:5])$p.value
+})
+
+GA_r8_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[c(1,3)], row[5:6])$p.value
+})
+
+GA_r9_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[c(1,3)], row[c(4,6)])$p.value
+})
+
+
+GA_r10_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[c(1,5)], row[c(2,6)])$p.value
+})
+GA_r11_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[c(1,5)], row[c(2,4)])$p.value
+})
+GA_r12_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[c(1,6)], row[c(2,5)])$p.value
+})
+GA_r13_p_values <- apply(GA_filt, 1, function(row) {
+  t.test(row[c(3,6)], row[c(2,5)])$p.value
+})
+
+
+
+GA_r1_test <- as.data.frame(cbind(GA_r1_p_values,row.names(GA_filt),))
+GA_r2_test <- as.data.frame(cbind(GA_r2_p_values,row.names(GA_filt)))
+GA_r3_test <- as.data.frame(cbind(GA_r3_p_values,row.names(GA_filt)))
+GA_r4_test <- as.data.frame(cbind(GA_r4_p_values,row.names(GA_filt)))
+GA_r5_test <- as.data.frame(cbind(GA_r5_p_values,row.names(GA_filt)))
+GA_r6_test <- as.data.frame(cbind(GA_r6_p_values,row.names(GA_filt)))
+GA_r7_test <- as.data.frame(cbind(GA_r7_p_values,row.names(GA_filt)))
+GA_r8_test <- as.data.frame(cbind(GA_r8_p_values,row.names(GA_filt)))
+GA_r9_test <- as.data.frame(cbind(GA_r9_p_values,row.names(GA_filt)))
+
+GA_r10_test <- as.data.frame(cbind(GA_r10_p_values,row.names(GA_filt)))
+GA_r11_test <- as.data.frame(cbind(GA_r11_p_values,row.names(GA_filt)))
+GA_r12_test <- as.data.frame(cbind(GA_r12_p_values,row.names(GA_filt)))
+GA_r13_test <- as.data.frame(cbind(GA_r13_p_values,row.names(GA_filt)))
+
+GA_r1_test_sig <- subset(GA_r1_test,GA_r1_test$GA_r1_p_values < 0.05)
+GA_r3_test_sig <- subset(GA_r3_test,GA_r3_test$GA_r3_p_values < 0.05)
+GA_r4_test_sig <- subset(GA_r4_test,GA_r4_test$GA_r4_p_values < 0.05)
+GA_r5_test_sig <- subset(GA_r5_test,GA_r5_test$GA_r5_p_values < 0.05)
+GA_r6_test_sig <- subset(GA_r6_test,GA_r6_test$GA_r6_p_values < 0.05)
+GA_r7_test_sig <- subset(GA_r7_test,GA_r7_test$GA_r7_p_values < 0.05)
+GA_r8_test_sig <- subset(GA_r8_test,GA_r8_test$GA_r8_p_values < 0.05)
+GA_r9_test_sig <- subset(GA_r9_test,GA_r9_test$GA_r9_p_values < 0.05)
+GA_r10_test_sig <- subset(GA_r10_test,GA_r10_test$GA_r10_p_values < 0.05)
+GA_r11_test_sig <- subset(GA_r11_test,GA_r11_test$GA_r11_p_values < 0.05)
+GA_r12_test_sig <- subset(GA_r12_test,GA_r12_test$GA_r12_p_values < 0.05)
+GA_r13_test_sig <- subset(GA_r13_test,GA_r13_test$GA_r13_p_values < 0.05)
+
+
+
+
+
+
+
+G6_r1_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[1:2], row[4:5])$p.value
+})
+G6_r1_dt <- apply(G6_filt, 1, function(row) {
+  mean(row[1:2])-mean(row[4:5])
+})
+G6_r2_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[1:2], row[5:6])$p.value
+})
+G6_r2_dt <- apply(G6_filt, 1, function(row) {
+  mean(row[1:2])-mean(row[5:6])
+})
+G6_r3_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[1:2], row[c(4,6)])$p.value
+})
+G6_r3_dt <- apply(G6_filt, 1, function(row) {
+  mean(row[1:2])-mean(row[c(4,6)])
+})
+G6_r4_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[2:3], row[4:5])$p.value
+})
+G6_r4_dt <- apply(G6_filt, 1, function(row) {
+  mean(row[2:3])-mean(row[4:5])
+})
+G6_r5_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[2:3], row[5:6])$p.value
+})
+G6_r5_dt <- apply(G6_filt, 1, function(row) {
+  mean(row[2:3])-mean(row[5:6])
+})
+G6_r6_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[2:3], row[c(4,6)])$p.value
+})
+G6_r6_dt <- apply(G6_filt, 1, function(row) {
+  mean(row[2:3])-mean(row[c(4,6)])
+})
+G6_r7_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[c(1,3)], row[4:5])$p.value
+})
+G6_r7_dt <- apply(G6_filt, 1, function(row) {
+  mean(row[c(1,3)])-mean(row[4:5])
+})
+G6_r8_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[c(1,3)], row[5:6])$p.value
+})
+G6_r8_dt <- apply(G6_filt, 1, function(row) {
+  mean(row[c(1,3)])-mean(row[5:6])
+})
+G6_r9_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[c(1,3)], row[c(4,6)])$p.value
+})
+G6_r9_dt <- apply(G6_filt, 1, function(row) {
+  mean(row[c(1,3)])-mean(row[c(4,6)])
+})
+
+
+
+
+
+G6_r10_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[c(1,5)], row[c(2,6)])$p.value
+})
+G6_r11_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[c(1,5)], row[c(2,4)])$p.value
+})
+G6_r12_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[c(1,6)], row[c(2,5)])$p.value
+})
+G6_r13_p_values <- apply(G6_filt, 1, function(row) {
+  t.test(row[c(3,6)], row[c(1,5)])$p.value
+})
+
+
+
+G6_r1_test <- as.data.frame(cbind(G6_r1_p_values,row.names(G6_filt)))
+G6_r2_test <- as.data.frame(cbind(G6_r2_p_values,row.names(G6_filt)))
+G6_r3_test <- as.data.frame(cbind(G6_r3_p_values,row.names(G6_filt)))
+G6_r4_test <- as.data.frame(cbind(G6_r4_p_values,row.names(G6_filt)))
+G6_r5_test <- as.data.frame(cbind(G6_r5_p_values,row.names(G6_filt)))
+G6_r6_test <- as.data.frame(cbind(G6_r6_p_values,row.names(G6_filt)))
+G6_r7_test <- as.data.frame(cbind(G6_r7_p_values,row.names(G6_filt)))
+G6_r8_test <- as.data.frame(cbind(G6_r8_p_values,row.names(G6_filt)))
+G6_r9_test <- as.data.frame(cbind(G6_r9_p_values,row.names(G6_filt)))
+G6_r10_test <- as.data.frame(cbind(G6_r10_p_values,row.names(G6_filt)))
+G6_r11_test <- as.data.frame(cbind(G6_r11_p_values,row.names(G6_filt)))
+G6_r12_test <- as.data.frame(cbind(G6_r12_p_values,row.names(G6_filt)))
+G6_r13_test <- as.data.frame(cbind(G6_r13_p_values,row.names(G6_filt)))
+
+
+
+G6_r1_test_sig <- subset(G6_r1_test,G6_r1_test$G6_r1_p_values < 0.05)
+G6_r2_test_sig <- subset(G6_r2_test,G6_r2_test$G6_r2_p_values < 0.05)
+G6_r3_test_sig <- subset(G6_r3_test,G6_r3_test$G6_r3_p_values < 0.05)
+G6_r4_test_sig <- subset(G6_r4_test,G6_r4_test$G6_r4_p_values < 0.05)
+G6_r5_test_sig <- subset(G6_r5_test,G6_r5_test$G6_r5_p_values < 0.05)
+G6_r6_test_sig <- subset(G6_r6_test,G6_r6_test$G6_r6_p_values < 0.05)
+G6_r7_test_sig <- subset(G6_r7_test,G6_r7_test$G6_r7_p_values < 0.05)
+G6_r8_test_sig <- subset(G6_r8_test,G6_r8_test$G6_r8_p_values < 0.05)
+G6_r9_test_sig <- subset(G6_r9_test,G6_r9_test$G6_r9_p_values < 0.05)
+G6_r10_test_sig <- subset(G6_r10_test,G6_r10_test$G6_r10_p_values < 0.05)
+G6_r11_test_sig <- subset(G6_r11_test,G6_r11_test$G6_r11_p_values < 0.05)
+G6_r12_test_sig <- subset(G6_r12_test,G6_r12_test$G6_r12_p_values < 0.05)
+G6_r13_test_sig <- subset(G6_r13_test,G6_r13_test$G6_r13_p_values < 0.05)
+
+
+
+
+
+GA_adjusted_p_values <- p.adjust(GA_p_values, method  = "fdr")
+GA_adjusted_p_values_b <- p.adjust(GA_p_values, method  = "bonferroni")
+GA_test <- cbind(GA_p_values,GA_adjusted_p_values,GA_adjusted_p_values_b,GA_dt)
+GA_test <- as.data.frame(GA_test)
+colnames(GA_test) <- c("pvalue","bf_adj","fdr","dt")
+GA_test_significant <- subset(GA_test,subset =  pvalue< 0.05)
+GA_ttest_sig_demeth <- subset(GA_test_significant , subset = dt>0)
+GA_ttest_sig_admeth <- subset(GA_test_significant , subset = dt<0)
+
+
+GA_test_sig <- subset(GA_test_base,subset = GA_test_base$pvalue < 0.05)
+GA_test_sig_demeth <-  subset(GA_test_sig,subset = GA_test_sig$fc > 0)
+GA_test_sig_admeth <-  subset(GA_test_sig,subset = GA_test_sig$fc < 0)
+
+ga_demeth_Venn <- list(ttest = row.names(GA_ttest_sig_demeth), kwtest = GA_test_sig_demeth$id)
+ga_admeth_Venn <- list(ttest = row.names(GA_ttest_sig_admeth), kwtest = GA_test_sig_admeth$id)
+
+
+venn.diagram(ga_demeth_Venn, filename = 'ga_demeth_Venn.png', imagetype = 'png', 
+             fill = c('#4D157D', '#84C7DB'), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB'), cat.cex = 1.5, cat.fontfamily = 'serif',
+             col = c('#4D157D', '#84C7DB'), cex = 1.5, fontfamily = 'serif')
+
+
+
+
+G6baseMean[,"Sample"] <- row.names(G6baseMean)
+G6baseMean[,"region"] <- "all_regions"
+G6baseMean[1:3,"Sample_type"] <- "Control"
+G6baseMean[4:6,"Sample_type"] <- "Overexpression"
+colnames(G6baseMean) <- c("methy_level","Sample","Sample_type","region")
+G6PMDMean[,"Sample"] <- row.names(G6PMDMean)
+G6PMDMean[,"region"] <- "PMD_regions"
+G6PMDMean[1:3,"Sample_type"] <- "Control"
+G6PMDMean[4:6,"Sample_type"] <- "Overexpression"
+colnames(G6PMDMean) <- c("methy_level","Sample","Sample_type","region")
+
+G6_level <- rbind(G6baseMean,G6PMDMean)
+
+
+ggplot(G6baseMean)+
+  geom_boxplot(aes(x=Sample_type,y=methy_level,fill=Sample_type))+
+  geom_point(aes(x=Sample_type,y=methy_level))
+ggplot(G6PMDMean)+
+  geom_boxplot(aes(x=Sample_type,y=methy_level,fill=Sample_type))+
+  geom_point(aes(x=Sample_type,y=methy_level))
+
+ggplot(G6baseMean)+
+  geom_bar(aes(x=Sample_type,y=methy_level,fill=Sample_type),stat = "identity", position = position_dodge())+
+  geom_point(aes(x=Sample_type,y=methy_level))
+ggplot(G6PMDMean)+
+  geom_bar(aes(x=Sample_type,y=methy_level,fill=Sample_type),stat = "identity", position = position_dodge())+
+  geom_point(aes(x=Sample_type,y=methy_level))
+
+
+
+
+
+
+
+GAbaseMean[,"region"] <- "all_regions"
+GAbaseMean[1:3,"Sample_type"] <- "Control"
+GAbaseMean[4:6,"Sample_type"] <- "Overexpression"
+colnames(GAbaseMean) <- c("methy_level","Sample","Sample_type","region")
+GAPMDMean[,"Sample"] <- row.names(GAPMDMean)
+GAPMDMean[,"region"] <- "PMD_regions"
+GAPMDMean[1:3,"Sample_type"] <- "Control"
+GAPMDMean[4:6,"Sample_type"] <- "Overexpression"
+colnames(GAPMDMean) <- c("methy_level","Sample","Sample_type","region")
+
+GA_level <- rbind(GAbaseMean,GAPMDMean)
+
+ggplot(GAbaseMean)+
+  geom_boxplot(aes(x=Sample_type,y=methy_level,fill=Sample_type))+
+  geom_point(aes(x=Sample_type,y=methy_level))
+ggplot(GAPMDMean)+
+  geom_boxplot(aes(x=Sample_type,y=methy_level,fill=Sample_type))+
+  geom_point(aes(x=Sample_type,y=methy_level))
+
+ggplot(GAbaseMean)+
+  geom_bar(aes(x=Sample_type,y=methy_level,fill=Sample_type),stat = "identity", position = position_dodge())+
+  geom_point(aes(x=Sample_type,y=methy_level))
+ggplot(GAPMDMean)+
+  geom_bar(aes(x=Sample_type,y=methy_level,fill=Sample_type),stat = "identity", position = position_dodge())+
+  geom_point(aes(x=Sample_type,y=methy_level))
+
+
+
+G6_diff <- as.data.frame(cbind(c(6033,5550,6169,6067,7716,5711,5162,5806),
+                               c("DA","DA","DA","DA","Control","Control","Control","Control")))
+colnames(G6_diff) <- c("DMR_num","group")
+G6_diff$DMR_num <- as.numeric(G6_diff$DMR_num)
+ggplot(G6_diff)+
+  geom_bar(aes(x=group,y=DMR_num,fill=group),stat = "identity", position = position_dodge())+
+  geom_point(aes(x=group,y=DMR_num))
+
+
+
+
+GA_diff <- as.data.frame(cbind(c(6410,6667,6690,6907,6188,5674,6245,5913),
+                               c("DA","DA","DA","DA","Control","Control","Control","Control")))
+colnames(GA_diff) <- c("DMR_num","group")
+GA_diff$DMR_num <- as.numeric(GA_diff$DMR_num)
+ggplot(GA_diff)+
+  geom_bar(aes(x=group,y=DMR_num,fill=group),stat = "identity", position = position_dodge())+
+  geom_point(aes(x=group,y=DMR_num))
