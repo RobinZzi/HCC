@@ -1570,3 +1570,334 @@ GA_diff$DMR_num <- as.numeric(GA_diff$DMR_num)
 ggplot(GA_diff)+
   geom_bar(aes(x=group,y=DMR_num,fill=group),stat = "identity", position = position_dodge())+
   geom_point(aes(x=group,y=DMR_num))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+setwd("~/genome")
+promoter_anno <- fread("illuminaMethyl450_hg38_GDC")
+promoter_regions <- select(promoter_anno,chrom,chromStart,chromEnd,gene)
+colnames(promoter_regions) <- c("chr","start","end","gene")
+
+promoter_regions_filt <- subset(promoter_regions, subset = gene != ".")
+
+write.table(promoter_regions_filt, "promoter_cite.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
+
+
+ga_demeth_gene <- fread("ga_demeth_gene.bedGraph")
+
+ga_demeth_genelist <- unique(unlist(ga_demeth_gene$V8))
+
+
+ga_random_regions <- ga_global_regions[sample(1:266232, 5400, replace = FALSE),]
+write.table(ga_random_regions, "ga_random_regions.bed",sep = "\t",quote=F,row.names = F,col.names = F)
+
+
+
+ga_admeth_gene <- fread("ga_admeth_gene.bedGraph")
+
+ga_admeth_genelist <- unique(unlist(ga_admeth_gene$V8))
+
+
+ga_demeth_go <- enrichGO(gene  = ga_demeth_genelist,
+                                OrgDb      = org.Hs.eg.db,
+                                keyType    = 'SYMBOL',
+                                ont        = "BP",
+                                pAdjustMethod = "BH",
+                                pvalueCutoff = 0.05,
+                                qvalueCutoff = 0.05)
+ga_demeth_go <- as.data.frame(ga_demeth_go@result)
+ga_demeth_go [,"logp"] <- -log10(ga_demeth_go$pvalue)
+ggplot(data = ga_demeth_go[1:20,])+
+  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "-Logp", 
+       y= " ",
+       title="demeth_in_ga_oe")
+
+
+
+
+
+
+
+ga_admeth_go <- enrichGO(gene  = ga_admeth_genelist,
+                         OrgDb      = org.Hs.eg.db,
+                         keyType    = 'SYMBOL',
+                         ont        = "BP",
+                         pAdjustMethod = "BH",
+                         pvalueCutoff = 0.05,
+                         qvalueCutoff = 0.05)
+ga_admeth_go <- as.data.frame(ga_admeth_go@result)
+ga_admeth_go [,"logp"] <- -log10(ga_admeth_go$pvalue)
+ggplot(data = ga_admeth_go[1:20,])+
+  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "-Logp", 
+       y= " ",
+       title="admeth_in_ga_oe")
+
+
+
+
+ga_random_gene <- fread("ga_random_gene.bedGraph")
+
+ga_random_genelist <- unique(unlist(ga_random_gene$V8))
+
+
+ga_random_go <- enrichGO(gene  = ga_random_genelist,
+                         OrgDb      = org.Hs.eg.db,
+                         keyType    = 'SYMBOL',
+                         ont        = "BP",
+                         pAdjustMethod = "BH",
+                         pvalueCutoff = 0.05,
+                         qvalueCutoff = 0.05)
+ga_random_go <- as.data.frame(ga_random_go@result)
+ga_random_go [,"logp"] <- -log10(ga_random_go$pvalue)
+ggplot(data = ga_random_go[1:20,])+
+  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "-Logp", 
+       y= " ",
+       title="random_in_ga_oe")
+
+
+
+
+
+
+genelist_test <- intersect(ga_admeth_genelist,ga_demeth_genelist)
+admeth_list_filt <- setdiff(ga_admeth_genelist,genelist_test)
+demeth_list_filt <- setdiff(ga_demeth_genelist,genelist_test)
+
+ga_genelist_Venn <- list(admeth = ga_admeth_genelist, demeth = ga_demeth_genelist,random = ga_random_genelist)
+
+
+
+venn.diagram(ga_genelist_Venn, filename = 'ga_genelist_Venn.png', imagetype = 'png', 
+             fill = c('#4D157D', '#84C7DB',"#57dc93"), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB',"#57dc93"), cat.cex = 1.5, cat.fontfamily = 'serif',
+             col = c('#4D157D', '#84C7DB',"#57dc93"), cex = 1.5, fontfamily = 'serif')
+
+
+
+
+
+
+
+
+
+ga_admeth_filt_go <- enrichGO(gene  = admeth_list_filt,
+                         OrgDb      = org.Hs.eg.db,
+                         keyType    = 'SYMBOL',
+                         ont        = "BP",
+                         pAdjustMethod = "BH",
+                         pvalueCutoff = 0.05,
+                         qvalueCutoff = 0.05)
+ga_admeth_filt_go <- as.data.frame(ga_admeth_filt_go@result)
+ga_admeth_filt_go[,"logp"] <- -log10(ga_admeth_filt_go$pvalue)
+ggplot(data = ga_admeth_filt_go[1:20,])+
+  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "-Logp", 
+       y= " ",
+       title="admeth_in_ga_oe")
+
+
+
+
+
+
+
+
+
+
+ga_demeth_filt_go <- enrichGO(gene  = demeth_list_filt,
+                              OrgDb      = org.Hs.eg.db,
+                              keyType    = 'SYMBOL',
+                              ont        = "BP",
+                              pAdjustMethod = "BH",
+                              pvalueCutoff = 0.05,
+                              qvalueCutoff = 0.05)
+ga_demeth_filt_go <- as.data.frame(ga_demeth_filt_go@result)
+ga_demeth_filt_go[,"logp"] <- -log10(ga_demeth_filt_go$pvalue)
+ggplot(data = ga_demeth_filt_go[1:20,])+
+  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "-Logp", 
+       y= " ",
+       title="demeth_in_ga_oe")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GA_ttest_sig_demeth_sort <- GA_ttest_sig_demeth[order(GA_ttest_sig_demeth$pvalue),]
+GA_ttest_sig_demeth_top <- GA_ttest_sig_demeth_sort[1:2000,]
+GA_ttest_sig_admeth_sort <- GA_ttest_sig_admeth[order(GA_ttest_sig_admeth$pvalue),]
+GA_ttest_sig_admeth_top <- GA_ttest_sig_admeth_sort[1:2000,]
+
+
+row.names(GA_ttest_sig_demeth_top)
+
+
+  Ga_topdmr_regions <- as.data.frame(str_split_fixed(row.names(GA_ttest_sig_demeth_top),"_",2))
+  colnames(Ga_topdmr_regions) <- c("chr","start")
+  Ga_topdmr_regions$pos <- row.names(GA_ttest_sig_demeth_top)
+  Ga_topdmr_regions$start <- as.numeric(Ga_topdmr_regions$start)
+  Ga_topdmr_regions$end <- Ga_topdmr_regions$start+1
+  Ga_topdmr_regions$start <- Ga_topdmr_regions$start*10000
+  Ga_topdmr_regions$end <- Ga_topdmr_regions$end*10000
+  Ga_topdmr_regions$end <- as.numeric(Ga_topdmr_regions$end)
+  Ga_topdmr_regions$start <- as.numeric(Ga_topdmr_regions$start)
+  Ga_topdmr_regions <- select(Ga_topdmr_regions,chr,start,end,pos)
+  write.table(Ga_topdmr_regions, "ga_topdmr_regions.bed",sep = "\t",quote=F,row.names = F,col.names = F)
+
+  
+  
+  
+  
+  
+  Ga_topadmr_regionss <- as.data.frame(str_split_fixed(row.names(GA_ttest_sig_admeth_top),"_",2))
+  colnames(Ga_topadmr_regionss) <- c("chr","start")
+  Ga_topadmr_regionss$pos <- row.names(GA_ttest_sig_admeth_top)
+  Ga_topadmr_regionss$start <- as.numeric(Ga_topadmr_regionss$start)
+  Ga_topadmr_regionss$end <- Ga_topadmr_regionss$start+1
+  Ga_topadmr_regionss$start <- Ga_topadmr_regionss$start*10000
+  Ga_topadmr_regionss$end <- Ga_topadmr_regionss$end*10000
+  Ga_topadmr_regionss$end <- as.numeric(Ga_topadmr_regionss$end)
+  Ga_topadmr_regionss$start <- as.numeric(Ga_topadmr_regionss$start)
+  Ga_topadmr_regionss <- select(Ga_topadmr_regionss,chr,start,end,pos)
+  write.table(Ga_topadmr_regionss, "ga_topadmr_regions.bed",sep = "\t",quote=F,row.names = F,col.names = F)
+  
+  
+  
+  
+  
+  
+  ga_admeth_topgene <- fread("ga_topadmeth_gene.bedGraph")
+  
+  ga_admeth_topgenelist <- unique(unlist(ga_admeth_topgene$V8))
+  
+  
+  ga_admeth_top_go <- enrichGO(gene  = ga_admeth_topgenelist,
+                           OrgDb      = org.Hs.eg.db,
+                           keyType    = 'SYMBOL',
+                           ont        = "BP",
+                           pAdjustMethod = "BH",
+                           pvalueCutoff = 0.05,
+                           qvalueCutoff = 0.05)
+  ga_admeth_top_go <- as.data.frame(ga_admeth_top_go@result)
+  ga_admeth_top_go [,"logp"] <- -log10(ga_admeth_top_go$pvalue)
+  ggplot(data = ga_admeth_top_go[1:20,])+
+    geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+    scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+    theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+          axis.text=element_text(size=14,face = "bold"),
+          axis.title.x=element_text(size=12),
+          axis.title.y=element_text(size=20),
+          legend.text=element_text(size=12),
+          legend.title=element_text(size=14))+
+    labs(x = "-Logp", 
+         y= " ",
+         title="admeth_in_ga_oe")
+  
+  
+  
+  ga_demeth_topgene <- fread("ga_topdemeth_gene.bedGraph")
+  
+  ga_demeth_topgenelist <- unique(unlist(ga_demeth_topgene$V8))
+  
+  
+  ga_demeth_top_go <- enrichGO(gene  = ga_demeth_topgenelist,
+                               OrgDb      = org.Hs.eg.db,
+                               keyType    = 'SYMBOL',
+                               ont        = "BP",
+                               pAdjustMethod = "BH",
+                               pvalueCutoff = 0.05,
+                               qvalueCutoff = 0.05)
+  ga_demeth_top_go <- as.data.frame(ga_demeth_top_go@result)
+  ga_demeth_top_go [,"logp"] <- -log10(ga_demeth_top_go$pvalue)
+  ggplot(data = ga_demeth_top_go[1:20,])+
+    geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+    scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+    theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+          axis.text=element_text(size=14,face = "bold"),
+          axis.title.x=element_text(size=12),
+          axis.title.y=element_text(size=20),
+          legend.text=element_text(size=12),
+          legend.title=element_text(size=14))+
+    labs(x = "-Logp", 
+         y= " ",
+         title="demeth_in_ga_oe")
+
+  ga_topgenelist_Venn <- list(admeth = ga_admeth_topgenelist, demeth = ga_demeth_topgenelist,random = ga_random_genelist)
+  
+  
+  
+  venn.diagram(ga_topgenelist_Venn, filename = 'ga_topgenelist_Venn.png', imagetype = 'png', 
+               fill = c('#4D157D', '#84C7DB',"#57dc93"), alpha = 0.50, 
+               cat.col = c('#4D157D', '#84C7DB',"#57dc93"), cat.cex = 1.5, cat.fontfamily = 'serif',
+               col = c('#4D157D', '#84C7DB',"#57dc93"), cex = 1.5, fontfamily = 'serif') 
+  
+    
