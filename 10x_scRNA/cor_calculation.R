@@ -1,501 +1,3 @@
-rm(list = ls())
-library(ggplot2)
-library(ggpubr)
-library(infercnv)
-library(devtools)
-library(rjags)
-setwd("~/projects/hcc/analysis/merged_scrna")
-
-save.image("merged_scRNA.Rdata")
-
-library("devtools")
-devtools::install_github("broadinstitute/infercnv")
-bigseu <- readRDS("~/projects/hcc/data/10x_scRNA/merge/HCC-scRNA-seq-inte.rds")
-
-bigseu$lib.method
-DimPlot(bigseu,group.by = "group") #NT,PT,ST
-DimPlot(bigseu,group.by = "lib.method")#10x,dropseq
-
-DimPlot(bigseu,group.by = "orig.ident")# PT1/PT2/PT3
-
-DimPlot(bigseu,group.by = "new.ident")#cell_type
-DimPlot(bigseu,group.by = "patient")#patient
-
-HPC <- subset(bigseu,subset=new.ident=="HPC")
-
-
-
-DimPlot(HPC,group.by = "patient")
-
-hpc_merge <- SCTransform(HPC,method = "glmGamPoi", vars.to.regress = "percent.mt", verbose = FALSE)
-hpc_merge <- RunPCA(hpc_merge, verbose = FALSE)
-hpc_merge <- RunUMAP(hpc_merge, dims = 1:30, verbose = FALSE)
-
-DimPlot(hpc_merge,group.by = "patient",label=T,repel = T)
-DimPlot(hpc_merge,group.by = "group",label=T)
-DimPlot(hpc_merge,group.by = "lib.method",label=T)
-
-DimPlot(hpc_merge,group.by = "group",label=T)
-
-cell.prop<-as.data.frame(prop.table(table(bigseu$patient,bigseu$new.ident)))
-colnames(cell.prop) <- c("HCC","origin","proportion")
-ggplot(cell.prop,aes(HCC,proportion,fill=origin))+
-  geom_bar(stat="identity",position="fill")+
-  ggtitle("")+
-  theme_bw()+
-  theme(axis.ticks.length=unit(0.5,'cm'))+
-  guides(fill=guide_legend(title=NULL))+
-  theme(axis.title.x = element_text(size = 14),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
-  theme(axis.text.x = element_text(size = 14,color="black"),axis.text.y = element_text(size = 10,color="black"))
-
-
-
-markers <- c('CD3D','CCL5', 'NKG7', 'GZMA', 'IL32', 'CD4','CD8A','FOXP3', 'CD3E', 'LTB', 'S100A8', 'S100A9', 'CD79A', "ENG" ,
-             'FCN1', 'MS4A1', 'SPON2','FCER1A','SERPINF1', "LYZ","AMBP","COL1A2")
-my36colors <-c('#E5D2DD', '#53A85F', '#F1BB72', '#F3B1A0', '#D6E7A3', '#57C3F3', '#476D87', '#E95C59', '#E59CC4', '#AB3282', '#23452F', '#BD956A', '#8C549C', '#585658', '#9FA3A8', '#E0D4CA', '#5F3D69', '#C5DEBA', '#58A4C3', '#E4C755', '#F7F398', '#AA9A59', '#E63863', '#E39A35', '#C1E6F3', '#6778AE', '#91D0BE', '#B53E2B', '#712820', '#DCC1DD', '#CCE0F5', '#CCC9E6', '#625D9E', '#68A180', '#3A6963', '#968175')#颜色设置
-
-VlnPlot(bigseu, features = markers,pt.size=0, stack = T,
-        cols = my36colors,group.by = "new.ident")+NoLegend()+
-  theme(axis.text.x = element_blank())
-
-element_text(angle = 45,vjust = 0.5,hjust = 0.5)
-
-
-HPC_patient_info <- hpc_merge$patient
-HPC_subtype_info = case_when(
-  HPC_patient_info  %in% c("HCC3","HCC5","HCC7")~"SN",
-  HPC_patient_info  %in% c("HCC1","HCC2","HCC4","HCC6","HCC8","HCC9")~"CMN",
-  TRUE ~ as.character(HPC_patient_info))
-hpc_merge$subtype_info <- HPC_subtype_info
-DimPlot(hpc_merge,group.by = "subtype_info",label=T)
-
-HCC1_HPC <- subset(HPC,subset=patient=="HCC1")
-HCC2_HPC <- subset(HPC,subset=patient=="HCC2")
-HCC3_HPC <- subset(HPC,subset=patient=="HCC3")
-HCC4_HPC <- subset(HPC,subset=patient=="HCC4")
-HCC5_HPC <- subset(HPC,subset=patient=="HCC5")
-HCC6_HPC <- subset(HPC,subset=patient=="HCC6")
-HCC7_HPC <- subset(HPC,subset=patient=="HCC7")
-HCC8_HPC <- subset(HPC,subset=patient=="HCC8")
-HCC9_HPC <- subset(HPC,subset=patient=="HCC9")
-
-
-
-
-
-
-
-
-
-
-
-HCC1_HPC <- SCTransform(HCC1_HPC,method = "glmGamPoi", vars.to.regress = "percent.mt", verbose = FALSE)
-HCC1_HPC <- RunPCA(HCC1_HPC, verbose = FALSE)
-HCC1_HPC <- RunUMAP(HCC1_HPC, dims = 1:30, verbose = FALSE)
-DimPlot(HCC1_HPC,group.by = "orig.ident",label=T)
-DimPlot(HCC1_HPC,group.by = "group",label=T)
-DimPlot(HCC1_HPC,group.by = "satellite_region",label=T)
-
-hcc1_sample_origin <- HCC1_HPC$orig.ident
-satellite_region_hcc1 = case_when(
-  hcc1_sample_origin  %in% c("PT2","PT4")~"primary",
-  hcc1_sample_origin  %in% c("PT5")~"satellite",
-  hcc1_sample_origin  %in% c("NT")~"nt",
-  TRUE ~ as.character(hcc1_sample_origin))
-HCC1_HPC$satellite_region <- satellite_region_hcc1
-
-hcc1_sta_markers <- FindMarkers(HCC1_HPC,ident.1 = "primary",ident.2 = "satellite",group.by = "satellite_region" )
-hcc1_sta_markers_sig <- subset(hcc1_sta_markers,subset = p_val_adj < 0.05)
-hcc1_sta_markers_sig_up <- subset(hcc1_sta_markers_sig,subset = avg_log2FC > 0)
-hcc1_sta_markers_sig_down <- subset(hcc1_sta_markers_sig,subset = avg_log2FC < 0)
-
-hcc1_sta_up_go <- enrichGO(gene  = row.names(hcc1_sta_markers_sig_up),
-                         OrgDb      = org.Hs.eg.db,
-                         keyType    = 'SYMBOL',
-                         ont        = "BP",
-                         pAdjustMethod = "BH",
-                         pvalueCutoff = 0.05,
-                         qvalueCutoff = 0.05)
-hcc1_sta_up_go <- as.data.frame(hcc1_sta_up_go@result)
-hcc1_sta_up_go [,"logp"] <- -log10(hcc1_sta_up_go$pvalue)
-ggplot(data = hcc1_sta_up_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="hcc1_sta_up")
-
-hcc1_sta_down_go <- enrichGO(gene  = row.names(hcc1_sta_markers_sig_down),
-                           OrgDb      = org.Hs.eg.db,
-                           keyType    = 'SYMBOL',
-                           ont        = "BP",
-                           pAdjustMethod = "BH",
-                           pvalueCutoff = 0.05,
-                           qvalueCutoff = 0.05)
-hcc1_sta_down_go <- as.data.frame(hcc1_sta_down_go@result)
-hcc1_sta_down_go [,"logp"] <- -log10(hcc1_sta_down_go$pvalue)
-ggplot(data = hcc1_sta_down_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="hcc1_sta_down")
-
-HCC2_HPC <- SCTransform(HCC2_HPC,method = "glmGamPoi", vars.to.regress = "percent.mt", verbose = FALSE)
-HCC2_HPC <- RunPCA(HCC2_HPC, verbose = FALSE)
-HCC2_HPC <- RunUMAP(HCC2_HPC, dims = 1:30, verbose = FALSE)
-DimPlot(HCC2_HPC,group.by = "orig.ident",label=T,repel = T)
-DimPlot(HCC2_HPC,group.by = "group",label=T)
-
-
-
-
-HCC3_HPC <- SCTransform(HCC3_HPC,method = "glmGamPoi", vars.to.regress = "percent.mt", verbose = FALSE)
-HCC3_HPC <- RunPCA(HCC3_HPC, verbose = FALSE)
-HCC3_HPC <- RunUMAP(HCC3_HPC, dims = 1:30, verbose = FALSE)
-DimPlot(HCC3_HPC,group.by = "orig.ident",label=T,repel = T)
-DimPlot(HCC3_HPC,group.by = "group",label=T)
-hcc3_sample_origin <- HCC3_HPC$orig.ident
-satellite_region_hcc3 = case_when(
-  hcc3_sample_origin  %in% c("PT1","PT2")~"primary",
-  hcc3_sample_origin  %in% c("PT3")~"satellite",
-  hcc3_sample_origin  %in% c("NT")~"nt",
-  TRUE ~ as.character(hcc3_sample_origin))
-HCC3_HPC$satellite_region <- satellite_region_hcc3
-
-hcc3_sta_markers <- FindMarkers(HCC3_HPC,ident.1 = "primary",ident.2 = "satellite",group.by = "satellite_region" )
-hcc3_sta_markers_sig <- subset(hcc3_sta_markers,subset = p_val_adj < 0.05)
-hcc3_sta_markers_sig_up <- subset(hcc3_sta_markers_sig,subset = avg_log2FC > 0)
-hcc3_sta_markers_sig_down <- subset(hcc3_sta_markers_sig,subset = avg_log2FC < 0)
-
-hcc3_sta_up_go <- enrichGO(gene  = row.names(hcc3_sta_markers_sig_up),
-                           OrgDb      = org.Hs.eg.db,
-                           keyType    = 'SYMBOL',
-                           ont        = "BP",
-                           pAdjustMethod = "BH",
-                           pvalueCutoff = 0.05,
-                           qvalueCutoff = 0.05)
-hcc3_sta_up_go <- as.data.frame(hcc3_sta_up_go@result)
-hcc3_sta_up_go [,"logp"] <- -log10(hcc3_sta_up_go$pvalue)
-ggplot(data = hcc3_sta_up_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="hcc3_sta_up")
-
-hcc3_sta_down_go <- enrichGO(gene  = row.names(hcc3_sta_markers_sig_down),
-                             OrgDb      = org.Hs.eg.db,
-                             keyType    = 'SYMBOL',
-                             ont        = "BP",
-                             pAdjustMethod = "BH",
-                             pvalueCutoff = 0.05,
-                             qvalueCutoff = 0.05)
-hcc3_sta_down_go <- as.data.frame(hcc3_sta_down_go@result)
-hcc3_sta_down_go [,"logp"] <- -log10(hcc3_sta_down_go$pvalue)
-ggplot(data = hcc3_sta_down_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="hcc3_sta_down")
-
-
-HCC4_HPC <- SCTransform(HCC4_HPC,method = "glmGamPoi", vars.to.regress = "percent.mt", verbose = FALSE)
-HCC4_HPC <- RunPCA(HCC4_HPC, verbose = FALSE)
-HCC4_HPC <- RunUMAP(HCC4_HPC, dims = 1:30, verbose = FALSE)
-DimPlot(HCC4_HPC,group.by = "orig.ident",label=T,repel = T)
-DimPlot(HCC4_HPC,group.by = "group",label=T)
-
-
-
-
-HCC5_HPC <- SCTransform(HCC5_HPC,method = "glmGamPoi", vars.to.regress = "percent.mt", verbose = FALSE)
-HCC5_HPC <- RunPCA(HCC5_HPC, verbose = FALSE)
-HCC5_HPC <- RunUMAP(HCC5_HPC, dims = 1:30, verbose = FALSE)
-DimPlot(HCC5_HPC,group.by = "orig.ident",label=T,repel = T)
-DimPlot(HCC5_HPC,group.by = "group",label=T)
-
-hcc5_sample_origin <- HCC5_HPC$orig.ident
-satellite_region_hcc5 = case_when(
-  hcc5_sample_origin  %in% c("PT1","PT2","PT3","PT4")~"primary",
-  hcc5_sample_origin  %in% c("PT5")~"satellite",
-  hcc5_sample_origin  %in% c("NT")~"nt",
-  TRUE ~ as.character(hcc5_sample_origin))
-HCC5_HPC$satellite_region <- satellite_region_hcc5
-
-hcc5_sta_markers <- FindMarkers(HCC5_HPC,ident.1 = "primary",ident.2 = "satellite",group.by = "satellite_region" )
-hcc5_sta_markers_sig <- subset(hcc5_sta_markers,subset = p_val_adj < 0.05)
-hcc5_sta_markers_sig_up <- subset(hcc5_sta_markers_sig,subset = avg_log2FC > 0)
-hcc5_sta_markers_sig_down <- subset(hcc5_sta_markers_sig,subset = avg_log2FC < 0)
-
-hcc5_sta_up_go <- enrichGO(gene  = row.names(hcc5_sta_markers_sig_up),
-                           OrgDb      = org.Hs.eg.db,
-                           keyType    = 'SYMBOL',
-                           ont        = "BP",
-                           pAdjustMethod = "BH",
-                           pvalueCutoff = 0.05,
-                           qvalueCutoff = 0.05)
-hcc5_sta_up_go <- as.data.frame(hcc5_sta_up_go@result)
-hcc5_sta_up_go [,"logp"] <- -log10(hcc5_sta_up_go$pvalue)
-ggplot(data = hcc5_sta_up_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="hcc5_sta_up")
-
-hcc5_sta_down_go <- enrichGO(gene  = row.names(hcc5_sta_markers_sig_down),
-                             OrgDb      = org.Hs.eg.db,
-                             keyType    = 'SYMBOL',
-                             ont        = "BP",
-                             pAdjustMethod = "BH",
-                             pvalueCutoff = 0.05,
-                             qvalueCutoff = 0.05)
-hcc5_sta_down_go <- as.data.frame(hcc5_sta_down_go@result)
-hcc5_sta_down_go [,"logp"] <- -log10(hcc5_sta_down_go$pvalue)
-ggplot(data = hcc5_sta_down_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="hcc5_sta_down")
-
-
-HCC6_HPC <- SCTransform(HCC6_HPC,method = "glmGamPoi", vars.to.regress = "percent.mt", verbose = FALSE)
-HCC6_HPC <- RunPCA(HCC6_HPC, verbose = FALSE)
-HCC6_HPC <- RunUMAP(HCC6_HPC, dims = 1:30, verbose = FALSE)
-DimPlot(HCC6_HPC,group.by = "orig.ident",label=T)
-DimPlot(HCC6_HPC,group.by = "group",label=T)
-
-hcc6_sample_origin <- HCC6_HPC$orig.ident
-satellite_region_hcc6 = case_when(
-  hcc6_sample_origin  %in% c("PT1","PT2","PT3")~"primary",
-  hcc6_sample_origin  %in% c("PT4","PT5","PT6")~"satellite",
-  hcc6_sample_origin  %in% c("NT")~"nt",
-  TRUE ~ as.character(hcc6_sample_origin))
-HCC6_HPC$satellite_region <- satellite_region_hcc6
-
-hcc6_sta_markers <- FindMarkers(HCC6_HPC,ident.1 = "primary",ident.2 = "satellite",group.by = "satellite_region" )
-hcc6_sta_markers_sig <- subset(hcc6_sta_markers,subset = p_val_adj < 0.05)
-hcc6_sta_markers_sig_up <- subset(hcc6_sta_markers_sig,subset = avg_log2FC > 0)
-hcc6_sta_markers_sig_down <- subset(hcc6_sta_markers_sig,subset = avg_log2FC < 0)
-
-hcc6_sta_up_go <- enrichGO(gene  = row.names(hcc6_sta_markers_sig_up),
-                           OrgDb      = org.Hs.eg.db,
-                           keyType    = 'SYMBOL',
-                           ont        = "BP",
-                           pAdjustMethod = "BH",
-                           pvalueCutoff = 0.05,
-                           qvalueCutoff = 0.05)
-hcc6_sta_up_go <- as.data.frame(hcc6_sta_up_go@result)
-hcc6_sta_up_go [,"logp"] <- -log10(hcc6_sta_up_go$pvalue)
-ggplot(data = hcc6_sta_up_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="hcc6_sta_up")
-
-hcc6_sta_down_go <- enrichGO(gene  = row.names(hcc6_sta_markers_sig_down),
-                             OrgDb      = org.Hs.eg.db,
-                             keyType    = 'SYMBOL',
-                             ont        = "BP",
-                             pAdjustMethod = "BH",
-                             pvalueCutoff = 0.05,
-                             qvalueCutoff = 0.05)
-hcc6_sta_down_go <- as.data.frame(hcc6_sta_down_go@result)
-hcc6_sta_down_go [,"logp"] <- -log10(hcc6_sta_down_go$pvalue)
-ggplot(data = hcc6_sta_down_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="hcc6_sta_down")
-
-
-HCC7_HPC <- SCTransform(HCC7_HPC,method = "glmGamPoi", vars.to.regress = "percent.mt", verbose = FALSE)
-HCC7_HPC <- RunPCA(HCC7_HPC, verbose = FALSE)
-HCC7_HPC <- RunUMAP(HCC7_HPC, dims = 1:30, verbose = FALSE)
-DimPlot(HCC7_HPC,group.by = "orig.ident",label=T)
-DimPlot(HCC7_HPC,group.by = "group",label=T)
-
-
-hcc7_sample_origin <- HCC7_HPC$orig.ident
-satellite_region_hcc7 = case_when(
-  hcc7_sample_origin  %in% c("PT1","PT2","PT3","PT4","PT5")~"primary",
-  hcc7_sample_origin  %in% c("PT6")~"satellite",
-  hcc7_sample_origin  %in% c("NT")~"nt",
-  TRUE ~ as.character(hcc7_sample_origin))
-HCC7_HPC$satellite_region <- satellite_region_hcc7
-
-hcc7_sta_markers <- FindMarkers(HCC7_HPC,ident.1 = "primary",ident.2 = "satellite",group.by = "satellite_region" )
-hcc7_sta_markers_sig <- subset(hcc7_sta_markers,subset = p_val_adj < 0.05)
-hcc7_sta_markers_sig_up <- subset(hcc7_sta_markers_sig,subset = avg_log2FC > 0)
-hcc7_sta_markers_sig_down <- subset(hcc7_sta_markers_sig,subset = avg_log2FC < 0)
-
-hcc7_sta_up_go <- enrichGO(gene  = row.names(hcc7_sta_markers_sig_up),
-                           OrgDb      = org.Hs.eg.db,
-                           keyType    = 'SYMBOL',
-                           ont        = "BP",
-                           pAdjustMethod = "BH",
-                           pvalueCutoff = 0.05,
-                           qvalueCutoff = 0.05)
-hcc7_sta_up_go <- as.data.frame(hcc7_sta_up_go@result)
-hcc7_sta_up_go [,"logp"] <- -log10(hcc7_sta_up_go$pvalue)
-ggplot(data = hcc7_sta_up_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="hcc7_sta_up")
-
-hcc7_sta_down_go <- enrichGO(gene  = row.names(hcc7_sta_markers_sig_down),
-                             OrgDb      = org.Hs.eg.db,
-                             keyType    = 'SYMBOL',
-                             ont        = "BP",
-                             pAdjustMethod = "BH",
-                             pvalueCutoff = 0.05,
-                             qvalueCutoff = 0.05)
-hcc7_sta_down_go <- as.data.frame(hcc7_sta_down_go@result)
-hcc7_sta_down_go [,"logp"] <- -log10(hcc7_sta_down_go$pvalue)
-ggplot(data = hcc7_sta_down_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="hcc7_sta_down")
-
-
-HCC8_HPC <- SCTransform(HCC8_HPC,method = "glmGamPoi", vars.to.regress = "percent.mt", verbose = FALSE)
-HCC8_HPC <- RunPCA(HCC8_HPC, verbose = FALSE)
-HCC8_HPC <- RunUMAP(HCC8_HPC, dims = 1:30, verbose = FALSE)
-DimPlot(HCC8_HPC,group.by = "orig.ident",label=T)
-DimPlot(HCC8_HPC,group.by = "group",label=T)
-
-
-
-
-HCC9_HPC <- SCTransform(HCC9_HPC,method = "glmGamPoi", vars.to.regress = "percent.mt", verbose = FALSE)
-HCC9_HPC <- RunPCA(HCC9_HPC, verbose = FALSE)
-HCC9_HPC <- RunUMAP(HCC9_HPC, dims = 1:30, verbose = FALSE)
-DimPlot(HCC9_HPC,group.by = "orig.ident",label=T)
-DimPlot(HCC9_HPC,group.by = "group",label=T)
-
-
-
-sta_merge <- merge(HCC1_HPC, y = c(HCC3_HPC,HCC5_HPC,HCC6_HPC,HCC7_HPC))
-sta_merge <-PrepSCTFindMarkers(sta_merge)
-merge_sta_markers <- FindMarkers(sta_merge,ident.1 = "primary",ident.2 = "satellite",group.by = "satellite_region" )
-merge_sta_markers_sig <- subset(merge_sta_markers,subset = p_val_adj < 0.05)
-merge_sta_markers_sig_up <- subset(merge_sta_markers_sig,subset = avg_log2FC > 0)
-merge_sta_markers_sig_down <- subset(merge_sta_markers_sig,subset = avg_log2FC < 0)
-
-
-merge_sta_up_go <- enrichGO(gene  = row.names(merge_sta_markers_sig_up),
-                           OrgDb      = org.Hs.eg.db,
-                           keyType    = 'SYMBOL',
-                           ont        = "BP",
-                           pAdjustMethod = "BH",
-                           pvalueCutoff = 0.05,
-                           qvalueCutoff = 0.05)
-merge_sta_up_go <- as.data.frame(merge_sta_up_go@result)
-merge_sta_up_go [,"logp"] <- -log10(merge_sta_up_go$pvalue)
-ggplot(data = merge_sta_up_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="merge_sta_up")
-
-merge_sta_down_go <- enrichGO(gene  = row.names(merge_sta_markers_sig_down),
-                             OrgDb      = org.Hs.eg.db,
-                             keyType    = 'SYMBOL',
-                             ont        = "BP",
-                             pAdjustMethod = "BH",
-                             pvalueCutoff = 0.05,
-                             qvalueCutoff = 0.05)
-merge_sta_down_go <- as.data.frame(merge_sta_down_go@result)
-merge_sta_down_go [,"logp"] <- -log10(merge_sta_down_go$pvalue)
-ggplot(data = merge_sta_down_go[1:20,])+
-  geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
-  scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
-        axis.text=element_text(size=14,face = "bold"),
-        axis.title.x=element_text(size=12),
-        axis.title.y=element_text(size=20),
-        legend.text=element_text(size=12),
-        legend.title=element_text(size=14))+
-  labs(x = "-Logp", 
-       y= " ",
-       title="merge_sta_down")
-
 hcc1_av <- AverageExpression(HCC1_HPC,group.by = "orig.ident",assays = 'RNA')
 hcc1_av <- hcc1_av[[1]]
 hcc1_cg=names(tail(sort(apply(hcc1_av, 1, sd)),1000))
@@ -522,7 +24,10 @@ pheatmap::pheatmap(cor(hcc3_av[hcc3_cg,],method = 'spearman'))
 
 
 hcc1_all <- as.data.frame(GetAssayData(object = HCC1_HPC, slot = "data"))
-hcc1_cor <- as.data.frame(cor(hcc1_all[,],method = 'pearson'))
+hcc1_top <- hcc1_all[top3000_gene,]
+hcc1_top <- na.omit(hcc1_top)
+hcc1_cor <- as.data.frame(cor(hcc1_top,method = 'pearson'))
+
 hcc1_anno <- as.data.frame(HCC1_HPC$orig.ident)
 hcc1_anno2 <- as.data.frame(HCC1_HPC$satellite_region)
 colnames(hcc1_anno) <- "origin"
@@ -580,7 +85,7 @@ hcc1_pt5_pt5$type <- "self"
 hcc1_pt5_pt5$patient <- "hcc1"
 
 hcc1_cor_all <- as.data.frame(rbind(hcc1_pt2_pt4,hcc1_pt2_pt5,hcc1_pt4_pt5,
-                                     hcc1_pt2_pt2,hcc1_pt4_pt4,hcc1_pt5_pt5))
+                                    hcc1_pt2_pt2,hcc1_pt4_pt4,hcc1_pt5_pt5))
 
 ggplot(hcc1_cor_all,aes(type,cor,color=type))+
   geom_boxplot(width=0.5)+
@@ -600,7 +105,9 @@ ggplot(hcc1_cor_all,aes(type,cor,color=type))+
 
 
 hcc2_all <- as.data.frame(GetAssayData(object = HCC2_HPC, slot = "data"))
-hcc2_cor <- as.data.frame(cor(hcc2_all,method = 'pearson'))
+hcc2_top <- hcc2_all[_gene,]
+hcc2_top <- na.omit(hcc2_top)
+hcc2_cor <- as.data.frame(cor(hcc2_top,method = 'pearson'))
 hcc2_anno <- as.data.frame(HCC2_HPC$orig.ident)
 colnames(hcc2_anno) <- "origin"
 pheatmap(hcc2_cor,show_rownames = F,show_colnames = F,
@@ -622,26 +129,7 @@ hcc2_pt2_pt2_mean <- mean(unlist(hcc2_cor[1624:2871,1624:2871]))
 hcc2_pt3_pt3_mean <- mean(unlist(hcc2_cor[2872:3169,2872:3169]))
 hcc2_pt4_pt4_mean <- mean(unlist(hcc2_cor[3170:3255,3170:3255]))
 
-hcc1_pt2_pt4_mean <- mean(unlist(hcc1_cor[149:1393,1394:2180]))
-hcc1_pt2_pt5_mean <- mean(unlist(hcc1_cor[149:1393,2181:2522]))
-hcc1_pt4_pt5_mean <- mean(unlist(hcc1_cor[1394:2180,2181:2522]))
 
-hcc1_pt2_pt2_mean <- mean(unlist(hcc1_cor[149:1393,149:1393]))
-hcc1_pt4_pt4_mean <- mean(unlist(hcc1_cor[1394:2180,1394:2180]))
-hcc1_pt5_pt5_mean <- mean(unlist(hcc1_cor[2181:2522,2181:2522]))
-
-hcc2_pt1_pt2_mean <- mean(unlist(hcc2_cor[74:1623,1624:2871]))
-hcc2_pt1_pt3_mean <- mean(unlist(hcc2_cor[74:1623,2872:3169]))
-hcc2_pt1_pt4_mean <- mean(unlist(hcc2_cor[74:1623,3170:3255]))
-hcc2_pt2_pt3_mean <- mean(unlist(hcc2_cor[1624:2871,2872:3169]))
-hcc2_pt2_pt4_mean <- mean(unlist(hcc2_cor[1624:2871,3170:3255]))
-hcc2_pt3_pt4_mean <- mean(unlist(hcc2_cor[2872:3169,3170:3255]))
-
-
-hcc2_pt1_pt1_mean <- mean(unlist(hcc2_cor[74:1623,74:1623]))
-hcc2_pt2_pt2_mean <- mean(unlist(hcc2_cor[1624:2871,1624:2871]))
-hcc2_pt3_pt3_mean <- mean(unlist(hcc2_cor[2872:3169,2872:3169]))
-hcc2_pt4_pt4_mean <- mean(unlist(hcc2_cor[3170:3255,3170:3255]))
 
 
 
@@ -726,7 +214,9 @@ ggplot(hcc2_cor_all,aes(type,cor,color=type))+
         legend.title =element_blank())
 
 hcc3_all <- as.data.frame(GetAssayData(object = HCC3_HPC, slot = "data"))
-hcc3_cor <- as.data.frame(cor(hcc3_all[,],method = 'pearson'))
+hcc3_top <- hcc3_all[_gene,]
+hcc3_top <- na.omit(hcc3_top)
+hcc3_cor <- as.data.frame(cor(hcc3_top,method = 'pearson'))
 hcc3_anno <- as.data.frame(HCC3_HPC$orig.ident)
 colnames(hcc3_anno) <- "origin"
 pheatmap(hcc3_cor,show_rownames = F,show_colnames = F,
@@ -810,7 +300,9 @@ ggplot(hcc3_cor_all,aes(type,cor,color=type))+
 
 
 hcc4_all <- as.data.frame(GetAssayData(object = HCC4_HPC, slot = "data"))
-hcc4_cor <- as.data.frame(cor(hcc4_all[,],method = 'pearson'))
+hcc4_top <- hcc4_all[_gene,]
+hcc4_top <- na.omit(hcc4_top)
+hcc4_cor <- as.data.frame(cor(hcc4_top,method = 'pearson'))
 hcc4_anno <- as.data.frame(HCC4_HPC$orig.ident)
 colnames(hcc4_anno) <- "origin"
 pheatmap(hcc4_cor,show_rownames = F,show_colnames = F,
@@ -881,7 +373,9 @@ ggplot(hcc4_cor_all,aes(type,cor,color=type))+
         legend.title =element_blank())
 
 hcc5_all <- as.data.frame(GetAssayData(object = HCC5_HPC, slot = "data"))
-hcc5_cor <- as.data.frame(cor(hcc5_all[,],method = 'pearson'))
+hcc5_top <- hcc5_all[_gene,]
+hcc5_top <- na.omit(hcc5_top)
+hcc5_cor <- as.data.frame(cor(hcc5_top,method = 'pearson'))
 hcc5_anno <- as.data.frame(HCC5_HPC$orig.ident)
 colnames(hcc5_anno) <- "origin"
 pheatmap(hcc5_cor,show_rownames = F,show_colnames = F,
@@ -990,8 +484,8 @@ hcc5_pt5_pt5$patient <- "hcc5"
 
 
 hcc5_cor_all <- as.data.frame(rbind(hcc5_pt1_pt2, hcc5_pt1_pt3, hcc5_pt1_pt4, hcc5_pt1_pt5, hcc5_pt2_pt3, hcc5_pt2_pt4,
-                                      hcc5_pt2_pt5, hcc5_pt3_pt4, hcc5_pt3_pt5, hcc5_pt4_pt5, hcc5_pt1_pt1, hcc5_pt2_pt2,
-                                      hcc5_pt3_pt3, hcc5_pt4_pt4, hcc5_pt5_pt5))
+                                    hcc5_pt2_pt5, hcc5_pt3_pt4, hcc5_pt3_pt5, hcc5_pt4_pt5, hcc5_pt1_pt1, hcc5_pt2_pt2,
+                                    hcc5_pt3_pt3, hcc5_pt4_pt4, hcc5_pt5_pt5))
 
 
 ggplot(hcc5_cor_all,aes(type,cor,color=type))+
@@ -1011,7 +505,9 @@ ggplot(hcc5_cor_all,aes(type,cor,color=type))+
 
 
 hcc6_all <- as.data.frame(GetAssayData(object = HCC6_HPC, slot = "data"))
-hcc6_cor <- as.data.frame(cor(hcc6_all[,],method = 'pearson'))
+hcc6_top <- hcc6_all[_gene,]
+hcc6_top <- na.omit(hcc6_top)
+hcc6_cor <- as.data.frame(cor(hcc6_top,method = 'pearson'))
 hcc6_anno <- as.data.frame(HCC6_HPC$orig.ident)
 colnames(hcc6_anno) <- "origin"
 hcc6_anno2 <- as.data.frame(HCC6_HPC$satellite_region)
@@ -1146,7 +642,9 @@ ggplot(hcc6_cor_all,aes(type,cor,color=type))+
 
 
 hcc7_all <- as.data.frame(GetAssayData(object = HCC7_HPC, slot = "data"))
-hcc7_cor <- as.data.frame(cor(hcc7_all[,],method = 'pearson'))
+hcc7_top <- hcc7_all[_gene,]
+hcc7_top <- na.omit(hcc7_top)
+hcc7_cor <- as.data.frame(cor(hcc7_top,method = 'pearson'))
 hcc7_anno <- as.data.frame(HCC7_HPC$orig.ident)
 colnames(hcc7_anno) <- "origin"
 pheatmap(hcc7_cor,show_rownames = F,show_colnames = F,
@@ -1311,7 +809,9 @@ ggplot(hcc7_cor_all,aes(type,cor,color=type))+
         legend.title =element_blank())
 
 hcc8_all <- as.data.frame(GetAssayData(object = HCC8_HPC, slot = "data"))
-hcc8_cor <- as.data.frame(cor(hcc8_all[,],method = 'pearson'))
+hcc8_top <- hcc8_all[_gene,]
+hcc8_top <- na.omit(hcc8_top)
+hcc8_cor <- as.data.frame(cor(hcc8_top,method = 'pearson'))
 hcc8_anno <- as.data.frame(HCC8_HPC$orig.ident)
 colnames(hcc8_anno) <- "origin"
 pheatmap(hcc8_cor,show_rownames = F,show_colnames = F,
@@ -1389,7 +889,9 @@ ggplot(hcc8_cor_all,aes(type,cor,color=type))+
 
 
 hcc9_all <- as.data.frame(GetAssayData(object = HCC9_HPC, slot = "data"))
-hcc9_cor <- as.data.frame(cor(hcc9_all[,],method = 'pearson'))
+hcc9_top <- hcc9_all[_gene,]
+hcc9_top <- na.omit(hcc9_top)
+hcc9_cor <- as.data.frame(cor(hcc9_top,method = 'pearson'))
 hcc9_anno <- as.data.frame(HCC9_HPC$orig.ident)
 colnames(hcc9_anno) <- "origin"
 pheatmap(hcc9_cor,show_rownames = F,show_colnames = F,
@@ -1706,9 +1208,24 @@ hcc9_mean$patient <- "hcc9"
 hcc9_mean$type <- "CMN"
 
 sc_mean_sum <- rbind(hcc1_mean,hcc2_mean,hcc3_mean,
-                    hcc4_mean,hcc5_mean,hcc6_mean,
-                    hcc7_mean,hcc8_mean,hcc9_mean)
+                     hcc4_mean,hcc5_mean,hcc6_mean,
+                     hcc7_mean,hcc8_mean,hcc9_mean)
 
+
+ggplot(sc_mean_sum,aes(type,cor_delta,color=type))+
+  geom_boxplot(width=0.5,outlier.size=0)+
+  geom_jitter(width=0.25)+
+  scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
+  stat_compare_means(comparisons = list(c("CMN","SN")),
+                     method = "t.test",label = "p.signif",
+                     label.y =0.2)+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
 
 
 
@@ -1728,419 +1245,18 @@ ggplot(sc_mean_sum,aes(type,cor_delta,color=type))+
         legend.title =element_blank())
 
 
-######satellite#####
 
-######hcc1,hcc3,hcc5,hcc6,hcc7####
-######hcc1-pt2/pt4####pt5#####
-
-hcc1_primary <- subset(HCC1_HPC,subset=satellite_region=="primary")
-hcc1_satellite <- subset(HCC1_HPC,subset=satellite_region=="satellite")
-hcc1_primary_mtx <- as.data.frame(GetAssayData(object = hcc1_primary, slot = "data"))
-
-hcc1_primary_cor <- as.data.frame(cor(hcc1_primary_mtx,method = 'pearson'))
-hcc1_satellite_mtx <- as.data.frame(GetAssayData(object = hcc1_satellite, slot = "data"))
-hcc1_satellite_cor <- as.data.frame(cor(hcc1_satellite_mtx,method = 'pearson'))
-
-pheatmap(hcc1_satellite_cor)
-
-hcc1_primary_cor2 <- as.data.frame(unlist(unique(hcc1_primary_cor)))
-colnames(hcc1_primary_cor2) <- "cor"
-hcc1_primary_cor2$type <- "primary"
-hcc1_satellite_cor2 <- as.data.frame(unlist(unique(hcc1_satellite_cor)))
-colnames(hcc1_satellite_cor2) <- "cor"
-hcc1_satellite_cor2$type <- "satellite"
-
-
-hcc1_pt2 <- subset(HCC1_HPC, subset = orig.ident=="PT2")
-hcc1_pt2_mtx <-  as.data.frame(GetAssayData(object = hcc1_pt2, slot = "data"))
-hcc1_pt2_top_prm_genes <- names(tail(sort(apply(hcc1_pt2_mtx,1,sd)),3000))
-hcc1_pt2_primary_top_cor <- as.data.frame(cor(hcc1_pt2_mtx[hcc1_pt2_top_prm_genes,],method = 'pearson'))
-hcc1_pt2_cor <- as.data.frame(cor(hcc1_pt2_mtx,method = 'pearson'))
-
-for(i in 1:nrow(hcc1_pt2_primary_top_cor)){
-  vector <- as.vector(hcc1_pt2_primary_top_cor[i,1:(nrow(hcc1_pt2_primary_top_cor)-i+1)])
-  if(i == 1){
-    hcc1_pt2_cor_nu <- vector
-  }
-  else{
-    hcc1_pt2_cor_nu <- c(hcc1_pt2_cor_nu,vector)
-  }
-}
-
-
-
-hcc1_pt4 <- subset(HCC1_HPC, subset = orig.ident=="PT4")
-hcc1_pt4_mtx <-  as.data.frame(GetAssayData(object = hcc1_pt4, slot = "data"))
-hcc1_pt4_top_prm_genes <- names(tail(sort(apply(hcc1_pt4_mtx,1,sd)),3000))
-hcc1_pt4_primary_top_cor <- as.data.frame(cor(hcc1_pt4_mtx[hcc1_pt4_top_prm_genes,],method = 'pearson'))
-hcc1_pt4_cor <- as.data.frame(cor(hcc1_pt4_mtx,method = 'pearson'))
-for(i in 1:nrow(hcc1_pt4_primary_top_cor)){
-  vector <- as.vector(hcc1_pt4_primary_top_cor[i,1:(nrow(hcc1_pt4_primary_top_cor)-i+1)])
-  if(i == 1){
-    hcc1_pt4_cor_nu <- vector
-  }
-  else{
-    hcc1_pt4_cor_nu <- c(hcc1_pt4_cor_nu,vector)
-  }
-}
-
-hcc1_pt5 <- subset(HCC1_HPC, subset = orig.ident=="PT5")
-hcc1_pt5_mtx <-  as.data.frame(GetAssayData(object = hcc1_pt5, slot = "data"))
-hcc1_pt5_top_prm_genes <- names(tail(sort(apply(hcc1_pt5_mtx,1,sd)),3000))
-hcc1_pt5_primary_top_cor <- as.data.frame(cor(hcc1_pt5_mtx[hcc1_pt4_top_prm_genes,],method = 'pearson'))
-hcc1_pt5_cor <- as.data.frame(cor(hcc1_pt5_mtx,method = 'pearson'))
-for(i in 1:nrow(hcc1_pt5_primary_top_cor)){
-  vector <- as.vector(hcc1_pt5_primary_top_cor[i,1:(nrow(hcc1_pt5_primary_top_cor)-i+1)])
-  if(i == 1){
-    hcc1_pt5_cor_nu <- vector
-  }
-  else{
-    hcc1_pt5_cor_nu <- c(hcc1_pt5_cor_nu,vector)
-  }
-}
-
-
-hcc1_primary_cor3 <- as.data.frame(c(hcc1_pt4_cor_nu,hcc1_pt2_cor_nu))
-hcc1_primary_cor3 <-as.data.frame(t(hcc1_primary_cor3))
-colnames(hcc1_primary_cor3) <- "cor"
-hcc1_primary_cor3$type <- "primary"
-hcc1_satellite_cor3 <- as.data.frame(unlist(unique(hcc1_pt5_cor_nu)))
-colnames(hcc1_satellite_cor3) <- "cor"
-hcc1_satellite_cor3$type <- "satellite"
-hcc1_ps_info2 <- rbind(hcc1_primary_cor3,hcc1_satellite_cor3)
-
-
-hcc1_ps_info <- rbind(hcc1_primary_cor2,hcc1_satellite_cor2)
-ggplot(data=hcc1_ps_info2,aes(x=cor,stat(density),color=type))+
-  geom_freqpoly(binwidth=0.03,linewidth=1)+
-  theme_classic()+
-  scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     limits = c(0,1))+
-  scale_y_continuous(expand = expansion(mult = c(0,0)),
-                     limits = c(0,3))+
-  labs(y="Frequency",x="Cor")+
-  scale_color_manual(values = c("#2d2884","#c2a20c"),
-                     name="Element")
-
-ggplot(data=hcc1_ps_info2,aes(x=cor,color=type))+
-  geom_density(aes(fill = type), alpha=0.4)+
-  theme_bw()+
-  labs(y="Frequency",x="Cor",title = "HCC1")
-
-
-
-
-
-hcc1_avg_sta <- AverageExpression(HCC1_HPC,
-                                  group.by = "satellite_region",
-                                  assays = "RNA")
-hcc1_avg_sta <- hcc1_avg_sta[[1]]
-head(hcc1_avg_sta)
-hcc1_top_sta_genes <- names(tail(sort(apply(hcc1_avg_sta,1,sd)),3000))
-hcc1_top_sta_cor <- cor(hcc1_avg_sta[hcc1_top_sta_genes,],method = 'spearman')
-pheatmap(hcc1_top_sta_cor)
-
-hcc1_primary_mtx <- as.data.frame(GetAssayData(object = hcc1_primary, slot = "data"))
-hcc1_top_prm_genes <- names(tail(sort(apply(hcc1_primary_mtx,1,sd)),3000))
-hcc1_primary_top_cor <- as.data.frame(cor(hcc1_primary_mtx[hcc1_top_prm_genes,],method = 'pearson'))
-hcc1_satellite_mtx <- as.data.frame(GetAssayData(object = hcc1_satellite, slot = "data"))
-hcc1_top_sta_genes <- names(tail(sort(apply(hcc1_satellite_mtx,1,sd)),3000))
-hcc1_satellite_top_cor <- as.data.frame(cor(hcc1_satellite_mtx[hcc1_top_prm_genes,],method = 'pearson'))
-
-hcc1_primary_top_cor2 <- as.data.frame(unlist(unique(hcc1_primary_top_cor)))
-colnames(hcc1_primary_top_cor2) <- "cor"
-hcc1_primary_top_cor2$type <- "primary"
-hcc1_satellite_top_cor2 <- as.data.frame(unlist(unique(hcc1_satellite_top_cor)))
-colnames(hcc1_satellite_top_cor2) <- "cor"
-hcc1_satellite_top_cor2$type <- "satellite"
-
-hcc1_ps_top_info <- rbind(hcc1_primary_top_cor2,hcc1_satellite_top_cor2)
-ggplot(data=hcc1_ps_top_info,aes(x=cor,color=type))+
-  geom_density(aes(fill = type), alpha=0.4)+
-  theme_bw()+
-  labs(y="Frequency",x="Cor",title = "HCC1")
-
-
-######hcc3-pt1/pt2####pt3#####
-hcc3_primary <- subset(HCC3_HPC,subset=satellite_region=="primary")
-hcc3_satellite <- subset(HCC3_HPC,subset=satellite_region=="satellite")
-hcc3_primary_mtx <- as.data.frame(GetAssayData(object = hcc3_primary, slot = "data"))
-hcc3_primary_cor <- as.data.frame(cor(hcc3_primary_mtx,method = 'pearson'))
-hcc3_satellite_mtx <- as.data.frame(GetAssayData(object = hcc3_satellite, slot = "data"))
-hcc3_satellite_cor <- as.data.frame(cor(hcc3_satellite_mtx,method = 'pearson'))
-
-hcc3_primary_cor2 <- as.data.frame(unlist(unique(hcc3_primary_cor)))
-colnames(hcc3_primary_cor2) <- "cor"
-hcc3_primary_cor2$type <- "primary"
-hcc3_satellite_cor2 <- as.data.frame(unlist(unique(hcc3_satellite_cor)))
-colnames(hcc3_satellite_cor2) <- "cor"
-hcc3_satellite_cor2$type <- "satellite"
-
-hcc3_ps_info <- rbind(hcc3_primary_cor2,hcc3_satellite_cor2)
-ggplot(data=hcc3_ps_info,aes(x=cor,stat(density),color=type))+
-  geom_freqpoly(binwidth=0.03,linewidth=1)+
-  theme_classic()+
-  scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     limits = c(0,1))+
-  scale_y_continuous(expand = expansion(mult = c(0,0)),
-                     limits = c(0,3))+
-  labs(y="Frequency",x="Cor",title = "HCC3")+
-  scale_color_manual(values = c("#2d2884","#c2a20c"),
-                     name="Element")
-
-ggplot(data=hcc3_ps_info,aes(x=cor,color=type))+
-  geom_density(aes(fill = type), alpha=0.4)+
-  theme_bw()+
-  labs(y="Frequency",x="Cor",title = "HCC3")
-
-
-
-hcc3_primary_mtx <- as.data.frame(GetAssayData(object = hcc3_primary, slot = "data"))
-hcc3_top_prm_genes <- names(tail(sort(apply(hcc3_primary_mtx,1,sd)),3000))
-hcc3_primary_top_cor <- as.data.frame(cor(hcc3_primary_mtx[hcc3_top_prm_genes,],method = 'pearson'))
-hcc3_satellite_mtx <- as.data.frame(GetAssayData(object = hcc3_satellite, slot = "data"))
-hcc3_top_sta_genes <- names(tail(sort(apply(hcc3_satellite_mtx,1,sd)),3000))
-hcc3_satellite_top_cor <- as.data.frame(cor(hcc3_satellite_mtx[hcc3_top_prm_genes,],method = 'pearson'))
-
-hcc3_primary_top_cor2 <- as.data.frame(unlist(unique(hcc3_primary_top_cor)))
-colnames(hcc3_primary_top_cor2) <- "cor"
-hcc3_primary_top_cor2$type <- "primary"
-hcc3_satellite_top_cor2 <- as.data.frame(unlist(unique(hcc3_satellite_top_cor)))
-colnames(hcc3_satellite_top_cor2) <- "cor"
-hcc3_satellite_top_cor2$type <- "satellite"
-
-hcc3_ps_top_info <- rbind(hcc3_primary_top_cor2,hcc3_satellite_top_cor2)
-ggplot(data=hcc3_ps_top_info,aes(x=cor,color=type))+
-  geom_density(aes(fill = type), alpha=0.4)+
-  theme_bw()+
-  labs(y="Frequency",x="Cor",title = "HCC3")
-
-
-
-hcc3_pt1 <- subset(HCC3_HPC, subset = orig.ident=="PT1")
-hcc3_pt1_mtx <-  as.data.frame(GetAssayData(object = hcc3_pt1, slot = "data"))
-hcc3_pt1_cor <- as.data.frame(cor(hcc3_pt1_mtx,method = 'pearson'))
-hcc3_pt1_cor_nu <- unique(as.vector(as.matrix(hcc3_pt1_cor)))
-for(i in 1:nrow(hcc3_pt1_cor)){
-  vector <- as.vector(hcc3_pt1_cor[i,1:(nrow(hcc3_pt1_cor)-i+1)])
-  if(i == 1){
-    hcc3_pt1_cor_nu <- vector
-  }
-  else{
-    hcc3_pt1_cor_nu <- c(hcc3_pt1_cor_nu,vector)
-  }
-}
-
-hcc3_pt2 <- subset(HCC3_HPC, subset = orig.ident=="PT2")
-hcc3_pt2_mtx <-  as.data.frame(GetAssayData(object = hcc3_pt2, slot = "data"))
-hcc3_pt2_cor <- as.data.frame(cor(hcc3_pt2_mtx,method = 'pearson'))
-hcc3_pt2_cor_nu <- unique(as.vector(as.matrix(hcc3_pt2_cor)))
-for(i in 1:nrow(hcc3_pt2_cor)){
-  vector <- as.vector(hcc3_pt2_cor[i,1:(nrow(hcc3_pt2_cor)-i+1)])
-  if(i == 1){
-    hcc3_pt2_cor_nu <- vector
-  }
-  else{
-    hcc3_pt2_cor_nu <- c(hcc3_pt2_cor_nu,vector)
-  }
-}
-
-hcc3_pt3 <- subset(HCC3_HPC, subset = orig.ident=="PT3")
-hcc3_pt3_mtx <-  as.data.frame(GetAssayData(object = hcc3_pt3, slot = "data"))
-hcc3_pt3_cor <- as.data.frame(cor(hcc3_pt3_mtx,method = 'pearson'))
-hcc3_pt3_cor_nu <- unique(as.vector(as.matrix(hcc3_pt3_cor)))
-for(i in 1:nrow(hcc3_pt3_cor)){
-  vector <- as.vector(hcc3_pt3_cor[i,1:(nrow(hcc3_pt3_cor)-i+1)])
-  if(i == 1){
-    hcc3_pt3_cor_nu <- vector
-  }
-  else{
-    hcc3_pt3_cor_nu <- c(hcc3_pt3_cor_nu,vector)
-  }
-}
-
-hcc3_primary_cor3 <- as.data.frame(c(hcc3_pt1_cor_nu,hcc3_pt2_cor_nu))
-hcc3_primary_cor3 <-as.data.frame(t(hcc3_primary_cor3))
-colnames(hcc3_primary_cor3) <- "cor"
-hcc3_primary_cor3$type <- "primary"
-hcc3_satellite_cor3 <- as.data.frame(unlist(unique(hcc3_pt3_cor_nu)))
-colnames(hcc3_satellite_cor3) <- "cor"
-hcc3_satellite_cor3$type <- "satellite"
-hcc3_ps_info2 <- rbind(hcc3_primary_cor3,hcc3_satellite_cor3)
-ggplot(data=hcc3_ps_info2,aes(x=cor,color=type))+
-  geom_density(aes(fill = type), alpha=0.4)+
-  theme_bw()+
-  labs(y="Frequency",x="Cor",title = "HCC3")
-
-
-
-######hcc5-pt1/pt2/pt3/pt4####pt5#####
-hcc5_primary <- subset(HCC5_HPC,subset=satellite_region=="primary")
-hcc5_satellite <- subset(HCC5_HPC,subset=satellite_region=="satellite")
-hcc5_primary_mtx <- as.data.frame(GetAssayData(object = hcc5_primary, slot = "data"))
-hcc5_primary_cor <- as.data.frame(cor(hcc5_primary_mtx,method = 'pearson'))
-hcc5_satellite_mtx <- as.data.frame(GetAssayData(object = hcc5_satellite, slot = "data"))
-hcc5_satellite_cor <- as.data.frame(cor(hcc5_satellite_mtx,method = 'pearson'))
-
-hcc5_primary_cor2 <- as.data.frame(unlist(unique(hcc5_primary_cor)))
-colnames(hcc5_primary_cor2) <- "cor"
-hcc5_primary_cor2$type <- "primary"
-hcc5_satellite_cor2 <- as.data.frame(unlist(unique(hcc5_satellite_cor)))
-colnames(hcc5_satellite_cor2) <- "cor"
-hcc5_satellite_cor2$type <- "satellite"
-
-hcc5_ps_info <- rbind(hcc5_primary_cor2,hcc5_satellite_cor2)
-ggplot(data=hcc5_ps_info,aes(x=cor,stat(density),color=type))+
-  geom_freqpoly(binwidth=0.03,linewidth=1)+
-  theme_classic()+
-  scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     limits = c(0,1))+
-  scale_y_continuous(expand = expansion(mult = c(0,0)),
-                     limits = c(0,3))+
-  labs(y="Frequency",x="Cor")+
-  scale_color_manual(values = c("#2d2884","#c2a20c"),
-                     name="Element")
-
-ggplot(data=hcc5_ps_info,aes(x=cor,color=type))+
-  geom_density(aes(fill = type), alpha=0.4)+
-  theme_bw()+
-  labs(y="Frequency",x="Cor",title = "HCC5")
-
-
-
-
-hcc5_primary_mtx <- as.data.frame(GetAssayData(object = hcc5_primary, slot = "data"))
-hcc5_top_prm_genes <- names(tail(sort(apply(hcc5_primary_mtx,1,sd)),3000))
-hcc5_primary_top_cor <- as.data.frame(cor(hcc5_primary_mtx[hcc5_top_prm_genes,],method = 'pearson'))
-hcc5_satellite_mtx <- as.data.frame(GetAssayData(object = hcc5_satellite, slot = "data"))
-hcc5_top_sta_genes <- names(tail(sort(apply(hcc5_satellite_mtx,1,sd)),3000))
-hcc5_satellite_top_cor <- as.data.frame(cor(hcc5_satellite_mtx[hcc5_top_prm_genes,],method = 'pearson'))
-
-hcc5_primary_top_cor2 <- as.data.frame(unlist(unique(hcc5_primary_top_cor)))
-colnames(hcc5_primary_top_cor2) <- "cor"
-hcc5_primary_top_cor2$type <- "primary"
-hcc5_satellite_top_cor2 <- as.data.frame(unlist(unique(hcc5_satellite_top_cor)))
-colnames(hcc5_satellite_top_cor2) <- "cor"
-hcc5_satellite_top_cor2$type <- "satellite"
-
-hcc5_ps_top_info <- rbind(hcc5_primary_top_cor2,hcc5_satellite_top_cor2)
-ggplot(data=hcc5_ps_top_info,aes(x=cor,color=type))+
-  geom_density(aes(fill = type), alpha=0.4)+
-  theme_bw()+
-  labs(y="Frequency",x="Cor",title = "HCC5")
-######hcc6-pt1/pt2####pt4/pt5/pt6#####
-hcc6_primary <- subset(HCC6_HPC,subset=satellite_region=="primary")
-hcc6_satellite <- subset(HCC6_HPC,subset=satellite_region=="satellite")
-hcc6_primary_mtx <- as.data.frame(GetAssayData(object = hcc6_primary, slot = "data"))
-hcc6_primary_cor <- as.data.frame(cor(hcc6_primary_mtx,method = 'pearson'))
-hcc6_satellite_mtx <- as.data.frame(GetAssayData(object = hcc6_satellite, slot = "data"))
-hcc6_satellite_cor <- as.data.frame(cor(hcc6_satellite_mtx,method = 'pearson'))
-
-hcc6_primary_cor2 <- as.data.frame(unlist(unique(hcc6_primary_cor)))
-colnames(hcc6_primary_cor2) <- "cor"
-hcc6_primary_cor2$type <- "primary"
-hcc6_satellite_cor2 <- as.data.frame(unlist(unique(hcc6_satellite_cor)))
-colnames(hcc6_satellite_cor2) <- "cor"
-hcc6_satellite_cor2$type <- "satellite"
-
-hcc6_ps_info <- rbind(hcc6_primary_cor2,hcc6_satellite_cor2)
-ggplot(data=hcc6_ps_info,aes(x=cor,stat(density),color=type))+
-  geom_freqpoly(binwidth=0.03,linewidth=1)+
-  theme_classic()+
-  scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     limits = c(0,1))+
-  scale_y_continuous(expand = expansion(mult = c(0,0)),
-                     limits = c(0,3))+
-  labs(y="Frequency",x="Cor")+
-  scale_color_manual(values = c("#2d2884","#c2a20c"),
-                     name="Element")
-
-ggplot(data=hcc6_ps_info,aes(x=cor,color=type))+
-  geom_density(aes(fill = type), alpha=0.4)+
-  theme_bw()+
-  labs(y="Frequency",x="Cor",title = "HCC6")
-
-
-
-
-
-hcc6_primary_mtx <- as.data.frame(GetAssayData(object = hcc6_primary, slot = "data"))
-hcc6_top_prm_genes <- names(tail(sort(apply(hcc6_primary_mtx,1,sd)),3000))
-hcc6_primary_top_cor <- as.data.frame(cor(hcc6_primary_mtx[hcc6_top_prm_genes,],method = 'pearson'))
-hcc6_satellite_mtx <- as.data.frame(GetAssayData(object = hcc6_satellite, slot = "data"))
-hcc6_top_sta_genes <- names(tail(sort(apply(hcc6_satellite_mtx,1,sd)),3000))
-hcc6_satellite_top_cor <- as.data.frame(cor(hcc6_satellite_mtx[hcc6_top_prm_genes,],method = 'pearson'))
-
-hcc6_primary_top_cor2 <- as.data.frame(unlist(unique(hcc6_primary_top_cor)))
-colnames(hcc6_primary_top_cor2) <- "cor"
-hcc6_primary_top_cor2$type <- "primary"
-hcc6_satellite_top_cor2 <- as.data.frame(unlist(unique(hcc6_satellite_top_cor)))
-colnames(hcc6_satellite_top_cor2) <- "cor"
-hcc6_satellite_top_cor2$type <- "satellite"
-
-hcc6_ps_top_info <- rbind(hcc6_primary_top_cor2,hcc6_satellite_top_cor2)
-ggplot(data=hcc6_ps_top_info,aes(x=cor,color=type))+
-  geom_density(aes(fill = type), alpha=0.4)+
-  theme_bw()+
-  labs(y="Frequency",x="Cor",title = "HCC6")
-
-######hcc7-pt1/pt2/pt3/pt4/pt5###pt6##
-hcc7_primary <- subset(HCC7_HPC,subset=satellite_region=="primary")
-hcc7_satellite <- subset(HCC7_HPC,subset=satellite_region=="satellite")
-hcc7_primary_mtx <- as.data.frame(GetAssayData(object = hcc7_primary, slot = "data"))
-hcc7_primary_cor <- as.data.frame(cor(hcc7_primary_mtx,method = 'pearson'))
-hcc7_satellite_mtx <- as.data.frame(GetAssayData(object = hcc7_satellite, slot = "data"))
-hcc7_satellite_cor <- as.data.frame(cor(hcc7_satellite_mtx,method = 'pearson'))
-
-hcc7_primary_cor2 <- as.data.frame(unlist(unique(hcc7_primary_cor)))
-colnames(hcc7_primary_cor2) <- "cor"
-hcc7_primary_cor2$type <- "primary"
-hcc7_satellite_cor2 <- as.data.frame(unlist(unique(hcc7_satellite_cor)))
-colnames(hcc7_satellite_cor2) <- "cor"
-hcc7_satellite_cor2$type <- "satellite"
-
-hcc7_ps_info <- rbind(hcc7_primary_cor2,hcc7_satellite_cor2)
-ggplot(data=hcc7_ps_info,aes(x=cor,stat(density),color=type))+
-  geom_freqpoly(binwidth=0.03,linewidth=1)+
-  theme_classic()+
-  scale_x_continuous(expand = expansion(mult = c(0,0)),
-                     limits = c(0,1))+
-  scale_y_continuous(expand = expansion(mult = c(0,0)),
-                     limits = c(0,3))+
-  labs(y="Frequency",x="Cor")+
-  scale_color_manual(values = c("#2d2884","#c2a20c"),
-                     name="Element")
-
-ggplot(data=hcc7_ps_info,aes(x=cor,color=type))+
-  geom_density(aes(fill = type), alpha=0.4)+
-  theme_bw()+
-  labs(y="Frequency",x="Cor",title = "HCC7")
-
-
-hcc7_primary_mtx <- as.data.frame(GetAssayData(object = hcc7_primary, slot = "data"))
-hcc7_top_prm_genes <- names(tail(sort(apply(hcc7_primary_mtx,1,sd)),3000))
-hcc7_primary_top_cor <- as.data.frame(cor(hcc7_primary_mtx[hcc7_top_prm_genes,],method = 'pearson'))
-hcc7_satellite_mtx <- as.data.frame(GetAssayData(object = hcc7_satellite, slot = "data"))
-hcc7_top_sta_genes <- names(tail(sort(apply(hcc7_satellite_mtx,1,sd)),3000))
-hcc7_satellite_top_cor <- as.data.frame(cor(hcc7_satellite_mtx[hcc7_top_prm_genes,],method = 'pearson'))
-
-hcc7_primary_top_cor2 <- as.data.frame(unlist(unique(hcc7_primary_top_cor)))
-colnames(hcc7_primary_top_cor2) <- "cor"
-hcc7_primary_top_cor2$type <- "primary"
-hcc7_satellite_top_cor2 <- as.data.frame(unlist(unique(hcc7_satellite_top_cor)))
-colnames(hcc7_satellite_top_cor2) <- "cor"
-hcc7_satellite_top_cor2$type <- "satellite"
-
-hcc7_ps_top_info <- rbind(hcc7_primary_top_cor2,hcc7_satellite_top_cor2)
-ggplot(data=hcc7_ps_top_info,aes(x=cor,color=type))+
-  geom_density(aes(fill = type), alpha=0.4)+
-  theme_bw()+
-  labs(y="Frequency",x="Cor",title = "HCC7")
- 
-
-
-
-
-hpc <- as.data.frame(rbind(c(2522,2032,342),c(248,232,4),c(181,92,12),c(434,151,265),c(187,163,13)))
-colnames(hpc) <- c("normal","primary","satellite")
-rownames(hpc) <- c("HCC1","HCC3","HCC5","HCC6","HCC7")
+ggplot(sc_cor_all,aes(type,cor,color=type))+
+  geom_boxplot(width=0.5,outlier.size=0)+
+  facet_grid(~patient)+
+  scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
+  stat_compare_means(comparisons = list(c("cross","self")),
+                     method = "wilcox.test",label = "p.signif",
+                     label.y =1 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())

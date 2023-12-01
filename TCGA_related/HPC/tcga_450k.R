@@ -240,9 +240,20 @@ ggscatterstats(data = tumorcomb,
 
 
 
+ggscatterstats(data = tumorcomb, 
+               y = MET, 
+               x = mean_meth,
+               centrality.para = "mean",
+)
 
 
 
+
+ggscatterstats(data = tumorcomb, 
+               y = ONECUT2, 
+               x = mean_meth,
+               centrality.para = "mean",
+)
 
 
 

@@ -1691,8 +1691,15 @@ ggplot(data = ga_random_go[1:20,])+
        title="random_in_ga_oe")
 
 
+random_top100go <- ga_random_go[1:100,]$Description
+demeth_top100go <- ga_demeth_go[1:100,]$Description
+admeth_top100go <- ga_admeth_go[1:100,]$Description
+ga_pathway_Venn <- list(admeth = admeth_top100go, demeth = demeth_top100go,random = random_top100go)
 
-
+venn.diagram(ga_pathway_Venn,filename = 'ga_pathway_Venn.png', imagetype = 'png', 
+             fill = c('#4D157D', '#84C7DB',"#57dc93"), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB',"#57dc93"), cat.cex = 1.5, cat.fontfamily = 'serif',
+             col = c('#4D157D', '#84C7DB',"#57dc93"), cex = 1.5, fontfamily = 'serif')
 
 
 genelist_test <- intersect(ga_admeth_genelist,ga_demeth_genelist)
@@ -1798,7 +1805,7 @@ GA_ttest_sig_admeth_sort <- GA_ttest_sig_admeth[order(GA_ttest_sig_admeth$pvalue
 GA_ttest_sig_admeth_top <- GA_ttest_sig_admeth_sort[1:2000,]
 
 
-row.names(GA_ttest_sig_demeth_top)
+
 
 
   Ga_topdmr_regions <- as.data.frame(str_split_fixed(row.names(GA_ttest_sig_demeth_top),"_",2))
@@ -1891,7 +1898,7 @@ row.names(GA_ttest_sig_demeth_top)
          y= " ",
          title="demeth_in_ga_oe")
 
-  ga_topgenelist_Venn <- list(admeth = ga_admeth_topgenelist, demeth = ga_demeth_topgenelist,random = ga_random_genelist)
+  ga_topgenelist_Venn <- list(admeth = ga_admeth_topgenelist, demeth = ga_demeth_topgenelist,random = ga_random2_genelist)
   
   
   
@@ -1900,4 +1907,204 @@ row.names(GA_ttest_sig_demeth_top)
                cat.col = c('#4D157D', '#84C7DB',"#57dc93"), cat.cex = 1.5, cat.fontfamily = 'serif',
                col = c('#4D157D', '#84C7DB',"#57dc93"), cex = 1.5, fontfamily = 'serif') 
   
-    
+  
+  
+  
+  
+  
+  
+  
+  GA_ttest_sig_demeth_sort2 <- GA_ttest_sig_demeth[order(GA_ttest_sig_demeth$dt,decreasing = T),]
+  GA_ttest_sig_demeth_top2 <- GA_ttest_sig_demeth_sort2[1:2000,]
+  GA_ttest_sig_admeth_sort2 <- GA_ttest_sig_admeth[order(GA_ttest_sig_admeth$dt),]
+  GA_ttest_sig_admeth_top2 <- GA_ttest_sig_admeth_sort2[1:2000,]
+  
+  
+  Ga_top2dmr_regions <- as.data.frame(str_split_fixed(row.names(GA_ttest_sig_demeth_top2),"_",2))
+  colnames(Ga_top2dmr_regions) <- c("chr","start")
+  Ga_top2dmr_regions$pos <- row.names(GA_ttest_sig_demeth_top2)
+  Ga_top2dmr_regions$start <- as.numeric(Ga_top2dmr_regions$start)
+  Ga_top2dmr_regions$end <- Ga_top2dmr_regions$start+1
+  Ga_top2dmr_regions$start <- Ga_top2dmr_regions$start*10000
+  Ga_top2dmr_regions$end <- Ga_top2dmr_regions$end*10000
+  Ga_top2dmr_regions$end <- as.numeric(Ga_top2dmr_regions$end)
+  Ga_top2dmr_regions$start <- as.numeric(Ga_top2dmr_regions$start)
+  Ga_top2dmr_regions <- select(Ga_top2dmr_regions,chr,start,end,pos)
+  write.table(Ga_top2dmr_regions, "ga_top2dmr_regions.bed",sep = "\t",quote=F,row.names = F,col.names = F)
+  
+  
+  
+  
+  
+  
+  Ga_top2admr_regionss <- as.data.frame(str_split_fixed(row.names(GA_ttest_sig_admeth_top2),"_",2))
+  colnames(Ga_top2admr_regionss) <- c("chr","start")
+  Ga_top2admr_regionss$pos <- row.names(GA_ttest_sig_admeth_top2)
+  Ga_top2admr_regionss$start <- as.numeric(Ga_top2admr_regionss$start)
+  Ga_top2admr_regionss$end <- Ga_top2admr_regionss$start+1
+  Ga_top2admr_regionss$start <- Ga_top2admr_regionss$start*10000
+  Ga_top2admr_regionss$end <- Ga_top2admr_regionss$end*10000
+  Ga_top2admr_regionss$end <- as.numeric(Ga_top2admr_regionss$end)
+  Ga_top2admr_regionss$start <- as.numeric(Ga_top2admr_regionss$start)
+  Ga_top2admr_regionss <- select(Ga_top2admr_regionss,chr,start,end,pos)
+  write.table(Ga_top2admr_regionss, "ga_top2admr_regions.bed",sep = "\t",quote=F,row.names = F,col.names = F)
+  
+  
+  
+  
+  
+  
+  ga_admeth_top2gene <- fread("ga_top2admeth_gene.bedGraph")
+  
+  ga_admeth_top2genelist <- unique(unlist(ga_admeth_top2gene$V8))
+  
+  
+  ga_admeth_top2_go <- enrichGO(gene  = ga_admeth_top2genelist,
+                               OrgDb      = org.Hs.eg.db,
+                               keyType    = 'SYMBOL',
+                               ont        = "BP",
+                               pAdjustMethod = "BH",
+                               pvalueCutoff = 0.05,
+                               qvalueCutoff = 0.05)
+  ga_admeth_top2_go <- as.data.frame(ga_admeth_top2_go@result)
+  ga_admeth_top2_go [,"logp"] <- -log10(ga_admeth_top2_go$pvalue)
+  ggplot(data = ga_admeth_top2_go[1:20,])+
+    geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+    scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+    theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+          axis.text=element_text(size=14,face = "bold"),
+          axis.title.x=element_text(size=12),
+          axis.title.y=element_text(size=20),
+          legend.text=element_text(size=12),
+          legend.title=element_text(size=14))+
+    labs(x = "-Logp", 
+         y= " ",
+         title="admeth_in_ga_oe")
+  
+  
+  
+  ga_demeth_top2gene <- fread("ga_top2demeth_gene.bedGraph")
+  
+  ga_demeth_top2genelist <- unique(unlist(ga_demeth_top2gene$V8))
+  
+  
+  ga_demeth_top2_go <- enrichGO(gene  = ga_demeth_top2genelist,
+                               OrgDb      = org.Hs.eg.db,
+                               keyType    = 'SYMBOL',
+                               ont        = "BP",
+                               pAdjustMethod = "BH",
+                               pvalueCutoff = 0.05,
+                               qvalueCutoff = 0.05)
+  ga_demeth_top2_go <- as.data.frame(ga_demeth_top2_go@result)
+  ga_demeth_top2_go [,"logp"] <- -log10(ga_demeth_top2_go$pvalue)
+  ggplot(data = ga_demeth_top2_go[1:20,])+
+    geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+    scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+    theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+          axis.text=element_text(size=14,face = "bold"),
+          axis.title.x=element_text(size=12),
+          axis.title.y=element_text(size=20),
+          legend.text=element_text(size=12),
+          legend.title=element_text(size=14))+
+    labs(x = "-Logp", 
+         y= " ",
+         title="demeth_in_ga_oe")
+  
+  
+  
+  ga_random2_regions <- ga_global_regions[sample(1:266232,2000, replace = FALSE),]
+  write.table(ga_random2_regions, "ga_random2_regions.bed",sep = "\t",quote=F,row.names = F,col.names = F)
+  
+  
+  ga_random2_gene <- fread("ga_random2_gene.bedGraph")
+  
+  ga_random2_genelist <- unique(unlist(ga_random2_gene$V8))
+  
+  
+  ga_random2_go <- enrichGO(gene  = ga_random2_genelist,
+                           OrgDb      = org.Hs.eg.db,
+                           keyType    = 'SYMBOL',
+                           ont        = "BP",
+                           pAdjustMethod = "BH",
+                           pvalueCutoff = 0.05,
+                           qvalueCutoff = 0.05)
+  ga_random2_go <- as.data.frame(ga_random2_go@result)
+  ga_random2_go [,"logp"] <- -log10(ga_random2_go$pvalue)
+  ggplot(data = ga_random2_go[1:20,])+
+    geom_bar(aes(y=reorder(Description,logp),x=logp,fill=Count),stat='identity')+
+    scale_fill_gradient(expression(Count),low="blue",high="red")+theme_bw()+
+    theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+          axis.text=element_text(size=14,face = "bold"),
+          axis.title.x=element_text(size=12),
+          axis.title.y=element_text(size=20),
+          legend.text=element_text(size=12),
+          legend.title=element_text(size=14))+
+    labs(x = "-Logp", 
+         y= " ",
+         title="random_in_ga_oe")
+  
+  
+  
+  
+  ga_top2genelist_Venn <- list(admeth = ga_admeth_top2genelist, demeth = ga_demeth_top2genelist,random = ga_random2_genelist)
+  
+  
+  
+  venn.diagram(ga_top2genelist_Venn, filename = 'ga_top2genelist_Venn.png', imagetype = 'png', 
+               fill = c('#4D157D', '#84C7DB',"#57dc93"), alpha = 0.50, 
+               cat.col = c('#4D157D', '#84C7DB',"#57dc93"), cat.cex = 1.5, cat.fontfamily = 'serif',
+               col = c('#4D157D', '#84C7DB',"#57dc93"), cex = 1.5, fontfamily = 'serif') 
+  
+  
+  
+  
+  
+  
+  
+  
+  random_top_go <- ga_random2_go[1:100,]$Description
+  ga_demeth1_top_go <- ga_demeth_top_go[1:100,]$Description
+  ga_admeth1_top_go <- ga_admeth_top_go[1:100,]$Description
+  ga_pathway_top_Venn <- list(admeth = ga_admeth1_top_go, demeth = ga_demeth1_top_go,random = random_top_go)
+  
+  venn.diagram(ga_pathway_top_Venn,filename = 'ga_top_pathway_Venn.png', imagetype = 'png', 
+               fill = c('#4D157D', '#84C7DB',"#57dc93"), alpha = 0.50, 
+               cat.col = c('#4D157D', '#84C7DB',"#57dc93"), cat.cex = 1.5, cat.fontfamily = 'serif',
+               col = c('#4D157D', '#84C7DB',"#57dc93"), cex = 1.5, fontfamily = 'serif')
+  
+  
+  
+  
+  ga_demeth2_top_go <- ga_demeth_top2_go[1:100,]$Description
+  ga_admeth2_top_go <- ga_admeth_top2_go[1:100,]$Description
+  ga_pathway_top2_Venn <- list(admeth = ga_admeth2_top_go, demeth = ga_demeth2_top_go,random = random_top_go)
+  
+  venn.diagram(ga_pathway_top2_Venn,filename = 'ga_top2_pathway_Venn.png', imagetype = 'png', 
+               fill = c('#4D157D', '#84C7DB',"#57dc93"), alpha = 0.50, 
+               cat.col = c('#4D157D', '#84C7DB',"#57dc93"), cat.cex = 1.5, cat.fontfamily = 'serif',
+               col = c('#4D157D', '#84C7DB',"#57dc93"), cex = 1.5, fontfamily = 'serif')
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ga_pathway_ad_Venn <- list(dt = ga_admeth2_top_go, pvalue = ga_admeth1_top_go)
+  
+  venn.diagram(ga_pathway_ad_Venn,filename = 'ga_pathway_ad_Venn.png', imagetype = 'png', 
+               fill = c('#4D157D', '#84C7DB'), alpha = 0.50, 
+               cat.col = c('#4D157D', '#84C7DB'), cat.cex = 1.5, cat.fontfamily = 'serif',
+               col = c('#4D157D', '#84C7DB'), cex = 1.5, fontfamily = 'serif')
+  
+  ga_pathway_de_Venn <- list(dt = ga_demeth2_top_go, pvalue = ga_demeth1_top_go)
+  
+  venn.diagram(ga_pathway_de_Venn,filename = 'ga_pathway_de_Venn.png', imagetype = 'png', 
+               fill = c('#4D157D', '#84C7DB'), alpha = 0.50, 
+               cat.col = c('#4D157D', '#84C7DB'), cat.cex = 1.5, cat.fontfamily = 'serif',
+               col = c('#4D157D', '#84C7DB'), cex = 1.5, fontfamily = 'serif')
+  
