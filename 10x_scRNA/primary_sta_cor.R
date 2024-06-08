@@ -530,3 +530,43 @@ ggplot(sta_prim_sum,aes(type,cor,color=type))+
         legend.position = "none",
         legend.direction = "vertical",
         legend.title =element_blank())
+
+
+
+
+sta_prim_sum_cmn <- subset(sta_prim_sum,sample %in% c("hcc3","hcc5","hcc7"))
+sta_prim_sum_sn <- subset(sta_prim_sum,sample %in% c("hcc1","hcc6"))
+
+ggplot(sta_prim_sum_cmn,aes(type,cor,color=type))+
+  geom_boxplot(width=0.5,outlier.size=0)+
+  facet_grid(~sample)+
+  scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
+  stat_compare_means(comparisons = list(c("primary","satellite")),
+                     method = "t.test",label = "p.signif",
+                     label.y =1 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+
+
+ggplot(sta_prim_sum_sn,aes(type,cor,color=type))+
+  geom_boxplot(width=0.5,outlier.size=0)+
+  facet_grid(~sample)+
+  scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
+  stat_compare_means(comparisons = list(c("primary","satellite")),
+                     method = "t.test",label = "p.signif",
+                     label.y =1 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+
+
+

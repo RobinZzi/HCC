@@ -168,7 +168,7 @@ sort_combine_data = data.frame(combine_mtx[trioseq_order_row, ])
 
 
 pheatmap(sort_trioseq_data,
-         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,
+         show_rownames = F,show_colnames = T,annotation_col = colanno,annotation_row = rowanno,
          annotation_colors = merge_ann_colors_sub,
          cluster_rows = F,cluster_cols = F,clustering_method = "average",
          color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),

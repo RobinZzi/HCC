@@ -618,11 +618,46 @@ pheatmap(big_meth,
          fontsize_col= 15)
 
 
+big_colanno_new <- big_colanno
 
+big_colanno_new$sample <- gsub("hcc3", "hcc2", big_colanno_new$sample)
+big_colanno_new$sample <- gsub("hcc4", "hcc3", big_colanno_new$sample)
+big_colanno_new$sample <- gsub("hcc7", "hcc6", big_colanno_new$sample)
+big_colanno_new$sample <- gsub("hcc11", "hcc5", big_colanno_new$sample)
+big_colanno_new$sample <- gsub("hcc28", "hcc8", big_colanno_new$sample)
+big_colanno_new$sample <- gsub("hcc29", "hcc9", big_colanno_new$sample)
+
+
+
+
+big_colanno_new$origin <- gsub("hcc3", "hcc2", big_colanno_new$origin)
+big_colanno_new$origin <- gsub("hcc4", "hcc3", big_colanno_new$origin)
+big_colanno_new$origin <- gsub("hcc7", "hcc6", big_colanno_new$origin)
+big_colanno_new$origin <- gsub("hcc11", "hcc5", big_colanno_new$origin)
+big_colanno_new$origin <- gsub("hcc28", "hcc8", big_colanno_new$origin)
+big_colanno_new$origin <- gsub("hcc29", "hcc9", big_colanno_new$origin)
+
+
+
+big_ann_colors_new =list(
+  pmd_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
+  tissue=c('tumor'='#D42E00','nt'='#087FBF'),
+  origin=c('hcc8'='#00ADC4','hcc9'='#4C1A72','hcc2'='#fb9795','hcc3'='#ffe9df','hcc6'='#7c5e8c','hcc5'='#b0e7ea')
+)
+pheatmap(big_meth,
+         annotation_col = big_colanno_new,annotation_row = big_rowanno,
+         annotation_colors = big_ann_colors_new,
+         show_rownames = F,show_colnames = F,
+         clustering_method = "mcquitty",
+         clustering_distance_rows = "euclidean",
+         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         treeheight_row = 0,
+         treeheight_col = 0,
+         fontsize_col= 15)
 
 pheatmap(big_meth,
-         annotation_col = big_colanno,annotation_row = big_rowanno,
-         annotation_colors = big_ann_colors,
+         annotation_col = big_colanno_new[,2:3],annotation_row = pmd_anno,
+         annotation_colors = big_ann_colors_new,
          show_rownames = F,show_colnames = F,
          clustering_method = "mcquitty",
          clustering_distance_rows = "euclidean",
@@ -715,12 +750,14 @@ colnames(bigmeth_colmeans) <- c("mean_meth","cell_id","patient","sample","origin
 
 ggplot(bigmeth_colmeans,aes(x=patient, y=mean_meth,fill=origin))+
   geom_flat_violin(scale = "width",trim = F)+coord_flip()+geom_jitter(width = 0.1,size=0.5)
-ggplot(bigmeth_pmd_colmeans,aes(x=patient, y=mean_meth,fill=label))+
+
+ggplot(bigmeth_pmd_colmeans_new,aes(x=patient, y=mean_meth,fill=label))+
   geom_flat_violin(scale = "width",trim = F)+coord_flip()+geom_jitter(width = 0.1,size=0.5)
 
 ggplot(bigmeth_colmeans,aes(x=sample, y=mean_meth,fill=origin))+
   geom_flat_violin(scale = "width",trim = F)+geom_jitter(width = 0.1,size=0.5)+coord_flip()
-ggplot(bigmeth_pmd_colmeans,aes(x=sample, y=mean_meth,fill=label))+
+
+ggplot(bigmeth_pmd_colmeans_new,aes(x=sample, y=mean_meth,fill=label))+
   geom_flat_violin(scale = "width",trim = F)+geom_jitter(width = 0.1,size=0.5)+coord_flip()
 
 ggplot(bigmeth_colmeans_sample,aes(x=patient, y=mean_meth,fill=patient))+
@@ -768,3 +805,145 @@ ggplot(bigmeth_colmeans_hcc29,aes(x=sample, y=mean_meth,fill=sample))+
 
 
 
+
+
+geom_flat_violin <- function(mapping = NULL, data = NULL, stat = "ydensity",
+                             position = "dodge", trim = TRUE, scale = "area",
+                             show.legend = NA, inherit.aes = TRUE, ...) {
+  layer(
+    data = data,
+    mapping = mapping,
+    stat = stat,
+    geom = GeomFlatViolin,
+    position = position,
+    show.legend = show.legend,
+    inherit.aes = inherit.aes,
+    params = list(
+      trim = trim,
+      scale = scale,
+      ...
+    )
+  )
+}
+
+GeomFlatViolin <-
+  ggproto("GeomFlatViolin", Geom,
+          setup_data = function(data, params) {
+            data$width <- data$width %||%
+              params$width %||% (resolution(data$x, FALSE) * 0.9)
+            
+            # ymin, ymax, xmin, and xmax define the bounding rectangle for each group
+            data %>%
+              group_by(group) %>%
+              mutate(ymin = min(y),
+                     ymax = max(y),
+                     xmin = x,
+                     xmax = x + width / 2)
+            
+          },
+          
+          draw_group = function(data, panel_scales, coord) {
+            # Find the points for the line to go all the way around
+            data <- transform(data, xminv = x,
+                              xmaxv = x + violinwidth * (xmax - x))
+            
+            # Make sure it's sorted properly to draw the outline
+            newdata <- rbind(plyr::arrange(transform(data, x = xminv), y),
+                             plyr::arrange(transform(data, x = xmaxv), -y))
+            
+            # Close the polygon: set first and last point the same
+            # Needed for coord_polar and such
+            newdata <- rbind(newdata, newdata[1,])
+            
+            ggplot2:::ggname("geom_flat_violin", GeomPolygon$draw_panel(newdata, panel_scales, coord))
+          },
+          
+          draw_key = draw_key_polygon,
+          
+          default_aes = aes(weight = 1, colour = "grey20", fill = "white", size = 0.5,
+                            alpha = NA, linetype = "solid"),
+          
+          required_aes = c("x", "y")
+  )
+
+
+
+
+
+
+bigmeth_pmd_colmeans_new <- bigmeth_pmd_colmeans
+row.names(bigmeth_pmd_colmeans_new) <- gsub("hcc3", "hcc2", row.names(bigmeth_pmd_colmeans_new))
+row.names(bigmeth_pmd_colmeans_new) <- gsub("hcc4", "hcc3", row.names(bigmeth_pmd_colmeans_new))
+row.names(bigmeth_pmd_colmeans_new) <- gsub("hcc7", "hcc6", row.names(bigmeth_pmd_colmeans_new))
+row.names(bigmeth_pmd_colmeans_new) <- gsub("hcc11", "hcc5", row.names(bigmeth_pmd_colmeans_new))
+row.names(bigmeth_pmd_colmeans_new) <- gsub("hcc28", "hcc8", row.names(bigmeth_pmd_colmeans_new))
+row.names(bigmeth_pmd_colmeans_new) <- gsub("hcc29", "hcc9", row.names(bigmeth_pmd_colmeans_new))
+
+bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc3", "hcc2",bigmeth_pmd_colmeans_new$cell_id )
+bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc4", "hcc3",bigmeth_pmd_colmeans_new$cell_id )
+bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc7", "hcc6",bigmeth_pmd_colmeans_new$cell_id )
+bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc11", "hcc5",bigmeth_pmd_colmeans_new$cell_id )
+bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc28", "hcc8",bigmeth_pmd_colmeans_new$cell_id )
+bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc29", "hcc2",bigmeth_pmd_colmeans_new$cell_id )
+
+
+bigmeth_pmd_colmeans_new$patient <- gsub("hcc3", "hcc2",bigmeth_pmd_colmeans_new$patient )
+bigmeth_pmd_colmeans_new$patient <- gsub("hcc4", "hcc3",bigmeth_pmd_colmeans_new$patient )
+bigmeth_pmd_colmeans_new$patient <- gsub("hcc7", "hcc6",bigmeth_pmd_colmeans_new$patient )
+bigmeth_pmd_colmeans_new$patient <- gsub("hcc11", "hcc5",bigmeth_pmd_colmeans_new$patient )
+bigmeth_pmd_colmeans_new$patient <- gsub("hcc28", "hcc8",bigmeth_pmd_colmeans_new$patient )
+bigmeth_pmd_colmeans_new$patient <- gsub("hcc29", "hcc2",bigmeth_pmd_colmeans_new$patient )
+
+
+
+
+
+
+
+bigmeth_pmd_colmeans_new$sample <- gsub("hcc3", "hcc2",bigmeth_pmd_colmeans_new$sample )
+bigmeth_pmd_colmeans_new$sample <- gsub("hcc4", "hcc3",bigmeth_pmd_colmeans_new$sample )
+bigmeth_pmd_colmeans_new$sample <- gsub("hcc7", "hcc6",bigmeth_pmd_colmeans_new$sample )
+bigmeth_pmd_colmeans_new$sample <- gsub("hcc11", "hcc5",bigmeth_pmd_colmeans_new$sample )
+bigmeth_pmd_colmeans_new$sample <- gsub("hcc28", "hcc8",bigmeth_pmd_colmeans_new$sample )
+bigmeth_pmd_colmeans_new$sample <- gsub("hcc29", "hcc2",bigmeth_pmd_colmeans_new$sample )
+
+
+
+
+
+
+
+bigmeth_pmd_colmeans_new$origin <- gsub("hcc3", "hcc2",bigmeth_pmd_colmeans_new$origin )
+bigmeth_pmd_colmeans_new$origin <- gsub("hcc4", "hcc3",bigmeth_pmd_colmeans_new$origin )
+bigmeth_pmd_colmeans_new$origin <- gsub("hcc7", "hcc6",bigmeth_pmd_colmeans_new$origin )
+bigmeth_pmd_colmeans_new$origin <- gsub("hcc11", "hcc5",bigmeth_pmd_colmeans_new$origin )
+bigmeth_pmd_colmeans_new$origin <- gsub("hcc28", "hcc8",bigmeth_pmd_colmeans_new$origin )
+bigmeth_pmd_colmeans_new$origin <- gsub("hcc29", "hcc2",bigmeth_pmd_colmeans_new$origin )
+
+
+
+bigmeth_seurat <- CreateSeuratObject(counts = big_meth,
+                                     meta.data = big_colanno_new)
+bigmeth_seurat <- SCTransform(bigmeth_seurat)
+
+
+
+
+
+
+
+
+bigmeth_seurat <- NormalizeData(bigmeth_seurat, normalization.method = "LogNormalize", scale.factor = 10000)
+bigmeth_seurat <- FindVariableFeatures(bigmeth_seurat, selection.method = "vst", nfeatures = 2000)
+bigmeth_seurat <- ScaleData(bigmeth_seurat)
+
+bigmeth_seurat <- RunPCA(bigmeth_seurat, verbose = FALSE)
+bigmeth_seurat <- RunUMAP(bigmeth_seurat, dims = 1:30, verbose = FALSE)
+bigmeth_seurat <- FindNeighbors(bigmeth_seurat, dims = 1:30, verbose = FALSE)
+bigmeth_seurat <- FindClusters(bigmeth_seurat, verbose = FALSE)
+
+
+DimPlot(bigmeth_seurat, label = TRUE,repel = T) + NoLegend()
+DimPlot(bigmeth_seurat, label = F,repel = T,group.by = "sample")
+DimPlot(bigmeth_seurat, label = TRUE,group.by = "origin")
+DimPlot(bigmeth_seurat, label = TRUE,group.by = "tissue")

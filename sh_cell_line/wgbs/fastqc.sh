@@ -1,6 +1,7 @@
-cd /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/data/sh_cell_line/wgbs
-qcdir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs/qc
+cd /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_202405/fastq
+qcdir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_202405/qc
 path=$1
+echo $path
 files=$(ls$path)
 for filename in $files
 do

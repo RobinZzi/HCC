@@ -27,7 +27,7 @@ pheatmap(hep_100k_sum,
          clustering_method = "average",clustering_distance_cols = "correlation",
          color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
          show_rownames=F,show_colnames=T,
-         fontsize_col= 15,
+         fontsize_col= 10,
          angle_col = 45,
          border=FALSE,annotation_row = pmd_row_anno) 
 
@@ -51,10 +51,10 @@ pheatmap(snu_100k_sum,
          clustering_method = "average",clustering_distance_cols = "correlation",
          color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
          show_rownames=F,show_colnames=T,
-         fontsize_col= 15,
+         fontsize_col= 10,
          angle_col = 45,
          border=FALSE,annotation_row = pmd_row_anno) 
-snu_100k_baseMean = as.data.frame(colMeans(snu_100k_sum) ) 
+  snu_100k_baseMean = as.data.frame(colMeans(snu_100k_sum) ) 
 
 
 

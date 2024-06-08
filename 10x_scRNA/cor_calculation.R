@@ -1,3 +1,5 @@
+library(ggpubr)
+
 hcc1_av <- AverageExpression(HCC1_HPC,group.by = "orig.ident",assays = 'RNA')
 hcc1_av <- hcc1_av[[1]]
 hcc1_cg=names(tail(sort(apply(hcc1_av, 1, sd)),1000))
@@ -1229,6 +1231,7 @@ ggplot(sc_mean_sum,aes(type,cor_delta,color=type))+
 
 
 
+
 ggplot(sc_mean_sum,aes(type,cor_delta,color=type))+
   geom_boxplot(width=0.5,outlier.size=0)+
   geom_jitter(width=0.25)+
@@ -1247,6 +1250,39 @@ ggplot(sc_mean_sum,aes(type,cor_delta,color=type))+
 
 
 ggplot(sc_cor_all,aes(type,cor,color=type))+
+  geom_boxplot(width=0.5,outlier.size=0)+
+  facet_grid(~patient)+
+  scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
+  stat_compare_means(comparisons = list(c("cross","self")),
+                     method = "wilcox.test",label = "p.signif",
+                     label.y =1 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+
+sc_cor_cmn <-  subset(sc_cor_all,subset=patient %in% c("hcc1","hcc2","hcc4","hcc6","hcc8","hcc9"))
+sc_cor_sn <-  subset(sc_cor_all,subset=patient %in% c("hcc3","hcc5","hcc7"))
+
+ggplot(sc_cor_cmn,aes(type,cor,color=type))+
+  geom_boxplot(width=0.5,outlier.size=0)+
+  facet_grid(~patient)+
+  scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
+  stat_compare_means(comparisons = list(c("cross","self")),
+                     method = "wilcox.test",label = "p.signif",
+                     label.y =1 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+
+ggplot(sc_cor_sn,aes(type,cor,color=type))+
   geom_boxplot(width=0.5,outlier.size=0)+
   facet_grid(~patient)+
   scale_color_manual(values =c('#8BABD3','#D7B0B0'))+

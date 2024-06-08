@@ -49,8 +49,8 @@ hcc28_sce <- CreateSeuratObject(counts = hcc28_cnt,meta.data = hcc28_meta)
 
 hcc29_sce <- CreateSeuratObject(counts = hcc29_cnt,meta.data = hcc29_meta)
 
-
-
+VlnPlot(hcc3_sce,features = "GADD45A",group.by = "sample_pt")
+VlnPlot(hcc28_sce,features = "TNNC1",group.by = "sample_pt")
 
 hcc_big <- merge(hcc3_sce,y=hcc28_sce)
 hcc_big <- merge(hcc_big,y=hcc29_sce)
@@ -610,7 +610,7 @@ row.names(hcc29_pca) <- c("PT1","PT3","PT4")
 pca_hcc29 = dist(hcc29_pca, method = "euclidean")
 hclust_pca_hcc29 = hclust(pca_hcc29, method = "complete")
 plot(hclust_pca_hcc29)
-
+  
 
 
 hcc_big_HPC_sample_pt <- hcc_big_HPC$sample_pt
@@ -624,4 +624,5 @@ hcc_big_HPC$methtype <- hcc_big_HPC_methtype
 DimPlot(hcc_big_HPC,group.by = "methtype",label=F)+NoLegend()
 DimPlot(hcc_big_HPC,group.by = "sample",label=T,label.size = 8)+NoLegend()
 VlnPlot(hcc_big_HPC,features = "SNHG6",group.by = "sample",split.by = "methtype")
+VlnPlot(hcc_big_HPC,features = "TNNC1",group.by = "sample",split.by = "methtype")
 VlnPlot(hcc_big_HPC,features = "GADD45A",group.by = "sample",split.by = "methtype")

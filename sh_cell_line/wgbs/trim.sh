@@ -1,6 +1,6 @@
-cd /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/data/sh_cell_line/wgbs
+cd /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_202405/fastq
 bin_trim_galore=trim_galore
-dir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs/trim_result/
+dir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_202405/trim_result/
 path=$1
 files=$(ls$path)
 for filename in $files

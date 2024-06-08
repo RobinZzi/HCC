@@ -186,7 +186,7 @@ write.table(cor_data_df_log,"TCGA-example-log-meth_mean-correlation.txt",quote=F
 write.table(tumorcomb,"TCGA-example-exp.txt",quote=F,row.names = T,col.names = F)
 
 ggscatterstats(data = tumorcomb, 
-               y = ETS1, 
+               y = PAPPA2, 
                x = mean_meth,
                centrality.para = "mean",
 )
