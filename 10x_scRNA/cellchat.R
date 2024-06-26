@@ -18,7 +18,7 @@ merge_st <- subset(bigseu, subset = group %in% "S")
 
 
 cmn_data_input <- GetAssayData(merge_cmn, assay = "RNA", slot = "data")
-cmn_identity <- subset(merge_cmn@meta.data, select = "new.ident")
+cmn_identityentity <- subset(merge_cmn@meta.data, select = "new.ident")
 cmn_cellchat <- createCellChat(object = cmn_data_input, meta = cmn_identity,  group.by = "new.ident")
 cmn_CellChatDB.use <- subsetDB(CellChatDB, search = "Secreted Signaling")
 cmn_cellchat@DB <- cmn_CellChatDB.use
@@ -321,7 +321,14 @@ ggplot(cmnsn_cellchat_sum,aes(x=type,y=weight,fill=type))+
        title="cell_chat")+
   stat_compare_means(comparisons = list(c("cmn","sn")),
                      method = "t.test",label = "p.signif",
-                     label.y =80 )+theme_bw()
+                     label.y =80 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  
+        axis.text.x = element_text(face="bold",color = 'black',size=12),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
 
 
 ggplot(cmnsn_cellchat_sum_drop,aes(x=type,y=interactions,fill=type))+
@@ -359,7 +366,7 @@ ggplot(ptst_cellchat_sum,aes(x=type,y=weight,fill=type))+
   geom_boxplot()+geom_jitter(width = 0.1,shape = 21, colour = "black")+
   labs(x = "type", 
        y= "interaction",
-       title="cell_chat")
+       title="cell_chat")+
   stat_compare_means(comparisons = list(c("pt","st")),
                      method = "t.test",label = "p.signif",
                      label.y =80)+theme_bw()
@@ -375,3 +382,15 @@ ggplot(cmn_samples_cellchat,aes(x=type,y=weight))+
   labs(x = "type", 
        y= "weight",
        title="cell_chat")
+
+
+
+
+
+
+
+
+
+CairoPNG("HCC3_PT2-cellchat.png",xpd=TRUE,height = 800,width = 800)
+groupSize <- as.numeric(table(cellchat@idents))
+netVisual_circle(cellchat@net$count, vertex.weight = groupSize, weight.scale = T, label.edge= F, title.name = "Number of interactions")

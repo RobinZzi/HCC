@@ -5,12 +5,12 @@ rm(list=ls())
 chrs <- c("chr1","chr2","chr3","chr4","chr5","chr6","chr7","chr8","chr9","chr10","chr11","chr12","chr13","chr14","chr15",
           "chr16","chr17","chr18","chr19","chr20","chr21","chr22")
 
-setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_202405/cpg_report")
+setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240611/cpg_report")
 fs <- list.files()
 
 if(T){
 for (i in 1:length(fs)) {
-  setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_202405/cpg_report")
+  setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240611/cpg_report")
   data <- fread(paste(fs[i]))
   data <- subset(data,data$V1 %in% chrs)
   colnames(data) <- c("chr","site","sum","meth","dmeth","t1","t2")
@@ -20,14 +20,14 @@ for (i in 1:length(fs)) {
   sample_id <-str_split_fixed(fs[i],".CpG_report.txt",2)[1]
   data[,"count"] <- data[,2]+data[,3]
   data[,paste(sample_id)] <- data[,2]/(data[,2]+data[,3])
-  setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_202405/methy_mtx/10kbin")
+  setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240611/methy_mtx/10kbin")
   write.table(data,paste(sample_id,"_10kbin.txt",sep = ""))
 }
 
 
 
 for (i in 1:length(fs)) {
-  setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_202405/cpg_report")
+  setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240611/cpg_report")
   data <- fread(paste(fs[i]))
   data <- subset(data,data$V1 %in% chrs)
   colnames(data) <- c("chr","site","sum","meth","dmeth","t1","t2")
@@ -37,7 +37,7 @@ for (i in 1:length(fs)) {
   sample_id <-str_split_fixed(fs[i],".CpG_report.txt",2)[1]
   data[,"count"] <- data[,2]+data[,3]
   data[,paste(sample_id)] <- data[,2]/(data[,2]+data[,3])
-  setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_202405/methy_mtx/100kbin")
+  setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240611/methy_mtx/100kbin")
   write.table(data,paste(sample_id,"_100kbin.txt",sep = ""))
 }
 }

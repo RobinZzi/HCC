@@ -5,6 +5,7 @@ library(infercnv)
 library(devtools)
 library(rjags)
 library(clusterProfiler)
+library(gridExtra)
 setwd("~/projects/hcc/analysis/merged_scrna")
 
 save.image("merged_scRNA.Rdata")
@@ -21,13 +22,17 @@ hcc.big_cntype = case_when(
 
 bigseu$cntype <- hcc.big_cntype
 
-DimPlot(bigseu,group.by = "group",cols = my36colors[1:3]) #NT,PT,ST
+DimPlot(bigseu,group.by = "group",cols = my36colors[1:3],shuffle = T) #NT,PT,ST
+
+DimPlot(bigseu,group.by = "seurat_clusters",label = T,cols=my37colors)+NoLegend()
+
+DimPlot(bigseu,group.by = "patient",cols=my37colors,shuffle = T)
 
 DimPlot(bigseu,group.by = "lib.method",cols = my36colors[9:10])#10x,dropseq
 
 DimPlot(bigseu,group.by = "orig.ident")# PT1/PT2/PT3
 
-DimPlot(bigseu,group.by = "new.ident")#cell_type
+DimPlot(bigseu,group.by = "new.ident",cols = my36colors)#cell_type
 
 DimPlot(bigseu,group.by = "cntype") #CMN,SN
 
@@ -35,13 +40,24 @@ s.genes <- cc.genes$s.genes
 g2m.genes <- cc.genes$g2m.genes
 bigseu<- CellCycleScoring(bigseu, s.features = s.genes, g2m.features = g2m.genes, set.ident = TRUE)
 table(bigseu$Phase)
-DimPlot(bigseu,group.by = "Phase",label=F)
+DimPlot(bigseu,group.by = "Phase",cols = my37colors,label=F)
 
+
+VlnPlot(bigseu, features = c("nFeature_RNA", "nCount_RNA"), group.by = "lib.method",cols = my37colors,pt.size = 0)
 
 # 重新调整图层顺序
 bigseu@meta.data$patient <- factor(bigseu@meta.data$patient, levels = c( "HCC1", "HCC2", "HCC3",
                                                                       "HCC4", "HCC5", "HCC6",
                                                                       "HCC7","HCC8", "HCC9"))
+bigseu@meta.data$new.ident <- factor(bigseu@meta.data$new.ident, levels = rev(c( "HPC", "Fibroblast", "Endothelial cell",
+                                                                         "Neutrophil", "PlasmaB cell", "B cell",
+                                                                         "Proliferative T","CD8+ memory", "CD8+ exhausted",
+                                                                         "CD8+ cytotoxic","CD4+ memory","CD4+ Treg","Mast cell",
+                                                                         "NK","Dendritic cell","Macrophage")))
+markers <- c('AMBP','COL1A2', 'ENG', 'S100A8', 'S100A9', 'CD79A', 'MS4A1','LTB',
+             'MKI67','CD8A','PDCD1', 'CCL5','GZMA', 'CD3D', 'IL32','CD4','FOXP3','SPON2',
+              "FCN1","LYZ")
+
 DimPlot(bigseu,group.by = "patient",cols = t(my36colors[1:9]))#patient
 
 HPC <- subset(bigseu,subset=new.ident=="HPC")
@@ -58,7 +74,7 @@ hpc_merge <- RunUMAP(hpc_merge, dims = 1:30, verbose = FALSE)
 DimPlot(hpc_merge,group.by = "patient",label=T,repel = T)
 DimPlot(hpc_merge,group.by = "group",label=T)
 DimPlot(hpc_merge,group.by = "lib.method",label=T)
-DimPlot(hpc_merge,group.by = "cell_type",label=T)
+DimPlot(hpc_merge,group.by = "new.ident",label=F,cols = my36colors )
 DimPlot(hpc_merge,group.by = "group",label=T)
 
 cell.prop<-as.data.frame(prop.table(table(bigseu$patient,bigseu$new.ident)))
@@ -78,13 +94,20 @@ cell.prop<-as.data.frame(prop.table(table(bigseu$patient,bigseu$new.ident)))
 markers <- c('CD3D','CCL5', 'NKG7', 'GZMA', 'IL32', 'CD4','CD8A','FOXP3', 'CD3E', 'LTB', 'S100A8', 'S100A9', 'CD79A', "ENG" ,
              'FCN1', 'MS4A1', 'SPON2','FCER1A','SERPINF1', "LYZ","AMBP","COL1A2","MKI67","PDCD1")
 ex.markers <- c('LAYN','PDCD1','CTLA4','HAVCR2')
-my36colors <-c('#E5D2DD', '#53A85F', '#F1BB72', '#F3B1A0', '#D6E7A3', '#57C3F3', '#476D87', '#E95C59', '#E59CC4', '#AB3282', '#23452F', '#BD956A', '#8C549C', '#585658', '#9FA3A8', '#E0D4CA', '#5F3D69', '#C5DEBA', '#58A4C3', '#E4C755', '#F7F398', '#AA9A59', '#E63863', '#E39A35', '#C1E6F3', '#6778AE', '#91D0BE', '#B53E2B', '#712820', '#DCC1DD', '#CCE0F5', '#CCC9E6', '#625D9E', '#68A180', '#3A6963', '#968175')#颜色设置
+my37colors <-c('#E5D2DD', '#53A85F', '#F1BB72', '#F3B1A0', '#D6E7A3', '#57C3F3', '#476D87', '#E95C59', '#E59CC4', '#AB3282', '#23452F', '#BD956A', '#8C549C', '#585658', '#9FA3A8', '#E0D4CA', '#5F3D69', '#C5DEBA', '#58A4C3', '#E4C755', '#F7F398', '#AA9A59', '#E63863', '#E39A35', '#C1E6F3', '#6778AE', '#91D0BE', '#B53E2B', '#712820', '#DCC1DD', '#CCE0F5', '#CCC9E6', '#625D9E', '#68A180', '#3A6963', '#968175','#FFEEAD')#颜色设置
 
 VlnPlot(bigseu, features = markers,pt.size=0, stack = T,
         cols = my36colors,group.by = "new.ident")+NoLegend()+
-  theme(axis.text.x = element_blank())
+        theme(axis.text.y = element_text(face="bold",size = 10,color = 'black'),axis.text.x = element_blank(),
+               strip.text.x.top   = element_text(face="bold",size = 10,angle=60,color = 'black'),
+              strip.background = element_blank(),strip.clip="off")
 
-VlnPlot(bigseu, features = ex.markers,pt.size=0, stack = T,
+DotPlot(bigseu, features = markers,
+        group.by = "new.ident")+NoLegend()+
+  theme_bw()+theme(axis.text.y = element_text(face="bold",size = 10,color = 'black'),
+                   axis.text.x = element_text(face="bold",size = 10,angle=45,hjust=1,color = 'black'))
+
+ VlnPlot(bigseu, features = ex.markers,pt.size=0, stack = T,
         cols = my36colors,group.by = "new.ident")+NoLegend()+
   theme(axis.text.x = element_blank())
 
@@ -486,7 +509,15 @@ DimPlot(HCC9_HPC,group.by = "group",label=T)
 sta_merge <- merge(HCC1_HPC, y = c(HCC3_HPC,HCC5_HPC,HCC6_HPC,HCC7_HPC))
 sta_merge <-PrepSCTFindMarkers(sta_merge)
 merge_sta_markers <- FindMarkers(sta_merge,ident.1 = "primary",ident.2 = "satellite",group.by = "satellite_region" )
+merge_sta_markers$gene <- row.names(merge_sta_markers)
 merge_sta_markers_sig <- subset(merge_sta_markers,subset = p_val_adj < 0.05)
+merge_sta_markers <- mutate(merge_sta_markers,state = case_when(avg_log2FC>0&p_val_adj < 0.05 ~ "Up-regulated", # 上调
+                                                                        avg_log2FC<0&p_val_adj < 0.05 ~ "Down-regulated", # 下调
+                                                          TRUE ~ "Unchanged"))
+merge_sta_markers <- mutate(merge_sta_markers,state2 = case_when(gene %in% pt_up_sum ~ "Up common", # 上调
+                                                                TRUE ~ "Unchanged"))
+
+
 merge_sta_markers_sig_up <- subset(merge_sta_markers_sig,subset = avg_log2FC > 0)
 merge_sta_markers_sig_down <- subset(merge_sta_markers_sig,subset = avg_log2FC < 0)
 
@@ -534,6 +565,71 @@ ggplot(data = merge_sta_down_go[1:20,])+
   labs(x = "-Logp", 
        y= " ",
        title="merge_sta_down")
+
+
+
+
+
+sta_down_Venn <- list(hcc1 = row.names(hcc1_sta_markers_sig_down), hcc3 = row.names(hcc3_sta_markers_sig_down), hcc5 = row.names(hcc5_sta_markers_sig_down),
+                    hcc6 = row.names(hcc6_sta_markers_sig_down),hcc7 = row.names(hcc7_sta_markers_sig_down))
+
+sta_up_Venn <- list(hcc1 = row.names(hcc1_sta_markers_sig_up), hcc3 = row.names(hcc3_sta_markers_sig_up), hcc5 = row.names(hcc5_sta_markers_sig_up),
+                      hcc6 = row.names(hcc6_sta_markers_sig_up),hcc7 = row.names(hcc7_sta_markers_sig_up))
+
+venn.diagram(sta_down_Venn, filename = 'sta_down.png', imagetype = 'png',fontfamily = 'serif',height = 5000, 
+             width = 7000, 
+             fill = c('#4D157D', '#84C7DB', '#C8D948','#ff7f57','#FFD4E7'), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB', '#C8D948','#ff7f57','#FFD4E7'), cat.cex = 0, cat.fontfamily = 'serif',
+             col = c('#4D157D', '#84C7DB', '#C8D948','#ff7f57','#FFD4E7'),cex = 2.5 )
+
+venn.diagram(sta_up_Venn, filename = 'sta_up.png', imagetype = 'png',fontfamily = 'serif',height = 5000, 
+             width = 7000, 
+             fill = c('#4D157D', '#84C7DB', '#C8D948','#ff7f57','#FFD4E7'), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB', '#C8D948','#ff7f57','#FFD4E7'), cat.cex =0, cat.fontfamily = 'serif',
+             col = c('#4D157D', '#84C7DB', '#C8D948','#ff7f57','#FFD4E7'),cex = 2.5 )
+
+
+VlnPlot(HCC1_HPC,features = "VEGFA",group.by = "satellite_region")
+
+pt_up_sum <- intersect(row.names(hcc1_sta_markers_sig_up),row.names(hcc6_sta_markers_sig_up))
+pt_up_sum_go <- enrichGO(gene  =pt_up_sum,
+                                OrgDb      = org.Hs.eg.db,
+                                keyType    = 'SYMBOL',
+                                ont        = "BP",
+                                pAdjustMethod = "BH",
+                                pvalueCutoff = 0.05,
+                                qvalueCutoff = 0.05)
+pt_up_sum_go <- as.data.frame(pt_up_sum_go@result)
+pt_up_sum_go [,"logp"] <- -log10(pt_up_sum_go$pvalue)
+pt_up_sum_go[,11:12] <- as.numeric(str_split_fixed(pt_up_sum_go$GeneRatio,"/",2))
+pt_up_sum_go$GeneRatio <- pt_up_sum_go[,11]/pt_up_sum_go[,12]
+ggplot(data = pt_up_sum_go[1:20,],aes(y=reorder(Description,logp),x=logp))+
+  geom_point(aes(color=logp, size=GeneRatio))+
+  scale_fill_gradient(expression(GeneRatio),low="blue",high="red")+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "-Logp", 
+       y= " ",
+       title="pt_up")
+
+
+ggplot(merge_sta_markers, aes(avg_log2FC, -log10(p_val_adj))) +
+  geom_point(size = 0.4, aes(color = state)) + # 根据expression水平进行着色
+  xlab(expression("log"[2]*" fold change")) + # 修饰x轴题目
+  ylab(expression("-log"[10]*" FDR")) + # 修饰y轴题目
+  scale_x_continuous(limits = c(-15, 15)) +
+  scale_color_manual(values = c("steelblue","grey", "red"))+ # 添加三种颜色
+  theme_bw() +
+  theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank())+
+  theme(axis.line = element_line(colour = "black"))+
+  labs(title="cr-GADD45A vs Vector diff gene")
+
+
+
 
 hcc1_av <- AverageExpression(HCC1_HPC,group.by = "orig.ident",assays = 'RNA')
 hcc1_av <- hcc1_av[[1]]
@@ -2294,6 +2390,15 @@ ggplot(imtm_table,aes(x=patient,y=radio,fill=patient))+
   theme(axis.title.x = element_text(size = 14),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
   theme(axis.text.x = element_text(size = 12,angle=45,color="black"),axis.text.y = element_text(size = 10,color="black"))
 
+imtm_table2 <- fread("immune_ratio.txt")
+imtm_table2[,'ratio'] <- log(imtm_table2$`cd45+`/imtm_table2$`cd45-`)
+
+ggplot(imtm_table2,aes(x=Patient,y=ratio,fill=Patient))+
+  geom_boxplot(outlier.size = 0)+
+  ylab('log(immune/tumor_ratio)')+
+  geom_jitter(width = 0.1,shape = 21, colour = "black",size=1)+
+  theme(axis.title.x = element_text(size = 14),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 12,angle=45,color="black"),axis.text.y = element_text(size = 10,color="black"))
 
 immune_merge_nt_result <- data.frame()
 
@@ -2382,36 +2487,42 @@ prop_result_ptnt_merge <- subset(prop_result_ptnt_merge, subset = celltype %in% 
                                                                                   "CD8+ memory","Dendritic cell","CD4+ Treg",
                                                                                   "NK","B cell","CD8+ cytotoxic","Proliferative T",
                                                                                   "PlasmaB cell","Neutrophil"))
-
+prop_result_ptst_merge$celltype <-factor(prop_result_ptst_merge$celltype, levels = c( "CD8+ exhausted", "CD4+ memory", "CD4+ Treg","CD8+ cytotoxic",
+                                                                                   "B cell", "CD8+ memory", "Dendritic cell","NK",
+                                                                               "Neutrophil","Macrophage", "PlasmaB cell","Proliferative T"))
 
 ggplot(prop_result_ptst_merge,aes(x=type,y=proportion,fill=type))+
   geom_boxplot(outlier.size = 0)+
   geom_jitter(width = 0.1,shape = 21, colour = "black",size=0.5)+
   facet_wrap(~ celltype)+
-  ylim(0,0.5)+
+  ylim(0,0.2)+
   stat_compare_means(comparisons = list(c("pt","st")),
                      method = "t.test",label = "p.signif",
-                     label.y = 0.4 )
+                     label.y = 0.13 )
+
+
+
+
 
 prop_result_ptnt_merge_rm89  <- subset(prop_result_ptnt_merge,subset= patient %in% c('HCC1','HCC2','HCC3','HCC4','HCC5','HCC6','HCC7'))
 ggplot(prop_result_ptnt_merge,aes(x=type,y=proportion,fill=type))+
   geom_boxplot(outlier.size = 0.1)+
   geom_jitter(width = 0.1,shape = 21, colour = "black",size=0.5)+
   facet_wrap(~ celltype)+
-  ylim(0,1)+
+  ylim(0,0.4)+
   stat_compare_means(comparisons = list(c("pt","nt")),
                      method = "wilcox.test",label = "p.signif",
-                     label.y = 0.8 )
+                     label.y = 0.32)
 
 
 ggplot(prop_result_ptnt_merge_rm89,aes(x=type,y=proportion,fill=type))+
   geom_boxplot(outlier.size = 0.1)+
   geom_jitter(width = 0.1,shape = 21, colour = "black",size=0.5)+
   facet_wrap(~ celltype)+
-  ylim(0,1)+
+  ylim(0,0.2)+
   stat_compare_means(comparisons = list(c("pt","nt")),
                      method = "wilcox.test",label = "p.signif",
-                     label.y = 0.8 )
+                     label.y = 0.15 )
 
 
 immune_merge_cmn2 <- subset(immune_merge_cmn, subset = group != "NT")
@@ -2517,14 +2628,24 @@ immune_prop_cmnsn_result_merge2 <- subset(immune_prop_cmnsn_result_merge2, subse
                                                                                      "NK","B cell","CD8+ cytotoxic","Proliferative T",
                                                                                      "PlasmaB cell","Neutrophil"))
 
+
+
+immune_prop_cmnsn_result_merge2$celltype <-factor(immune_prop_cmnsn_result_merge2$celltype, levels = c( "CD8+ exhausted", "CD4+ memory", "CD4+ Treg","CD8+ cytotoxic",
+                                                                                      "B cell", "CD8+ memory", "Dendritic cell","NK",
+                                                                                      "Neutrophil","Macrophage", "PlasmaB cell","Proliferative T"))
+
+
+
+
+
 ggplot(immune_prop_cmnsn_result_merge2,aes(x=type,y=proportion,fill=type))+
   geom_boxplot(outlier.size = 0)+
   geom_jitter(width = 0.1,shape = 21, colour = "black",size=0.5)+
   facet_wrap(~ celltype)+
-  ylim(0,0.5)+
+  ylim(0,0.2)+
   stat_compare_means(comparisons = list(c("cmn","sn")),
                      method = "t.test",label = "p.signif",
-                     label.y = 0.4)
+                     label.y = 0.13)
 
 
 
@@ -2586,6 +2707,8 @@ hpc_markers_down_go <- enrichGO(gene  = row.names(hpc_markers_sig_down),
                               qvalueCutoff = 0.05)
 hpc_markers_down_go <- as.data.frame(hpc_markers_down_go@result)
 hpc_markers_down_go [,"logp"] <- -log10(hpc_markers_down_go$pvalue)
+hpc_markers_down_go[,11:12] <- as.numeric(str_split_fixed(hpc_markers_down_go$GeneRatio,"/",2))
+hpc_markers_down_go$GeneRatio <- hpc_markers_down_go[,11]/hpc_markers_down_go[,12]
 ggplot(data = hpc_markers_down_go[1:20,],aes(y=reorder(Description,logp),x=logp))+
   geom_point(aes(color=logp, size=GeneRatio))+
   scale_fill_gradient(expression(GeneRatio),low="blue",high="red")+theme_bw()+
@@ -2598,5 +2721,121 @@ ggplot(data = hpc_markers_down_go[1:20,],aes(y=reorder(Description,logp),x=logp)
   labs(x = "-Logp", 
        y= " ",
        title="pt_down")
-hpc_markers_down_go[,11:12] <- as.numeric(str_split_fixed(hpc_markers_down_go$GeneRatio,"/",2))
-hpc_markers_down_go$GeneRatio <- hpc_markers_down_go[,11]/hpc_markers_down_go[,12]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+immune_merge_hcc89 <- subset(immune_merge, subset = patient %in% c("HCC8","HCC9"))
+immune_merge_hcc89 <- subset(immune_merge_hcc89,subset = group != "NT")
+cell.prop_hcc89 <- as.data.frame(prop.table(table(immune_merge_hcc89$patient_pt,immune_merge_hcc89$new.ident)))
+
+colnames(cell.prop_hcc89) <- c("HCC","origin","proportion")
+ggplot(cell.prop_hcc89,aes(HCC,proportion,fill=origin))+
+  geom_bar(stat="identity",position="fill")+
+  ggtitle("")+
+  scale_fill_manual(values=my36colors)+
+  theme_bw()+
+  theme(axis.ticks.length=unit(0.5,'cm'))+
+  guides(fill=guide_legend(title=NULL))+
+  theme(axis.title.x = element_text(size = 16),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 14,color="black",angle = 45,hjust = 1),axis.text.y = element_text(size = 10,color="black"))
+
+
+
+
+
+
+
+
+
+cell.prop_immune_merge <- as.data.frame(prop.table(table(immune_merge$patient_pt,immune_merge$new.ident)))
+
+colnames(cell.prop_immune_merge) <- c("HCC","origin","proportion")
+
+cell.prop_immune_merge <- subset(cell.prop_immune_merge, subset = origin %in% c("Macrophage","CD8+ exhausted","CD4+ memory",
+                                                                                "CD8+ memory","Dendritic cell","CD4+ Treg",
+                                                                                "NK","B cell","CD8+ cytotoxic","Proliferative T",
+                                                                                "PlasmaB cell","Neutrophil"))
+
+
+
+cell.prop_immune_merge[,'patient'] <- str_split_fixed(cell.prop_immune_merge$HCC,"_",2)[,1]
+cell.prop_immune_merge[,'sample'] <- str_split_fixed(cell.prop_immune_merge$HCC,"_",2)[,2]
+
+hcc1_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC1')
+hcc2_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC2')
+hcc3_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC3')
+hcc4_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC4')
+hcc5_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC5')
+hcc6_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC6')
+hcc7_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC7')
+hcc8_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC8')
+hcc9_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC9')
+
+immune_merge_data_list <- list(hcc1_cell.prop_immune_merge, hcc2_cell.prop_immune_merge, hcc3_cell.prop_immune_merge,
+                               hcc4_cell.prop_immune_merge, hcc5_cell.prop_immune_merge, hcc6_cell.prop_immune_merge,
+                               hcc7_cell.prop_immune_merge, hcc8_cell.prop_immune_merge, hcc9_cell.prop_immune_merge)
+
+
+
+immuneprop_plot <- function(data) {
+  ggplot(data,aes(sample,proportion,fill=origin))+
+    geom_bar(stat="identity",position="fill")+
+    ggtitle("")+
+    scale_fill_manual(values=my36colors)+
+    theme_bw()+
+    theme(axis.ticks.length=unit(0.5,'cm'))+
+    guides(fill=guide_legend(title=NULL))+
+    labs(x=paste(data[1,4]))+
+    theme(axis.title.x = element_text(size = 12),axis.title.y = element_text(size = 0),legend.text=element_text(size = 12))+
+    theme(axis.text.x = element_text(size = 10,color="black",angle = 45,hjust = 1),axis.text.y = element_text(size = 10,color="black"))+
+    NoLegend()
+}
+
+immuneprop_plot_list <- lapply(immune_merge_data_list, immuneprop_plot)
+
+do.call(grid.arrange, c(immuneprop_plot_list, ncol = 5))
+
+
+
+
+
+
+
+
+
+ggplot(cell.prop_immune_merge,aes(sample,proportion,fill=origin))+
+  geom_bar(stat="identity",position="fill")+
+  ggtitle("")+
+  scale_fill_manual(values=my36colors)+
+  theme_bw()+
+  theme(axis.ticks.length=unit(0.5,'cm'))+
+  guides(fill=guide_legend(title=NULL))+
+  theme(axis.title.x = element_text(size = 12),axis.title.y = element_text(size = 0),legend.text=element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 10,color="black",angle = 45,hjust = 1),axis.text.y = element_text(size = 10,color="black"))
+
+
+
+
+ggplot(hcc9_cell.prop_immune_merge,aes(sample,proportion,fill=origin))+
+  geom_bar(stat="identity",position="fill")+
+  ggtitle("")+
+  scale_fill_manual(values=my36colors)+
+  theme_bw()+
+  theme(axis.ticks.length=unit(0.5,'cm'))+
+  guides(fill=guide_legend(title=NULL))+
+  labs(x=paste(hcc9_cell.prop_immune_merge[1,4]))+
+  theme(axis.title.x = element_text(size = 12),axis.title.y = element_text(size = 0),legend.text=element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 10,color="black",angle = 45,hjust = 1),axis.text.y = element_text(size = 10,color="black"))

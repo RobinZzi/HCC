@@ -32,7 +32,7 @@ sum_count <- sum_count[,-1]
 colnames(sum_count) <- c("sh-1","sh-2","v-1","v-2","wt")
 
 
-genelist <- c("SNHG6","MET","GADD45A","ONECUT2")
+genelist <- c("SNHG6","MET","GADD45A","ONECUT2","MAT1A","MAT2A","FUS")
 
 submtx <- sum_rpkm[genelist,]
 submtx <- t(submtx)
