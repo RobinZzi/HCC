@@ -2,7 +2,7 @@
 hpc_merge_10x <- subset(hpc_merge_harmony,subset = tech =="10x")
 
 
-
+DimPlot(hpc_merge_harmony,group.by = "sample")
 
 hcc3_10x_demeth$gene <- row.names(hcc3_10x_demeth) 
 hcc28_10x_demeth$gene <- row.names(hcc28_10x_demeth) 
@@ -244,3 +244,18 @@ write.table(hcc29_strt_demeth_up,"hcc29_strt_demeth_up.txt")
 write.table(hcc29_strt_demeth_down,"hcc29_strt_demeth_down.txt")
 
 
+
+
+
+
+
+DimPlot(hpc_merge_harmony,group.by = "tech")
+
+
+
+hpc_merge_harmony <- SCTransform(hpc_merge_harmony,method = "glmGamPoi", vars.to.regress = "percent.mt", verbose = FALSE)
+hpc_merge_harmony <- RunPCA(hpc_merge_harmony, verbose = FALSE)
+hpc_merge_harmony <- RunUMAP(hpc_merge_harmony, dims = 1:30, verbose = FALSE,reduction = "harmony")
+
+DimPlot(hpc_merge_harmony,group.by = "sample")
+DimPlot(hpc_merge_harmony,group.by = "tech")

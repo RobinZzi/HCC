@@ -32,7 +32,7 @@ sum_count <- sum_count[,-1]
 colnames(sum_count) <- c("sh-1","sh-2","v-1","v-2","wt")
 
 
-genelist <- c("SNHG6","MET","GADD45A","ONECUT2","MAT1A","MAT2A","FUS")
+genelist <- c("SNHG6","MAT1A","MAT2A","FUS")
 
 submtx <- sum_rpkm[genelist,]
 submtx <- t(submtx)
@@ -223,5 +223,5 @@ ggplot(data = rpkm_pca_sample, aes(x = Dim.1, y = Dim.2))+
   scale_fill_manual(values = c('orange', 'purple'))+
   labs(title="SNHG6_pca")
 
-
-
+out_list <- out1[genelist,]
+out_list <- dplyr::select(out_list,1,2,6)

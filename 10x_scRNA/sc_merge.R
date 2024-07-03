@@ -21,7 +21,6 @@ hcc.big_cntype = case_when(
   TRUE ~ as.character(hcc.big_patients))
 
 bigseu$cntype <- hcc.big_cntype
-
 DimPlot(bigseu,group.by = "group",cols = my36colors[1:3],shuffle = T) #NT,PT,ST
 
 DimPlot(bigseu,group.by = "seurat_clusters",label = T,cols=my37colors)+NoLegend()
@@ -628,7 +627,16 @@ ggplot(merge_sta_markers, aes(avg_log2FC, -log10(p_val_adj))) +
   theme(axis.line = element_line(colour = "black"))+
   labs(title="cr-GADD45A vs Vector diff gene")
 
-
+ggplot(merge_sta_markers, aes(avg_log2FC, -log10(p_val_adj))) +
+  geom_point(size = 0.4, aes(color = state2)) + # 根据expression水平进行着色
+  xlab(expression("log"[2]*" fold change")) + # 修饰x轴题目
+  ylab(expression("-log"[10]*" FDR")) + # 修饰y轴题目
+  scale_x_continuous(limits = c(-15, 15)) +
+  scale_color_manual(values = c("grey", "red"))+ # 添加三种颜色
+  theme_bw() +
+  theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank())+
+  theme(axis.line = element_line(colour = "black"))+
+  labs(title="PT vs ST diff gene")
 
 
 hcc1_av <- AverageExpression(HCC1_HPC,group.by = "orig.ident",assays = 'RNA')
@@ -2839,3 +2847,64 @@ ggplot(hcc9_cell.prop_immune_merge,aes(sample,proportion,fill=origin))+
   labs(x=paste(hcc9_cell.prop_immune_merge[1,4]))+
   theme(axis.title.x = element_text(size = 12),axis.title.y = element_text(size = 0),legend.text=element_text(size = 12))+
   theme(axis.text.x = element_text(size = 10,color="black",angle = 45,hjust = 1),axis.text.y = element_text(size = 10,color="black"))
+
+
+HPC_10x <- subset(HPC, subset = lib.method == '10x')
+DimPlot(HPC_10x,group.by = "seurat_clusters")
+
+demeth_hpc <- subset(HPC_10x, subset = patient != 'HCC1')
+
+
+demeth_hpc <- SCTransform(demeth_hpc, vars.to.regress = "percent.mt", verbose = FALSE)
+demeth_hpc  <- FindNeighbors(demeth_hpc, dims = 1:30, verbose = FALSE)
+demeth_hpc <- FindClusters(demeth_hpc,reduction.type = "pca", dims.use = 1:5, resolution = 0.6, print.output = 0, save.SNN = TRUE)
+demeth_hpc <- RunHarmony(demeth_hpc, "patient_pt")
+demeth_hpc <- RunPCA(demeth_hpc, verbose = FALSE)
+demeth_hpc <- RunUMAP(demeth_hpc, dims = 1:15, verbose = FALSE)
+
+DimPlot(demeth_hpc,group.by = "seurat_clusters",label = T)
+DimPlot(demeth_hpc,group.by = "patient")
+DimPlot(demeth_hpc,group.by = "patient_pt")
+DimPlot(demeth_hpc,group.by = "group")
+
+
+
+
+
+
+
+
+
+
+hcc2_pt <- HCC2_HPC$orig.ident
+hcc2_methinfo = case_when(
+  hcc2_pt %in% c("PT3","PT4")~"Hyper",
+  TRUE ~ as.character(hcc2_pt))
+HCC2_HPC$methinfo <- hcc2_methinfo
+hcc2_pt1_maker <- FindMarkers(HCC2_HPC,ident.1 = "PT1",ident.2 = "Hyper",group.by = "methinfo")
+hcc2_pt1_maker$symbol <- row.names(hcc2_pt1_maker)
+hcc2_pt2_maker <- FindMarkers(HCC2_HPC,ident.1 = "PT2",ident.2 = "Hyper",group.by = "methinfo")
+hcc2_pt2_maker$symbol <- row.names(hcc2_pt2_maker)
+
+hcc2_pt1_maker_up_sig <- subset(hcc2_pt1_maker , subset = p_val_adj <0.05 & avg_log2FC > 0.5)
+hcc2_pt2_maker_up_sig <- subset(hcc2_pt2_maker , subset = p_val_adj <0.05 & avg_log2FC > 0.5)
+length(intersect(hcc2_pt1_maker_up_sig$symbol,hcc2_pt2_maker_up_sig$symbol))
+
+
+hcc2_pt1_maker_down_sig <- subset(hcc2_pt1_maker , subset = p_val_adj <0.05 & avg_log2FC < -0.5)
+hcc2_pt2_maker_down_sig <- subset(hcc2_pt2_maker , subset = p_val_adj <0.05 & avg_log2FC < -0.5)
+length(intersect(hcc2_pt1_maker_down_sig$symbol,hcc2_pt2_maker_down_sig$symbol))
+
+
+
+
+
+hcc2_pt1_pt2_up_makers_sig <- intersect(hcc2_pt1_maker_up_sig$symbol,hcc2_pt2_maker_up_sig$symbol)
+write.table(hcc2_pt1_pt2_up_makers_sig,"pt1_pt2_up.txt",sep = "\t",quote=F,row.names = T,col.names = T)
+
+
+
+hcc2_pt1_pt2_down_makers_sig <- intersect(hcc2_pt1_maker_down_sig$symbol,hcc2_pt2_maker_down_sig$symbol)
+write.table(hcc2_pt1_pt2_down_makers_sig,"pt1_pt2_down.txt",sep = "\t",quote=F,row.names = T,col.names = T)
+
+

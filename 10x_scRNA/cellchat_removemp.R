@@ -145,6 +145,7 @@ ggplot(pathway_sum_cmn_sn_sig,aes(x=type,y=contribution.scaled,fill=type))+
        title="10x excluded")+
   stat_compare_means(comparisons = list(c("cmn","sn")),
                      method = "t.test",label = "p.signif",paired = F,
-                     label.y =2)+theme_bw()+
+                     label.y =1.7)+theme_bw()+
   theme(axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'))+
-  facet_grid(~name)
+  facet_grid(~name)+
+  ylim(0,1.8)

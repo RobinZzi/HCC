@@ -1,4 +1,7 @@
 library(DSS)
+library(ggrepel)
+library(dplyr)
+
 setwd("~/projects/hcc/analysis/sh_cell_line/wgbs_20240611/methy_mtx")
 rm(list = ls())
 
@@ -532,3 +535,42 @@ pro_meth_down <- subset(dmr_sig_promoter,subset=V14 > 0)
 
 common_up <- intersect(sh_v_up$GeneID,unique(pro_meth_down$V5))
 common_down <- intersect(sh_v_down$GeneID,unique(pro_meth_up$V5))
+
+
+
+
+
+
+fisher_test_result <- as.data.frame(
+  cbind(c("PMD","HMD","H3K9me3","H3K27me3","H3K36me3","H3K27ac-1","H3K27ac-2","H3K4me1","H3K9ac","H3K36ac","H4K5ac","promoter"),
+        c(0.0504,0.003241,0.9047,0.2304,1,1.545e-12,4.472e-10,0.1548,1.776e-09,7.969e-09,6.066e-09,0.0018),
+        c(1.173642,0.7886059,0.9574356,1.267434,0.988317,0.5346163,0.6033645,1.133057,0.6071659,0.626763,0.6204754,0.7768482)
+       )
+)
+
+colnames(fisher_test_result) <- c("Histone_Mark","P_value","odds_ratio")
+fisher_test_result$P_value <- as.numeric(fisher_test_result$P_value)
+fisher_test_result$odds_ratio <- as.numeric(fisher_test_result$odds_ratio)
+
+fisher_test_result[,"logp"] <- -log10(fisher_test_result$P_value)
+fisher_test_result[,"lnR"] <- -log(fisher_test_result$odds_ratio)
+
+fisher_test_result <- dplyr::mutate(fisher_test_result,case = case_when(lnR > 0 ~ 'Enriched in Hyper',
+                                                                        lnR < 0 ~ 'Enriched in Hypo'))
+
+
+
+ggplot(fisher_test_result,aes(x=lnR,y=logp))+
+  geom_point(size = 1,aes(color = case))+# 根据expression水平进行着色
+  xlab(expression("ln odds ratio")) + # 修饰x轴题目
+  ylab(expression("-log"[10]*" P")) + # 修饰y轴题目
+  scale_x_continuous(limits = c(-1, 1)) +
+  theme_bw() +
+  geom_text_repel(aes(label=Histone_Mark, color = case), size =3,hjust=1,vjust=-1)+
+  theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank())+
+  theme(axis.line = element_line(colour = "black"))+
+  labs(title="Fisher test result of Hitone ")+
+  geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "grey") 
+
+
+

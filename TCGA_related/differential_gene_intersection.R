@@ -79,12 +79,18 @@ sc3_tcga_common_up <- intersect(hcc3_demeth_up_gene,TCGA_hypoup_gene)
 
 
 up_venn <- list(hcc3_demeth_up_gene,hcc28_demeth_up_gene,hcc29_demeth_up_gene,TCGA_hypoup_gene)
-
+up_venn2 <- list(hcc3_demeth_up_gene,hcc28_demeth_up_gene,hcc29_demeth_up_gene)
 
 venn.diagram(up_venn, filename = 'up.png', imagetype = 'png', ,category.names = c("hcc3","hcc28","hcc29","TCGA"),
              fill = c('#4D157D', '#84C7DB', '#C8D948','#61C8FF'), alpha = 0.50, 
              cat.col = c('#4D157D', '#84C7DB', '#C8D948','#61C8FF'), cat.cex = 1.5, cat.fontfamily = 'serif',
              col = c('#4D157D', '#84C7DB', '#C8D948','#61C8FF'), cex = 1.5, fontfamily = 'serif')
+venn.diagram(up_venn2, filename = 'up2.png', imagetype = 'png', ,category.names = c("hcc3","hcc28","hcc29"),
+             fill = c('#4D157D', '#84C7DB', '#C8D948'), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB', '#C8D948'), cat.cex = 1.5, cat.fontfamily = 'serif',
+             col = c('#4D157D', '#84C7DB', '#C8D948'), cex = 1.5, fontfamily = 'serif')
+
+
 
 down_venn <- list(hcc3_demeth_down_gene,hcc28_demeth_down_gene,hcc29_demeth_down_gene,TCGA_hypodown_gene)
 
