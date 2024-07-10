@@ -1,5 +1,5 @@
 rm(list = ls())
-library(FactoMineR)
+  library(FactoMineR)
 library(data.table)
 library(dplyr)
 library(edgeR)
@@ -58,11 +58,6 @@ y = DGEList(counts=sum_count)
 y<-calcNormFactors(y)
 y<-estimateCommonDisp(y, rowsum.filter=5)
 y<-estimateGLMTagwiseDisp(y,design) #
-pdf("MDSplot.pdf")
-plotMDS(y,label=group,xlim=c(-8,8))
-dev.off()
-
-
 fit_tag<-glmFit(y,design)
 lrt.tagwise<-glmLRT(fit_tag,contrast=c(1,-1))
 pvals_tag <- lrt.tagwise$table$PValue
@@ -75,6 +70,23 @@ setwd("~/projects/hcc/analysis/sh_cell_line/rna-seq-20240611/diff_analysis")
 write.csv(sig1,"cr-v-diff.csv")
 
 
+cr_v_diff_all <- out1 %>%
+  mutate(expression = case_when(logFC <= -1 & FDR_tag < 0.05 ~ "Up-regulated", # 上调
+                                logFC >= 1 & FDR_tag < 0.05 ~ "Down-regulated", # 下调
+                                TRUE ~ "Unchanged")) # 不变
+
+
+
+ggplot(cr_v_diff_all, aes(logFC, -log10(FDR_tag))) +
+  geom_point(size = 0.4, aes(color = expression)) + # 根据expression水平进行着色
+  xlab(expression("log"[2]*" fold change")) + # 修饰x轴题目
+  ylab(expression("-log"[10]*" FDR")) + # 修饰y轴题目
+  scale_x_continuous(limits = c(-15, 15)) +
+  scale_color_manual(values = c("steelblue", "grey", "red"))+ # 添加三种颜色
+  theme_bw() +
+  theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank())+
+  theme(axis.line = element_line(colour = "black"))+
+  labs(title="cr-GADD45A vs Vector diff gene")
 
 
 
@@ -82,8 +94,8 @@ write.csv(sig1,"cr-v-diff.csv")
 
 setwd("~/projects/hcc/analysis/sh_cell_line/rna-seq-20240611/diff_analysis")
 cr_v_diff <- fread("cr-v-diff.csv")
-cr_v_up <- subset(cr_v_diff,subset = logFC>0)
-cr_v_down <- subset(cr_v_diff,subset = logFC<0)
+cr_v_up <- subset(cr_v_diff,subset = logFC<0)
+cr_v_down <- subset(cr_v_diff,subset = logFC>0)
 
 cr_v_up_go <- enrichGO(gene  = cr_v_up$GeneID,
                        OrgDb      = org.Hs.eg.db,
@@ -135,30 +147,13 @@ ggplot(data = cr_v_down_go[1:20,],aes(y=reorder(Description,logp),x=logp))+
        y= " ",
        title="down-Regulated Pathways in cr-GADD45A 293T")
 
-cr_v_diff_all <- out1 %>%
-  mutate(expression = case_when(logFC >= 1 & FDR_tag < 0.05 ~ "Up-regulated", # 上调
-                                logFC <= -1 & FDR_tag < 0.05 ~ "Down-regulated", # 下调
-                                TRUE ~ "Unchanged")) # 不变
-
-
-
-ggplot(cr_v_diff_all, aes(logFC, -log10(FDR_tag))) +
-  geom_point(size = 0.4, aes(color = expression)) + # 根据expression水平进行着色
-  xlab(expression("log"[2]*" fold change")) + # 修饰x轴题目
-  ylab(expression("-log"[10]*" FDR")) + # 修饰y轴题目
-  scale_x_continuous(limits = c(-15, 15)) +
-  scale_color_manual(values = c("steelblue", "grey", "red"))+ # 添加三种颜色
-  theme_bw() +
-  theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank())+
-  theme(axis.line = element_line(colour = "black"))+
-  labs(title="cr-GADD45A vs Vector diff gene")
 
 
 
 
 
 rpkm_t <- t(sum_rpkm)
-rpkm_group <- data.frame(Sample = rownames(rpkm_t), Group = c("sh","sh","v","v","wt"))
+rpkm_group <- data.frame(Sample = rownames(rpkm_t), Group = c("sh","sh","v","v","wt","wt","wt","wt"))
 rpkm_pca <- PCA(rpkm_t,scale.unit = TRUE,graph = FALSE)
 rpkm_pca_sample <- data.frame(rpkm_pca$ind$coord[ ,1:2])
 rpkm_pca_sample$Sample=row.names(rpkm_pca_sample)
@@ -174,10 +169,151 @@ ggplot(data = rpkm_pca_sample, aes(x = Dim.1, y = Dim.2))+
   labs(title="SNHG6_pca")
 
 
+cr_v_down_list <- cr_v_down$GeneID
+cr_v_up_list <- cr_v_up$GeneID
 
-countToFpkm <- function(counts, effLen)
-{
-  N <- sum(counts)
-  exp( log(counts) + log(1e9) - log(effLen) - log(N) )
-}
-rpkm2 <- countToFpkm(count2)
+
+promoter_meth <- fread("dmr_sig_promoter.bedGraph")
+
+promoter_demeth <- subset(promoter_meth,subset= V15>0)
+promoter_admeth <- subset(promoter_meth,subset= V15<0)
+
+promoter_demeth_list <- unique(promoter_demeth$V5)
+promoter_admeth_list <- unique(promoter_admeth$V5)
+
+
+demethlist <- list(promoter_demeth_list,cr_v_up_list)
+
+admethlist <- list(promoter_admeth_list,cr_v_up_list)
+
+
+
+venn.diagram(demethlist, filename = 'demeth.png', imagetype = 'png',fontfamily = 'serif',height = 5000, 
+             width = 7000, ,category.names = c("promoter_demeth" , "rna_up"),
+             fill = c('#4D157D', '#84C7DB'), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB'), cat.cex =0, cat.fontfamily = 'serif',
+             col = c('#4D157D', '#84C7DB'),cex = 2.5 )
+
+
+venn.diagram(admethlist, filename = 'admeth.png', imagetype = 'png',fontfamily = 'serif',height = 5000, 
+             width = 7000, ,category.names = c("promoter_admeth" , "rna_down"),
+             fill = c('#4D157D', '#84C7DB'), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB'), cat.cex =0, cat.fontfamily = 'serif',vjust=5,
+             col = c('#4D157D', '#84C7DB'),cex = 2.5 )
+
+
+
+promoter_demeth_go <- enrichGO(gene  = promoter_demeth_list,
+                               OrgDb      = org.Hs.eg.db,
+                               keyType    = 'SYMBOL',
+                               ont        = "BP",
+                               pAdjustMethod = "BH",
+                               pvalueCutoff = 0.05,
+                               qvalueCutoff = 0.05)
+promoter_demeth_go <- as.data.frame(promoter_demeth_go@result)
+promoter_demeth_go [,"logp"] <- -log10(promoter_demeth_go$pvalue)
+promoter_demeth_go [,"LogFDR"] <- -log10(promoter_demeth_go$p.adjust)
+promoter_demeth_go_enrichment_fold <- apply(promoter_demeth_go,1,function(x){ 
+  GeneRatio=eval(parse(text=x["GeneRatio"]))
+  BgRatio=eval(parse(text=x["BgRatio"])) 
+  enrichment_fold=round(GeneRatio/BgRatio,2) 
+  enrichment_fold 
+})
+promoter_demeth_go$EF <- promoter_demeth_go_enrichment_fold
+ggplot(data = promoter_demeth_go[1:20,],aes(y=reorder(Description,logp),x=logp))+
+  geom_point(aes(color=logp, size=EF))+
+  scale_fill_gradient(expression(EF),low="blue",high="red")+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "-LogP", 
+       y= " ",
+       title="demethylated genes in 293T-GA45KD Pathways")
+
+
+
+
+
+
+promoter_admeth_go <- enrichGO(gene  = promoter_admeth_list,
+                               OrgDb      = org.Hs.eg.db,
+                               keyType    = 'SYMBOL',
+                               ont        = "BP",
+                               pAdjustMethod = "BH",
+                               pvalueCutoff = 0.05,
+                               qvalueCutoff = 0.05)
+promoter_admeth_go <- as.data.frame(promoter_admeth_go@result)
+promoter_admeth_go [,"logp"] <- -log10(promoter_admeth_go$pvalue)
+promoter_admeth_go [,"LogFDR"] <- -log10(promoter_admeth_go$p.adjust)
+promoter_admeth_go_enrichment_fold <- apply(promoter_admeth_go,1,function(x){ 
+  GeneRatio=eval(parse(text=x["GeneRatio"]))
+  BgRatio=eval(parse(text=x["BgRatio"])) 
+  enrichment_fold=round(GeneRatio/BgRatio,2) 
+  enrichment_fold 
+})
+promoter_admeth_go$EF <- promoter_admeth_go_enrichment_fold
+ggplot(data = promoter_admeth_go[1:20,],aes(y=reorder(Description,logp),x=logp))+
+  geom_point(aes(color=logp, size=EF))+
+  scale_fill_gradient(expression(EF),low="blue",high="red")+theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5,size = 14, face = "bold"),
+        axis.text=element_text(size=14,face = "bold"),
+        axis.title.x=element_text(size=12),
+        axis.title.y=element_text(size=20),
+        legend.text=element_text(size=12),
+        legend.title=element_text(size=14))+
+  labs(x = "-LogP", 
+       y= " ",
+       title="admethylated genes in 293T-GA45KD Pathways")
+
+
+write.table(promoter_demeth_go,"promoter_demeth_go.csv",row.names = T,col.names = T,sep = "\t",quote=F)
+write.table(promoter_admeth_go,"promoter_admeth_go.csv",row.names = T,col.names = T,sep = "\t",quote=F)
+write.table(cr_v_down_go,"down_kd_go.csv",row.names = T,col.names = T,sep = "\t",quote=F)
+write.table(cr_v_up_go,"up_kd_go",row.names = T,col.names = T,sep = "\t",quote=F)
+
+
+promoter_admeth_go_sig <- subset(promoter_admeth_go,subset = promoter_admeth_go$pvalue <0.05)
+promoter_demeth_go_sig <- subset(promoter_demeth_go,subset = promoter_demeth_go$pvalue <0.05)
+
+
+cr_v_down_go_sig <- subset(cr_v_down_go,subset=cr_v_down_go$pvalue<0.05)
+cr_v_up_go_sig <- subset(cr_v_up_go,subset=cr_v_up_go$pvalue<0.05)
+
+cr_v_down_go_sig_2 <- subset(cr_v_down_go,subset=cr_v_down_go$p.adjust<0.05)
+cr_v_up_go_sig_2 <- subset(cr_v_up_go,subset=cr_v_up_go$p.adjust<0.05)
+
+
+intersect(promoter_admeth_go_sig$Description,cr_v_down_go_sig$Description)
+
+intersect(promoter_demeth_go_sig$Description,cr_v_up_go_sig$Description)
+
+
+
+intersect(promoter_admeth_go_sig$Description,cr_v_down_go_sig_2$Description)
+
+intersect(promoter_demeth_go_sig$Description,cr_v_up_go_sig_2$Description)
+
+
+
+demeth_pathway_list <- list(promoter_demeth_go_sig$Description,cr_v_up_go_sig$Description)
+
+admeth_pathway_list <- list(promoter_admeth_go_sig$Description,cr_v_down_go_sig$Description)
+
+
+
+venn.diagram(demeth_pathway_list, filename = 'demeth_pathway.png', imagetype = 'png',fontfamily = 'serif',height = 5000, 
+             width = 7000, ,category.names = c("promoter_demeth" , "rna_up"),
+             fill = c('#4D157D', '#84C7DB'), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB'), cat.cex =0, cat.fontfamily = 'serif',
+             col = c('#4D157D', '#84C7DB'),cex = 2.5 )
+
+
+venn.diagram(admeth_pathway_list, filename = 'admeth_pathway.png', imagetype = 'png',fontfamily = 'serif',height = 5000, 
+             width = 7000, ,category.names = c("promoter_admeth" , "rna_down"),
+             fill = c('#4D157D', '#84C7DB'), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB'), cat.cex =0, cat.fontfamily = 'serif',vjust=5,
+             col = c('#4D157D', '#84C7DB'),cex = 2.5 )
+

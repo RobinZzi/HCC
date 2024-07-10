@@ -4,9 +4,9 @@ library(dplyr)
 library(edgeR)
 library(ggpubr)
 library(FactoMineR)
-setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240701/methy_mtx")
-save.image("20240701.Rdata")
-setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240701/methy_mtx/100kbin")
+setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240705/methy_mtx")
+save.image("20240705.Rdata")
+
 
 setwd("~/projects/hcc/analysis/sh_cell_line/wgbs/methy_mtx")
 pmd_anno <- fread("PMD_coordinates_hg38.bed")
@@ -17,9 +17,10 @@ row.names(pmd_row_anno) <- pmd_anno$region
 colnames(pmd_row_anno) <- "region_type"
 
 
-setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240701/methy_mtx/100kbin")
+setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240705/methy_mtx/100kbin")
 ga45_100k_e1 <- fread("GA45_CRi1_100kbin.txt")
 ga45_100k_e2 <- fread("GA45_CRi2_100kbin.txt")
+setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240701/methy_mtx/100kbin")
 ga45_100k_c1 <- fread("GA45_V1_100kbin.txt")
 ga45_100k_c2 <- fread("GA45_V2_100kbin.txt")
 
@@ -38,14 +39,23 @@ pheatmap(ga45_100k_sum,
          border=FALSE,annotation_row = pmd_row_anno) 
 
 ga45_100k_baseMean = as.data.frame(colMeans(ga45_100k_sum) ) 
-colnames(ga45_100k_baseMean) <- 'mean_methylation_level'
-ga45_100k_baseMean$region <- 'global'
+
+
 
 
 
 pmd_regions <- row.names(subset(pmd_row_anno, subset= pmd_row_anno$region_type == "commonPMD"))
+hmd_regions <- row.names(subset(pmd_row_anno, subset= pmd_row_anno$region_type == "commonHMD"))
 ga45_100k_pmd <- ga45_100k_sum[pmd_regions,]
+ga45_100k_hmd <- ga45_100k_sum[hmd_regions,]
 ga45_100k_pmd <- na.omit(ga45_100k_pmd)
+ga45_100k_hmd <- na.omit(ga45_100k_hmd)
+
+ga45_100k_pmd_baseMean = as.data.frame(colMeans(ga45_100k_pmd) ) 
+ga45_100k_hmd_baseMean = as.data.frame(colMeans(ga45_100k_hmd) ) 
+ga45_100k_mean <- cbind(ga45_100k_baseMean,ga45_100k_pmd_baseMean,ga45_100k_hmd_baseMean)
+colnames(ga45_100k_mean) <- c("global","PMD","HMD")
+
 ga45_100k_PMDMean = as.data.frame(colMeans(ga45_100k_pmd) ) 
 colnames(ga45_100k_PMDMean) <- 'mean_methylation_level'
 ga45_100k_PMDMean$region <- 'PMD'

@@ -317,7 +317,7 @@ common_pathway <- intersect(tcga_up_go_sig$Description,trio_up_go_sig$Descriptio
 
 
 summary_list <- list(methy_delta_up$gene,hcc1_uplist$x,TCGA_neg_re$symbol,TCGA_diff_hypo_up$gene)
-venn.diagram(summary_list, filename = 'sum_up.png', imagetype = 'png', ,category.names = c("hcc2_demethy" , "hcc2_rna_up" , "tcga_rna_up","tcga_methy_neg"),
+venn.diagram(summary_list, filename = 'sum_up.png', imagetype = 'png',category.names = c("hcc2_demethy" , "hcc2_rna_up" , "tcga_rna_up","tcga_methy_neg"),
              fill = c('#4D157D', '#84C7DB', '#C8D948','#87D1AC'), alpha = 0.50, 
              cat.col = c('#4D157D', '#84C7DB', '#C8D948','#87D1AC'), cat.cex = 0.8, cat.fontfamily = 'serif',
              col = c('#4D157D', '#84C7DB', '#C8D948','#87D1AC'), cex = 1.5, fontfamily = 'serif')

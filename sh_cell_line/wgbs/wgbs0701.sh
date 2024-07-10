@@ -1,5 +1,5 @@
-folder=wgbs_20240701
-sample_num=4
+folder=wgbs_20240705
+sample_num=2
 cd /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/$folder
 mkdir qc
 mkdir trim_result
@@ -8,7 +8,35 @@ mkdir remove_dup
 mkdir meth_ex
 mkdir cpg_report
 
+cd /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/$folder/fastq
+qcdir=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/$folder/qc
+tmp_dir=$(mktemp -d)
 
+path=$1
+echo $path
+files=$(ls $path)
+for filename in $files
+do
+ cd $filename
+ (fastqc -t 12 -o $qcdir *.fastq.gz 
+ touch "$tmp_dir/$filename.done") &
+ cd ..
+done
+
+echo "#####################################"
+echo "Current date and time: $(date)"
+echo "All qc processes are in processing."
+echo "#####################################"
+       
+while [[ $(ls $tmp_dir | wc -l) -lt $sample_num ]];  do
+    sleep 5
+done
+rm -r $tmp_dir
+
+echo "#####################################"
+echo "Current date and time: $(date)"
+echo "All qc processes are completed."
+echo "#####################################"
 
 cd /storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/$folder/fastq
 bin_trim_galore=trim_galore
