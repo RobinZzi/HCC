@@ -1,6 +1,6 @@
 genome_path=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240705/bismark_cov/genome_bed
-data_path=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240705/bismark_cov/dmr_dmcp0.01delta0.2
-data=GA45_dmrs.bedGraph
+data_path=/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240705/bismark_cov/dmr_fdr0.05dmls
+data=GA45_dmrs_sig.bedGraph
 cd $data_path
 
 

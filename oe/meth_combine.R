@@ -55,13 +55,21 @@ row.names(pmd_row_anno) <- pmd_anno$V4
 colnames(pmd_row_anno) <- "region_type"
 
 pmd_regions <- row.names(subset(pmd_row_anno, subset= pmd_row_anno$region_type == "PMD"))
+hmd_regions <- row.names(subset(pmd_row_anno, subset= pmd_row_anno$region_type == "HMD"))
 GAPMDMean = as.data.frame(colMeans(GA_mtx[pmd_regions,]) ) 
 colnames(GAPMDMean) <- "GA-PMD"
 G6PMDMean = as.data.frame(colMeans(G6_mtx[pmd_regions,]) ) 
 colnames(G6PMDMean) <- "G6-PMD"
-colnames(G6baseMean) <- "G6-base"
-colnames(GAbaseMean) <- "GA-base"
+GAHMDMean = as.data.frame(colMeans(GA_mtx[hmd_regions,]) ) 
+colnames(GAHMDMean) <- "GA-HMD"
+G6HMDMean = as.data.frame(colMeans(G6_mtx[hmd_regions,]) ) 
+colnames(G6HMDMean) <- "G6-HMD"
 
+colnames(G6baseMean) <- "G6-global"
+colnames(GAbaseMean) <- "GA-global"
+
+GAmeansum <- cbind(GAHMDMean,GAPMDMean,GAbaseMean)
+G6meansum <- cbind(G6HMDMean,G6PMDMean,G6baseMean)
 
 
 GA_C1$sumcount <- GA_C1$meth+GA_C1$demeth

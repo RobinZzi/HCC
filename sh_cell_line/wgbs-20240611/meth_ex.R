@@ -41,6 +41,15 @@ huh_100k_pmd <- huh_100k_sum[pmd_regions,]
 huh_100k_pmd <- na.omit(huh_100k_pmd)
 huh_100k_PMDMean = as.data.frame(colMeans(huh_100k_pmd) ) 
 colnames(huh_100k_PMDMean) <- "Huh7-PMD"
+hmd_regions <- row.names(subset(pmd_row_anno, subset= pmd_row_anno$region_type == "HMD"))
+
+huh_100k_hmd <- huh_100k_sum[hmd_regions,]
+huh_100k_hmd <- na.omit(huh_100k_hmd)
+huh_100k_HMDMean = as.data.frame(colMeans(huh_100k_hmd) ) 
+colnames(huh_100k_HMDMean) <- "Huh7-HMD"
+colnames(huh_100k_baseMean) <- "Huh7-global"
+
+huh_meansum <- cbind(huh_100k_PMDMean,huh_100k_HMDMean,huh_100k_baseMean)
 
 
 group = c("sh","sh","v","v")
@@ -239,5 +248,22 @@ ggplot(data = huh_10k_pca_sample, aes(x = Dim.1, y = Dim.2)) +
 
 
 
+pmd_regions <- row.names(subset(pmd_row_anno, subset= pmd_row_anno$region_type == "PMD"))
+hmd_regions <- row.names(subset(pmd_row_anno, subset= pmd_row_anno$region_type == "HMD"))
+snu_100k_sum <-na.omit(snu_100k_sum)
+HepPMDMean = as.data.frame(colMeans(hep_100k_sum[pmd_regions,]) ) 
+colnames(HepPMDMean) <- "Hep-PMD"
+SnuPMDMean = as.data.frame(colMeans(snu_100k_sum[hmd_regions,],na.rm = T) ) 
+colnames(SnuPMDMean) <- "Snu-PMD"
+HepHMDMean = as.data.frame(colMeans(hep_100k_sum[hmd_regions,]) ) 
+colnames(HepHMDMean) <- "Hep-HMD"
+SnuHMDMean = as.data.frame(colMeans(snu_100k_sum[hmd_regions,],na.rm = T) ) 
+colnames(SnuHMDMean) <- "Snu-HMD"
+
+colnames(snu_100k_baseMean) <- "Snu-global"
+colnames(hep_100k_baseMean) <- "Hep-global"
+
+Hepmeansum <- cbind(HepPMDMean,HepHMDMean,hep_100k_baseMean)
+Snumeansum <- cbind(SnuPMDMean,SnuHMDMean,snu_100k_baseMean)
 
 

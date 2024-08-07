@@ -2886,6 +2886,39 @@ hcc2_pt1_maker$symbol <- row.names(hcc2_pt1_maker)
 hcc2_pt2_maker <- FindMarkers(HCC2_HPC,ident.1 = "PT2",ident.2 = "Hyper",group.by = "methinfo")
 hcc2_pt2_maker$symbol <- row.names(hcc2_pt2_maker)
 
+
+hcc2_pt1_maker <-mutate(hcc2_pt1_maker,state = case_when(p_val_adj <0.05 & avg_log2FC > 0.5 ~ "Up", # 上调
+                                                         p_val_adj <0.05 & avg_log2FC < -0.5 ~ "Down", # 下调
+                                               TRUE ~ "Stable"))
+
+hcc2_pt2_maker <-mutate(hcc2_pt2_maker,state = case_when(p_val_adj <0.05 & avg_log2FC > 0.5 ~ "Up", # 上调
+                                                         p_val_adj <0.05 & avg_log2FC < -0.5 ~ "Down", # 下调
+                                                         TRUE ~ "Stable"))
+
+
+ggplot(hcc2_pt1_maker, aes(avg_log2FC, -log10(p_val_adj))) +
+  geom_point(size = 0.4, aes(color = state)) + # 根据expression水平进行着色
+  xlab(expression("log"[2]*" fold change")) + # 修饰x轴题目
+  ylab(expression("-log"[10]*" FDR")) + # 修饰y轴题目
+  scale_x_continuous(limits = c(-5, 5)) +
+  scale_color_manual(values = c("steelblue", "grey", "red"))+ # 添加三种颜色
+  theme_bw() +
+  theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank())+
+  theme(axis.line = element_line(colour = "black"))+
+  labs(title="hcc2 pt1 vs pt3+pt4 diff gene")
+
+ggplot(hcc2_pt2_maker, aes(avg_log2FC, -log10(p_val_adj))) +
+  geom_point(size = 0.4, aes(color = state)) + # 根据expression水平进行着色
+  xlab(expression("log"[2]*" fold change")) + # 修饰x轴题目
+  ylab(expression("-log"[10]*" FDR")) + # 修饰y轴题目
+  scale_x_continuous(limits = c(-5, 5)) +
+  scale_color_manual(values = c("steelblue", "grey", "red"))+ # 添加三种颜色
+  theme_bw() +
+  theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank())+
+  theme(axis.line = element_line(colour = "black"))+
+  labs(title="hcc2 pt2 vs pt3+pt4 diff gene")
+
+
 hcc2_pt1_maker_up_sig <- subset(hcc2_pt1_maker , subset = p_val_adj <0.05 & avg_log2FC > 0.5)
 hcc2_pt2_maker_up_sig <- subset(hcc2_pt2_maker , subset = p_val_adj <0.05 & avg_log2FC > 0.5)
 length(intersect(hcc2_pt1_maker_up_sig$symbol,hcc2_pt2_maker_up_sig$symbol))

@@ -46,6 +46,7 @@ snu_100k <- cbind(snu_100k_c1,snu_100k_c2[,6],snu_100k_c3[,6],snu_100k_e1[,6],sn
 snu_100k_sum <- as.data.frame(snu_100k[,6:11])
 row.names(snu_100k_sum) <- snu_100k$id
 snu_100k_sum <- na.omit(snu_100k_sum)
+
 pheatmap(snu_100k_sum,
          cluster_rows = T, cluster_cols = T,
          clustering_method = "average",clustering_distance_cols = "correlation",
@@ -133,3 +134,28 @@ colnames(SNUPMDMean) <- "SNU449-PMD"
 
 colnames(G6baseMean) <- "G6-base"
 colnames(GAbaseMean) <- "GA-base"
+
+
+
+
+
+
+
+
+pmd_regions <- row.names(subset(pmd_row_anno, subset= pmd_row_anno$region_type == "PMD"))
+hmd_regions <- row.names(subset(pmd_row_anno, subset= pmd_row_anno$region_type == "HMD"))
+snu_100k_sum <-na.omit(snu_100k_sum)
+HepPMDMean = as.data.frame(colMeans(hep_100k_sum[pmd_regions,]) ) 
+colnames(HepPMDMean) <- "Hep-PMD"
+SnuPMDMean = as.data.frame(colMeans(snu_100k_sum[hmd_regions,],na.rm = T) ) 
+colnames(SnuPMDMean) <- "Snu-PMD"
+HepHMDMean = as.data.frame(colMeans(hep_100k_sum[hmd_regions,]) ) 
+colnames(HepHMDMean) <- "Hep-HMD"
+SnuHMDMean = as.data.frame(colMeans(snu_100k_sum[hmd_regions,],na.rm = T) ) 
+colnames(SnuHMDMean) <- "Snu-HMD"
+
+colnames(snu_100k_baseMean) <- "Snu-global"
+colnames(hep_100k_baseMean) <- "Hep-global"
+
+Hepmeansum <- cbind(HepPMDMean,HepHMDMean,hep_100k_baseMean)
+Snumeansum <- cbind(SnuPMDMean,SnuHMDMean,snu_100k_baseMean)

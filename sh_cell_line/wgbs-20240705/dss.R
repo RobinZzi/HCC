@@ -34,14 +34,15 @@ colnames(GA45_e2_con) <- c("chr","pos","N","X")
 BSobj <- makeBSseqData( list(GA45_c1_con, GA45_c2_con, GA45_e1_con, GA45_e2_con),
                         c("C1","C2", "E1", "E2") )
 dmlTest <- DMLtest(BSobj, group1=c("C1", "C2"), group2=c("E1", "E2"))
-
+dmlTest_rev <- DMLtest(BSobj,  group1=c("E1", "E2"),group2=c("C1", "C2"))
+dmlTest.sm_rev <- DMLtest(BSobj,  group1=c("E1", "E2"),group2=c("C1", "C2"), smoothing=TRUE)
 dmlTest.sm <- DMLtest(BSobj, group1=c("C1", "C2"), group2=c("E1", "E2"), smoothing=TRUE)
 dmlTest.sm_sig <- subset(dmlTest.sm,subset=fdr<0.05)
 dmr_sig <- callDMR(dmlTest.sm_sig)
 dmr_sig2 <- callDMR(dmlTest.sm_sig,p.threshold=1)
 
-dmrs <- callDMR(dmlTest.sm_sig, p.threshold=0.01,delt=0.2,minlen = 50, minCG = 3, dis.merge = 100)
-showOneDMR(dmrs['712',], BSobj)
+dmrs <- callDMR(dmlTest.sm, p.threshold=0.01,delt=0.2,minlen = 50, minCG = 3, dis.merge = 100)
+
 
 
 dmrs <- mutate(dmrs,state = case_when(diff.Methy<0 ~ "Up-regulated", # 上调
@@ -56,7 +57,7 @@ dmr_sig <- mutate(dmr_sig,state = case_when(diff.Methy<0 ~ "Up-regulated", # 上
 dmr_sig$region <- paste(dmr_sig$chr,dmr_sig$start,sep = "_")
 dmrs$region <- paste(dmrs$chr,dmrs$start,sep = "_")
 
-dml_sig <- callDML(dmlTest.sm_sig)
+dml_sig <- callDML(dmlTest.sm, p.threshold=0.01)
 dml_sig <- mutate(dml_sig,state = case_when(diff<0 ~ "Up-regulated", # 上调
                                               diff>0 ~ "Down-regulated", # 下调
                                               TRUE ~ "Unchanged"))
@@ -78,8 +79,8 @@ write.table(dmrs, "GA45_dmrs.bedGraph",sep = "\t",quote=F,row.names = F,col.name
 write.table(dmrs.sm, "GA45_dmrs.bedGraph",sep = "\t",quote=F,row.names = F,col.names = F)
 
 df_color <- c("#1f76b6", "#ff7d0e")
-dmrs.sm.prop <- as.data.frame(t(table(dmrs.sm$state)))
-ggplot(dmrs.sm.prop, aes(x = 1, y = Freq, fill = Var2))+
+dmr_prop <- as.data.frame(t(table(dmr_sm$V10)))
+ggplot(dmr_prop, aes(x = 1, y = Freq, fill = Var2))+
   geom_bar(stat = "identity", position = position_fill(reverse = T), width = 1, show.legend = F)+
   coord_polar(theta = "y", direction = -1, start = pi*1.5)+  #1为原bar从下至上顺时针
   labs(x = NULL, y = NULL, title = "Pie Chart of Vehicle Class - Bad")+
@@ -91,8 +92,8 @@ ggplot(dmrs.sm.prop, aes(x = 1, y = Freq, fill = Var2))+
         panel.border = element_blank(),
         plot.title = element_text(hjust = 0.5))
 
-dmls.sm.prop <- as.data.frame(t(table(dmls.sm$state)))
-ggplot(dmls.sm.prop, aes(x = 1, y = Freq, fill = Var2))+
+dmls.prop <- as.data.frame(t(table(dml_sig$state)))
+ggplot(dmls.prop, aes(x = 1, y = Freq, fill = Var2))+
   geom_bar(stat = "identity", position = position_fill(reverse = T), width = 1, show.legend = F)+
   coord_polar(theta = "y", direction = -1, start = pi*1.5)+  #1为原bar从下至上顺时针
   labs(x = NULL, y = NULL, title = "Pie Chart of Vehicle Class - Bad")+
