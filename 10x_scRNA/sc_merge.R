@@ -2891,10 +2891,11 @@ hcc2_pt1_maker <-mutate(hcc2_pt1_maker,state = case_when(p_val_adj <0.05 & avg_l
                                                          p_val_adj <0.05 & avg_log2FC < -0.5 ~ "Down", # 下调
                                                TRUE ~ "Stable"))
 
+write.table(hcc2_pt1_maker,"hcc2_pt1_diff.txt")
 hcc2_pt2_maker <-mutate(hcc2_pt2_maker,state = case_when(p_val_adj <0.05 & avg_log2FC > 0.5 ~ "Up", # 上调
                                                          p_val_adj <0.05 & avg_log2FC < -0.5 ~ "Down", # 下调
                                                          TRUE ~ "Stable"))
-
+write.table(hcc2_pt2_maker,"hcc2_pt2_diff.txt")
 
 ggplot(hcc2_pt1_maker, aes(avg_log2FC, -log10(p_val_adj))) +
   geom_point(size = 0.4, aes(color = state)) + # 根据expression水平进行着色
@@ -2922,14 +2923,24 @@ ggplot(hcc2_pt2_maker, aes(avg_log2FC, -log10(p_val_adj))) +
 hcc2_pt1_maker_up_sig <- subset(hcc2_pt1_maker , subset = p_val_adj <0.05 & avg_log2FC > 0.5)
 hcc2_pt2_maker_up_sig <- subset(hcc2_pt2_maker , subset = p_val_adj <0.05 & avg_log2FC > 0.5)
 length(intersect(hcc2_pt1_maker_up_sig$symbol,hcc2_pt2_maker_up_sig$symbol))
-
-
+scmaker_up <- list(hcc2_pt1_maker_up_sig$symbol,hcc2_pt2_maker_up_sig$symbol)
+scmaker_down <- list(hcc2_pt1_maker_down_sig$symbol,hcc2_pt2_maker_down_sig$symbol)
 hcc2_pt1_maker_down_sig <- subset(hcc2_pt1_maker , subset = p_val_adj <0.05 & avg_log2FC < -0.5)
 hcc2_pt2_maker_down_sig <- subset(hcc2_pt2_maker , subset = p_val_adj <0.05 & avg_log2FC < -0.5)
 length(intersect(hcc2_pt1_maker_down_sig$symbol,hcc2_pt2_maker_down_sig$symbol))
 
 
+venn.diagram(scmaker_up, filename = 'hcc2_up_gene.png', imagetype = 'png',
+             category.names = c("pt1_up" , "pt2_up" ),
+             fill = c('#4D157D', '#84C7DB'), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB'), cat.cex = 0, cat.fontfamily = 'serif',
+             col = c('#4D157D', '#84C7DB'), cex = 2, fontfamily = 'serif')
 
+venn.diagram(scmaker_down, filename = 'hcc2_down_gene.png', imagetype = 'png',
+             category.names = c("pt1_down" , "pt2_down" ),
+             fill = c('#4D157D', '#84C7DB'), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB'), cat.cex = 0, cat.fontfamily = 'serif',
+             col = c('#4D157D', '#84C7DB'), cex = 2, fontfamily = 'serif')
 
 
 hcc2_pt1_pt2_up_makers_sig <- intersect(hcc2_pt1_maker_up_sig$symbol,hcc2_pt2_maker_up_sig$symbol)
