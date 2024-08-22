@@ -305,16 +305,32 @@ ptst_cellchat_sum <- rbind(pt_samples_cellchat,st_samples_cellchat)
 
 cmnsn_cellchat_sum_drop <- subset(cmnsn_cellchat_sum,subset=sample%in%dropseq_list)
 
-ggplot(cmnsn_cellchat_sum,aes(x=type,y=interactions,fill=type))+
-  geom_boxplot()+geom_jitter(width = 0.1,shape = 21, colour = "black")+
+ggplot(cmnsn_cellchat_sum,aes(x=type,y=interactions,color=type))+
+  geom_boxplot()+geom_jitter(width = 0.1,shape = 20)+
   labs(x = "type", 
        y= "interaction",
-       title="cell_chat")+
+       title="10x excluded")+
+  scale_color_manual(values=c("sn"="#3f72af","cmn"="#d72323"))+
   stat_compare_means(comparisons = list(c("cmn","sn")),
                      method = "t.test",label = "p.signif",
-                     label.y =1200 )+theme_bw()
+                     label.y =1200 )+theme_bw()+
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank())
 
-ggplot(cmnsn_cellchat_sum,aes(x=type,y=weight,fill=type))+
+ggplot(cmnsn_cellchat_sum_drop,aes(x=type,y=interactions,color=type))+
+  geom_boxplot(outlier.color = "white")+geom_jitter(width = 0.1,shape = 20)+
+  labs(x = "type", 
+       y= "interaction",
+       title="drop-seq only")+
+  scale_color_manual(values=c("sn"="#3f72af","cmn"="#d72323"))+
+  stat_compare_means(comparisons = list(c("cmn","sn")),
+                     method = "t.test",label = "p.signif",
+                     label.y =600 )+theme_bw()+
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank())
+
+
+ggplot(cmnsn_cellchat_sum,aes(x=type,y=interactions,fill=type))+
   geom_boxplot()+geom_jitter(width = 0.1,shape = 21, colour = "black")+
   labs(x = "type", 
        y= "interaction",
@@ -340,6 +356,17 @@ ggplot(cmnsn_cellchat_sum_drop,aes(x=type,y=interactions,fill=type))+
                      method = "t.test",label = "p.signif",
                      label.y =700 )+theme_bw()
 
+ggplot(cmnsn_cellchat_sum_drop,aes(x=type,y=interactions,fill=type))+
+  geom_boxplot()+geom_jitter(width = 0.1,shape = 21, colour = "black")+
+  labs(x = "type", 
+       y= "interaction",
+       title="cell_chat")+
+  scale_fill_manual(values=c("sn"="#3f72af","cmn"="#d72323"))+
+  stat_compare_means(comparisons = list(c("cmn","sn")),
+                     method = "t.test",label = "p.signif",
+                     label.y =600 )+theme_bw()+
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank())
 
 ggplot(cmnsn_cellchat_sum_drop,aes(x=type,y=weight,fill=type))+
   geom_boxplot()+geom_jitter(width = 0.1,shape = 21, colour = "black")+

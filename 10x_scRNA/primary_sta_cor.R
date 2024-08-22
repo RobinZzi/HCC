@@ -540,7 +540,7 @@ sta_prim_sum_sn <- subset(sta_prim_sum,sample %in% c("hcc1","hcc6"))
 ggplot(sta_prim_sum_cmn,aes(type,cor,color=type))+
   geom_boxplot(width=0.5,outlier.size=0)+
   facet_grid(~sample)+
-  scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
   stat_compare_means(comparisons = list(c("primary","satellite")),
                      method = "t.test",label = "p.signif",
                      label.y =1 )+theme_bw() +
@@ -556,7 +556,7 @@ ggplot(sta_prim_sum_cmn,aes(type,cor,color=type))+
 ggplot(sta_prim_sum_sn,aes(type,cor,color=type))+
   geom_boxplot(width=0.5,outlier.size=0)+
   facet_grid(~sample)+
-  scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
   stat_compare_means(comparisons = list(c("primary","satellite")),
                      method = "t.test",label = "p.signif",
                      label.y =1 )+theme_bw() +

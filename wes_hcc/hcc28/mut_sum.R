@@ -250,7 +250,7 @@ maftools::lollipopPlot(hcc29_laml,
                        labelPos = 'all')
 
 hcc3_mut_table <- as.data.frame(hcc3_laml@data)
-hcc3_mut_table$Tumor_Sample_Barcode
+table(hcc3_mut_table$Tumor_Sample_Barcode)
 hcc3_mut_table$Tumor_Sample_Barcode[is.na(hcc3_mut_table$Tumor_Sample_Barcode)] <- 'PT4'
 for (i in 1:nrow(hcc3_mut_table)) {
   
@@ -505,17 +505,20 @@ plot(hclust_hcc29)
 hcc3_mut_table <- mut_table
 hcc3_info <- select(hcc3_mut_table,Tumor_Sample_Barcode,AAChange.refGene)
 
-hcc3_info_PT1 <- subset(hcc3_info,subset = hcc3_info$Tumor_Sample_Barcode =='BCPT1')
+hcc3_info_PT1 <- subset(hcc3_info,subset = hcc3_info$Tumor_Sample_Barcode =='PT1')
+hcc3_info_PT1 <- subset(hcc3_info_PT1,subset = AAChange.refGene != "." )
 row.names(hcc3_info_PT1) <- hcc3_info_PT1$AAChange.refGene
 colnames(hcc3_info_PT1) <- c("PT1","pos")
 hcc3_info_PT1$PT1 <- 1
 
-hcc3_info_PT2 <- subset(hcc3_info,subset = hcc3_info$Tumor_Sample_Barcode =='BCPT2')
-row.names(hcc3_info_PT2) <- hcc3_info_PT3$AAChange.refGene
+hcc3_info_PT2 <- subset(hcc3_info,subset = hcc3_info$Tumor_Sample_Barcode =='PT2')
+hcc3_info_PT2 <- subset(hcc3_info_PT2,subset = AAChange.refGene != "." )
+row.names(hcc3_info_PT2) <- hcc3_info_PT2$AAChange.refGene
 colnames(hcc3_info_PT2) <- c("PT2","pos")
 hcc3_info_PT2$PT2 <- 1
 
-hcc3_info_PT3 <- subset(hcc3_info,subset = hcc3_info$Tumor_Sample_Barcode =='BCPT3')
+hcc3_info_PT3 <- subset(hcc3_info,subset = hcc3_info$Tumor_Sample_Barcode =='PT3')
+hcc3_info_PT3 <- subset(hcc3_info_PT3,subset = AAChange.refGene != "." )
 row.names(hcc3_info_PT3) <- hcc3_info_PT3$AAChange.refGene
 colnames(hcc3_info_PT3) <- c("PT3","pos")
 hcc3_info_PT3$PT3 <- 1
@@ -529,14 +532,13 @@ hcc3_info_PT4$PT4 <- 1
 
 
 hcc3_sum <- merge(hcc3_info_PT1,hcc3_info_PT3,all=T)
-row.names(hcc3_sum) <- hcc3_sum$pos
+
 
 hcc3_sum <- merge(hcc3_sum,hcc3_info_PT4,all=T)
 hcc3_sum <- merge(hcc3_sum,hcc3_info_PT2,all=T)
 
 
 hcc3_sum[is.na(hcc3_sum)] <- 0
-hcc3_sum <- hcc3_sum[-1,]
 row.names(hcc3_sum) <- hcc3_sum$pos
 hcc3_sum <- hcc3_sum[,-1]
 pheatmap(hcc3_sum,
@@ -545,12 +547,12 @@ pheatmap(hcc3_sum,
          clustering_method = "complete",clustering_distance_cols = "canberra",
          color = colorRampPalette(c("#fff5f6", "#fc929f"))(20),
          treeheight_row = 0,
-         treeheight_col = 20,border_color = NA,
+         treeheight_col = 0,border_color = NA,
          fontsize          = 12)
 
 
 hcc3_sum_hclust <- as.data.frame(t(hcc3_sum))
-hcc3_mut_dist = dist(hcc3_sum_hclust, method = "canberra")
+hcc3_mut_dist = dist(hcc3_sum_hclust, method = "euclidean")
 hclust_hcc3 = hclust(hcc3_mut_dist, method = "average")
 plot(hclust_hcc3)
 

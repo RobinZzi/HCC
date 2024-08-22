@@ -305,6 +305,9 @@ hcc8_pt_markers <- FindMarkers(HCC8_HPC,ident.1 = "NT",group.by = "orig.ident" )
 hcc8_pt_markers_sig <- subset(hcc8_pt_markers,subset = p_val_adj < 0.05)
 hcc8_pt_markers_sig_up <- subset(hcc8_pt_markers_sig,subset = avg_log2FC < 0)
 hcc8_pt_markers_sig_down <- subset(hcc8_pt_markers_sig,subset = avg_log2FC > 0)
+hcc8_pt_markers_sig$gene <- row.names(hcc8_pt_markers_sig)
+hcc9_pt_markers_sig$gene <- row.names(hcc9_pt_markers_sig)
+
 
 hcc8_pt_up_go <- enrichGO(gene  = row.names(hcc8_pt_markers_sig_up),
                           OrgDb      = org.Hs.eg.db,

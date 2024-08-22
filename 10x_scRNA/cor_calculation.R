@@ -89,9 +89,9 @@ hcc1_pt5_pt5$patient <- "hcc1"
 hcc1_cor_all <- as.data.frame(rbind(hcc1_pt2_pt4,hcc1_pt2_pt5,hcc1_pt4_pt5,
                                     hcc1_pt2_pt2,hcc1_pt4_pt4,hcc1_pt5_pt5))
 
-ggplot(hcc1_cor_all,aes(type,cor,color=type))+
+ggplot(hcc1_cor_all,aes(type,cor,fill=type))+
   geom_boxplot(width=0.5)+
-  scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
+  scale_fill_manual(values =c('#8BABD3','#D7B0B0'))+
   stat_compare_means(comparisons = list(c("cross","self")),
                      method = "t.test",label = "p.signif",
                      label.y =1 )+theme_bw() +
@@ -1270,7 +1270,7 @@ sc_cor_sn <-  subset(sc_cor_all,subset=patient %in% c("hcc3","hcc5","hcc7"))
 ggplot(sc_cor_cmn,aes(type,cor,color=type))+
   geom_boxplot(width=0.5,outlier.size=0)+
   facet_grid(~patient)+
-  scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
   stat_compare_means(comparisons = list(c("cross","self")),
                      method = "wilcox.test",label = "p.signif",
                      label.y =1 )+theme_bw() +
@@ -1282,10 +1282,10 @@ ggplot(sc_cor_cmn,aes(type,cor,color=type))+
         legend.direction = "vertical",
         legend.title =element_blank())
 
-ggplot(sc_cor_sn,aes(type,cor,color=type))+
+ggplot(sc_cor_sn,aes(type,cor,fill=type))+
   geom_boxplot(width=0.5,outlier.size=0)+
   facet_grid(~patient)+
-  scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
+  scale_fill_manual(values =c('#b11a2b','#4a74a4'))+
   stat_compare_means(comparisons = list(c("cross","self")),
                      method = "wilcox.test",label = "p.signif",
                      label.y =1 )+theme_bw() +

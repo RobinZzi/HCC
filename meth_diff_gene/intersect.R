@@ -17,6 +17,9 @@ pt_up <- fread("pt1_pt2_up.txt")
 pt_down <- fread("pt1_pt2_down.txt")
 
 
+hcc2_up <- fread("hcc2_hypo_up_genes.txt")
+
+
 tcga_edgeR <- fread("DEG_edgeR_hypo_vs_hyper.txt")
 tcga_edgeR_up <- subset(tcga_edgeR,subset=change=="up")
 tcga_edgeR_down <- subset(tcga_edgeR,subset=change=="down")
@@ -36,13 +39,15 @@ tcga_cor_pos <- fread("cor_data_df_pos_top.csv")
 tcga_cor_pos <- tcga_cor_pos[2:1001,]
 tcga_cor_neg <- fread("cor_data_df_neg_top.csv")
 
-demethy_list <- list(pt_up$x,methy_delta_de$gene,tcga_edgeR_up$gene,tcga_cor_neg$symbol)
+demethy_list <- list(hcc2_up$gene,tcga_cor_neg$symbol,tcga_wilcox_up$gene)
+
+demethy_list <- list(pt_up$x,tcga_cor_neg$symbol,tcga_wilcox_up$gene)
 demethy_sum <- Reduce(intersect,demethy_list)
-venn.diagram(demethy_list, filename = 'up_de.png', imagetype = 'png',
-             category.names = c("hypo_up" , "hypo_demeth" , "tcga_edgeR_up","tcga_wilcox_up","tcga_cor_neg"),
-             fill = c('#4D157D', '#84C7DB', '#C8D948','#EAC7F2','#F75A6F'), alpha = 0.50, 
-             cat.col = c('#4D157D', '#84C7DB', '#C8D948','#EAC7F2','#F75A6F'), cat.cex = 0, cat.fontfamily = 'serif',
-             col = c('#4D157D', '#84C7DB', '#C8D948','#EAC7F2','#F75A6F'), cex = 1, fontfamily = 'serif')
+venn.diagram(demethy_list, filename = 'up_de_0818.png', imagetype = 'png',
+             category.names = c("hypo_up" ,"tcga_cor_neg","tcga_wilcox_up"),
+             fill = c('#4D157D', '#84C7DB', '#C8D948'), alpha = 0.50, 
+             cat.col = c('#4D157D', '#84C7DB', '#C8D948'), cat.cex = 0.5, cat.fontfamily = 'serif',
+             col = c('#4D157D', '#84C7DB', '#C8D948'), cex = 1.5, fontfamily = 'serif')
 
 admethy_list <- list(methy_delta_ad$gene,tcga_edgeR_down$gene,tcga_wilcox_down$gene,tcga_cor_pos$symbol)
 admethy_sum <- Reduce(intersect,admethy_list)
@@ -661,4 +666,11 @@ ggplot(wilcox_OR_sum,aes(x=group,y=mean_cpm,color=group))+
         legend.position = "none",
         legend.direction = "vertical",
         legend.title =element_blank())
+
+
+
+
+
+
+
 

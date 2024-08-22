@@ -138,14 +138,17 @@ ggplot(pathway_sum_cmn_sn,aes(x=type,y=contribution.scaled,fill=type))+
   facet_grid(~name)
 
 pathway_sum_cmn_sn_sig <- subset(pathway_sum_cmn_sn,subset= name %in% c("IFN-II","CD40","CSF","IL2","SAA"))
-ggplot(pathway_sum_cmn_sn_sig,aes(x=type,y=contribution.scaled,fill=type))+
-  geom_boxplot(outlier.size = 0)+geom_jitter(width = 0.1,size=0.05,shape = 21, colour = "black")+
+ggplot(pathway_sum_cmn_sn_sig,aes(x=type,y=contribution.scaled,color=type))+
+  geom_boxplot(outlier.size = 0,outlier.colour = "white")+geom_jitter(width = 0.1,size=0.5,shape = 20)+
   labs(x = "type", 
        y= "interaction",
        title="10x excluded")+
+  scale_color_manual(values=c("sn"="#3f72af","cmn"="#d72323"))+
   stat_compare_means(comparisons = list(c("cmn","sn")),
                      method = "t.test",label = "p.signif",paired = F,
                      label.y =1.7)+theme_bw()+
-  theme(axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'))+
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(), 
+        axis.text.x = element_text(size=15,face="bold",angle = 45,hjust = 1,color = 'black'))+
   facet_grid(~name)+
   ylim(0,1.8)

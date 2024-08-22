@@ -21,6 +21,11 @@ hcc_11_qc <- read.xlsx2("methy.qc.xlsx",sheetName = "hcc11")
 hcc_28_qc <- read.xlsx2("methy.qc.xlsx",sheetName = "hcc28") 
 hcc_29_qc <- read.xlsx2("methy.qc.xlsx",sheetName = "hcc29") 
 
+qc3_add <- rbind(c("DNA","pt4_D7","1"),
+              c("DNA","pt4_D8"),
+              c("DNA","pt4_D24"),
+              c("DNA","pt4_D28"))
+
 
 hcc_3_qc_pass <- subset(hcc_3_qc, subset= hcc_3_qc$最终是否可用 ==1)
 hcc_4_qc_pass <- subset(hcc_4_qc, subset= hcc_4_qc$最终是否可用 ==1)
@@ -29,6 +34,10 @@ hcc_11_qc_pass <- subset(hcc_11_qc, subset= hcc_11_qc$最终是否可用 ==1)
 hcc_28_qc_pass <- subset(hcc_28_qc, subset= hcc_28_qc$最终是否可用 ==1)
 hcc_29_qc_pass <- subset(hcc_29_qc, subset= hcc_29_qc$最终是否可用 ==1)
 
+
+hcc_3_qc_pass_add <- hcc_3_qc_pass
+hcc_3_qc_pass_add[98:101,] <- qc3_add
+  
 
 hcc3_base <- data.frame(var1="",var2="",var3="")[-1,]
 hcc4_base <- data.frame(var1="",var2="",var3="")[-1,]
@@ -41,7 +50,7 @@ hcc29_base <- data.frame(var1="",var2="",var3="")[-1,]
 
 
 sample_list <- as.character(c("hcc3","hcc4","hcc7","hcc11","hcc28","hcc29"))
-qc_list <- list(hcc_3_qc_pass,hcc_4_qc_pass,hcc_7_qc_pass,hcc_11_qc_pass,hcc_28_qc_pass,hcc_29_qc_pass)
+qc_list <- list(hcc_3_qc_pass_add,hcc_4_qc_pass,hcc_7_qc_pass,hcc_11_qc_pass,hcc_28_qc_pass,hcc_29_qc_pass)
 
 for(i in 1:length(sample_list)){
   datapath <- paste("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/data/trio_seq/scMethy/methy_data/methy_file/",sample_list[i],"/CpG_100kb/",sep = "")
@@ -73,15 +82,75 @@ for(i in 1:length(sample_list)){
   row.names(base) <- base[,1]
   base <- base[,-1]
   setwd("~/projects/hcc/analysis/trio_seq/scMethy")
-  write.table(base,paste(sample_list[i],".txt",sep = ""))
+  write.table(base,paste(sample_list[i],"_0819.txt",sep = ""))
 }
-
+for(i in 1:length(sample_list)){
+  datapath <- paste("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/data/trio_seq/scMethy/methy_data/methy_file/",sample_list[i],"/CpG_100kb/",sep = "")
+  setwd(datapath)
+  getwd()
+  fs <- list.files('./',pattern = "*.tsv")
+  fs_pass <- as.character(1:nrow(qc_list[[i]]))
+  j <- 1
+  for (n in 1:length(fs)) {
+    id <- str_split(paste(fs[n]),".CpG")[[1]][1]
+    if(id %in% qc_list[[i]]$cell){
+      fs_pass[j] <- fs[n]
+      j <- j+1
+    }
+  }
+  sample <- unique(str_split_i(fs_pass,"_D",1))
+  base_s <- data.frame()
+  for (t in 1:length(sample)) {
+    sample_pass <- fs_pass[grepl(paste("^",sample[t],"_D",sep = ""), fs_pass)]
+    for(n in 1:length(sample_pass)){
+      paste(sample_pass[n])
+      data <- fread(sample_pass[n])
+      data$V2 <- as.numeric(data$V2)
+      data$V3 <- as.numeric(data$V3)
+      data <- mutate(data,"mcount"=round(data$V2*data$V3))
+      data <- dplyr::select(data,1,4,3)
+      colnames(data)  <- c('pos','N','X')
+      if(n == 1){
+        base <- data
+        base <- as.data.frame(base)
+      }
+      else{
+        base <- base %>%  
+          full_join(data, by = "pos") %>%  
+          mutate(  
+            N = rowSums(dplyr::select(., starts_with("N")), na.rm = TRUE),  
+            X = rowSums(dplyr::select(., starts_with("X")), na.rm = TRUE)  
+          ) %>%  
+          dplyr::select(pos, N, X) 
+      }
+    }
+    base <- mutate(base,level=N/X)
+    base <- dplyr::select(base,1,4)
+    colnames(base) <- c("pos",paste(sample[t]))
+    if(t==1){
+      base_s <- base
+    }
+    else{
+      base_s <- merge(base_s,base,by.x = 'pos',by.y = 'pos',all=TRUE, sort=TRUE)
+    }
+    
+  }
+  row.names(base_s) <- base_s[,1]
+  base_s <- base_s[,-1]
+  setwd("~/projects/hcc/analysis/trio_seq/scMethy/psu/")
+  write.table(base_s,paste(sample_list[i],"_0819.txt",sep = ""))
+}
 
 
 ##########hcc3#########
 hcc3_base <- as.data.frame(fread("hcc3.txt"))
 row.names(hcc3_base) <- hcc3_base$V1
 hcc3_base <- hcc3_base[,-1]
+hcc3_base_removena <- na.omit(hcc3_base)
+
+hcc3_base_2 <- as.data.frame(fread("hcc3_0819.txt"))
+row.names(hcc3_base_2) <- hcc3_base_2$V1
+hcc3_base_2 <- hcc3_base_2[,-1]
 hcc3_base_removena <- na.omit(hcc3_base)
 
 hcc3_colanno <- as.data.frame(colnames(hcc3_base_removena))
@@ -124,8 +193,8 @@ colnames(hcc3_anno) <- "meth_type"
 
 
 hcc3_ann_colors=list(
-  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
-  sample=c('nt'='#DDE9C6','pt1'='#00ADC4','pt2'='#647BA8','pt3'='#4C1A72')
+  meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
+  sample=c('nt'='#F1BB72','pt1'='#8C549C','pt2'='#D6E7A3','pt3'='#E59CC4')
 )
 
 pheatmap(hcc3_base_removena,
@@ -133,7 +202,7 @@ pheatmap(hcc3_base_removena,
          annotation_colors = hcc3_ann_colors,
          show_rownames = F,show_colnames = F,         
          clustering_method = "complete",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
          treeheight_col = 0,
          fontsize_col= 15,
@@ -192,8 +261,8 @@ row.names(hcc4_anno) <- row.names_hcc4_anno
 colnames(hcc4_anno) <- "meth_type"
 
 hcc4_ann_colors=list(
-  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
-  sample=c('nt'='#DDE9C6','pt1'='#00ADC4','pt2'='#647BA8','pt3'='#4C1A72')
+  meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
+  sample=c('nt'='#F1BB72','pt1'='#8C549C','pt2'='#D6E7A3','pt3'='#E59CC4')
 )
 
 pheatmap(hcc4_base_removena,
@@ -201,7 +270,7 @@ pheatmap(hcc4_base_removena,
          annotation_colors = hcc4_ann_colors,
          show_rownames = F,show_colnames = F,         
          clustering_method = "complete",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
          treeheight_col = 0,
          fontsize_col= 15,
@@ -260,8 +329,8 @@ row.names(hcc7_anno) <- row.names_hcc7_anno
 colnames(hcc7_anno) <- "meth_type"
 
 hcc7_ann_colors=list(
-  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
-  sample=c('nt'='#DDE9C6','pt1'='#00ADC4','pt2'='#647BA8','pt4'='#4C1A72','pt5'='#A099C9')
+  meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
+  sample=c('nt'='#F1BB72','pt1'='#8C549C','pt2'='#D6E7A3','pt4'='#E59CC4','pt5'='#AB3282')
 )
 
 pheatmap(hcc7_base_removena,
@@ -269,7 +338,7 @@ pheatmap(hcc7_base_removena,
          annotation_colors = hcc7_ann_colors,
          show_rownames = F,show_colnames = F,         
          clustering_method = "complete",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
          treeheight_col = 0,
          fontsize_col= 15,
@@ -325,8 +394,8 @@ colnames(hcc11_anno) <- "meth_type"
 
 
 hcc11_ann_colors=list(
-  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
-  sample=c('nt'='#DDE9C6','pt1'='#00ADC4','pt2'='#647BA8','pt3'='#A860A8','pt4'='#4C1A72','pt5'='#A099C9','pt6'='#AEE4F0')
+  meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
+  sample=c('nt'='#F1BB72','pt1'='#8C549C','pt2'='#D6E7A3','pt3'='#E59CC4','pt4'='#AB3282','pt5'='#58A4C3','pt6'='#BD956A')
 )
 
 pheatmap(hcc11_base_removena,
@@ -334,7 +403,7 @@ pheatmap(hcc11_base_removena,
          annotation_colors = hcc11_ann_colors,
          show_rownames = F,show_colnames = F,         
          clustering_method = "complete",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
          treeheight_col = 0,
          fontsize_col= 15,
@@ -391,8 +460,8 @@ row.names(hcc28_anno) <- row.names_hcc28_anno
 colnames(hcc28_anno) <- "meth_type"
 
 hcc28_ann_colors=list(
-  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
-  sample=c('nt'='#DDE9C6','pt1'='#00ADC4','pt2'='#647BA8','pt4'='#4C1A72')
+  meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
+  sample=c('nt'='#F1BB72','pt1'='#8C549C','pt2'='#D6E7A3','pt4'='#E59CC4')
 )
 
 pheatmap(hcc28_base_removena,
@@ -400,7 +469,7 @@ pheatmap(hcc28_base_removena,
          annotation_colors = hcc28_ann_colors,
          show_rownames = F,show_colnames = F,         
          clustering_method = "complete",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),,
          treeheight_row = 0,
          treeheight_col = 0,
          fontsize_col= 15,
@@ -469,8 +538,8 @@ row.names(hcc29_anno) <- row.names_hcc29_anno
 colnames(hcc29_anno) <- "meth_type"
 
 hcc29_ann_colors=list(
-  meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
-  sample=c('pt1'='#00ADC4','pt3'='#822994','pt4'='#4C1A72')
+  meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
+  sample=c('pt1'='#8C549C','pt3'='#D6E7A3','pt4'='#E59CC4')
 )
 
 pheatmap(hcc29_base_removena,
@@ -478,7 +547,7 @@ pheatmap(hcc29_base_removena,
          annotation_colors = hcc29_ann_colors,
          show_rownames = F,show_colnames = F,
          clustering_method = "complete",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
          treeheight_col = 0,
          fontsize_col= 15)
@@ -612,7 +681,7 @@ pheatmap(big_meth,
          show_rownames = F,show_colnames = F,
          clustering_method = "average",
          clustering_distance_rows = "euclidean",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#57C3F3", "#fffffc", "#E95C59"))(20),
          treeheight_row = 0,
          treeheight_col = 0,
          fontsize_col= 15)
@@ -633,17 +702,30 @@ big_colanno_new$sample <- gsub("hcc29", "hcc9", big_colanno_new$sample)
 big_colanno_new$origin <- gsub("hcc3", "hcc2", big_colanno_new$origin)
 big_colanno_new$origin <- gsub("hcc4", "hcc3", big_colanno_new$origin)
 big_colanno_new$origin <- gsub("hcc7", "hcc6", big_colanno_new$origin)
-big_colanno_new$origin <- gsub("hcc11", "hcc5", big_colanno_new$origin)
+big_colanno_new$origin <- gsub("hcc11", "hcc7", big_colanno_new$origin)
 big_colanno_new$origin <- gsub("hcc28", "hcc8", big_colanno_new$origin)
 big_colanno_new$origin <- gsub("hcc29", "hcc9", big_colanno_new$origin)
 
+big_colanno_new$tissue <- gsub("nt", "Normal Tissue", big_colanno_new$tissue)
+big_colanno_new$tissue <- gsub("tumor", "Tumor Tissue", big_colanno_new$tissue)
+
+big_colanno_new$origin <- toupper(big_colanno_new$origin)
 
 
 big_ann_colors_new =list(
-  pmd_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
-  tissue=c('tumor'='#D42E00','nt'='#087FBF'),
+  pmd_type=c('PMD'='#57C3F3','HMD'='#E95C59'),
+  tissue=c('Tumor Tissue'='#4a74a4','Normal Tissue'='#b11a2b'),
   origin=c('hcc8'='#00ADC4','hcc9'='#4C1A72','hcc2'='#fb9795','hcc3'='#ffe9df','hcc6'='#7c5e8c','hcc5'='#b0e7ea')
 )
+
+big_ann_colors_new =list(
+  meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
+  tissue=c('Tumor Tissue'='#b11a2b','Normal Tissue'='#4a74a4'),
+  origin=c('HCC2'='#E5D2DD','HCC3'='#BD956A','HCC6'='#F1BB72','HCC7'='#8C549C','HCC8'='#D6E7A3','HCC9'='#E59CC4')
+)
+
+colnames(pmd_anno) <- "meth_type"
+
 pheatmap(big_meth,
          annotation_col = big_colanno_new,annotation_row = big_rowanno,
          annotation_colors = big_ann_colors_new,
@@ -655,13 +737,15 @@ pheatmap(big_meth,
          treeheight_col = 0,
          fontsize_col= 15)
 
+
+
 pheatmap(big_meth,
          annotation_col = big_colanno_new[,2:3],annotation_row = pmd_anno,
          annotation_colors = big_ann_colors_new,
          show_rownames = F,show_colnames = F,
          clustering_method = "mcquitty",
          clustering_distance_rows = "euclidean",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
          treeheight_col = 0,
          fontsize_col= 15)
@@ -739,14 +823,30 @@ bigmeth_colmeans$sample = factor(bigmeth_colmeans$sample, levels=sample_level)
 bigmeth_colmeans[,5:6] <- str_split_fixed(bigmeth_colmeans$sample,"_",2)
 for(i in 1:nrow(bigmeth_colmeans)){
   if(bigmeth_colmeans[i,6] == 'nt'){
-    bigmeth_colmeans[i,6] <- 'normal'
+    bigmeth_colmeans[i,6] <- 'Normal Tissue'
   }
   else{
-    bigmeth_colmeans[i,6] <- 'tumor'
+    bigmeth_colmeans[i,6] <- 'Tumor Tissue'
   }
 }
 
 colnames(bigmeth_colmeans) <- c("mean_meth","cell_id","patient","sample","origin","label")
+
+
+
+bigmeth_colmeans$sample <- gsub("hcc3", "HCC2", bigmeth_colmeans$sample)
+bigmeth_colmeans$sample <- gsub("hcc4", "HCC3", bigmeth_colmeans$sample)
+bigmeth_colmeans$sample <- gsub("hcc7", "HCC6", bigmeth_colmeans$sample)
+bigmeth_colmeans$sample <- gsub("hcc11", "HCC7", bigmeth_colmeans$sample)
+bigmeth_colmeans$sample <- gsub("hcc28", "HCC8", bigmeth_colmeans$sample)
+bigmeth_colmeans$sample <- gsub("hcc29", "HCC9", bigmeth_colmeans$sample)
+
+sample_level <- gsub("hcc3", "HCC2", sample_level)
+sample_level <- gsub("hcc4", "HCC3", sample_level)
+sample_level <- gsub("hcc7", "HCC6", sample_level)
+sample_level <- gsub("hcc11", "HCC7", sample_level)
+sample_level <- gsub("hcc28", "HCC8", sample_level)
+sample_level <- gsub("hcc29", "HCC9", sample_level)
 
 ggplot(bigmeth_colmeans,aes(x=patient, y=mean_meth,fill=origin))+
   geom_flat_violin(scale = "width",trim = F)+coord_flip()+geom_jitter(width = 0.1,size=0.5)
@@ -754,8 +854,9 @@ ggplot(bigmeth_colmeans,aes(x=patient, y=mean_meth,fill=origin))+
 ggplot(bigmeth_pmd_colmeans_new,aes(x=patient, y=mean_meth,fill=label))+
   geom_flat_violin(scale = "width",trim = F)+coord_flip()+geom_jitter(width = 0.1,size=0.5)
 
-ggplot(bigmeth_colmeans,aes(x=sample, y=mean_meth,fill=origin))+
-  geom_flat_violin(scale = "width",trim = F)+geom_jitter(width = 0.1,size=0.5)+coord_flip()
+ggplot(bigmeth_colmeans,aes(x=sample, y=mean_meth,fill=label))+
+  geom_flat_violin(scale = "width",trim = F)+geom_jitter(width = 0.1,size=0.5)+coord_flip()+theme_bw()+
+  scale_fill_manual(values=c("Normal Tissue"="#3f72af","Tumor Tissue"="#d72323"))
 
 ggplot(bigmeth_pmd_colmeans_new,aes(x=sample, y=mean_meth,fill=label))+
   geom_flat_violin(scale = "width",trim = F)+geom_jitter(width = 0.1,size=0.5)+coord_flip()
@@ -884,7 +985,7 @@ bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc4", "hcc3",bigmeth_pmd_colmeans_new
 bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc7", "hcc6",bigmeth_pmd_colmeans_new$cell_id )
 bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc11", "hcc5",bigmeth_pmd_colmeans_new$cell_id )
 bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc28", "hcc8",bigmeth_pmd_colmeans_new$cell_id )
-bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc29", "hcc2",bigmeth_pmd_colmeans_new$cell_id )
+bigmeth_pmd_colmeans_new$cell_id <- gsub("hcc29", "hcc9",bigmeth_pmd_colmeans_new$cell_id )
 
 
 bigmeth_pmd_colmeans_new$patient <- gsub("hcc3", "hcc2",bigmeth_pmd_colmeans_new$patient )
@@ -892,7 +993,7 @@ bigmeth_pmd_colmeans_new$patient <- gsub("hcc4", "hcc3",bigmeth_pmd_colmeans_new
 bigmeth_pmd_colmeans_new$patient <- gsub("hcc7", "hcc6",bigmeth_pmd_colmeans_new$patient )
 bigmeth_pmd_colmeans_new$patient <- gsub("hcc11", "hcc5",bigmeth_pmd_colmeans_new$patient )
 bigmeth_pmd_colmeans_new$patient <- gsub("hcc28", "hcc8",bigmeth_pmd_colmeans_new$patient )
-bigmeth_pmd_colmeans_new$patient <- gsub("hcc29", "hcc2",bigmeth_pmd_colmeans_new$patient )
+bigmeth_pmd_colmeans_new$patient <- gsub("hcc29", "hcc9",bigmeth_pmd_colmeans_new$patient )
 
 
 
@@ -922,9 +1023,13 @@ bigmeth_pmd_colmeans_new$origin <- gsub("hcc29", "hcc2",bigmeth_pmd_colmeans_new
 
 
 
+write.table(big_meth,"big_meth.txt")
+
+
+
 bigmeth_seurat <- CreateSeuratObject(counts = big_meth,
                                      meta.data = big_colanno_new)
-bigmeth_seurat <- SCTransform(bigmeth_seurat)
+
 
 
 
@@ -945,5 +1050,113 @@ bigmeth_seurat <- FindClusters(bigmeth_seurat, verbose = FALSE)
 
 DimPlot(bigmeth_seurat, label = TRUE,repel = T) + NoLegend()
 DimPlot(bigmeth_seurat, label = F,repel = T,group.by = "sample")
-DimPlot(bigmeth_seurat, label = TRUE,group.by = "origin")
-DimPlot(bigmeth_seurat, label = TRUE,group.by = "tissue")
+DimPlot(bigmeth_seurat, label = F,group.by = "origin",cols = c('HCC2'='#E5D2DD','HCC3'='#BD956A','HCC6'='#F1BB72','HCC7'='#8C549C','HCC8'='#D6E7A3','HCC9'='#E59CC4'))
+DimPlot(bigmeth_seurat, label = F,group.by = "tissue",cols=c("Normal Tissue"="#3f72af","Tumor Tissue"="#d72323"))
+
+
+
+setwd("~/projects/hcc/analysis/trio_seq/scMethy/psu/")
+
+hcc2_psu <- as.data.frame(fread("hcc3.txt"))
+rownames(hcc2_psu) <- hcc2_psu$V1
+hcc2_psu <- hcc2_psu[,-1]
+colnames(hcc2_psu) <- paste("HCC2",colnames(hcc2_psu),sep = "_")
+
+hcc3_psu <- as.data.frame(fread("hcc4.txt"))
+rownames(hcc3_psu) <- hcc3_psu$V1
+hcc3_psu <- hcc3_psu[,-1]
+colnames(hcc3_psu) <- paste("HCC3",colnames(hcc3_psu),sep = "_")
+
+hcc6_psu <- as.data.frame(fread("hcc7.txt"))
+rownames(hcc6_psu) <- hcc6_psu$V1
+hcc6_psu <- hcc6_psu[,-1]
+colnames(hcc6_psu) <- paste("HCC6",colnames(hcc6_psu),sep = "_")
+
+hcc7_psu <- as.data.frame(fread("hcc11.txt"))
+rownames(hcc7_psu) <- hcc7_psu$V1
+hcc7_psu <- hcc7_psu[,-1]
+colnames(hcc7_psu) <- paste("HCC7",colnames(hcc7_psu),sep = "_")
+
+hcc8_psu <- as.data.frame(fread("hcc28.txt"))
+rownames(hcc8_psu) <- hcc8_psu$V1
+hcc8_psu <- hcc8_psu[,-1]
+colnames(hcc8_psu) <- paste("HCC8",colnames(hcc8_psu),sep = "_")
+
+hcc9_psu <- as.data.frame(fread("hcc29.txt"))
+rownames(hcc9_psu) <- hcc9_psu$V1
+hcc9_psu <- hcc9_psu[,-1]
+colnames(hcc9_psu) <- paste("HCC9",colnames(hcc9_psu),sep = "_")
+
+
+merge_by_rownames <- function(x, y) {  
+  merge(x, y, by = "row.names", all = TRUE, sort = FALSE)  
+}
+
+bind_rows_by_rownames <- function(...) {  
+  list(...) %>%  
+    purrr::map(~rownames_to_column(., var = "Row.names")) %>%  
+    Reduce(function(x, y) full_join(x, y, by = "Row.names"), .) %>%  
+    column_to_rownames(var = "Row.names")  
+}  
+
+
+big_psu_meth <- Reduce(merge_by_rownames, 
+                       list(hcc2_psu, hcc3_psu, hcc6_psu,
+                            hcc7_psu, hcc8_psu, hcc9_psu))
+big_psu_meth <- bind_rows_by_rownames(hcc2_psu, hcc3_psu, hcc6_psu,
+                                      hcc7_psu, hcc8_psu, hcc9_psu)
+
+
+big_psu_meth <- na.omit(big_psu_meth)
+big_colanno_new_psu <- big_colanno_new %>% distinct() 
+rownames(big_colanno_new_psu) <- big_colanno_new_psu$sample
+rownames(big_colanno_new_psu) <- gsub("hcc3", "HCC2",rownames(big_colanno_new_psu) )
+rownames(big_colanno_new_psu) <- gsub("hcc4", "HCC3",rownames(big_colanno_new_psu) )
+rownames(big_colanno_new_psu) <- gsub("hcc7", "HCC6",rownames(big_colanno_new_psu) )
+rownames(big_colanno_new_psu) <- gsub("HCC5", "HCC7",rownames(big_colanno_new_psu) )
+rownames(big_colanno_new_psu) <- gsub("hcc28", "HCC8",rownames(big_colanno_new_psu) )
+rownames(big_colanno_new_psu) <- gsub("hcc29", "HCC9",rownames(big_colanno_new_psu)  )
+pheatmap(big_psu_meth,
+         annotation_col = big_colanno_new_psu[,2:3],annotation_row = pmd_anno_psu,
+         annotation_colors = big_ann_colors_new,
+         show_rownames = F,show_colnames = T,
+         clustering_method = "mcquitty",
+         clustering_distance_rows = "euclidean",
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
+         treeheight_row = 0,
+         treeheight_col = 0,
+         angle_col = 45,
+         fontsize_col= 8)
+
+
+hcc2_psu_removena <- na.omit(hcc2_psu) 
+
+pheatmap(hcc2_psu_removena,
+         annotation_col = big_colanno_new_psu[,2:3],annotation_row = pmd_anno_psu,
+         annotation_colors = big_ann_colors_new,
+         show_rownames = F,show_colnames = T,
+         clustering_method = "mcquitty",
+         clustering_distance_rows = "euclidean",
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
+         treeheight_row = 0,
+         treeheight_col = 10,
+         angle_col = 45,
+         fontsize_col= 15,
+         cellwidth=80)
+
+hcc2_psu_removena_t <- as.data.frame(t(hcc2_psu_removena))
+hcc2_psu_dist = dist(hcc2_psu_removena_t, method = "euclidean")
+hclust_hcc2_psu = hclust(hcc2_psu_dist, method = "average")
+plot(hclust_hcc2_psu)
+
+pmd <- fread("PMD_coordinates_hg38.bed")
+pmd <- dplyr::select(pmd,1,3,5)
+pmd <- mutate(pmd,pos=paste(V1,V3/100000,sep = "_"))
+pmd_anno_psu <- as.data.frame(pmd$V5)
+colnames(pmd_anno_psu) <- "meth_type"
+row.names(pmd_anno_psu) <- pmd$pos
+pmd_anno_psu <- na.omit(pmd_anno_psu)
+
+
+write.table(big_psu_meth,"big_psu_meth.txt")
+

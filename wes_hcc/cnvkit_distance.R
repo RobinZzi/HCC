@@ -1,20 +1,20 @@
 
 
 rm(list = ls())
-
+library(pheatmap)
 setwd("~/projects/hcc/analysis/wes_hcc")
 save.image("wes_distance.Rdata")
 
 setwd("~/projects/hcc/data/wes_hcc/hcc28/gatk_result/cnvkit_result")
 
 hcc28_PT1 <- fread("PT1_bqsr.cnr")
-hcc28_PT3 <- fread("PT3_bqsr.cnr")
+hcc28_PT2 <- fread("PT2_bqsr.cnr")
 hcc28_PT4 <- fread("PT4_bqsr.cnr")
 hcc28_PT1_agg <- aggregate(hcc28_PT1[,6],by=list(chr=hcc28_PT1$chromosome),FUN=mean)
-hcc28_PT3_agg <- aggregate(hcc28_PT3[,6],by=list(chr=hcc28_PT3$chromosome),FUN=mean)
+hcc28_PT2_agg <- aggregate(hcc28_PT2[,6],by=list(chr=hcc28_PT2$chromosome),FUN=mean)
 hcc28_PT4_agg <- aggregate(hcc28_PT4[,6],by=list(chr=hcc28_PT4$chromosome),FUN=mean)
-hcc28_cnv_base <- as.data.frame( cbind(hcc28_PT1_agg$log2,hcc28_PT3_agg$log2,hcc28_PT4_agg$log2))
-colnames(hcc28_cnv_base) <- c("PT1","PT3","PT4")
+hcc28_cnv_base <- as.data.frame( cbind(hcc28_PT1_agg$log2,hcc28_PT2_agg$log2,hcc28_PT4_agg$log2))
+colnames(hcc28_cnv_base) <- c("PT1","PT2","PT4")
 row.names(hcc28_cnv_base) <- hcc28_PT1_agg$chr
 pheatmap(hcc28_cnv_base,cluster_rows = F)
 
@@ -44,18 +44,18 @@ plot(hclust_hcc29)
 
 
 setwd("~/projects/hcc/data/wes_hcc/hcc3/gatk_result/cnvkit_result")
-hcc3_PT1 <- fread("BCPT1_bqsr.cns")
-hcc3_PT2 <- fread("BCPT2_bqsr.cns")
-hcc3_PT3 <- fread("BCPT3_bqsr.cns")
-hcc3_PT4 <- fread("BCPT4_bqsr.cns")
-hcc3_PT1_agg <- aggregate(hcc3_PT1[,5],by=list(chr=hcc3_PT1$chromosome),FUN=mean)
-hcc3_PT2_agg <- aggregate(hcc3_PT2[,5],by=list(chr=hcc3_PT2$chromosome),FUN=mean)
-hcc3_PT3_agg <- aggregate(hcc3_PT3[,5],by=list(chr=hcc3_PT3$chromosome),FUN=mean)
-hcc3_PT4_agg <- aggregate(hcc3_PT4[,5],by=list(chr=hcc3_PT4$chromosome),FUN=mean)
+hcc3_PT1 <- fread("BCPT1_bqsr.cnr")
+hcc3_PT2 <- fread("BCPT2_bqsr.cnr")
+hcc3_PT3 <- fread("BCPT3_bqsr.cnr")
+hcc3_PT4 <- fread("BCPT4_bqsr.cnr")
+hcc3_PT1_agg <- aggregate(hcc3_PT1[,6],by=list(chr=hcc3_PT1$chromosome),FUN=mean)
+hcc3_PT2_agg <- aggregate(hcc3_PT2[,6],by=list(chr=hcc3_PT2$chromosome),FUN=mean)
+hcc3_PT3_agg <- aggregate(hcc3_PT3[,6],by=list(chr=hcc3_PT3$chromosome),FUN=mean)
+hcc3_PT4_agg <- aggregate(hcc3_PT4[,6],by=list(chr=hcc3_PT4$chromosome),FUN=mean)
 hcc3_cnv_base <- as.data.frame( cbind(hcc3_PT1_agg$log2,hcc3_PT2_agg$log2,hcc3_PT3_agg$log2,hcc3_PT4_agg$log2))
 colnames(hcc3_cnv_base) <- c("PT1","PT2","PT3","PT4")
 row.names(hcc3_cnv_base) <- hcc3_PT1_agg$chr
-pheatmap(hcc3_cnv_base,cluster_rows = F)
+pheatmap(hcc3_cnv_base,cluster_rows = T,cluster_cols = T,color = colorRampPalette(c("blue", "white", "red"))(100),)
 
 hcc3_wes_hclust <- as.data.frame(t(hcc3_cnv_base))
 hcc3_wes_dist = dist(hcc3_wes_hclust, method = "canberra")

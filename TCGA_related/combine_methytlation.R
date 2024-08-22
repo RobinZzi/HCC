@@ -5,14 +5,28 @@ load("methy_merge.RData")
 
 save.image("methy_merge.RData")
 
+trio_meth_mtx2 <- as.data.frame(fread("big_psu_meth.txt",row))
+row.names(trio_meth_mtx2) <- trio_meth_mtx2$V1
+trio_meth_mtx2 <- trio_meth_mtx2[,-1]
+sample_id <- colnames(trio_meth_mtx2)
+sample_id <- str_split_i(sample_id,"_D",1)
+sample_id <- sample_id[-1]
+sample_id <- unique(sample_id)
+sample_id <- gsub("hcc3", "HCC2",  sample_id)
+sample_id <- gsub("hcc4", "HCC3",  sample_id)
+sample_id <- gsub("hcc7", "HCC6",  sample_id)
+sample_id <- gsub("hcc11", "HCC7", sample_id)
+sample_id <- gsub("hcc28", "HCC8", sample_id)
+sample_id <- gsub("hcc29", "HCC9", sample_id)
+trio_meth_mtx_sub <- trio_meth_mtx[,sample_id]
 
 trio_meth_mtx <- as.data.frame(fread("trio_meth.txt"))
-trio_cites <- trio_meth_mtx$V1
+trio_cites <- row.names(trio_meth_mtx2)
 tcga_meth_mtx <- as.data.frame(fread("tcga_meth_100kbin.txt"))
 tcga_cites <- tcga_meth_mtx$V1
 
-coverage <- intersect(trio_meth_mtx$V1,tcga_meth_mtx$V1)
-combine_mtx <- merge(tcga_meth_mtx,trio_meth_mtx,by='V1')
+coverage <- intersect(trio_cites,tcga_cites)
+combine_mtx <- cbind(tcga_meth_mtx[coverage,],trio_meth_mtx2[coverage,])
 coverage_cites <- combine_mtx$V1
 
 trio_meth_mtx <- trio_meth_mtx[,-1]
@@ -41,26 +55,30 @@ tcga_col_anno$sample <- "TCGA"
 tcga_col_anno <- select(tcga_col_anno,origin,sample,sample_type)
 row.names(tcga_col_anno) <- gsub("-",'.',row.names(tcga_col_anno)) 
 
-trio_col_anno <- as.data.frame(colnames(trio_meth_mtx))
+trio_col_anno <- as.data.frame(colnames(trio_meth_mtx2))
 trio_col_anno[,"origin"] <- "trio-seq"
-trio_col_anno[,3:4] <- as.data.frame(str_split_fixed(trio_col_anno$`colnames(trio_meth_mtx)`,"_",2))
-trio_col_anno$V2 <- gsub("\\d+$","tumor",trio_col_anno$V2)
+trio_col_anno[,3:4] <- as.data.frame(str_split_fixed(trio_col_anno[,1],"_",2))
+trio_col_anno$V2 <- gsub("\\d+$","Tumor Tissue",trio_col_anno$V2)
 trio_col_anno$V2 <- gsub("pt","",trio_col_anno$V2)
-trio_col_anno$V2 <- gsub("nt","normal",trio_col_anno$V2)
+trio_col_anno$V2 <- gsub("nt","Normal Tissue",trio_col_anno$V2)
 row.names(trio_col_anno) <- trio_col_anno[,1]
 trio_col_anno <- trio_col_anno[,-1]
-colnames(trio_col_anno) <- c("origin","sample","sample_type")
+colnames(trio_col_anno) <- c("origin","sample","tissue")
 
 
 
+trio_meth_mtx <- as.data.frame(lapply(trio_meth_mtx, as.numeric))
 
-
-
-
-
-
-
-
+pheatmap(trio_meth_mtx2,
+         annotation_col = trio_col_anno,annotation_row = pmd_anno,
+         annotation_colors = big_ann_colors_new,
+         show_rownames = F,show_colnames = F,
+         clustering_method = "mcquitty",
+         clustering_distance_rows = "euclidean",
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
+         treeheight_row = 0,
+         treeheight_col = 0,
+         fontsize_col= 15)
 
 
 
@@ -139,37 +157,29 @@ colanno <- select(colanno,!sample)
 
 colanno_geom_point <- colanno
 
-pheatmap(combine_mtx,
-         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,
-         annotation_colors = merge_ann_colors_sub,
-         clustering_distance_rows = "euclidean",clustering_method = "average",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+combine_heatmap <-pheatmap(combine_mtx,
+         show_rownames = F,show_colnames = F,annotation_col = colanno[,1:2],annotation_row = pmd_anno_psu,
+         annotation_colors = big_ann_colors_new,
+         clustering_distance_rows = "euclidean",clustering_method = "mcquitty",
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
-         treeheight_col = 1,
+         treeheight_col = 0,
          fontsize_col= 8,
-         angle_col = 45,
-         cellwidth = 1)
-sub_trio_meth_mtx <- trio_meth_mtx[coverage_cites,]
-trioseq_heatmap <- pheatmap(sub_trio_meth_mtx,
-         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,
-         clustering_method = "mcquitty",annotation_colors = merge_ann_colors_sub,
-         clustering_distance_rows = "euclidean",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
-         treeheight_row = 0,
-         treeheight_col = 1,
-         fontsize_col= 8,
-         angle_col = 45,
-         cellwidth = 15)
+         angle_col = 45)
+combine_order_row = combine_heatmap$tree_row$order
+combine_order_col = combine_heatmap$tree_col$order
+combine_sort_mtx <- data.frame(combine_mtx[combine_order_row, combine_order_col])
 
-trioseq_order_row = trioseq_heatmap$tree_row$order
-trioseq_order_col = trioseq_heatmap$tree_col$order
-sort_trioseq_data = data.frame(sub_trio_meth_mtx[trioseq_order_row, trioseq_order_col])
-sort_combine_data = data.frame(combine_mtx[trioseq_order_row, ])
+tcga_meth_mtx_sub <- tcga_meth_mtx[coverage,]
+trio_meth_mtx_sub <- trio_meth_mtx2[coverage,]
+sort_trioseq_data = data.frame(trio_meth_mtx_sub[row.names(combine_sort_mtx), colnames(combine_sort_mtx[,431:457])])
+sort_tcga_data = data.frame(tcga_meth_mtx_sub[row.names(combine_sort_mtx), colnames(combine_sort_mtx[,1:430])])
+
 
 
 pheatmap(sort_trioseq_data,
          show_rownames = F,show_colnames = T,annotation_col = colanno,annotation_row = rowanno,
-         annotation_colors = merge_ann_colors_sub,
+         annotation_colors = big_ann_colors_new,
          cluster_rows = F,cluster_cols = F,clustering_method = "average",
          color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
          treeheight_row = 0,
@@ -180,48 +190,21 @@ pheatmap(sort_trioseq_data,
 
 
 
-pheatmap(sort_combine_data,
-         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,
-         annotation_colors = merge_ann_colors_sub,
-         cluster_rows = F,cluster_cols = T,clustering_method = "average",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
-         treeheight_row = 0,
-         treeheight_col = 1,
-         fontsize_col= 8,
-         angle_col = 45,
-         cellwidth = 1)
 
 
-trioseq_all_heatmap <- pheatmap(trio_meth_mtx,
-                            show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,
-                            clustering_method = "mcquitty",annotation_colors = merge_ann_colors_sub,
-                            clustering_distance_rows = "euclidean",
-                            color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
-                            treeheight_row = 0,
-                            treeheight_col = 1,
-                            fontsize_col= 8,
-                            angle_col = 45,
-                            cellwidth = 15)
-trioseq_all_order_row = trioseq_all_heatmap$tree_row$order
-trioseq_all_order_col = trioseq_all_heatmap$tree_col$order
-sort_trioseq_all_data = data.frame(trio_meth_mtx[trioseq_all_order_row, trioseq_all_order_col])
 
-dev.off()
 
-combine_all_heatmap <- pheatmap(combine_mtx,
-                                show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,
-                                clustering_method = "mcquitty",annotation_colors = merge_ann_colors_sub,
-                                clustering_distance_rows = "euclidean",
-                                color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
-                                treeheight_row = 0,
-                                treeheight_col = 1,
-                                fontsize_col= 8,
-                                angle_col = 45,
-                                cellwidth = 1)
-combine_all_order_row = combine_all_heatmap$tree_row$order
-combine_all_order_col = combine_all_heatmap$tree_col$order
-sort_combine_all_data = data.frame(combine_mtx[combine_all_order_row, combine_all_order_col])
 
+
+
+
+pmd <- fread("PMD_coordinates_hg38.bed")
+pmd <- dplyr::select(pmd,1,3,5)
+pmd <- mutate(pmd,pos=paste(V1,V3/100000,sep = "_"))
+pmd_anno_psu <- as.data.frame(pmd$V5)
+colnames(pmd_anno_psu) <- "meth_type"
+row.names(pmd_anno_psu) <- pmd$pos
+pmd_anno_psu <- na.omit(pmd_anno_psu)
 
 sort_all_id <- colnames(sort_combine_all_data)
 sort_tcga_id <- subset(sort_all_id , subset = sort_all_id %in% colnames(tcga_meth_mtx))
@@ -229,22 +212,39 @@ sort_tcga <- select(sort_combine_all_data,sort_tcga_id)
 sort_trio_id <- subset(sort_all_id , subset = sort_all_id %in% colnames(trio_meth_mtx))
 sort_trio <- select(sort_combine_all_data,sort_trio_id)
 
-pheatmap(sort_tcga,
-         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,cluster_cols = F,cluster_rows = F,
-         clustering_method = "mcquitty",annotation_colors = merge_ann_colors_sub,
+
+big_ann_colors_new =list(
+  meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
+  tissue=c('Tumor Tissue'='#b11a2b','Normal Tissue'='#4a74a4'),
+  origin=c('TCGA'='#00ADC4','trio-seq'='#4C1A72')
+)
+
+rownames(colanno)  <- gsub("hcc3", "HCC2",rownames(colanno) )
+rownames(colanno) <- gsub("hcc4", "HCC3",rownames(colanno) )
+rownames(colanno) <- gsub("hcc7", "HCC6",rownames(colanno) )
+rownames(colanno) <- gsub("hcc11", "HCC7",rownames(colanno) )
+rownames(colanno) <- gsub("hcc28", "HCC8",rownames(colanno) )
+rownames(colanno) <- gsub("hcc29", "HCC9",rownames(colanno)  )
+colnames(colanno) <- c("origin","tissue","mean")
+colanno$tissue <- gsub("tumor", "Tumor Tissue",colanno$tissue)
+colanno$tissue <- gsub("normal", "Normal Tissue",colanno$tissue)
+colanno['HCC6_pt1',] <- c("trio-seq","Tumor Tissue",0.7)
+pheatmap(sort_tcga_data,
+         show_rownames = F,show_colnames = F,annotation_col = colanno[,1:2],annotation_row = pmd_anno_psu,cluster_cols = F,cluster_rows = F,
+         clustering_method = "mcquitty",annotation_colors = big_ann_colors_new,
          clustering_distance_rows = "euclidean",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
          treeheight_col = 1,
          fontsize_col= 8,
          angle_col = 45,
          cellwidth = 1,
          cellheight = 0.03)
-pheatmap(sort_trio,
-         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = rowanno,cluster_cols = F,cluster_rows = F,
-         clustering_method = "mcquitty",annotation_colors = merge_ann_colors_sub,
+pheatmap(sort_trioseq_data,
+         show_rownames = F,show_colnames = F,annotation_col = colanno[,1:2],annotation_row = pmd_anno_psu,cluster_cols = F,cluster_rows = F,
+         clustering_method = "mcquitty",annotation_colors = big_ann_colors_new,
          clustering_distance_rows = "euclidean",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
          treeheight_col = 1,
          fontsize_col= 8,
@@ -387,7 +387,7 @@ write.table(all_demeth_regions, "all_demeth_regions.bedGraph",sep = "\t",quote=F
 trio_meth_10x <- select(trio_meth_mtx,hcc3_nt,hcc3_pt1,hcc3_pt2,hcc3_pt3,hcc3_pt4,hcc28_nt,hcc28_pt1,hcc28_pt2,hcc28_pt4,hcc29_pt1,hcc29_pt3,hcc29_pt4)
 pheatmap(trio_meth_10x,
          show_rownames = F,show_colnames = T,annotation_row = rowanno,
-         annotation_colors = merge_ann_colors_sub,
+         annotation_colors = merge_ann_colors_sub,cluster_cols = F,
          clustering_distance_rows = "euclidean",clustering_method = "average",
          color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
          treeheight_row = 0,
@@ -397,13 +397,13 @@ pheatmap(trio_meth_10x,
          cellwidth = 25)
 
 
-trio_meth_hcc3 <- select(trio_meth_mtx,hcc3_nt,hcc3_pt1,hcc3_pt2,hcc3_pt3,hcc3_pt4)
+trio_meth_hcc3 <- select(sort_trioseq_data,HCC2_pt1,HCC2_pt2,HCC2_pt3)
 trio_meth_hcc3_pt <- select(trio_meth_mtx,hcc3_pt1,hcc3_pt2,hcc3_pt3,hcc3_pt4)
 pheatmap(trio_meth_hcc3,
-         show_rownames = F,show_colnames = T,annotation_row = rowanno,
-         annotation_colors = merge_ann_colors_sub,
+         show_rownames = F,show_colnames = T,annotation_row = pmd_anno_psu,
+         annotation_colors = big_ann_colors_new,cluster_cols = F,
          clustering_distance_rows = "euclidean",clustering_method = "average",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
          treeheight_col = 40,
          fontsize_col= 13,
@@ -411,10 +411,11 @@ pheatmap(trio_meth_hcc3,
          cellwidth = 80)
 
 pheatmap(trio_meth_hcc3_pt,
-         show_rownames = F,show_colnames = T,annotation_row = rowanno,
+         show_rownames = F,show_colnames = T,
+         annotation_row = pmd_anno_psu,
          annotation_colors = merge_ann_colors_sub,
          clustering_distance_rows = "euclidean",clustering_method = "average",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
          treeheight_col = 100,
          fontsize_col= 13,
@@ -430,7 +431,7 @@ hcc3heatmap_result <- pheatmap(trio_meth_hcc3_pt,
                                fontsize_col= 13,
                                angle_col = 45,
                                cellwidth = 80)
-hcc3_pb_mtx <- t(trio_meth_hcc3_pt)
+hcc3_pb_mtx <- t(trio_meth_hcc3)
 hcc3_pb_dist = dist(hcc3_pb_mtx, method = "euclidean")
 hclust_hcc3 = hclust(hcc3_pb_dist, method = "average")
 plot(hclust_hcc3)
@@ -483,7 +484,7 @@ pheatmap(trio_meth_hcc29,
          show_rownames = F,show_colnames = T,annotation_row = rowanno,
          annotation_colors = merge_ann_colors_sub,
          clustering_distance_rows = "euclidean",clustering_method = "average",
-         color = colorRampPalette(c("#3f72af", "#fcefee", "#d72323"))(20),
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,
          treeheight_col = 15,
          fontsize_col= 13,
@@ -494,3 +495,9 @@ hcc29_pb_mtx <- t(trio_meth_hcc29)
 hcc29_pb_dist = dist(hcc29_pb_mtx, method = "euclidean")
 hclust_hcc29 = hclust(hcc29_pb_dist, method = "average")
 plot(hclust_hcc29)
+
+
+setwd("~/projects/hcc/data/trio_seq/scMethy/methy_data/methy_file/hcc7/CpG_profile/pt1")
+hcc6_pt1_d1 <- fread("pt1_D1.CpG.methy.bed.gz")
+setwd("~/projects/hcc/data/trio_seq/scMethy/methy_data/methy_file/hcc7/CpG_100kb")
+hcc6_pt1_d1 <- fread("pt1_D1.CpG.100kb.methy.tsv")
