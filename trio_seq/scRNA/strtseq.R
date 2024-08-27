@@ -63,8 +63,8 @@ strt_merge$patient <- str_split_i(strt_merge$sample_pt,"_",1)
 
 strt_merge <- PercentageFeatureSet(strt_merge, pattern = "^MT-", col.name = "percent.mt")
 strt_merge <- SCTransform(strt_merge, vars.to.regress = "percent.mt", verbose = FALSE)
-strt_merge <- RunHarmony(strt_merge, "patient")
 strt_merge <- RunPCA(strt_merge, verbose = FALSE)
+strt_merge <- RunHarmony(strt_merge, "patient")
 strt_merge <- RunUMAP(strt_merge,  dims = 1:15,reduction = "harmony")
 strt_merge <- FindNeighbors(strt_merge, dims = 1:10, verbose = FALSE)
 strt_merge <- FindClusters(strt_merge, verbose = FALSE)
@@ -83,8 +83,8 @@ DimPlot(strt_merge,cells.highlight = "HCC2_pt4_R24")
 DimPlot(strt_merge,cells.highlight = "HCC2_pt4_R8")
 DimPlot(strt_merge,cells.highlight = "HCC2_pt4_R7")
 
-strt_merge$cell_id <- paste(strt_merge$patient,strt_merge$cell_id)
-strt_merge_hpc <- subset(strt_merge,subset=seurat_clusters %in% c(1,2,3,5,7,9,11,12,14))
+
+strt_merge_hpc <- subset(strt_merge,subset=seurat_clusters %in% c(1,2,4,5,6,8,9,10))
 
 hcc2_strt_hpc <- subset(strt_merge_hpc,subset=patient=="HCC2")
 hcc3_strt_hpc <- subset(strt_merge_hpc,subset=patient=="HCC3")
@@ -121,7 +121,19 @@ hcc8_sample_origin = case_when(
 hcc8.seu@meta.data$sample_origin= hcc8_sample_origin
 
 hcc8.seu$paitent <- 'HCC8'
-hcc8.seu$sample_pt <- paste('HCC8',hcc8.seu$sample_origin)
+hcc8.seu$sample_pt <- paste('HCC8',hcc8.seu$sample_origin,sep = "_")
+
+
+hcc8.seu <- PercentageFeatureSet(hcc8.seu, pattern = "^MT-", col.name = "percent.mt")
+hcc8.seu <- SCTransform(hcc8.seu, vars.to.regress = "percent.mt", verbose = FALSE)
+hcc8.seu <- RunPCA(hcc8.seu, verbose = FALSE)
+hcc8.seu <- RunUMAP(hcc8.seu,  dims = 1:15)
+hcc8.seu <- FindNeighbors(hcc8.seu, dims = 1:30, verbose = FALSE)
+hcc8.seu <- FindClusters(hcc8.seu, verbose = FALSE)
+DimPlot(hcc8.seu,group.by = "orig.ident")
+DimPlot(hcc8.seu,group.by = "sample_pt")
+saveRDS(hcc8.seu,"hcc8_strt.RDS")
+
 
 hcc9.seu <- CreateSeuratObject(counts = hcc29.strt.raw)
 hcc9.seu$paitent <- 'HCC9'
@@ -133,5 +145,15 @@ hcc9_sample_origin = case_when(
   hcc9_ori %in% c("pt4a.pt4","pt4b.pt4","pt4c.pt4")~"PT4",
   TRUE ~ as.character(hcc9_ori))
 hcc9.seu@meta.data$sample_origin= hcc9_sample_origin
-hcc9.seu$sample_pt <- paste('HCC9',hcc9.seu$sample_origin)
+hcc9.seu$sample_pt <- paste('HCC9',hcc9.seu$sample_origin,sep = "_")
 
+
+hcc9.seu <- PercentageFeatureSet(hcc9.seu, pattern = "^MT-", col.name = "percent.mt")
+hcc9.seu <- SCTransform(hcc9.seu, vars.to.regress = "percent.mt", verbose = FALSE)
+hcc9.seu <- RunPCA(hcc9.seu, verbose = FALSE)
+hcc9.seu <- RunUMAP(hcc9.seu,  dims = 1:15)
+hcc9.seu <- FindNeighbors(hcc9.seu, dims = 1:30, verbose = FALSE)
+hcc9.seu <- FindClusters(hcc9.seu, verbose = FALSE)
+DimPlot(hcc9.seu,group.by = "orig.ident")
+DimPlot(hcc9.seu,group.by = "sample_pt")
+saveRDS(hcc9.seu,"hcc9_strt.RDS")
