@@ -34,6 +34,17 @@ hcc_11_qc_pass <- subset(hcc_11_qc, subset= hcc_11_qc$最终是否可用 ==1)
 hcc_28_qc_pass <- subset(hcc_28_qc, subset= hcc_28_qc$最终是否可用 ==1)
 hcc_29_qc_pass <- subset(hcc_29_qc, subset= hcc_29_qc$最终是否可用 ==1)
 
+hcc2_qc_pass_dirs <- hcc_3_qc_pass$cell
+hcc2_fastq_path <- "/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/trio_seq/bismark/fastq"
+hcc2_all_dirs <- list.dirs(hcc2_fastq_path, full.names = TRUE, recursive = FALSE)  
+hcc2_dirs_to_delete <- hcc2_all_dirs[!basename(hcc2_all_dirs) %in% hcc2_qc_pass_dirs]
+
+sapply(hcc2_dirs_to_delete, function(dir) {  
+  unlink(dir, recursive = TRUE)  
+}) 
+
+print(hcc2_dirs_to_delete) 
+hcc2_left_dirs <- list.dirs(hcc2_fastq_path, full.names = TRUE, recursive = FALSE)  
 
 hcc_3_qc_pass_add <- hcc_3_qc_pass
 hcc_3_qc_pass_add[98:101,] <- qc3_add
@@ -739,8 +750,8 @@ pheatmap(big_meth,
 
 
 
-pheatmap(big_meth,
-         annotation_col = big_colanno_new[,2:3],annotation_row = pmd_anno,
+bigmeth_heatmap <- pheatmap(big_meth,
+         annotation_col = big_colanno_new[,2:4],annotation_row = pmd_anno,
          annotation_colors = big_ann_colors_new,
          show_rownames = F,show_colnames = F,
          clustering_method = "mcquitty",
@@ -749,6 +760,9 @@ pheatmap(big_meth,
          treeheight_row = 0,
          treeheight_col = 0,
          fontsize_col= 15)
+
+bigmeth_colmeans <- as.data.frame(colMeans(big_meth))
+big_colanno_new$mean_methy_level <- bigmeth_colmeans$`colMeans(big_meth)`
 
 
 bigmeth_pmd <- subset(pmd_anno, subset = pmd_anno$pmd_type == "PMD")
@@ -1160,3 +1174,53 @@ pmd_anno_psu <- na.omit(pmd_anno_psu)
 
 write.table(big_psu_meth,"big_psu_meth.txt")
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pmd_regions <- subset(pmd_anno,subset=meth_type =='PMD') 
+pmd_regions$region <- row.names(pmd_regions)
+pmd_regions <-subset(pmd_regions ,subset=region %in% row.names(big_meth))
+
+hmd_regions <- subset(pmd_anno,subset=meth_type =='HMD') 
+hmd_regions$region <- row.names(hmd_regions)
+hmd_regions <-subset(hmd_regions ,subset=region %in% row.names(big_meth) )
+
+
+bigmeth_order_row = bigmeth_heatmap$tree_row$order
+bigmeth_order_col = bigmeth_heatmap$tree_col$order
+bigmeth_sort_mtx <- data.frame(big_meth[bigmeth_order_row, bigmeth_order_col])
+
+
+sorted_bigmeth_colmeans <- as.data.frame(colMeans(bigmeth_sort_mtx))
+colnames(sorted_bigmeth_colmeans) <- 'mean_level'
+sorted_bigmeth_colmeans$pmd_level <- colMeans(bigmeth_sort_mtx[rownames(pmd_regions),])
+sorted_bigmeth_colmeans$hmd_level <- colMeans(bigmeth_sort_mtx[rownames(hmd_regions),])
+
+
+
+sorted_bigmeth_colmeans$sample <- row.names(sorted_bigmeth_colmeans) 
+
+sorted_bigmeth_colmeans$sample <-factor(sorted_bigmeth_colmeans$sample, levels =c(sorted_bigmeth_colmeans$sample))
+
+
+
+
+ggplot(sorted_bigmeth_colmeans)+
+  geom_point(aes(x=sample,y=hmd_level),color='#f9ed69',size=1)+
+  geom_line(aes(x=factor(sample),y=hmd_level,group=1),size = 1,color='#f9ed69')+
+  geom_line(aes(x=factor(sample),y=pmd_level,group=1),size = 1,color='#3f72af')+
+  geom_point(aes(x=sample,y=pmd_level),color='#3f72af',size=1)+
+  theme_bw()+
+  theme(panel.grid = element_blank(),axis.title.x = element_text(size = 0),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 0,color="black",angle = 45),axis.text.y = element_text(size = 10,color="black"))

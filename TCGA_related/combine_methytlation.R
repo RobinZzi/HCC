@@ -151,7 +151,7 @@ merge_ann_colors_sub=list(
   pmd_type=c('commonPMD'='#99CCFF','commonHMD'='#FF0000','Neither'='#FFE0EC'),
   meth_type=c('PMD'='#99CCFF','HMD'='#FF0000'),
   sample_type = c("normal"='#99CCFF',"tumor"='#FF0000'),
-  origin = c("trio-seq"="#C8D948","TCGA" ="#84C7DB")
+  origin = c("trio-seq"="#defcf9","TCGA" ="#cca8e9")
 )
 colanno <- select(colanno,!sample)
 
@@ -216,7 +216,8 @@ sort_trio <- select(sort_combine_all_data,sort_trio_id)
 big_ann_colors_new =list(
   meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
   tissue=c('Tumor Tissue'='#b11a2b','Normal Tissue'='#4a74a4'),
-  origin=c('TCGA'='#00ADC4','trio-seq'='#4C1A72')
+  origin=c('TCGA'='#00ADC4','trio-seq'='#4C1A72'),
+  mean_methy_level = c("#f7f6ee", "#cca8e9")
 )
 
 rownames(colanno)  <- gsub("hcc3", "HCC2",rownames(colanno) )
@@ -229,8 +230,80 @@ colnames(colanno) <- c("origin","tissue","mean")
 colanno$tissue <- gsub("tumor", "Tumor Tissue",colanno$tissue)
 colanno$tissue <- gsub("normal", "Normal Tissue",colanno$tissue)
 colanno['HCC6_pt1',] <- c("trio-seq","Tumor Tissue",0.7)
+
+
+pmd_regions <- subset(pmd_anno_psu,subset=meth_type =='PMD') 
+pmd_regions$region <- row.names(pmd_regions)
+pmd_regions <-subset(pmd_regions ,subset=region %in% row.names(sort_tcga_data) )
+
+hmd_regions <- subset(pmd_anno_psu,subset=meth_type =='HMD') 
+hmd_regions$region <- row.names(hmd_regions)
+hmd_regions <-subset(hmd_regions ,subset=region %in% row.names(sort_tcga_data) )
+
+
+sorted_tcga_colmeans <- as.data.frame(colMeans(sort_tcga_data))
+colnames(sorted_tcga_colmeans) <- 'mean_level'
+sorted_tcga_colmeans$pmd_level <- sorted_tcga_pmd_colmeans$`colMeans(sort_tcga_data[rownames(pmd_regions), ])`
+sorted_tcga_colmeans$hmd_level <- sorted_tcga_hmd_colmeans$hmd_level
+
+sorted_trioseq_colmeans <- as.data.frame(colMeans(sort_trioseq_data))
+colnames(sorted_trioseq_colmeans) <- 'mean_level'
+sorted_trioseq_colmeans$pmd_level <- sorted_trioseq_pmd_colmeans$`colMeans(sort_trioseq_data[rownames(pmd_regions), ])`
+sorted_trioseq_colmeans$hmd_level <- sorted_trioseq_hmd_colmeans$hmd_level
+
+sorted_tcga_pmd_colmeans <-as.data.frame(colMeans(sort_tcga_data[rownames(pmd_regions),]))
+colnames(sorted_tcga_pmd_colmeans) <- 'pmd_level'
+sorted_trioseq_pmd_colmeans <-as.data.frame(colMeans(sort_trioseq_data[rownames(pmd_regions),]))
+colnames(sorted_trioseq_pmd_colmeans) <- 'pmd_level'
+
+sorted_tcga_hmd_colmeans <-as.data.frame(colMeans(sort_tcga_data[rownames(hmd_regions),]))
+colnames(sorted_tcga_hmd_colmeans) <- 'hmd_level'
+sorted_trioseq_hmd_colmeans <-as.data.frame(colMeans(sort_trioseq_data[rownames(hmd_regions),]))
+colnames(sorted_trioseq_hmd_colmeans) <- 'hmd_level'
+
+meanlevel_sum <- rbind(sorted_trioseq_colmeans,sorted_tcga_colmeans)
+meanlevel_sum$sample <- row.names(meanlevel_sum) 
+
+meanlevel_sum$sample <-factor(meanlevel_sum$sample, levels =c(meanlevel_sum$sample))
+
+
+
+
+ggplot(meanlevel_sum[34:457,])+
+  geom_point(aes(x=sample,y=hmd_level),color='#f9ed69',size=1)+
+  geom_line(aes(x=factor(sample),y=hmd_level,group=1),size = 1,color='#f9ed69')+
+  geom_line(aes(x=factor(sample),y=pmd_level,group=1),size = 1,color='#3f72af')+
+  geom_point(aes(x=sample,y=pmd_level),color='#3f72af',size=1)+
+  theme_bw()+
+  theme(panel.grid = element_blank(),axis.title.x = element_text(size = 0),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 0,color="black",angle = 45),axis.text.y = element_text(size = 10,color="black"))
+
+
+ggplot(meanlevel_sum)+
+  geom_point(aes(x=sample,y=hmd_level),color='#f9ed69',size=1)+
+  geom_line(aes(x=factor(sample),y=hmd_level,group=1),size = 1,color='#f9ed69')+
+  geom_line(aes(x=factor(sample),y=pmd_level,group=1),size = 1,color='#3f72af')+
+  geom_point(aes(x=sample,y=pmd_level),color='#3f72af',size=1)+
+  theme_bw()+
+  theme(panel.grid = element_blank(),axis.title.x = element_text(size = 0),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 0,color="black",angle = 45),axis.text.y = element_text(size = 10,color="black"))
+
+
+
+
+colanno$mean <- as.numeric(colanno$mean)
+
+colnames(colanno) <- c("origin","tissue","mean_methy_level")
+cg_count <- fread("cg_count.txt")
+cg_count <- subset(cg_count,subset=Var1 %in% row.names(sort_tcga_data))
+
+cg_count$Var1 <- factor(cg_count$Var1,levels = row.names(sort_tcga_data))
+
+ggplot(cg_count)+
+  geom_line(aes(x=factor(Var1),y=Freq,group=1),size = 0.4,color='black')
+
 pheatmap(sort_tcga_data,
-         show_rownames = F,show_colnames = F,annotation_col = colanno[,1:2],annotation_row = pmd_anno_psu,cluster_cols = F,cluster_rows = F,
+         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = pmd_anno_psu,cluster_cols = F,cluster_rows = F,
          clustering_method = "mcquitty",annotation_colors = big_ann_colors_new,
          clustering_distance_rows = "euclidean",
          color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
@@ -241,7 +314,7 @@ pheatmap(sort_tcga_data,
          cellwidth = 1,
          cellheight = 0.03)
 pheatmap(sort_trioseq_data,
-         show_rownames = F,show_colnames = F,annotation_col = colanno[,1:2],annotation_row = pmd_anno_psu,cluster_cols = F,cluster_rows = F,
+         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = pmd_anno_psu,cluster_cols = F,cluster_rows = F,
          clustering_method = "mcquitty",annotation_colors = big_ann_colors_new,
          clustering_distance_rows = "euclidean",
          color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
@@ -254,6 +327,8 @@ pheatmap(sort_trioseq_data,
 
 colanno_geom_point <- colanno
 colanno_geom_point$sample <- row.names(colanno_geom_point)
+
+
 
 ggplot(colanno_geom_point,aes(x=factor(sample,levels = colnames(sort_combine_all_data)),y=PMD_meanmeth_level))+
   geom_point(size = 0.5)+theme_bw()+

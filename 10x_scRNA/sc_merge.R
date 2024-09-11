@@ -2316,9 +2316,11 @@ tx_HPC <- SCTransform(tx_HPC,method = "glmGamPoi", vars.to.regress = "percent.mt
 tx_HPC <- RunPCA(tx_HPC, verbose = FALSE)
 tx_HPC <- RunUMAP(tx_HPC, dims = 1:30, verbose = FALSE)
 
-DimPlot(tx_HPC,group.by = "patient")
+DimPlot(tx_HPC,group.by = "patient",cols = c('HCC2'='#fb9795','HCC8'='#00ADC4','HCC9'='#4C1A72'))
 DimPlot(tx_HPC,group.by = "sample")
-DimPlot(tx_HPC,group.by = "group")
+DimPlot(tx_HPC,group.by = "group",cols = c('P'='#E95C59','NT'='#57C3F3'))
+
+
 
 tx_HPC$sample <- paste(tx_HPC$patient,tx_HPC$orig.ident,sep = "_")
 tx_HPC_sample <- tx_HPC$sample
@@ -2617,19 +2619,22 @@ immune_prop_cmnsn_result_merge$celltype <-factor(immune_prop_cmnsn_result_merge$
                                                                                                 "B cell", "CD8+ memory", "Dendritic cell","NK",
                                                                                                 "Neutrophil","Macrophage", "PlasmaB cell","Proliferative T"))
 
-ggplot(immune_prop_cmnsn_result_merge,aes(x=type,y=proportion,color=type))+
+ggplot(immune_prop_cmnsn_result_merge_rm89,aes(x=type,y=proportion,color=type))+
   geom_boxplot(outlier.size = 0,outlier.alpha = 1,outlier.color = "white")+
   geom_jitter(width = 0.1,shape = 20,size=0.5)+
   facet_wrap(~ celltype)+
-  ylim(0,0.2)+
+  ylim(0,1)+
   scale_color_manual(values=c("cmn"="#d72323","sn"="#3f72af"))+
   stat_compare_means(comparisons = list(c("cmn","sn")),
-                     method = "wilcox.test",label = "p.signif",
-                     label.y = 0.13 )+theme_bw()+
+                     method = "t.test",label = "p.signif",
+                     label.y = 0.8 )+theme_bw()+
      theme(panel.background = element_blank(),
                           panel.grid = element_blank())
 
 
+ximmune_prop_cmnsn_result_merge_rm89 <- subset(immune_prop_cmnsn_result_merge2,subset = sample %in% prop_result_ptnt_merge_rm89$sample  )
+
+immune_prop_cmnsn_result_merge_rm89 <- subset(immune_prop_cmnsn_result_merge_rm89,subset = type =='pt')
 #0.6 0.5
 #0.5 0.4
 #0.2 0.13

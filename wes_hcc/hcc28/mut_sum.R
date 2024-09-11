@@ -547,7 +547,7 @@ pheatmap(hcc3_sum,
          clustering_method = "complete",clustering_distance_cols = "canberra",
          color = colorRampPalette(c("#fff5f6", "#fc929f"))(20),
          treeheight_row = 0,
-         treeheight_col = 0,border_color = NA,
+         treeheight_col = 12,border_color = NA,
          fontsize          = 12)
 
 
@@ -556,4 +556,8 @@ hcc3_mut_dist = dist(hcc3_sum_hclust, method = "euclidean")
 hclust_hcc3 = hclust(hcc3_mut_dist, method = "average")
 plot(hclust_hcc3)
 
+hcc3_sum_pt1_pt2 <- subset(hcc3_sum,subset= PT1==1&PT2==1&PT3==0)
+hcc3_sum_pt1_pt3 <- subset(hcc3_sum,subset= PT1==1&PT2==0&PT3==1)
+hcc3_sum_pt2_pt3 <- subset(hcc3_sum,subset= PT1==0&PT2==1&PT3==1)
+hcc3_sum_pt1_pt2_pt3 <- subset(hcc3_sum,subset= PT1==1&PT2==1&PT3==1)
 

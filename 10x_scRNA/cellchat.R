@@ -420,4 +420,38 @@ ggplot(cmn_samples_cellchat,aes(x=type,y=weight))+
 
 CairoPNG("HCC3_PT2-cellchat.png",xpd=TRUE,height = 800,width = 800)
 groupSize <- as.numeric(table(cellchat@idents))
-netVisual_circle(cellchat@net$count, vertex.weight = groupSize, weight.scale = T, label.edge= F, title.name = "Number of interactions")
+
+netVisual_circle(cellchat@net$count,
+                 color.use = cellchat_color_sn,
+                 vertex.weight = groupSize, weight.scale = T, label.edge= F, title.name = "Number of interactions")
+
+cellchat_color_sn <- c("#E95C59","#57C3F3","#E59CC4","#53A85F", "#D6E7A3","#F1BB72","#E0D4CA",
+                       "#23452F","#476D87","#AB3282","#BD956A")
+
+cellchat_color_cmn <- c("#E5D2DD","#E95C59","#57C3F3","#585658","#E59CC4","#53A85F", "#D6E7A3","#F1BB72","#E0D4CA",
+                       "#23452F","#476D87","#AB3282","#BD956A","#F3B1A0")
+
+
+netVisual_circle(cellchat@net$count,
+                 color.use = cellchat_color_cmn,
+                 vertex.weight = groupSize, weight.scale = T, label.edge= F, title.name = "Number of interactions")
+
+
+
+c( "HPC"="#E0D4CA", 
+   "Fibroblast"="#9FA3A8", 
+   "Endothelial cell" = "#585658",
+   "Neutrophil" = "#8C549C",
+   "PlasmaB cell" = "#BD956A", 
+   "B cell" = "#23452F",
+   "Proliferative T" = "#AB3282",
+   "CD8+ memory" = "#E59CC4",
+   "CD8+ exhausted" = "#E95C59",
+   "CD8+ cytotoxic" = "#476D87",
+   "CD4+ memory" = "#57C3F3",
+   "CD4+ Treg" = "#D6E7A3",
+   "Mast cell" = "#F3B1A0",
+   "NK"="#F1BB72",
+   "Dendritic cell"="#53A85F",
+   "Macrophage"="#E5D2DD")
+
