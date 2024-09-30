@@ -570,3 +570,56 @@ ggplot(sta_prim_sum_sn,aes(type,cor,color=type))+
 
 
 
+sta_prim_sum_cmn$nd_type <- 'CMN'
+sta_prim_sum_sn$nd_type <- 'SN'
+
+sta_prim_sum_snd <- rbind(sta_prim_sum_cmn,sta_prim_sum_sn)
+
+sta_prim_sum_snd_pr <- subset(sta_prim_sum_snd,subset= type=='primary')
+sta_prim_sum_snd_st <- subset(sta_prim_sum_snd,subset= type=='satellite')
+
+ggplot(sta_prim_sum_snd_pr,aes(nd_type,cor,color=nd_type))+
+  geom_boxplot(width=0.5,outlier.size=0)+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
+  stat_compare_means(comparisons = list(c("SN","CMN")),
+                     method = "wilcox.test",label = "p.signif",
+                     label.y =1 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+
+ggplot(sta_prim_sum_snd_st,aes(nd_type,cor,color=nd_type))+
+  geom_boxplot(width=0.5,outlier.size=0)+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
+  stat_compare_means(comparisons = list(c("SN","CMN")),
+                     method = "wilcox.test",label = "p.signif",
+                     label.y =1 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+
+
+
+
+ggplot(sta_prim_sum_snd,aes(nd_type,cor,color=nd_type))+
+  geom_boxplot(width=0.5,outlier.size=0)+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
+  stat_compare_means(comparisons = list(c("SN","CMN")),
+                     method = "wilcox.test",label = "p.signif",
+                     label.y =1 )+theme_bw() +
+  facet_grid(~type)+
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())

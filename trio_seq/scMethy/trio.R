@@ -5,7 +5,7 @@ library(pheatmap)
 library(Seurat)
 library(ggforce)
 library(reshape2)
-
+library(ggplot2)
 library(geneRal)
 setwd("~/projects/hcc/analysis/trio_seq/scMethy")
 rm(list=ls())
@@ -1220,6 +1220,7 @@ ggplot(sorted_bigmeth_colmeans)+
   geom_point(aes(x=sample,y=hmd_level),color='#f9ed69',size=1)+
   geom_line(aes(x=factor(sample),y=hmd_level,group=1),size = 1,color='#f9ed69')+
   geom_line(aes(x=factor(sample),y=pmd_level,group=1),size = 1,color='#3f72af')+
+  geom_line(aes(x=factor(sample),y=mean_level,group=1),size = 1,color='#2ca260')+
   geom_point(aes(x=sample,y=pmd_level),color='#3f72af',size=1)+
   theme_bw()+
   theme(panel.grid = element_blank(),axis.title.x = element_text(size = 0),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+

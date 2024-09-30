@@ -3,6 +3,7 @@ library(pheatmap)
 library(dplyr)
 library(edgeR)
 library(FactoMineR)
+library(ggpubr)
 setwd("/storage/zhangyanxiaoLab/zhangliwen/projects/hcc/analysis/sh_cell_line/wgbs_20240611/methy_mtx/100kbin")
 
 setwd("~/projects/hcc/analysis/sh_cell_line/wgbs/methy_mtx")
@@ -267,3 +268,60 @@ Hepmeansum <- cbind(HepPMDMean,HepHMDMean,hep_100k_baseMean)
 Snumeansum <- cbind(SnuPMDMean,SnuHMDMean,snu_100k_baseMean)
 
 
+
+
+
+data <- as.data.frame(cbind(c(0.6463,0.6488,0.6506,0.6518),
+                            c(0.5439,0.5456,0.546,0.5486),
+                            c(0.818,0.822,0.8261,0.8244),
+                            c("V","V","SH","SH")))
+colnames(data) <- c("Global_Methy","PMD_Methy","HMD_Methy","Group")                      
+data$FPKM <- as.numeric(data$FPKM)
+data$Global_Methy <- as.numeric(data$Global_Methy)
+data$PMD_Methy <- as.numeric(data$PMD_Methy)
+data$HMD_Methy <- as.numeric(data$HMD_Methy)
+
+ggplot(data,aes(Group,Global_Methy,color=Group))+
+  geom_boxplot(width=0.5)+
+  geom_jitter(width = 0.1,shape = 20,size=2)+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
+  stat_compare_means(comparisons = list(c("V","SH")),
+                     method = "t.test",label = "p.signif",
+                     label.y =0.66 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  ##去掉背景网格
+        axis.text.x = element_text(face="bold",size=12,angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+
+
+
+
+data2 <- as.data.frame(cbind(c(0.6463,0.6488,0.6506,0.6518,
+                               0.5439,0.5456,0.546,0.5486,
+                               0.818,0.822,0.8261,0.8244),
+                             c("Global_Mean","Global_Mean","Global_Mean","Global_Mean",
+                               "PMD_Mean","PMD_Mean","PMD_Mean","PMD_Mean",
+                               "HMD_Mean","HMD_Mean","HMD_Mean","HMD_Mean"),
+                             c("V","V","SH","SH","V","V","SH","SH","V","V","SH","SH")))
+colnames(data2) <- c("Methy_level","Region","Group")                      
+data2$Methy_level <- as.numeric(data2$Methy_level)
+
+
+ggplot(data2,aes(Group,Methy_level,color=Group))+
+  geom_boxplot(width=0.5)+
+  geom_jitter(width = 0.1,shape = 20,size=2)+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
+  stat_compare_means(comparisons = list(c("V","SH")),
+                     method = "t.test",label = "p.signif",
+                     label.y =0.55 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  ##去掉背景网格
+        axis.text.x = element_text(face="bold",size=12,angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())+
+  facet_wrap(~ Region)

@@ -273,10 +273,22 @@ ggplot(meanlevel_sum[34:457,])+
   geom_point(aes(x=sample,y=hmd_level),color='#f9ed69',size=1)+
   geom_line(aes(x=factor(sample),y=hmd_level,group=1),size = 1,color='#f9ed69')+
   geom_line(aes(x=factor(sample),y=pmd_level,group=1),size = 1,color='#3f72af')+
+  geom_line(aes(x=factor(sample),y=mean_level,group=1),size = 1,color='#2ca260')+
   geom_point(aes(x=sample,y=pmd_level),color='#3f72af',size=1)+
   theme_bw()+
   theme(panel.grid = element_blank(),axis.title.x = element_text(size = 0),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
   theme(axis.text.x = element_text(size = 0,color="black",angle = 45),axis.text.y = element_text(size = 10,color="black"))
+
+ggplot(meanlevel_sum[1:27,])+
+  geom_point(aes(x=sample,y=hmd_level),color='#f9ed69',size=2)+
+  geom_line(aes(x=factor(sample),y=hmd_level,group=1),size = 1.5,color='#f9ed69')+
+  geom_line(aes(x=factor(sample),y=pmd_level,group=1),size = 1.5,color='#3f72af')+
+  geom_line(aes(x=factor(sample),y=mean_level,group=1),size = 1.5,color='#2ca260')+
+  geom_point(aes(x=sample,y=pmd_level),color='#3f72af',size=1)+
+  theme_bw()+
+  theme(panel.grid = element_blank(),axis.title.x = element_text(size = 0),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 0,color="black",angle = 45),axis.text.y = element_text(size = 10,color="black"))
+
 
 
 ggplot(meanlevel_sum)+
@@ -297,13 +309,15 @@ colnames(colanno) <- c("origin","tissue","mean_methy_level")
 cg_count <- fread("cg_count.txt")
 cg_count <- subset(cg_count,subset=Var1 %in% row.names(sort_tcga_data))
 
-cg_count$Var1 <- factor(cg_count$Var1,levels = row.names(sort_tcga_data))
+cg_count$Var1 <- factor(cg_count$Var1,levels = row.names(combine_sub_sort_mtx))
 
+cg_count <- cg_count[order(cg_count$Var1)]
 ggplot(cg_count)+
-  geom_line(aes(x=factor(Var1),y=Freq,group=1),size = 0.4,color='black')
+  geom_line(aes(x=factor(Var1),y=Freq,group=1),linewidth = 0.4,color='black')
 
 pheatmap(sort_tcga_data,
-         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = pmd_anno_psu,cluster_cols = F,cluster_rows = F,
+         show_rownames = F,show_colnames = F,
+         annotation_col = colanno,annotation_row = pmd_anno_psu,cluster_cols = T,cluster_rows = T,
          clustering_method = "mcquitty",annotation_colors = big_ann_colors_new,
          clustering_distance_rows = "euclidean",
          color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
@@ -313,8 +327,10 @@ pheatmap(sort_tcga_data,
          angle_col = 45,
          cellwidth = 1,
          cellheight = 0.03)
+
 pheatmap(sort_trioseq_data,
-         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = pmd_anno_psu,cluster_cols = F,cluster_rows = F,
+         show_rownames = F,show_colnames = F,
+         annotation_col = colanno,annotation_row = pmd_anno_psu,cluster_cols = F,cluster_rows =T,
          clustering_method = "mcquitty",annotation_colors = big_ann_colors_new,
          clustering_distance_rows = "euclidean",
          color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
@@ -327,6 +343,125 @@ pheatmap(sort_trioseq_data,
 
 colanno_geom_point <- colanno
 colanno_geom_point$sample <- row.names(colanno_geom_point)
+
+
+cg_count_sub <- subset(cg_count,subset=Freq>10)
+
+combine_mtx_sub <- combine_mtx[cg_count_sub$Var1,]
+combine_mtx_sub_heatmap <- pheatmap(combine_mtx_sub,
+         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = pmd_anno_psu,
+         cluster_cols = T,cluster_rows = T,
+         clustering_method = "mcquitty",annotation_colors = big_ann_colors_new,
+         clustering_distance_rows = "euclidean",
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
+         treeheight_row = 0,
+         treeheight_col = 1,
+         fontsize_col= 8,
+         angle_col = 45)
+combine_sub_order_row = combine_mtx_sub_heatmap$tree_row$order
+combine_sub_order_col = combine_mtx_sub_heatmap$tree_col$order
+combine_sub_sort_mtx <- data.frame(combine_mtx_sub[combine_sub_order_row, combine_sub_order_col])
+
+pheatmap(combine_sub_sort_mtx,
+         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = pmd_anno_psu,
+         cluster_cols = F,cluster_rows = F,
+         clustering_method = "mcquitty",annotation_colors = big_ann_colors_new[1:3],
+         clustering_distance_rows = "euclidean",
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
+         treeheight_row = 0,
+         treeheight_col = 1,
+         fontsize_col= 8,
+         angle_col = 45)
+
+
+sort_tcga_data_sub <- combine_sub_sort_mtx[,28:457]
+sort_tcga_data_sub_heatmap <- pheatmap(sort_tcga_data_sub,
+         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = pmd_anno_psu,
+         cluster_cols = T,cluster_rows = T,
+         clustering_method = "mcquitty",annotation_colors = big_ann_colors_new[1:3],
+         clustering_distance_rows = "euclidean",
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
+         treeheight_row = 0,
+         treeheight_col = 0,
+         fontsize_col= 8,
+         angle_col = 45)
+
+
+sort_trio_data_sub <- combine_sub_sort_mtx[,1:27]
+pheatmap(sort_trio_data_sub,
+         show_rownames = F,show_colnames = F,annotation_col = colanno,annotation_row = pmd_anno_psu,
+         cluster_cols = T,cluster_rows = F,
+         clustering_method = "mcquitty",annotation_colors = big_ann_colors_new[1:3],
+         clustering_distance_rows = "euclidean",
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
+         treeheight_row = 0,
+         treeheight_col = 0,
+         fontsize_col= 8,
+         angle_col = 45)
+ggplot(cg_count_sub)+
+  geom_line(aes(x=factor(Var1),y=Freq,group=1),linewidth = 0.4,color='black')
+
+
+
+
+meanlevel_sum <- rbind(sorted_trioseq_colmeans,sorted_tcga_colmeans)
+meanlevel_sum$sample <- row.names(meanlevel_sum) 
+
+meanlevel_sum$sample <-factor(meanlevel_sum$sample, levels =sub_level)
+
+
+sub_level <- c(colnames(sort_trio_data_sub),colnames(sort_tcga_data_sub))
+
+ggplot(meanlevel_sum[28:457,])+
+  geom_point(aes(x=sample,y=hmd_level),color='#f9ed69',size=2)+
+  geom_point(aes(x=sample,y=pmd_level),color='#3f72af',size=2)+
+  geom_point(aes(x=sample,y=mean_level),color='#2ca260',size=2)+
+  geom_line(aes(x=factor(sample),y=hmd_level,group=1),size = 1.5,color='#f9ed69')+
+  geom_line(aes(x=factor(sample),y=pmd_level,group=1),size = 1.5,color='#3f72af')+
+  geom_line(aes(x=factor(sample),y=mean_level,group=1),size = 1.5,color='#2ca260')+
+  theme_bw()+ylim(0.2,0.8)+
+  theme(panel.grid = element_blank(),axis.title.x = element_text(size = 0),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 0,color="black",angle = 45),axis.text.y = element_text(size = 10,color="black"))
+
+ggplot(meanlevel_sum[1:27,])+
+  geom_point(aes(x=sample,y=hmd_level),color='#f9ed69',size=2)+
+  geom_point(aes(x=sample,y=pmd_level),color='#3f72af',size=2)+
+  geom_point(aes(x=sample,y=mean_level),color='#2ca260',size=2)+
+  geom_line(aes(x=factor(sample),y=hmd_level,group=1),size = 1.5,color='#f9ed69')+
+  geom_line(aes(x=factor(sample),y=pmd_level,group=1),size = 1.5,color='#3f72af')+
+  geom_line(aes(x=factor(sample),y=mean_level,group=1),size = 1.5,color='#2ca260')+
+  theme_bw()+ylim(0.2,0.8)+
+  theme(panel.grid = element_blank(),axis.title.x = element_text(size = 0),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 0,color="black",angle = 45),axis.text.y = element_text(size = 10,color="black"))
+
+
+
+ggplot(meanlevel_sum)+
+  geom_point(aes(x=sample,y=hmd_level),color='#f9ed69',size=1)+
+  geom_line(aes(x=factor(sample),y=hmd_level,group=1),size = 1,color='#f9ed69')+
+  geom_line(aes(x=factor(sample),y=pmd_level,group=1),size = 1,color='#3f72af')+
+  geom_point(aes(x=sample,y=pmd_level),color='#3f72af',size=1)+
+  theme_bw()+
+  theme(panel.grid = element_blank(),axis.title.x = element_text(size = 0),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 0,color="black",angle = 45),axis.text.y = element_text(size = 10,color="black"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -104,5 +104,26 @@ pheatmap(pt_norm_t_sort[rowname_sort,],
       )
 
 
+pt1_norm_t <- pt_norm_t_sort[colnames(pt1_sub),]
+pt1_norm_avg <- colMeans(pt1_norm_t)
+pt2_norm_t <- pt_norm_t_sort[colnames(pt2_sub),]
+pt2_norm_avg <- colMeans(pt2_norm_t)
+pt3_norm_t <- pt_norm_t_sort[colnames(pt3_sub),]
+pt3_norm_avg <- colMeans(pt3_norm_t)
 
 
+pt_norm_t_avg <- as.data.frame(rbind(pt3_norm_avg,pt2_norm_avg,pt1_norm_avg))
+row.names(pt_norm_t_avg) <- c("pt3","pt2","pt1")
+pheatmap(pt_norm_t_avg,
+         scale = 'row',cluster_rows = T,cluster_cols = F,angle_col = 315,
+         breaks = seq(-2, 2, length.out = 100),
+         show_colnames = F,show_rownames = T,
+         annotation_col = col_anno_2,annotation_colors = ann_colors,
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
+)
+
+
+
+hcc2_dist = dist(pt_norm_t_avg, method = "euclidean")
+hclust_hcc2 = hclust(hcc2_dist, method = "average")
+plot(hclust_hcc2)

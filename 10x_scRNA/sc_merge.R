@@ -41,6 +41,8 @@ DimPlot(bigseu,group.by = "new.ident",cols = my36colors)#cell_type
 
 DimPlot(bigseu,group.by = "cntype") #CMN,SN
 
+FeaturePlot(bigseu,features = c("PTPRC","AMBP","PECAM1","COL1A2"))
+DotPlot(bigseu,features = "PDCD1",group.by = "new.ident")
 
 libcount_df <- bigseu@meta.data %>%  
   group_by(lib.method, patient_pt) %>%  

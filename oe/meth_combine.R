@@ -1,5 +1,7 @@
 setwd("~/projects/hcc/analysis/oe/merge/merged_level")
+setwd("~/projects/hcc/analysis/oe/merge2/methy_report/100kbin")
 rm(list=ls())
+
 
 GA_C1 <- fread("GA_C1_SUM.txt")
 GA_C2 <- fread("GA_C2_SUM.txt")
@@ -70,6 +72,41 @@ colnames(GAbaseMean) <- "GA-global"
 
 GAmeansum <- cbind(GAHMDMean,GAPMDMean,GAbaseMean)
 G6meansum <- cbind(G6HMDMean,G6PMDMean,G6baseMean)
+GAmeansum$sample <- c(rep("V",3),rep("OE",3))
+G6meansum$sample <- c(rep("V",3),rep("OE",3))
+
+colnames(GAmeansum) <- c("HMD_Methy","PMD_Methy","Global_Methy","Group") 
+colnames(G6meansum) <- c("HMD_Methy","PMD_Methy","Global_Methy","Group") 
+
+ggplot(GAmeansum,aes(Group,Global_Methy,color=Group))+
+  geom_boxplot(width=0.5)+
+  geom_jitter(width = 0.1,shape = 20,size=2)+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
+  stat_compare_means(comparisons = list(c("V","OE")),
+                     method = "t.test",label = "p.signif",
+                     label.y =0.36 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  ##去掉背景网格
+        axis.text.x = element_text(face="bold",size=12,angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+
+ggplot(G6meansum,aes(Group,HMD_Methy,color=Group))+
+  geom_boxplot(width=0.5)+
+  geom_jitter(width = 0.1,shape = 20,size=2)+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
+  stat_compare_means(comparisons = list(c("V","OE")),
+                     method = "t.test",label = "p.signif",
+                     label.y =0.62 )+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  ##去掉背景网格
+        axis.text.x = element_text(face="bold",size=12,angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
 
 
 GA_C1$sumcount <- GA_C1$meth+GA_C1$demeth

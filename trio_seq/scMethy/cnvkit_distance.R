@@ -70,9 +70,47 @@ chrs[45] <- "chrX_p"
 chrs[46] <- "chrX_q"
 # 步骤 4: 生成聚类热图  
 
-pheatmap(agged_mtx[,chrs],
+pheatmap(combined_df_mtx,
          show_rownames =F,show_colnames = T,
          clustering_method = "mcquitty",cluster_rows = T,cluster_cols = F,
+         clustering_distance_rows = "euclidean",
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
+         treeheight_row = 0,border_color = 0,
+         treeheight_col = 0,angle_col = 315,
+         fontsize_col= 12)
+
+combined_df_mtx_t <- t (combined_df_mtx)
+
+row_anno <- as.data.frame(str_split_fixed(row.names(combined_df_mtx_t),"_",2))
+row.names(row_anno) <- row.names(combined_df_mtx_t)
+row_anno <- as.data.frame(dplyr::select(row_anno,1))
+colnames(row_anno) <- c("sample")
+
+col_anno <- as.data.frame(str_split_fixed(colnames(combined_df_mtx_t),"_",2))
+row.names(col_anno) <- colnames(combined_df_mtx_t)
+col_anno <- as.data.frame(dplyr::select(col_anno,1))
+colnames(col_anno) <- c("chr")
+
+ann_colors =list(
+  chr=c('chr1'='#E5D2DD','chr2'='#53A85F','chr3'= '#F1BB72','chr4'='#F3B1A0','chr5'='#D6E7A3',
+        'chr6'='#57C3F3','chr7'='#476D87','chr8'='#E95C59','chr9'= '#E59CC4','chr10'= '#AB3282', 
+        'chr11'='#23452F', 'chr12'='#BD956A', 'chr13'='#8C549C', 'chr14'='#585658', 'chr15'='#9FA3A8',
+        'chr16'='#E0D4CA', 'chr17'='#5F3D69','chr18'= '#C5DEBA','chr19'= '#58A4C3','chr20'='#E4C755', 
+        'chr21'='#F7F398', 'chr22'='#AA9A59','chrX'= '#E63863', 'chrY'='#E39A35'),
+  sample=c('pt1'='#8C549C','pt2'='#D6E7A3','pt3'='#E59CC4')
+)
+
+pt3_sub <- subset(row_anno,sample=='pt3')
+pt2_sub <- subset(row_anno,sample=='pt2')
+pt1_sub <- subset(row_anno,sample=='pt1')
+
+rowname_sort <- c(row.names(pt3_sub),row.names(pt2_sub),row.names(pt1_sub))
+
+pheatmap(combined_df_mtx_t[rowname_sort,],
+         show_rownames =F,show_colnames = F,
+         scale = 'row',
+         clustering_method = "mcquitty",cluster_rows = F,cluster_cols = F,
+         annotation_row = row_anno,annotation_col = col_anno,annotation_colors = ann_colors,
          clustering_distance_rows = "euclidean",
          color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),
          treeheight_row = 0,border_color = 0,
