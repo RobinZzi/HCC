@@ -32,4 +32,8 @@ big_cell_cluster2_info = case_when(
   TRUE ~ as.character(cell_cluster_info))
 bigseu$big_cell_cluster2_info <- big_cell_cluster2_info
 DimPlot(bigseu,group.by = "big_cell_cluster2_info",label=F,cols=my37colors[3:6])
-FeaturePlot(bigseu,features = "EPCAM")
+FeaturePlot(bigseu,features = "CD68")
+FeaturePlot(bigseu,features = "KIT")
+
+
+FeaturePlot(bigseu,features = c("PTPRC","KRT8","PECAM1","COL1A2"),ncol=2)

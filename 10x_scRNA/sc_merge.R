@@ -69,9 +69,9 @@ bigseu@meta.data$new.ident <- factor(bigseu@meta.data$new.ident, levels = rev(c(
                                                                          "Proliferative T","CD8+ memory", "CD8+ exhausted",
                                                                          "CD8+ cytotoxic","CD4+ memory","CD4+ Treg","Mast cell",
                                                                          "NK","Dendritic cell","Macrophage")))
-markers <- c('AMBP','COL1A2', 'ENG', 'S100A8', 'S100A9', 'CD79A', 'MS4A1','LTB',
-             'MKI67','CD8A','PDCD1', 'CCL5','GZMA', 'CD3D', 'IL32','CD4','FOXP3','SPON2',
-              "FCN1","LYZ")
+markers <- c('AMBP','COL1A2', 'ENG', 'S100A8', 'S100A9', 'CD79A', 'MS4A1',
+             'CD3D','MKI67','CD8A','LTB','PDCD1', 'CCL5', 'CD4','FOXP3','KIT','SPON2',
+              "FCN1","CD68","CD163")
 
 DimPlot(bigseu,group.by = "patient",cols = t(my36colors[1:9]))#patient
 
@@ -749,7 +749,7 @@ ggplot(hcc1_cor_all,aes(type,cor,color=type))+
   geom_boxplot(width=0.5)+
   scale_color_manual(values =c('#b11a2b','#4a74a4'))+
   stat_compare_means(comparisons = list(c("cross","self")),
-                     method = "t.test",label = "p.signif",
+                     method = "wilcox.test",label = "p.signif",
                      label.y =1 )+theme_bw() +
   theme(panel.background = element_blank(),
         panel.grid = element_blank(),  ##去掉背景网格
@@ -878,7 +878,7 @@ ggplot(hcc2_cor_all,aes(type,cor,color=type))+
   geom_boxplot(width=0.5)+
   scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
   stat_compare_means(comparisons = list(c("cross","self")),
-                     method = "t.test",label = "p.signif",
+                     method = "wilcox.test",label = "p.signif",
                      label.y =1 )+theme_bw() +
   theme(panel.background = element_blank(),
         panel.grid = element_blank(),  ##去掉背景网格
@@ -961,7 +961,7 @@ ggplot(hcc3_cor_all,aes(type,cor,color=type))+
   geom_boxplot(width=0.5)+
   scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
   stat_compare_means(comparisons = list(c("cross","self")),
-                     method = "t.test",label = "p.signif",
+                     method = "wilcox.test",label = "p.signif",
                      label.y =1 )+theme_bw() +
   theme(panel.background = element_blank(),
         panel.grid = element_blank(),  ##去掉背景网格
@@ -1752,7 +1752,7 @@ ggplot(sc_cor_sum,aes(comb_type,cor,color=comb_type))+
   facet_grid(~sample)+
   scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
   stat_compare_means(comparisons = list(c("cross","self")),
-                     method = "t.test",label = "p.signif",
+                     method = "wilcox.test",label = "p.signif",
                      label.y =1 )+theme_bw() +
   theme(panel.background = element_blank(),
         panel.grid = element_blank(),  ##去掉背景网格
@@ -2628,13 +2628,13 @@ ggplot(immune_prop_cmnsn_result_merge_rm89,aes(x=type,y=proportion,color=type))+
   ylim(0,1)+
   scale_color_manual(values=c("cmn"="#d72323","sn"="#3f72af"))+
   stat_compare_means(comparisons = list(c("cmn","sn")),
-                     method = "t.test",label = "p.signif",
+                     method = "wilcox.test",label = "p.signif",
                      label.y = 0.8 )+theme_bw()+
      theme(panel.background = element_blank(),
                           panel.grid = element_blank())
 
 
-ximmune_prop_cmnsn_result_merge_rm89 <- subset(immune_prop_cmnsn_result_merge2,subset = sample %in% prop_result_ptnt_merge_rm89$sample  )
+immune_prop_cmnsn_result_merge_rm89 <- subset(immune_prop_cmnsn_result_merge2,subset = sample %in% prop_result_ptnt_merge_rm89$sample  )
 
 immune_prop_cmnsn_result_merge_rm89 <- subset(immune_prop_cmnsn_result_merge_rm89,subset = type =='pt')
 #0.6 0.5
@@ -2703,7 +2703,7 @@ ggplot(immune_prop_cmnsn_result_merge2,aes(x=type,y=proportion,fill=type))+
   facet_wrap(~ celltype)+
   ylim(0,0.2)+
   stat_compare_means(comparisons = list(c("cmn","sn")),
-                     method = "t.test",label = "p.signif",
+                     method = "wilcox.test",label = "p.signif",
                      label.y = 0.13)
 
 
@@ -3040,3 +3040,8 @@ DimPlot(bigbigseu,group.by = "new.ident",raster=FALSE,shuffle = T,cols = my36col
 DimPlot(bigbigseu,group.by = "lib.method",raster=FALSE,shuffle = T)
 DimPlot(bigbigseu,group.by = "patient",raster=FALSE,shuffle = T)
 DimPlot(bigbigseu,raster=FALSE,shuffle = T)
+
+
+
+
+

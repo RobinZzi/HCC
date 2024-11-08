@@ -507,7 +507,7 @@ ggplot(sta_prim_sum,aes(type,cor,color=type))+
   geom_boxplot(width=0.5,outlier.size=0)+
   scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
   stat_compare_means(comparisons = list(c("primary","satellite")),
-                     method = "t.test",label = "p.signif",
+                     method = "wilcox.test",label = "p.signif",
                      label.y =1)+theme_bw() +
   theme(panel.background = element_blank(),
         panel.grid = element_blank(),  
@@ -521,7 +521,7 @@ ggplot(sta_prim_sum,aes(type,cor,color=type))+
   facet_grid(~sample)+
   scale_color_manual(values =c('#8BABD3','#D7B0B0'))+
   stat_compare_means(comparisons = list(c("primary","satellite")),
-                     method = "t.test",label = "p.signif",
+                     method = "wilcox.test",label = "p.signif",
                      label.y =1 )+theme_bw() +
   theme(panel.background = element_blank(),
         panel.grid = element_blank(),  
@@ -542,7 +542,7 @@ ggplot(sta_prim_sum_cmn,aes(type,cor,color=type))+
   facet_grid(~sample)+
   scale_color_manual(values =c('#b11a2b','#4a74a4'))+
   stat_compare_means(comparisons = list(c("primary","satellite")),
-                     method = "t.test",label = "p.signif",
+                     method = "wilcox.test",label = "p.signif",
                      label.y =1 )+theme_bw() +
   theme(panel.background = element_blank(),
         panel.grid = element_blank(),  
@@ -558,7 +558,7 @@ ggplot(sta_prim_sum_sn,aes(type,cor,color=type))+
   facet_grid(~sample)+
   scale_color_manual(values =c('#b11a2b','#4a74a4'))+
   stat_compare_means(comparisons = list(c("primary","satellite")),
-                     method = "t.test",label = "p.signif",
+                     method = "wilcox.test",label = "p.signif",
                      label.y =1 )+theme_bw() +
   theme(panel.background = element_blank(),
         panel.grid = element_blank(),  

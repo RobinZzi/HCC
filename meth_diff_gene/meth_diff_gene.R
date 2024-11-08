@@ -12,8 +12,8 @@ setwd("~/projects/hcc/analysis/meth_diff_gene")
 save.image("meth_diff_gene.Rdata")
 
 
-hcc1_uplist <- fread("pt1_pt2_up.txt")
-hcc1_downlist <- fread("pt1_pt2_down.txt")
+hcc2_uplist <- fread("pt1_pt2_up.txt")
+hcc2_downlist <- fread("pt1_pt2_down.txt")
 
 
 TCGA_pos_re <- fread("cor_data_df_pos_top.txt")
@@ -30,13 +30,13 @@ TCGA_diff_hypo_down <- subset(TCGA_diff,subset = log2FC < 0& hypo_less_fdr <0.05
 
 
 
-intersect(intersect(TCGA_pos_re$symbol,hcc1_downlist$x),TCGA_diff_hypo_down$gene)
-intersect(intersect(TCGA_neg_re$symbol,hcc1_uplist$x),TCGA_diff_hypo_up$gene)
+intersect(intersect(TCGA_pos_re$symbol,hcc2_downlist$x),TCGA_diff_hypo_down$gene)
+intersect(intersect(TCGA_neg_re$symbol,hcc2_uplist$x),TCGA_diff_hypo_up$gene)
 
 
 
-up_venn <- list(TCGA_neg_re$symbol,hcc1_uplist$x,TCGA_diff_hypo_up$gene)
-down_venn <- list(TCGA_pos_re$symbol,hcc1_downlist$x,TCGA_diff_hypo_down$gene)
+up_venn <- list(TCGA_neg_re$symbol,hcc2_uplist$x,TCGA_diff_hypo_up$gene)
+down_venn <- list(TCGA_pos_re$symbol,hcc2_downlist$x,TCGA_diff_hypo_down$gene)
 
 venn.diagram(up_venn, filename = 'up.png', imagetype = 'png', ,category.names = c("tcga_neg" , "hypo_up" , "tcga_up"),
              fill = c('#4D157D', '#84C7DB', '#C8D948'), alpha = 0.50, 
