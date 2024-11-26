@@ -1,0 +1,2 @@
+
+ascp -v -L /mnt/transposon1/zhangyanxiaoLab/zhangliwen/hcc_multiomics_gsa_upload/  -P33001 -i /mnt/transposon1/zhangyanxiaoLab/zhangliwen/hcc_multiomics_gsa_upload/aspsub_rsa -QT -l100m -k1 -d /mnt/transposon1/zhangyanxiaoLab/zhangliwen/subHRA013032 aspsub@subhra.cncb.ac.cn:uploads/fan_xiaoying@grmh-gdl.cn_b263c116

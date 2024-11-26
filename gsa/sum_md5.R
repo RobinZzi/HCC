@@ -1,6 +1,7 @@
  
 library(tools)
-
+library(stringr)
+rm(list = ls())
 listFilesInDirectory <- function() {  
   all_files <- list.files(pattern = "*.gz$", full.names = TRUE)  
   all_files <- sapply(all_files, function(x) sub("^\\./", "", x))
@@ -38,9 +39,36 @@ listFilesInDirectory <- function() {
     stringsAsFactors = FALSE  
   )  
   
-  cbind(general_df,r2_df)
+  list(general_df,r2_df)
 }  
+#origin_dir <- "/mnt/transposon1/zhangyanxiaoLab/zhangliwen/hcc_multiomics_gsa_upload"
+origin_dir <- "/mnt/usb/"
 
+data_dir <- paste(origin_dir,'data',sep='/')
+md5_dir <- paste(origin_dir,'md5_table',sep='/')
+setwd(data_dir)
+folder_list <- list.files()
+for (i in 1:length(folder_list)) {
+  first_dir <- paste(data_dir,folder_list[i],sep = "/")
+  setwd(first_dir)
 
-result <- listFilesInDirectory()  
+    result <- listFilesInDirectory()  
+    general_df <- result[[1]]  
+    r2_df <- result[[2]] 
+    if(nrow(r2_df) != 0){
+      general_df <- cbind(general_df,r2_df)
+    }
+   if(folder_list[i] == 'scPBAT'){
+    filenames <- rownames(general_df)
+    t_numbers <- as.numeric(str_extract(filenames, "(?<=T)\\d+"))+1 
+    t_numbers[is.na(t_numbers)] <- 1
+    d_numbers <- as.numeric(str_extract(filenames, "(?<=D)\\d+"))
+    sample_order <- t_numbers*1000+d_numbers
+    general_df <- general_df[order(sample_order), ]  
+    }
+    setwd(md5_dir)
+    write.csv(general_df,paste0(folder_list[i],'_general.csv'))
+
+}
+ 
 
