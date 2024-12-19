@@ -10,7 +10,6 @@ library(geneRal)
 setwd("~/projects/hcc/analysis/trio_seq/scMethy")
 rm(list=ls())
 load("methy_merge.Rdata")
-save.image("methy_merge.Rdata")
 
 
 
@@ -205,7 +204,7 @@ colnames(hcc3_anno) <- "meth_type"
 
 hcc3_ann_colors=list(
   meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
-  sample=c('nt'='#F1BB72','pt1'='#8C549C','pt2'='#D6E7A3','pt3'='#E59CC4')
+  sample=c('nt'='#087FBF','pt1'='#8C549C','pt2'='#D6E7A3','pt3'='#E59CC4')
 )
 
 pheatmap(hcc3_base_removena,
@@ -273,7 +272,7 @@ colnames(hcc4_anno) <- "meth_type"
 
 hcc4_ann_colors=list(
   meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
-  sample=c('nt'='#F1BB72','pt1'='#8C549C','pt2'='#D6E7A3','pt3'='#E59CC4')
+  sample=c('nt'='#087FBF','pt1'='#8C549C','pt2'='#D6E7A3','pt3'='#E59CC4')
 )
 
 pheatmap(hcc4_base_removena,
@@ -341,7 +340,7 @@ colnames(hcc7_anno) <- "meth_type"
 
 hcc7_ann_colors=list(
   meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
-  sample=c('nt'='#F1BB72','pt1'='#8C549C','pt2'='#D6E7A3','pt4'='#E59CC4','pt5'='#AB3282')
+  sample=c('nt'='#087FBF','pt1'='#8C549C','pt2'='#D6E7A3','pt4'='#E59CC4','pt5'='#AB3282')
 )
 
 pheatmap(hcc7_base_removena,
@@ -406,7 +405,7 @@ colnames(hcc11_anno) <- "meth_type"
 
 hcc11_ann_colors=list(
   meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
-  sample=c('nt'='#F1BB72','pt1'='#8C549C','pt2'='#D6E7A3','pt3'='#E59CC4','pt4'='#AB3282','pt5'='#58A4C3','pt6'='#BD956A')
+  sample=c('nt'='#087FBF','pt1'='#8C549C','pt2'='#D6E7A3','pt3'='#E59CC4','pt4'='#AB3282','pt5'='#58A4C3','pt6'='#BD956A')
 )
 
 pheatmap(hcc11_base_removena,
@@ -472,7 +471,7 @@ colnames(hcc28_anno) <- "meth_type"
 
 hcc28_ann_colors=list(
   meth_type=c('PMD'='#3f72af','HMD'='#f9ed69'),
-  sample=c('nt'='#F1BB72','pt1'='#8C549C','pt2'='#D6E7A3','pt4'='#E59CC4')
+  sample=c('nt'='#087FBF','pt1'='#8C549C','pt2'='#D6E7A3','pt4'='#E59CC4')
 )
 
 pheatmap(hcc28_base_removena,
@@ -855,6 +854,8 @@ bigmeth_colmeans$sample <- gsub("hcc11", "HCC7", bigmeth_colmeans$sample)
 bigmeth_colmeans$sample <- gsub("hcc28", "HCC8", bigmeth_colmeans$sample)
 bigmeth_colmeans$sample <- gsub("hcc29", "HCC9", bigmeth_colmeans$sample)
 
+bigmeth_colmeans$sample <- factor(bigmeth_colmeans$sample,levels = rev(row.names(table(bigmeth_colmeans$sample))))
+
 sample_level <- gsub("hcc3", "HCC2", sample_level)
 sample_level <- gsub("hcc4", "HCC3", sample_level)
 sample_level <- gsub("hcc7", "HCC6", sample_level)
@@ -872,8 +873,9 @@ ggplot(bigmeth_colmeans,aes(x=sample, y=mean_meth,fill=label))+
   geom_flat_violin(scale = "width",trim = F)+geom_jitter(width = 0.1,size=0.5)+coord_flip()+theme_bw()+
   scale_fill_manual(values=c("Normal Tissue"="#3f72af","Tumor Tissue"="#d72323"))
 
-ggplot(bigmeth_pmd_colmeans_new,aes(x=sample, y=mean_meth,fill=label))+
-  geom_flat_violin(scale = "width",trim = F)+geom_jitter(width = 0.1,size=0.5)+coord_flip()
+ggplot(bigmeth_colmeans,aes(x=sample, y=mean_meth,fill=label))+
+  geom_flat_violin(scale = "width",trim = F)+geom_jitter(width = 0.1,size=0.5)+coord_flip()+theme_bw()+
+  scale_fill_manual(values=c("normal"="#3f72af","tumor"="#d72323"))
 
 ggplot(bigmeth_colmeans_sample,aes(x=patient, y=mean_meth,fill=patient))+
   geom_flat_violin(trim = F)+NoLegend()+coord_flip()
@@ -1064,8 +1066,8 @@ bigmeth_seurat <- FindClusters(bigmeth_seurat, verbose = FALSE)
 
 DimPlot(bigmeth_seurat, label = TRUE,repel = T) + NoLegend()
 DimPlot(bigmeth_seurat, label = F,repel = T,group.by = "sample")
-DimPlot(bigmeth_seurat, label = F,group.by = "origin",cols = c('HCC2'='#E5D2DD','HCC3'='#BD956A','HCC6'='#F1BB72','HCC7'='#8C549C','HCC8'='#D6E7A3','HCC9'='#E59CC4'))
-DimPlot(bigmeth_seurat, label = F,group.by = "tissue",cols=c("Normal Tissue"="#3f72af","Tumor Tissue"="#d72323"))
+DimPlot(bigmeth_seurat, label = F,pt.size = 0.2,group.by = "origin",cols = c('HCC2'='#E5D2DD','HCC3'='#BD956A','HCC6'='#F1BB72','HCC7'='#8C549C','HCC8'='#D6E7A3','HCC9'='#E59CC4'))
+DimPlot(bigmeth_seurat, label = F,pt.size = 0.2,group.by = "tissue",cols=c("Normal Tissue"="#3f72af","Tumor Tissue"="#d72323"))
 
 
 
@@ -1225,3 +1227,122 @@ ggplot(sorted_bigmeth_colmeans)+
   theme_bw()+
   theme(panel.grid = element_blank(),axis.title.x = element_text(size = 0),axis.title.y = element_text(size = 14),legend.text=element_text(size = 12))+
   theme(axis.text.x = element_text(size = 0,color="black",angle = 45),axis.text.y = element_text(size = 10,color="black"))
+
+
+
+
+
+
+
+
+
+
+#######
+ggplot(H3K9me3_sum,aes(region,length,color=region))+
+  geom_boxplot(width=0.5,outlier.color = "white",outlier.size = 0)+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
+  stat_compare_means(comparisons = list(c("hmd","pmd")),
+                     method = "wilcox.test",label = "p.signif",
+                     label.y =2000)+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  ##去掉背景网格
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())+ylim(0,4000)
+
+
+
+
+
+
+hm_subset_he <- subset(hm_sum,subset=hm_type %in% c("H3K27me3","H3K9me3"))
+hm_subset_eu <- subset(hm_sum,subset=hm_type %in% c("H3K27ac","H3K36me3"))
+
+
+ggplot(hm_subset_eu,aes(hm_type,length,color=region))+
+  geom_boxplot(width=0.5,outlier.color = "white",outlier.size = 0)+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
+  stat_compare_means(comparisons = list(c("hmd","pmd")),
+                     method = "t.test",label = "p.signif",
+                     label.y =1000)+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  ##去掉背景网格
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+
+
+ggplot(hm_subset_he,aes(hm_type,length,color=region))+
+  geom_boxplot(width=0.5,outlier.color = "white",outlier.size = 0)+
+  stat_compare_means(comparisons = list(c("hmd","pmd")),
+                     method = "wilcox.test",
+                     label.y =1000)+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  ##去掉背景网格
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+
+
+te_subset_he <- subset(te_sum,subset=hm_type %in% c("l1"))
+te_subset_eu <- subset(te_sum,subset=hm_type %in% c("alu"))
+
+ggplot(te_subset_he,aes(hm_type,length,color=region))+
+  geom_boxplot(width=0.5,outlier.color = "white",outlier.size = 0)+
+  scale_color_manual(values =c('#b11a2b','#4a74a4'))+
+  stat_compare_means(comparisons = list(c("hmd","pmd")),
+                     method = "t.test",label = "p.signif",
+                     label.y =1000)+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  ##去掉背景网格
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+
+
+ggplot(te_subset_eu,aes(region,length,color=region))+
+  geom_boxplot(width=0.5,outlier.color = "white",outlier.size = 0)+
+  stat_compare_means(comparisons = list(c("hmd","pmd")),
+                     method = "wilcox.test", 
+                     label.y =25000)+theme_bw()+
+theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  ##去掉背景网格
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())+ylim(0,50000)
+
+
+
+
+
+hm_subset_he_k9 <- subset(hm_subset_he,subset=hm_type=='H3K9me3')
+hm_subset_he_k27 <- subset(hm_subset_he,subset=hm_type=='H3K27me3')
+
+hm_subset_eu_k36 <- subset(hm_subset_eu,subset=hm_type=='H3K36me3')
+hm_subset_eu_k27 <- subset(hm_subset_eu,subset=hm_type=='H3K27ac')
+
+
+ggplot(hm_subset_eu_k36,aes(region,length,color=region))+
+  geom_boxplot(width=0.5,outlier.color = "white",outlier.size = 0)+theme_bw()
+
+  stat_compare_means(comparisons = list(c("hmd","pmd")),
+                     method = "wilcox.test",
+                     label.y =1000)+theme_bw() +
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(),  ##去掉背景网格
+        axis.text.x = element_text(face="bold",angle = 45,hjust = 1,color = 'black'),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        legend.direction = "vertical",
+        legend.title =element_blank())
+

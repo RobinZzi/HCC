@@ -43,11 +43,11 @@ demethy_list <- list(hcc2_up$gene,tcga_cor_neg$symbol,tcga_wilcox_up$gene)
 
 demethy_list <- list(pt_up$x,tcga_cor_neg$symbol,tcga_wilcox_up$gene)
 demethy_sum <- Reduce(intersect,demethy_list)
-venn.diagram(demethy_list, filename = 'up_de_0818.png', imagetype = 'png',
+venn.diagram(demethy_list, filename = 'tcgaup_de_1215.png', imagetype = 'png',
              category.names = c("hypo_up" ,"tcga_cor_neg","tcga_wilcox_up"),
-             fill = c('#4D157D', '#84C7DB', '#C8D948'), alpha = 0.50, 
-             cat.col = c('#4D157D', '#84C7DB', '#C8D948'), cat.cex = 0.5, cat.fontfamily = 'serif',
-             col = c('#4D157D', '#84C7DB', '#C8D948'), cex = 1.5, fontfamily = 'serif')
+             fill = c('#ee9caa', '#84C7DB', '#C8D948'), alpha = 0.50, 
+             cat.col = c('#ee9caa', '#84C7DB', '#C8D948'), cat.cex = 0, cat.fontfamily = 'arial',
+             col = c('#ee9caa', '#84C7DB', '#C8D948'), cex = 1, fontfamily = 'bold arial')
 
 admethy_list <- list(methy_delta_ad$gene,tcga_edgeR_down$gene,tcga_wilcox_down$gene,tcga_cor_pos$symbol)
 admethy_sum <- Reduce(intersect,admethy_list)

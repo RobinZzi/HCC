@@ -64,11 +64,11 @@ venn.diagram(hypo_up_genes_tcga_list, filename = 'hypo_up_0912_includetcga.png',
 
 
 
-venn.diagram(hypo_up_genes_list, filename = 'hypo_up_0912.png', imagetype = 'png',
+venn.diagram(hypo_up_genes_list, filename = 'hypo_up_1215.png', imagetype = 'png',
              category.names = c("hcc2" , "hcc8" , "hcc9"),
-             fill = c('#4D157D', '#84C7DB', '#C8D948'), alpha = 0.50, 
-             cat.col = c('#4D157D', '#84C7DB', '#C8D948'), cat.cex =0, cat.fontfamily = 'serif',
-             col = c('#4D157D', '#84C7DB', '#C8D948'), cex = 1.5, fontfamily = 'serif')
+             fill = c('#ee9caa', '#13a1c1', '#472767'), alpha = 0.50, 
+             cat.col = c('#ee9caa', '#13a1c1', '#472767'), cat.cex =0, cat.fontfamily = 'serif',
+             col = c('#ee9caa', '#13a1c1', '#472767'), cex = 1.5, fontfamily = 'serif')
 
 
 hypo_down_genes_list <- list(hcc2_hypo_genes_down_sig$gene,hcc8_hypo_genes_down_sig$gene,hcc9_hypo_genes_down_sig$gene)

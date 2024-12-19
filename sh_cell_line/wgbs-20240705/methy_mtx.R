@@ -293,7 +293,7 @@ ggplot(data2,aes(Group,Methy_level,color=Group))+
   geom_jitter(width = 0.1,shape = 20,size=2)+
   scale_color_manual(values =c('#b11a2b','#4a74a4'))+
   stat_compare_means(comparisons = list(c("V","CR")),
-                     method = "t.test",label = "p.signif",
+                     method = "t.test",
                      label.y =0.55 )+theme_bw() +
   theme(panel.background = element_blank(),
         panel.grid = element_blank(),  ##去掉背景网格
@@ -302,5 +302,23 @@ ggplot(data2,aes(Group,Methy_level,color=Group))+
         legend.position = "none",
         legend.direction = "vertical",
         legend.title =element_blank())+
-  facet_wrap(~ Region)
+  facet_wrap(~ Region)+ylim(0,1)
 
+
+
+
+
+ggplot(data3,aes(Group,Methy_level,fill=Group))+
+  theme_bw()+
+  geom_bar(stat = "identity",position =position_dodge(0.1))+
+  scale_fill_manual(values =c('#b11a2b','#4a74a4'))+
+  theme(panel.background = element_blank(),
+        panel.grid = element_blank(), 
+        axis.text.x = element_text(size=0,angle = 45,hjust = 1,color = 'black'),
+        axis.text.y = element_text(size=00,color = 'black'),
+        axis.title.y = element_text(size=00,color = 'black'),
+        axis.title.x = element_text(size=0,color = 'black'))+
+  stat_summary(fun = mean, geom = "bar",position =position_dodge(0.1))+
+  stat_summary(fun.data = mean_se,geom = "errorbar", color = "black",width = 0.2,position = position_dodge(0.1))+
+  geom_jitter()+
+  facet_wrap(~ Region)+ylim(0,1)

@@ -37,14 +37,25 @@ hcc2_celltype = case_when(
   hcc2_cluster %in% c("15")~"Fibroblast Cell",
   hcc2_cluster %in% c("1", "4","26", "5","0", "25","10","6","20")~"T Cell",
   hcc2_cluster %in% c("9")~"NK Cell",
-  hcc2_cluster %in% c("27", "23","7", "19","12")~"Myeloid Cell",
+  hcc2_cluster %in% c("27", "23","7", "19")~"Myeloid Cell",
+  hcc2_cluster %in% c("12")~"DC Cell",
   hcc2_cluster %in% c("28", "13")~"B Cell",
   TRUE ~ as.character(hcc2_cluster))
 
+hcc2_roughcelltype = case_when(
+  hcc2_cluster  %in% c("2","24","16","18")~"Endothelial Cell",
+  hcc2_cluster %in% c("8", "3","21", "17","14", "22")~"Epithelial Cell",
+  hcc2_cluster %in% c("11","1", "4","26","12","28", "13", "5","0", "25","10","6","20","27", "23","7", "19","9")~"Immune Cell",
+  hcc2_cluster %in% c("15")~"Fibroblast Cell",
+  TRUE ~ as.character(hcc2_cluster))
+
 hcc2$cell_type <- hcc2_celltype
+hcc2$roughcelltype <- hcc2_roughcelltype
 
-DimPlot(hcc2, label = T,group.by = "cell_type",cols=my36colors)+ NoLegend()
+DimPlot(hcc2, label = F,group.by = "roughcelltype",cols=c("#F1BB72","#F3B1A0","#57C3F3","#D6E7A3"))
 
+DimPlot(hcc2, label = F,group.by = "cell_type",cols=my36colors)
+FeaturePlot(hcc2,features = "FCN1")
 
 my36colors <-c('#E5D2DD', '#53A85F', '#F1BB72', '#F3B1A0', '#D6E7A3', '#57C3F3', '#E95C59', '#E59CC4', '#AB3282', '#23452F', '#BD956A', '#8C549C', '#585658', '#9FA3A8', '#E0D4CA', '#5F3D69', '#C5DEBA', '#58A4C3', '#E4C755', '#F7F398', '#AA9A59', '#E63863', '#E39A35', '#C1E6F3', '#6778AE', '#91D0BE', '#B53E2B', '#712820', '#DCC1DD', '#CCE0F5', '#CCC9E6', '#625D9E', '#68A180', '#3A6963', '#968175','#FFEEAD')#颜色设置
 

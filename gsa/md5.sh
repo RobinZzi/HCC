@@ -1,5 +1,5 @@
-cd /mnt/usb/hcc/HCC9/10x
-for tar in *tar.gz; do
- md5sum "$tar" > "$tar.md5"
+cd /mnt/transposon1/zhangyanxiaoLab/zhangliwen/hcc_multiomics_gsa_upload/data/WES/HCC9_WES
+for file in *.gz; do
+ md5sum "$file" > "$file.md5" &
 done
 

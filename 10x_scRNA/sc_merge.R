@@ -29,7 +29,7 @@ DimPlot(bigseu,group.by = "group",cols= c("#57C3F3","#E95C59","#f9ed69"),shuffle
 DimPlot(bigseu,group.by = "seurat_clusters",label = T,cols=my37colors)+NoLegend()
 
 DimPlot(bigseu,group.by = "patient",cols=c('HCC1'='#E95C59','HCC2'='#E5D2DD','HCC3'='#BD956A',
-                                           'HCC4'='#57C3F3','HCC5'='#E95C59','HCC6'='#F1BB72',
+                                           'HCC4'='#57C3F3','HCC5'='#3A6963','HCC6'='#F1BB72',
                                            'HCC7'='#8C549C','HCC8'='#D6E7A3','HCC9'='#E59CC4'),shuffle = T)
 
 
@@ -592,11 +592,18 @@ sta_down_Venn <- list(hcc1 = row.names(hcc1_sta_markers_sig_down), hcc3 = row.na
 sta_up_Venn <- list(hcc1 = row.names(hcc1_sta_markers_sig_up), hcc3 = row.names(hcc3_sta_markers_sig_up), hcc5 = row.names(hcc5_sta_markers_sig_up),
                       hcc6 = row.names(hcc6_sta_markers_sig_up),hcc7 = row.names(hcc7_sta_markers_sig_up))
 
-venn.diagram(sta_down_Venn, filename = 'sta_down.png', imagetype = 'png',fontfamily = 'serif',height = 5000, 
+venn.diagram(sta_down_Venn, filename = 'sta_down_1216.png', imagetype = 'png',fontfamily = 'serif',height = 5000, 
+             width = 7000, 
+             fill = c('#E95C59', '#BD956A', '#3A6963','#F1BB72','#8C549C'), alpha = 0.50, 
+             cat.col = c('#E95C59', '#BD956A', '#3A6963','#F1BB72','#8C549C'), cat.cex = 0, cat.fontfamily = 'ariral',
+             col = c('#E95C59', '#BD956A', '#3A6963','#F1BB72','#8C549C'),cex = 0 )
+
+venn.diagram(sta_up_Venn, filename = 'sta_up_1216.png', imagetype = 'png',fontfamily = 'serif',height = 5000, 
              width = 7000, 
              fill = c('#4D157D', '#84C7DB', '#C8D948','#ff7f57','#FFD4E7'), alpha = 0.50, 
-             cat.col = c('#4D157D', '#84C7DB', '#C8D948','#ff7f57','#FFD4E7'), cat.cex = 0, cat.fontfamily = 'serif',
-             col = c('#4D157D', '#84C7DB', '#C8D948','#ff7f57','#FFD4E7'),cex = 2.5 )
+             cat.col = c('#4D157D', '#84C7DB', '#C8D948','#ff7f57','#FFD4E7'), cat.cex = 0, cat.fontfamily = 'ariral',
+             col = c('#4D157D', '#84C7DB', '#C8D948','#ff7f57','#FFD4E7'),cex = 0 )
+
 
 venn.diagram(sta_up_Venn, filename = 'sta_up.png', imagetype = 'png',fontfamily = 'serif',height = 5000, 
              width = 7000, 
@@ -2701,7 +2708,7 @@ ggplot(immune_prop_cmnsn_result_merge2,aes(x=type,y=proportion,fill=type))+
   geom_boxplot(outlier.size = 0)+
   geom_jitter(width = 0.1,shape = 21, colour = "black",size=0.5)+
   facet_wrap(~ celltype)+
-  ylim(0,0.2)+
+  ylim(0,1)+
   stat_compare_means(comparisons = list(c("cmn","sn")),
                      method = "wilcox.test",label = "p.signif",
                      label.y = 0.13)
@@ -2833,6 +2840,14 @@ cell.prop_immune_merge <- subset(cell.prop_immune_merge, subset = origin %in% c(
 cell.prop_immune_merge[,'patient'] <- str_split_fixed(cell.prop_immune_merge$HCC,"_",2)[,1]
 cell.prop_immune_merge[,'sample'] <- str_split_fixed(cell.prop_immune_merge$HCC,"_",2)[,2]
 
+celltype_level <- c("Neutrophil", "PlasmaB cell", "B cell", "Proliferative T", 
+                    "CD8+ memory", "CD8+ exhausted", "CD8+ cytotoxic", "CD4+ memory",
+                    "CD4+ Treg", "Mast cell", "NK", "Dendritic cell", "Macrophage")
+
+
+cell.prop_immune_merge$origin <- factor(cell.prop_immune_merge$origin,levels = celltype_level)
+
+
 hcc1_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC1')
 hcc2_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC2')
 hcc3_cell.prop_immune_merge <- subset(cell.prop_immune_merge,subset = patient =='HCC3')
@@ -2848,18 +2863,32 @@ immune_merge_data_list <- list(hcc1_cell.prop_immune_merge, hcc2_cell.prop_immun
                                hcc7_cell.prop_immune_merge, hcc8_cell.prop_immune_merge, hcc9_cell.prop_immune_merge)
 
 
-
 immuneprop_plot <- function(data) {
   ggplot(data,aes(sample,proportion,fill=origin))+
     geom_bar(stat="identity",position="fill")+
     ggtitle("")+
-    scale_fill_manual(values=my36colors)+
+    scale_fill_manual(values=c( "HPC"="#E0D4CA", 
+                                "Fibroblast"="#9FA3A8", 
+                                "Endothelial cell" = "#585658",
+                                "Neutrophil" = "#8C549C",
+                                "PlasmaB cell" = "#BD956A", 
+                                "B cell" = "#23452F",
+                                "Proliferative T" = "#AB3282",
+                                "CD8+ memory" = "#E59CC4",
+                                "CD8+ exhausted" = "#E95C59",
+                                "CD8+ cytotoxic" = "#476D87",
+                                "CD4+ memory" = "#57C3F3",
+                                "CD4+ Treg" = "#D6E7A3",
+                                "Mast cell" = "#F3B1A0",
+                                "NK"="#F1BB72",
+                                "Dendritic cell"="#53A85F",
+                                "Macrophage"="#E5D2DD"))+
     theme_bw()+
     theme(axis.ticks.length=unit(0.5,'cm'))+
     guides(fill=guide_legend(title=NULL))+
     labs(x=paste(data[1,4]))+
-    theme(axis.title.x = element_text(size = 12),axis.title.y = element_text(size = 0),legend.text=element_text(size = 12))+
-    theme(axis.text.x = element_text(size = 10,color="black",angle = 45,hjust = 1),axis.text.y = element_text(size = 10,color="black"))+
+    theme(axis.title.x = element_text(size = 12,family = "Arial"),axis.title.y = element_text(size = 0,family = "Arial"),legend.text=element_text(size = 12,family = "Arial"))+
+    theme(axis.text.x = element_text(size = 10,family = "Arial",color="black",angle = 45,hjust = 1),axis.text.y = element_text(size = 10,color="black",family = "Arial"))+
     NoLegend()
 }
 

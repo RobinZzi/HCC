@@ -299,15 +299,15 @@ ggplot(data,aes(Group,Global_Methy,color=Group))+
 
 
 
-data2 <- as.data.frame(cbind(c(0.6463,0.6488,0.6506,0.6518,
+data3 <- as.data.frame(cbind(c(0.6463,0.6488,0.6506,0.6518,
                                0.5439,0.5456,0.546,0.5486,
                                0.818,0.822,0.8261,0.8244),
                              c("Global_Mean","Global_Mean","Global_Mean","Global_Mean",
                                "PMD_Mean","PMD_Mean","PMD_Mean","PMD_Mean",
                                "HMD_Mean","HMD_Mean","HMD_Mean","HMD_Mean"),
                              c("V","V","SH","SH","V","V","SH","SH","V","V","SH","SH")))
-colnames(data2) <- c("Methy_level","Region","Group")                      
-data2$Methy_level <- as.numeric(data2$Methy_level)
+colnames(data3) <- c("Methy_level","Region","Group")                      
+data3$Methy_level <- as.numeric(data2$Methy_level)
 
 
 ggplot(data2,aes(Group,Methy_level,color=Group))+

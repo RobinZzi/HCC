@@ -41,7 +41,7 @@ listFilesInDirectory <- function() {
   
   list(general_df,r2_df)
 }  
-#origin_dir <- "/mnt/transposon1/zhangyanxiaoLab/zhangliwen/hcc_multiomics_gsa_upload"
+origin_dir <- "/mnt/transposon1/zhangyanxiaoLab/zhangliwen/hcc_multiomics_gsa_upload/"
 origin_dir <- "/mnt/usb/"
 
 data_dir <- paste(origin_dir,'data',sep='/')
@@ -51,8 +51,11 @@ folder_list <- list.files()
 for (i in 1:length(folder_list)) {
   first_dir <- paste(data_dir,folder_list[i],sep = "/")
   setwd(first_dir)
-
-    result <- listFilesInDirectory()  
+  second_list <-list.files()
+  for (j in 1:length(second_list)) {
+    second_dir <- paste(first_dir,second_list[j],sep='/')
+    setwd(second_dir)
+  result <- listFilesInDirectory()  
     general_df <- result[[1]]  
     r2_df <- result[[2]] 
     if(nrow(r2_df) != 0){
@@ -67,8 +70,8 @@ for (i in 1:length(folder_list)) {
     general_df <- general_df[order(sample_order), ]  
     }
     setwd(md5_dir)
-    write.csv(general_df,paste0(folder_list[i],'_general.csv'))
-
+    write.csv(general_df,paste0(second_list[j],'_general.csv'))
+  }
 }
  
 

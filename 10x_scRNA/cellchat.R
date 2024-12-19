@@ -324,7 +324,7 @@ ggplot(cmnsn_cellchat_sum_drop,aes(x=type,y=interactions,color=type))+
        title="drop-seq only")+
   scale_color_manual(values=c("sn"="#3f72af","cmn"="#d72323"))+
   stat_compare_means(comparisons = list(c("cmn","sn")),
-                     method = "t.test",label = "p.signif",
+                     method = "t.test",
                      label.y =600 )+theme_bw()+
   theme(panel.background = element_blank(),
         panel.grid = element_blank())
