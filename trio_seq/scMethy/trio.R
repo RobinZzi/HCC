@@ -1066,8 +1066,8 @@ bigmeth_seurat <- FindClusters(bigmeth_seurat, verbose = FALSE)
 
 DimPlot(bigmeth_seurat, label = TRUE,repel = T) + NoLegend()
 DimPlot(bigmeth_seurat, label = F,repel = T,group.by = "sample")
-DimPlot(bigmeth_seurat, label = F,pt.size = 0.2,group.by = "origin",cols = c('HCC2'='#E5D2DD','HCC3'='#BD956A','HCC6'='#F1BB72','HCC7'='#8C549C','HCC8'='#D6E7A3','HCC9'='#E59CC4'))
-DimPlot(bigmeth_seurat, label = F,pt.size = 0.2,group.by = "tissue",cols=c("Normal Tissue"="#3f72af","Tumor Tissue"="#d72323"))
+DimPlot(bigmeth_seurat, label = F,shuffle=T,pt.size = 1.2,group.by = "origin",cols = c('HCC2'='#E5D2DD','HCC3'='#BD956A','HCC6'='#F1BB72','HCC7'='#8C549C','HCC8'='#D6E7A3','HCC9'='#E59CC4'))
+DimPlot(bigmeth_seurat, label = F,shuffle=T,pt.size = 1.2,group.by = "tissue",cols=c("Normal Tissue"="#3f72af","Tumor Tissue"="#d72323"))
 
 
 
@@ -1116,6 +1116,7 @@ bind_rows_by_rownames <- function(...) {
 }  
 
 
+
 big_psu_meth <- Reduce(merge_by_rownames, 
                        list(hcc2_psu, hcc3_psu, hcc6_psu,
                             hcc7_psu, hcc8_psu, hcc9_psu))
@@ -1143,8 +1144,25 @@ pheatmap(big_psu_meth,
          treeheight_col = 0,
          angle_col = 45,
          fontsize_col= 8)
+my36colors <-c('#E5D2DD', '#53A85F', '#F1BB72', '#F3B1A0', '#D6E7A3', '#57C3F3',
+               '#476D87', '#E95C59', '#E59CC4', '#AB3282', '#23452F', '#BD956A',
+               '#8C549C', '#585658', '#9FA3A8', '#E0D4CA', '#5F3D69', '#C5DEBA', 
+               '#58A4C3', '#E4C755', '#F7F398', '#AA9A59', '#E63863', '#E39A35',
+               '#C1E6F3', '#6778AE', '#91D0BE', '#B53E2B', '#712820', '#DCC1DD',
+               '#CCE0F5', '#CCC9E6', '#625D9E', '#68A180', '#3A6963', '#968175')
 
+cor_matrix <- cor(big_meth, method = "pearson")
+pheatmap(cor_matrix,
+         annotation_col = big_colanno_new[,1:2],
+         annotation_colors = big_ann_colors_new,
+         show_rownames = F,show_colnames = F,
+         cluster_rows = F, cluster_cols = F,
+         display_numbers = F,legend=T,cellwidth = 0.3,cellheight = 0.1,
+         color = colorRampPalette(c("#4a74a4", "#f5f6f7", "#b11a2b"))(100),fontsize_col= 8)
 
+big_colanno_new_2 <- as.data.frame(big_colanno_new[,1])
+row.names(big_colanno_new_2) <- row.names(big_colanno_new)
+colnames(big_colanno_new_2) <- "sample"
 hcc2_psu_removena <- na.omit(hcc2_psu) 
 
 pheatmap(hcc2_psu_removena,

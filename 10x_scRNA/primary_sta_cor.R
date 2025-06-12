@@ -555,7 +555,7 @@ ggplot(sta_prim_sum_cmn,aes(type,cor,color=type))+
 
 ggplot(sta_prim_sum_sn,aes(type,cor,color=type))+
   geom_boxplot(width=0.5,outlier.size=0)+
-  facet_grid(~sample)+
+  facet_grid(~sample)+geom_jitter()+
   scale_color_manual(values =c('#b11a2b','#4a74a4'))+
   stat_compare_means(comparisons = list(c("primary","satellite")),
                      method = "wilcox.test",label = "p.signif",
